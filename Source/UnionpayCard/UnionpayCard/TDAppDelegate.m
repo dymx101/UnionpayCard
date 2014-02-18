@@ -64,7 +64,7 @@
     UIImage *unfinishedImage = finishedImage;//[UIImage imageNamed:@"tabbar_normal_background"];
     
     //NSArray *tabBarItemImages = @[@"first", @"second", @"third", @"fourth"];
-    [tabBarController.tabBar setHeight:60];
+    [tabBarController.tabBar setHeight:50];
     //tabBarController.tabBar.contentEdgeInsets = UIEdgeInsetsMake(-10, 10, 10, 10);
     NSArray *tabItems = tabBarController.tabBar.items;
     for (RDVTabBarItem *item in tabItems) {
@@ -74,21 +74,26 @@
     UIImage *normalImage = [UIImage imageNamed:@"icon_tabbar_homepage.png"];
     UIImage *selectedImage = [UIImage imageNamed:@"icon_tabbar_homepage_selected.png"];
     RDVTabBarItem *item = tabItems[0];
+    item.title = @"首页";
     [item setFinishedSelectedImage:selectedImage withFinishedUnselectedImage:normalImage];
     
     normalImage = [UIImage imageNamed:@"icon_tabbar_merchant_normal.png"];
     selectedImage = [UIImage imageNamed:@"icon_tabbar_merchant_selected.png"];
     item = tabItems[1];
+    item.title = @"分类";
+    
     [item setFinishedSelectedImage:selectedImage withFinishedUnselectedImage:normalImage];
     
     normalImage = [UIImage imageNamed:@"icon_tabbar_mine.png"];
     selectedImage = [UIImage imageNamed:@"icon_tabbar_mine_selected.png"];
     item = tabItems[2];
+    item.title = @"我的";
     [item setFinishedSelectedImage:selectedImage withFinishedUnselectedImage:normalImage];
     
     normalImage = [UIImage imageNamed:@"icon_tabbar_misc.png"];
     selectedImage = [UIImage imageNamed:@"icon_tabbar_misc_selected.png"];
     item = tabItems[3];
+    item.title = @"更多";
     [item setFinishedSelectedImage:selectedImage withFinishedUnselectedImage:normalImage];
 }
 
