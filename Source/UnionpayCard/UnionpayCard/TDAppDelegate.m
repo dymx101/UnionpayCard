@@ -7,43 +7,130 @@
 //
 
 #import "TDAppDelegate.h"
+#import "RDVTabBarItem.h"
+
+#import "TDHomeVC.h"
+#import "TDMerchantsVC.h"
+#import "TDProfileVC.h"
+#import "TDSettingsVC.h"
 
 @implementation TDAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    // Override point for customization after application launch.
     self.window.backgroundColor = [UIColor whiteColor];
+    
+    //
+    _tabbarController = [RDVTabBarController new];
+    NSArray *viewControllers = @[[self ncWithVC:[TDHomeVC new]]
+                                 , [self ncWithVC:[TDMerchantsVC new]]
+                                 , [self ncWithVC:[TDProfileVC new]]
+                                 , [self ncWithVC:[TDSettingsVC new]]];
+    _tabbarController.viewControllers = viewControllers;
+    [self customizeTabBarForController:_tabbarController];
+    
+    _window.rootViewController = _tabbarController;
+    
     [self.window makeKeyAndVisible];
+    
+    [self customizeInterface];
+    
     return YES;
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application
 {
-    // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
-    // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.
 }
 
 - (void)applicationDidEnterBackground:(UIApplication *)application
 {
-    // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later. 
-    // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
 }
 
 - (void)applicationWillEnterForeground:(UIApplication *)application
 {
-    // Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
 }
 
 - (void)applicationDidBecomeActive:(UIApplication *)application
 {
-    // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application
 {
-    // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+}
+
+- (void)customizeTabBarForController:(RDVTabBarController *)tabBarController {
+    UIImage *finishedImage = [UIImage imageNamed:@"tabbar_normal_background"];
+    UIImage *unfinishedImage = finishedImage;//[UIImage imageNamed:@"tabbar_normal_background"];
+    
+    //NSArray *tabBarItemImages = @[@"first", @"second", @"third", @"fourth"];
+    [tabBarController.tabBar setHeight:60];
+    //tabBarController.tabBar.contentEdgeInsets = UIEdgeInsetsMake(-10, 10, 10, 10);
+    NSArray *tabItems = tabBarController.tabBar.items;
+    for (RDVTabBarItem *item in tabItems) {
+        [item setBackgroundSelectedImage:finishedImage withUnselectedImage:unfinishedImage];
+    }
+    
+    UIImage *normalImage = [UIImage imageNamed:@"icon_tabbar_homepage.png"];
+    UIImage *selectedImage = [UIImage imageNamed:@"icon_tabbar_homepage_selected.png"];
+    RDVTabBarItem *item = tabItems[0];
+    [item setFinishedSelectedImage:selectedImage withFinishedUnselectedImage:normalImage];
+    
+    normalImage = [UIImage imageNamed:@"icon_tabbar_merchant_normal.png"];
+    selectedImage = [UIImage imageNamed:@"icon_tabbar_merchant_selected.png"];
+    item = tabItems[1];
+    [item setFinishedSelectedImage:selectedImage withFinishedUnselectedImage:normalImage];
+    
+    normalImage = [UIImage imageNamed:@"icon_tabbar_mine.png"];
+    selectedImage = [UIImage imageNamed:@"icon_tabbar_mine_selected.png"];
+    item = tabItems[2];
+    [item setFinishedSelectedImage:selectedImage withFinishedUnselectedImage:normalImage];
+    
+    normalImage = [UIImage imageNamed:@"icon_tabbar_misc.png"];
+    selectedImage = [UIImage imageNamed:@"icon_tabbar_misc_selected.png"];
+    item = tabItems[3];
+    [item setFinishedSelectedImage:selectedImage withFinishedUnselectedImage:normalImage];
+}
+
+-(UINavigationController *)ncWithVC:(UIViewController *)aVC {
+    if (aVC) {
+        return [[UINavigationController alloc] initWithRootViewController:aVC];
+    }
+    
+    return nil;
+}
+
+
+- (void)customizeInterface {
+    UINavigationBar *navigationBarAppearance = [UINavigationBar appearance];
+    
+    if ([[[UIDevice currentDevice] systemVersion] integerValue] >= 7.0) {
+        [navigationBarAppearance setBackgroundImage:[UIImage imageNamed:@"navigationbar_background_tall"]
+                                      forBarMetrics:UIBarMetricsDefault];
+    } else {
+        [navigationBarAppearance setBackgroundImage:[UIImage imageNamed:@"navigationbar_background"]
+                                      forBarMetrics:UIBarMetricsDefault];
+        
+        NSDictionary *textAttributes = nil;
+        
+        if ([[[UIDevice currentDevice] systemVersion] integerValue] >= 7.0) {
+            textAttributes = @{
+                               NSFontAttributeName: [UIFont boldSystemFontOfSize:20],
+                               NSForegroundColorAttributeName: [UIColor blackColor],
+                               };
+        } else {
+#if __IPHONE_OS_VERSION_MIN_REQUIRED < __IPHONE_7_0
+            textAttributes = @{
+                               UITextAttributeFont: [UIFont boldSystemFontOfSize:20],
+                               UITextAttributeTextColor: [UIColor blackColor],
+                               UITextAttributeTextShadowColor: [UIColor clearColor],
+                               UITextAttributeTextShadowOffset: [NSValue valueWithUIOffset:UIOffsetZero],
+                               };
+#endif
+        }
+        
+        [navigationBarAppearance setTitleTextAttributes:textAttributes];
+    }
 }
 
 @end
