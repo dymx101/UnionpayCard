@@ -79,6 +79,7 @@
     UIImage *normalImage = [UIImage imageNamed:@"icon_tabbar_homepage.png"];
     UIImage *selectedImage = [UIImage imageNamed:@"icon_tabbar_homepage_selected.png"];
     RDVTabBarItem *item = tabItems[0];
+
     [item setTitle:@"首页"];
     item.selectedTitleAttributes = selectedTitleAttributes;
     item.unselectedTitleAttributes = unselectedTitleAttributes;
@@ -95,7 +96,7 @@
     normalImage = [UIImage imageNamed:@"icon_tabbar_mine.png"];
     selectedImage = [UIImage imageNamed:@"icon_tabbar_mine_selected.png"];
     item = tabItems[2];
-    [item setTitle:@"账户"];
+    [item setTitle:@"我的"];
     item.selectedTitleAttributes = selectedTitleAttributes;
     item.unselectedTitleAttributes = unselectedTitleAttributes;
     [item setFinishedSelectedImage:selectedImage withFinishedUnselectedImage:normalImage];
@@ -103,7 +104,7 @@
     normalImage = [UIImage imageNamed:@"icon_tabbar_misc.png"];
     selectedImage = [UIImage imageNamed:@"icon_tabbar_misc_selected.png"];
     item = tabItems[3];
-    [item setTitle:@"设置"];
+    [item setTitle:@"更多"];
     item.selectedTitleAttributes = selectedTitleAttributes;
     item.unselectedTitleAttributes = unselectedTitleAttributes;
     [item setFinishedSelectedImage:selectedImage withFinishedUnselectedImage:normalImage];
