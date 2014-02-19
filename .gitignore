@@ -1,2 +1,17 @@
 
 Source/UnionpayCard/UnionpayCard.xcworkspace/xcuserdata/dongyiming.xcuserdatad/UserInterfaceState.xcuserstate
+
+.DS_Store
+
+.gitignore
+
+*.xcuserstate
+
+*.xcscheme
+
+*.xcbkptlist
+
+*.xcbkptlist
+
+*.pbxproj
+
