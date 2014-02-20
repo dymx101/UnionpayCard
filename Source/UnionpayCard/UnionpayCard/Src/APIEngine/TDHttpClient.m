@@ -67,11 +67,11 @@ static NSString *const BASEURL = @"http://localhost:8000/yscardII/json";
     }
 }
 
-- (NSURLSessionDataTask *)processCmd:(TDHttpCmd * ) cmd callback:(TDBlock)aCallback
+- (void)processCmd:(TDHttpCmd * ) cmd callback:(TDBlock)aCallback
 {
     NSURLSessionDataTask * task = nil;
     if(!cmd)
-        return NO;
+        return;
     
     [self enqueueCmd:cmd];
     if ([cmd.method isEqualToString:@"GET"]) {
@@ -104,8 +104,6 @@ static NSString *const BASEURL = @"http://localhost:8000/yscardII/json";
     }
     
     [task resume];
-    
-    return task;
 }
 
 -(void)_logRawResponse:(NSURLSessionDataTask *) task
