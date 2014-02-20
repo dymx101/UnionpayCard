@@ -13,7 +13,11 @@
 #ifdef __OBJC__
 #import <UIKit/UIKit.h>
 #import <Foundation/Foundation.h>
+
+// pod libraries
+#import <EDColor/EDColor.h>
 #import <AFNetworking/AFNetworking.h>
+#import <FLKAutoLayout/UIView+FLKAutoLayout.h>
 
 #import "FDDefine.h"                // defines
 #import "NSObject+BeeNotification.h"
@@ -22,5 +26,10 @@
 
 
 #import "TDImageLibrary.h"      // image library
+#import "TDFontLibrary.h"
+#import "FDColor.h"
 
 #endif
+
+
+#define FONT_NAME_DUAN_NING_XING    @"DuanNing-XIng"

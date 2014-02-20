@@ -790,6 +790,9 @@
 		EAD1248F18B5F1CD00C6C145 /* union_pay@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EAD1248E18B5F1CD00C6C145 /* union_pay@2x.png */; };
 		EAD1249318B5F30200C6C145 /* TDImageLibrary.m in Sources */ = {isa = PBXBuildFile; fileRef = EAD1249218B5F30200C6C145 /* TDImageLibrary.m */; };
 		EAD1249618B5F33300C6C145 /* FDDefine.m in Sources */ = {isa = PBXBuildFile; fileRef = EAD1249518B5F33300C6C145 /* FDDefine.m */; };
+		EAD1249818B6022100C6C145 /* 钟齐段宁行书.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EAD1249718B5FBFB00C6C145 /* 钟齐段宁行书.ttf */; };
+		EAD1249B18B604B600C6C145 /* FDColor.m in Sources */ = {isa = PBXBuildFile; fileRef = EAD1249A18B604B600C6C145 /* FDColor.m */; };
+		EAD1249E18B605D500C6C145 /* TDFontLibrary.m in Sources */ = {isa = PBXBuildFile; fileRef = EAD1249D18B605D500C6C145 /* TDFontLibrary.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -1596,6 +1599,11 @@
 		EAD1249218B5F30200C6C145 /* TDImageLibrary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TDImageLibrary.m; sourceTree = "<group>"; };
 		EAD1249418B5F33300C6C145 /* FDDefine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FDDefine.h; sourceTree = "<group>"; };
 		EAD1249518B5F33300C6C145 /* FDDefine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FDDefine.m; sourceTree = "<group>"; };
+		EAD1249718B5FBFB00C6C145 /* 钟齐段宁行书.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "钟齐段宁行书.ttf"; sourceTree = "<group>"; };
+		EAD1249918B604B600C6C145 /* FDColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FDColor.h; sourceTree = "<group>"; };
+		EAD1249A18B604B600C6C145 /* FDColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FDColor.m; sourceTree = "<group>"; };
+		EAD1249C18B605D500C6C145 /* TDFontLibrary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TDFontLibrary.h; sourceTree = "<group>"; };
+		EAD1249D18B605D500C6C145 /* TDFontLibrary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TDFontLibrary.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1710,6 +1718,7 @@
 		EACC148E18B36F8500DD27B0 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				EAD1249718B5FBFB00C6C145 /* 钟齐段宁行书.ttf */,
 				EACD0D3418B3A51F009109CB /* Images */,
 				EACC148F18B36F8500DD27B0 /* MeituanImages */,
 			);
@@ -2542,10 +2551,14 @@
 		EAD1249018B5F2E500C6C145 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				EAD1249918B604B600C6C145 /* FDColor.h */,
+				EAD1249A18B604B600C6C145 /* FDColor.m */,
 				EAD1249418B5F33300C6C145 /* FDDefine.h */,
 				EAD1249518B5F33300C6C145 /* FDDefine.m */,
 				EAD1249118B5F30200C6C145 /* TDImageLibrary.h */,
 				EAD1249218B5F30200C6C145 /* TDImageLibrary.m */,
+				EAD1249C18B605D500C6C145 /* TDFontLibrary.h */,
+				EAD1249D18B605D500C6C145 /* TDFontLibrary.m */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -2987,6 +3000,7 @@
 				EACC181918B36F9100DD27B0 /* bg_uploadImage_uploadFail@2x.png in Resources */,
 				EACC1A0918B36F9100DD27B0 /* icon_ticket_machine@2x.png in Resources */,
 				EACC18E518B36F9100DD27B0 /* icon_deal_hotelWifi@2x.png in Resources */,
+				EAD1249818B6022100C6C145 /* 钟齐段宁行书.ttf in Resources */,
 				EACC185918B36F9100DD27B0 /* btn_homepage_category_selected@2x.png in Resources */,
 				EACC18CC18B36F9100DD27B0 /* icon_cate_selected_99.png in Resources */,
 				EACC18B118B36F9100DD27B0 /* icon_arrow_dropdown_normal.png in Resources */,
@@ -3414,6 +3428,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EACC147018B36EE900DD27B0 /* TDAppDelegate.m in Sources */,
+				EAD1249B18B604B600C6C145 /* FDColor.m in Sources */,
 				EAD1249618B5F33300C6C145 /* FDDefine.m in Sources */,
 				EACC146C18B36EE900DD27B0 /* main.m in Sources */,
 				4CA68F0118B5BCA900D02209 /* TDAPIEngineTest.m in Sources */,
@@ -3426,6 +3441,7 @@
 				EACD0D2718B3A125009109CB /* NSObject+BeeNotification.m in Sources */,
 				EACD0D2A18B3A166009109CB /* TDHomeVC.m in Sources */,
 				EAD1249318B5F30200C6C145 /* TDImageLibrary.m in Sources */,
+				EAD1249E18B605D500C6C145 /* TDFontLibrary.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

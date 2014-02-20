@@ -8,44 +8,44 @@
       <BuildActionEntries>
          <BuildActionEntry
             buildForAnalyzing = "YES"
-            buildForProfiling = "YES"
             buildForTesting = "YES"
             buildForRunning = "YES"
-            buildForArchiving = "YES">
+            buildForArchiving = "YES"
+            buildForProfiling = "YES">
             <BuildableReference
-               BlueprintIdentifier = "C079E52EDB9540FAB8A5A7FD"
-               ReferencedContainer = "container:Pods.xcodeproj"
-               BuildableName = "libPods-RDVTabBarController.a"
+               BlueprintIdentifier = "9D0F90459C4C4BC9A8946222"
                BlueprintName = "Pods-RDVTabBarController"
-               BuildableIdentifier = "primary">
+               BuildableIdentifier = "primary"
+               ReferencedContainer = "container:Pods.xcodeproj"
+               BuildableName = "libPods-RDVTabBarController.a">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
    </BuildAction>
    <TestAction
-      selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
-      buildConfiguration = "Debug"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
+      buildConfiguration = "Debug"
+      selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
       </Testables>
    </TestAction>
    <LaunchAction
-      selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
-      debugDocumentVersioning = "YES"
-      ignoresPersistentStateOnLaunch = "NO"
-      buildConfiguration = "Debug"
-      launchStyle = "0"
-      allowLocationSimulation = "YES"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
-      useCustomWorkingDirectory = "NO">
+      buildConfiguration = "Debug"
+      selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
+      allowLocationSimulation = "YES"
+      debugDocumentVersioning = "YES"
+      useCustomWorkingDirectory = "NO"
+      ignoresPersistentStateOnLaunch = "NO"
+      launchStyle = "0">
       <AdditionalOptions>
       </AdditionalOptions>
    </LaunchAction>
    <ProfileAction
+      buildConfiguration = "Release"
       debugDocumentVersioning = "YES"
       savedToolIdentifier = ""
-      buildConfiguration = "Release"
       useCustomWorkingDirectory = "NO"
       shouldUseLaunchSchemeArgsEnv = "YES">
    </ProfileAction>

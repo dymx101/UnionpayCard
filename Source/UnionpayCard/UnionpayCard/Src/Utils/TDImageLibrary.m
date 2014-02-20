@@ -22,5 +22,6 @@ DEF_SINGLETON(TDImageLibrary)
 
 -(void)doInit {
     _logoName = [UIImage imageNamed:@"icon_homepage_MTLogo.png"];
+    _btnBgOrange = [[UIImage imageNamed:@"bg_roominfo_showtime.png"] resizableImageWithCapInsets:UIEdgeInsetsMake(5, 5, 5, 5)];
 }
 @end

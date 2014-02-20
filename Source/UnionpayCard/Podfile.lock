@@ -17,14 +17,20 @@ PODS:
   - AFNetworking/Serialization (2.1.0)
   - AFNetworking/UIKit (2.1.0):
     - AFNetworking/NSURLConnection
+  - EDColor (0.2.1)
+  - FLKAutoLayout (0.1.1)
   - RDVTabBarController (1.1.3)
 
 DEPENDENCIES:
   - AFNetworking (~> 2.1.0)
+  - EDColor
+  - FLKAutoLayout (~> 0.1.1)
   - RDVTabBarController (~> 1.1.3)
 
 SPEC CHECKSUMS:
   AFNetworking: c7d7901a83f631414c7eda1737261f696101a5cd
+  EDColor: d3717ea14cd90bf47591d0dc66aeb871bd6c850d
+  FLKAutoLayout: fc04b932009174d4118ef4bda9dc8fedf1369efc
   RDVTabBarController: 98bb589109d139821ac08e26ab9215b9057285f6
 
-COCOAPODS: 0.26.2
+COCOAPODS: 0.29.0
