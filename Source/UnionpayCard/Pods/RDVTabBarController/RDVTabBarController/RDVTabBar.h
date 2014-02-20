@@ -60,7 +60,7 @@
  * backgroundView stays behind tabBar's items. If you want to add additional views, 
  * add them as subviews of backgroundView.
  */
-@property (nonatomic, readonly) UIView *backgroundView;
+@property (nonatomic, readonly) UIImageView *backgroundView;
 
 /*
  * contentEdgeInsets can be used to center the items in the middle of the tabBar.

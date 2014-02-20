@@ -26,8 +26,9 @@
 
 @interface RDVTabBar ()
 
-@property (nonatomic) CGFloat itemWidth;
-@property (nonatomic) UIView *backgroundView;
+@property (nonatomic) CGFloat       itemWidth;
+@property (nonatomic) UIImageView   *backgroundView;
+@property (nonatomic) UIView        *topLine;
 
 @end
 
@@ -36,9 +37,16 @@
 - (id)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
     if (self) {
-        _backgroundView = [[UIView alloc] initWithFrame:frame];
+        _backgroundView = [[UIImageView alloc] initWithFrame:frame];
         [_backgroundView setBackgroundColor:[UIColor lightGrayColor]];
         [self addSubview:_backgroundView];
+        
+        CGRect lineRc = self.bounds;
+        lineRc.size.height = 1;
+        _topLine = [[UIView alloc] initWithFrame:lineRc];
+        _topLine.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleBottomMargin;
+        _topLine.backgroundColor = [UIColor lightGrayColor];
+        [self addSubview:_topLine];
     }
     return self;
 }
@@ -96,6 +104,8 @@
         [item addTarget:self action:@selector(tabBarItemWasSelected:) forControlEvents:UIControlEventTouchDown];
         [self addSubview:item];
     }
+    
+    [self bringSubviewToFront:_topLine];
 }
 
 - (void)setHeight:(CGFloat)height {
