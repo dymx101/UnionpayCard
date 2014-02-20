@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface TDBaseVC : UIViewController
-
+-(void)installMapAndSearchToNavibar;
 @end

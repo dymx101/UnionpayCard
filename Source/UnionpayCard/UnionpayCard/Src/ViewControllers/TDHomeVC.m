@@ -22,10 +22,14 @@
 {
     [super viewDidLoad];
     _tileButtons = [NSMutableArray array];
+    
+    [self installMapAndSearchToNavibar];
 	
     [self createSubviews];
     [self layoutSubviews];
 }
+
+
 
 -(void)createSubviews {
     
