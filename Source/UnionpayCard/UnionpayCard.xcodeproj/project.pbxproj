@@ -11,6 +11,8 @@
 		4CA68EC018B520EC00D02209 /* TDHttpCmd.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CA68EBF18B520EC00D02209 /* TDHttpCmd.m */; };
 		4CA68F0118B5BCA900D02209 /* TDAPIEngineTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CA68F0018B5BCA900D02209 /* TDAPIEngineTest.m */; };
 		55A5FBCBCA064416B4607D7C /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A21F1F75D364083A890944A /* libPods.a */; };
+		EA901B0618B6491700B1E20F /* TDUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = EA901B0518B6491700B1E20F /* TDUtil.m */; };
+		EA901B0818B64A1B00B1E20F /* 钟齐段宁行书.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EA901B0718B64A1B00B1E20F /* 钟齐段宁行书.ttf */; };
 		EACC146018B36EE900DD27B0 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EACC145F18B36EE900DD27B0 /* Foundation.framework */; };
 		EACC146218B36EE900DD27B0 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EACC146118B36EE900DD27B0 /* CoreGraphics.framework */; };
 		EACC146418B36EE900DD27B0 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EACC146318B36EE900DD27B0 /* UIKit.framework */; };
@@ -790,7 +792,6 @@
 		EAD1248F18B5F1CD00C6C145 /* union_pay@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EAD1248E18B5F1CD00C6C145 /* union_pay@2x.png */; };
 		EAD1249318B5F30200C6C145 /* TDImageLibrary.m in Sources */ = {isa = PBXBuildFile; fileRef = EAD1249218B5F30200C6C145 /* TDImageLibrary.m */; };
 		EAD1249618B5F33300C6C145 /* FDDefine.m in Sources */ = {isa = PBXBuildFile; fileRef = EAD1249518B5F33300C6C145 /* FDDefine.m */; };
-		EAD1249818B6022100C6C145 /* 钟齐段宁行书.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EAD1249718B5FBFB00C6C145 /* 钟齐段宁行书.ttf */; };
 		EAD1249B18B604B600C6C145 /* FDColor.m in Sources */ = {isa = PBXBuildFile; fileRef = EAD1249A18B604B600C6C145 /* FDColor.m */; };
 		EAD1249E18B605D500C6C145 /* TDFontLibrary.m in Sources */ = {isa = PBXBuildFile; fileRef = EAD1249D18B605D500C6C145 /* TDFontLibrary.m */; };
 /* End PBXBuildFile section */
@@ -804,6 +805,9 @@
 		4CA68EFF18B5BCA900D02209 /* TDAPIEngineTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TDAPIEngineTest.h; sourceTree = "<group>"; };
 		4CA68F0018B5BCA900D02209 /* TDAPIEngineTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TDAPIEngineTest.m; sourceTree = "<group>"; };
 		B3BCF3CCEFF9419390ECB20A /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
+		EA901B0418B6491700B1E20F /* TDUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TDUtil.h; sourceTree = "<group>"; };
+		EA901B0518B6491700B1E20F /* TDUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TDUtil.m; sourceTree = "<group>"; };
+		EA901B0718B64A1B00B1E20F /* 钟齐段宁行书.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "钟齐段宁行书.ttf"; sourceTree = "<group>"; };
 		EACC145C18B36EE900DD27B0 /* UnionpayCard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UnionpayCard.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EACC145F18B36EE900DD27B0 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		EACC146118B36EE900DD27B0 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -1599,7 +1603,6 @@
 		EAD1249218B5F30200C6C145 /* TDImageLibrary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TDImageLibrary.m; sourceTree = "<group>"; };
 		EAD1249418B5F33300C6C145 /* FDDefine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FDDefine.h; sourceTree = "<group>"; };
 		EAD1249518B5F33300C6C145 /* FDDefine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FDDefine.m; sourceTree = "<group>"; };
-		EAD1249718B5FBFB00C6C145 /* 钟齐段宁行书.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "钟齐段宁行书.ttf"; sourceTree = "<group>"; };
 		EAD1249918B604B600C6C145 /* FDColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FDColor.h; sourceTree = "<group>"; };
 		EAD1249A18B604B600C6C145 /* FDColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FDColor.m; sourceTree = "<group>"; };
 		EAD1249C18B605D500C6C145 /* TDFontLibrary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TDFontLibrary.h; sourceTree = "<group>"; };
@@ -1718,7 +1721,7 @@
 		EACC148E18B36F8500DD27B0 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				EAD1249718B5FBFB00C6C145 /* 钟齐段宁行书.ttf */,
+				EA901B0718B64A1B00B1E20F /* 钟齐段宁行书.ttf */,
 				EACD0D3418B3A51F009109CB /* Images */,
 				EACC148F18B36F8500DD27B0 /* MeituanImages */,
 			);
@@ -2559,6 +2562,8 @@
 				EAD1249218B5F30200C6C145 /* TDImageLibrary.m */,
 				EAD1249C18B605D500C6C145 /* TDFontLibrary.h */,
 				EAD1249D18B605D500C6C145 /* TDFontLibrary.m */,
+				EA901B0418B6491700B1E20F /* TDUtil.h */,
+				EA901B0518B6491700B1E20F /* TDUtil.m */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -3000,7 +3005,6 @@
 				EACC181918B36F9100DD27B0 /* bg_uploadImage_uploadFail@2x.png in Resources */,
 				EACC1A0918B36F9100DD27B0 /* icon_ticket_machine@2x.png in Resources */,
 				EACC18E518B36F9100DD27B0 /* icon_deal_hotelWifi@2x.png in Resources */,
-				EAD1249818B6022100C6C145 /* 钟齐段宁行书.ttf in Resources */,
 				EACC185918B36F9100DD27B0 /* btn_homepage_category_selected@2x.png in Resources */,
 				EACC18CC18B36F9100DD27B0 /* icon_cate_selected_99.png in Resources */,
 				EACC18B118B36F9100DD27B0 /* icon_arrow_dropdown_normal.png in Resources */,
@@ -3222,6 +3226,7 @@
 				EACC186718B36F9100DD27B0 /* btn_nearby_filter_left_selected@2x.png in Resources */,
 				EACC19E718B36F9100DD27B0 /* icon_route_end@2x.png in Resources */,
 				EACC1A2418B36F9200DD27B0 /* logo_share_sina_weibo.png in Resources */,
+				EA901B0818B64A1B00B1E20F /* 钟齐段宁行书.ttf in Resources */,
 				EACC199918B36F9100DD27B0 /* icon_movie_3D@2x.png in Resources */,
 				EACC17E318B36F9100DD27B0 /* bg_myCoupon_sideShadow@2x.png in Resources */,
 				EACC187118B36F9100DD27B0 /* btn_r@2x.png in Resources */,
@@ -3436,6 +3441,7 @@
 				EACD0D3318B3A243009109CB /* TDSettingsVC.m in Sources */,
 				4CA68EBD18B5122400D02209 /* TDHttpClient.m in Sources */,
 				EACD0D2318B3A09E009109CB /* TDBaseVC.m in Sources */,
+				EA901B0618B6491700B1E20F /* TDUtil.m in Sources */,
 				4CA68EC018B520EC00D02209 /* TDHttpCmd.m in Sources */,
 				EACD0D3018B3A216009109CB /* TDProfileVC.m in Sources */,
 				EACD0D2718B3A125009109CB /* NSObject+BeeNotification.m in Sources */,

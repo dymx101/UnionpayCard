@@ -28,8 +28,9 @@
 #import "TDImageLibrary.h"      // image library
 #import "TDFontLibrary.h"
 #import "FDColor.h"
+#import "TDUtil.h"
 
 #endif
 
 
-#define FONT_NAME_DUAN_NING_XING    @"DuanNing-XIng"
+#define FONT_NAME_DUAN_NING_XING    @"DuanNing-XIng"//@"MRocky HKS Bold"//@"FZZongYi-M05S" //

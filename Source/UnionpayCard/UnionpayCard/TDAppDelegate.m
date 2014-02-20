@@ -43,6 +43,7 @@
     [self customizeInterface];
     
     //[TDAPIEngineTest run];
+    [TDUtil findFonts];
     
     return YES;
 }
@@ -129,6 +130,7 @@
 
 - (void)customizeInterface {
     UINavigationBar *navigationBarAppearance = [UINavigationBar appearance];
+    navigationBarAppearance.titleTextAttributes = [self naviBarAttributes];
     
     if ([[[UIDevice currentDevice] systemVersion] integerValue] >= 7.0) {
         [navigationBarAppearance setBackgroundImage:[UIImage imageNamed:@"bg_navigationBar_tall"]
@@ -157,6 +159,15 @@
         
         [navigationBarAppearance setTitleTextAttributes:textAttributes];
     }
+}
+
+-(NSMutableDictionary *)naviBarAttributes {
+    NSMutableDictionary *attributes = [[NSMutableDictionary alloc] init];
+    [attributes setValue:[UIColor whiteColor] forKey:UITextAttributeTextColor];
+    [attributes setValue:[UIColor darkGrayColor] forKey:UITextAttributeTextShadowColor];
+    [attributes setValue:[NSValue valueWithUIOffset:UIOffsetMake(0, 1)] forKey:UITextAttributeTextShadowOffset];
+    //[attributes setValue:[TDFontLibrary sharedInstance].fontTileButton forKey:UITextAttributeFont];
+    return attributes;
 }
 
 @end
