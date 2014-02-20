@@ -14,6 +14,8 @@
 #import "TDProfileVC.h"
 #import "TDSettingsVC.h"
 
+#import "TDAPIEngineTest.h"
+
 @implementation TDAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
@@ -39,6 +41,8 @@
     [self.window makeKeyAndVisible];
     
     [self customizeInterface];
+    
+    //[TDAPIEngineTest run];
     
     return YES;
 }
