@@ -30,6 +30,14 @@
     if ([self respondsToSelector:@selector(edgesForExtendedLayout)]) {
         self.edgesForExtendedLayout = UIRectEdgeNone;
     }
+    
+    // add logo to navigation bar
+    UIImage *logoImg = [TDImageLibrary sharedInstance].logoName;
+    UIImageView *ivLogo = [[UIImageView alloc] initWithImage:logoImg];
+    float ratio = .5f;
+    ivLogo.frame = CGRectMake(0, 0, logoImg.size.width * ratio, logoImg.size.height * ratio);
+    UIBarButtonItem *itemLogo = [[UIBarButtonItem alloc] initWithCustomView:ivLogo];
+    self.navigationItem.leftBarButtonItem = itemLogo;
 }
 
 -(void)dealloc {
