@@ -9,7 +9,7 @@
 #import "TDHttpClient.h"
 
 //http://localhost:8000/yscardII/json/Show/{"method":"showBtype"}
-static NSString *const BASEURL = @"http://localhost:8000/yscardII/json";
+static NSString *const BASEURL = @"http://localhost:8000/yscardII/json/";
 
 @implementation TDHttpClient
 
@@ -69,13 +69,14 @@ static NSString *const BASEURL = @"http://localhost:8000/yscardII/json";
 
 - (void)processCmd:(TDHttpCmd * ) cmd callback:(TDBlock)aCallback
 {
+    
     NSURLSessionDataTask * task = nil;
     if(!cmd)
         return;
     
     [self enqueueCmd:cmd];
     if ([cmd.method isEqualToString:@"GET"]) {
-        task =  [self GET:cmd.path parameters:nil   success:^(NSURLSessionDataTask *task, id responseObject) {
+        task =  [self GET:cmd.path parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
             NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *)task.response;
             
             if (httpResponse.statusCode == 200) {

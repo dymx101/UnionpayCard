@@ -42,7 +42,7 @@
     
     [self customizeInterface];
     
-    //[TDAPIEngineTest run];
+    [TDAPIEngineTest run];
     [TDUtil findFonts];
     
     return YES;

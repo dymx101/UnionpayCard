@@ -32,7 +32,6 @@
 -(NSString *)path {
     
     return @"Show/{\"method\":\"showBtype\"}";
-
 }
 
 

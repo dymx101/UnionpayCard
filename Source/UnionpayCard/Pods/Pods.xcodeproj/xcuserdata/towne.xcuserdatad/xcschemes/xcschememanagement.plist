@@ -8,20 +8,41 @@
 		<dict>
 			<key>isShown</key>
 			<false/>
+			<key>orderHint</key>
+			<integer>1</integer>
+		</dict>
+		<key>Pods-EDColor.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>4</integer>
+		</dict>
+		<key>Pods-FLKAutoLayout.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>5</integer>
 		</dict>
 		<key>Pods-RDVTabBarController.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
+			<key>orderHint</key>
+			<integer>2</integer>
 		</dict>
 		<key>Pods.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
+			<key>orderHint</key>
+			<integer>0</integer>
 		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
+		<key>0CBAA15648544C808467FD65</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>6A877A2F88764FD8882B2E1B</key>
 		<dict>
 			<key>primary</key>
@@ -32,7 +53,27 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>9D0F90459C4C4BC9A8946222</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>A43D23EFA52443C1A0F5158F</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>D77EA8A3E3564465B863D7A9</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>DE762EB650C541B7AC2A3D20</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>E42B0377DA8146E1B20F08A1</key>
 		<dict>
 			<key>primary</key>
 			<true/>
