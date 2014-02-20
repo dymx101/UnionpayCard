@@ -3,8 +3,6 @@ Source/UnionpayCard/UnionpayCard.xcworkspace/xcuserdata/dongyiming.xcuserdatad/U
 
 .DS_Store
 
-.gitignore
-
 *.xcuserstate
 
 *.xcscheme
@@ -15,3 +13,5 @@ Source/UnionpayCard/UnionpayCard.xcworkspace/xcuserdata/dongyiming.xcuserdatad/U
 
 *.pbxproj
 
+
+Source/UnionpayCard/Pods/Pods.xcodeproj/xcuserdata/dongyiming.xcuserdatad/xcschemes/xcschememanagement.plist
