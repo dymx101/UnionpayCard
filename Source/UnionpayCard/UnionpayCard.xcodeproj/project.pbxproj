@@ -786,6 +786,7 @@
 		EACD0D3C18B3A52A009109CB /* navigationbar_background@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EACD0D3818B3A52A009109CB /* navigationbar_background@2x.png */; };
 		EACD0D3F18B3A6A1009109CB /* tabbar_normal_background.png in Resources */ = {isa = PBXBuildFile; fileRef = EACD0D3D18B3A6A1009109CB /* tabbar_normal_background.png */; };
 		EACD0D4018B3A6A1009109CB /* tabbar_normal_background@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EACD0D3E18B3A6A1009109CB /* tabbar_normal_background@2x.png */; };
+		EAD1248D18B5EC2900C6C145 /* bg_navigationBar_tall@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EAD1248C18B5EC2900C6C145 /* bg_navigationBar_tall@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -1586,6 +1587,7 @@
 		EACD0D3818B3A52A009109CB /* navigationbar_background@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "navigationbar_background@2x.png"; sourceTree = "<group>"; };
 		EACD0D3D18B3A6A1009109CB /* tabbar_normal_background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tabbar_normal_background.png; sourceTree = "<group>"; };
 		EACD0D3E18B3A6A1009109CB /* tabbar_normal_background@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tabbar_normal_background@2x.png"; sourceTree = "<group>"; };
+		EAD1248C18B5EC2900C6C145 /* bg_navigationBar_tall@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg_navigationBar_tall@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1709,6 +1711,7 @@
 		EACC148F18B36F8500DD27B0 /* MeituanImages */ = {
 			isa = PBXGroup;
 			children = (
+				EAD1248C18B5EC2900C6C145 /* bg_navigationBar_tall@2x.png */,
 				EACC149018B36F8500DD27B0 /* Add_to_Passbook_CN.png */,
 				EACC149118B36F8500DD27B0 /* Add_to_Passbook_CN@2x.png */,
 				EACC149218B36F8500DD27B0 /* Add_to_Passbook_CN_7.png */,
@@ -3329,6 +3332,7 @@
 				EACC17EE18B36F9100DD27B0 /* bg_orderReview_nodeImage.png in Resources */,
 				EACC1A1718B36F9200DD27B0 /* input_textField_selected@2x.png in Resources */,
 				EACC187318B36F9100DD27B0 /* btn_red@2x.png in Resources */,
+				EAD1248D18B5EC2900C6C145 /* bg_navigationBar_tall@2x.png in Resources */,
 				EACC17D418B36F9100DD27B0 /* bg_morepage_subCell.png in Resources */,
 				EACC1A3118B36F9200DD27B0 /* mapTabRightButton@2x.png in Resources */,
 				EACC17DB18B36F9100DD27B0 /* bg_movie_showtime_date@2x.png in Resources */,

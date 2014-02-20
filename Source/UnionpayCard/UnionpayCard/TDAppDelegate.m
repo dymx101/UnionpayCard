@@ -131,10 +131,10 @@
     UINavigationBar *navigationBarAppearance = [UINavigationBar appearance];
     
     if ([[[UIDevice currentDevice] systemVersion] integerValue] >= 7.0) {
-        [navigationBarAppearance setBackgroundImage:[UIImage imageNamed:@"navigationbar_background_tall"]
+        [navigationBarAppearance setBackgroundImage:[UIImage imageNamed:@"bg_navigationBar_tall"]
                                       forBarMetrics:UIBarMetricsDefault];
     } else {
-        [navigationBarAppearance setBackgroundImage:[UIImage imageNamed:@"navigationbar_background"]
+        [navigationBarAppearance setBackgroundImage:[UIImage imageNamed:@"bg_navigationBar"]
                                       forBarMetrics:UIBarMetricsDefault];
         
         NSDictionary *textAttributes = nil;
