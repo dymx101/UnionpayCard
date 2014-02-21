@@ -80,7 +80,7 @@
     NSDictionary *unselectedTitleAttributes = @{UITextAttributeFont : [UIFont systemFontOfSize:12.f],
                                               UITextAttributeTextColor : [UIColor grayColor]};
     
-    [tabBarController.tabBar setHeight:60];
+    [tabBarController.tabBar setHeight:50];
     //tabBarController.tabBar.backgroundView.image = [UIImage imageNamed:@"bg_tabbar"];
     //tabBarController.tabBar.contentEdgeInsets = UIEdgeInsetsMake(-10, 10, 10, 10);
     NSArray *tabItems = tabBarController.tabBar.items;

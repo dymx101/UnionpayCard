@@ -147,7 +147,7 @@
             
             [_title drawInRect:CGRectMake(roundf(frameSize.width / 2 - titleSize.width / 2) +
                                           _titlePositionAdjustment.horizontal,
-                                          imageStartingY + imageSize.height + _titlePositionAdjustment.vertical + 5,
+                                          imageStartingY + imageSize.height + _titlePositionAdjustment.vertical + 2,
                                           titleSize.width, titleSize.height)
                 withAttributes:titleAttributes];
         } else {
