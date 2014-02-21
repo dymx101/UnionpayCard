@@ -9,7 +9,8 @@
 #import "TDHttpClient.h"
 
 //http://localhost:8000/yscardII/json/Show/{"method":"showBtype"}
-static NSString *const BASEURL = @"http://localhost:8000/yscardII/json/";
+//static NSString *const BASEURL = @"http://localhost:8000/yscardII/json/";
+static NSString *const BASEURL = @"http://113.57.133.84:8081/yscardII/json/"; // 外网地址
 
 @implementation TDHttpClient
 
