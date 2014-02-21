@@ -76,7 +76,7 @@
     UIImage *unfinishedImage = finishedImage;//[UIImage imageNamed:@"tabbar_normal_background"];
     
     NSDictionary *selectedTitleAttributes = @{UITextAttributeFont : [UIFont systemFontOfSize:12.f],
-                                              UITextAttributeTextColor : [UIColor blackColor]};
+                                              UITextAttributeTextColor : [UIColor colorWithHexString:@"2EB6A8"]};
     NSDictionary *unselectedTitleAttributes = @{UITextAttributeFont : [UIFont systemFontOfSize:12.f],
                                               UITextAttributeTextColor : [UIColor grayColor]};
     
