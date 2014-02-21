@@ -37,22 +37,6 @@ static NSString *const BASEURL = @"http://localhost:8000/yscardII/json/";
     return _sharedClient;
 }
 
-- (void)enqueueCmd:(TDHttpCmd *) cmd
-{
-    [_cmds addObject:cmd];
-}
-
-- (void)dequeueCmd:(TDHttpCmd *) cmd
-{
-    [self performSelector:@selector(delayDequeue:) withObject:cmd afterDelay:1];
-}
-
-- (void)delayDequeue:(TDHttpCmd *) cmd
-{
-    
-    [_cmds removeObject:cmd];
-}
-
 -(void)_handleResult:(id)responseObject
                 task:(NSURLSessionDataTask *)task
                error:(NSError *)anError
@@ -74,7 +58,6 @@ static NSString *const BASEURL = @"http://localhost:8000/yscardII/json/";
     if(!cmd)
         return;
     
-    [self enqueueCmd:cmd];
     if ([cmd.method isEqualToString:@"GET"]) {
         task =  [self GET:cmd.path parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
             NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *)task.response;
@@ -84,9 +67,6 @@ static NSString *const BASEURL = @"http://localhost:8000/yscardII/json/";
             }
         } failure:^(NSURLSessionDataTask *task, NSError *error) {
             [self _handleResult:nil task:task error:error callback:aCallback];
-            dispatch_async(dispatch_get_main_queue(), ^{
-                [self performSelectorOnMainThread:@selector(dequeueCmd:) withObject:cmd waitUntilDone:NO];
-            });
         }];
     }
     else
@@ -98,9 +78,6 @@ static NSString *const BASEURL = @"http://localhost:8000/yscardII/json/";
             }
         } failure:^(NSURLSessionDataTask *task, NSError *error) {
             [self _handleResult:nil task:task error:error callback:aCallback];
-            dispatch_async(dispatch_get_main_queue(), ^{
-                [self performSelectorOnMainThread:@selector(dequeueCmd:) withObject:cmd waitUntilDone:NO];
-            });
         }];
     }
     

@@ -12,9 +12,6 @@ typedef void(^TDBlock)(NSURLSessionDataTask *task, id responseObject, NSError* a
 
 @interface TDHttpClient : AFHTTPSessionManager
 
-{
-    NSMutableArray *_cmds;
-}
 
 + (TDHttpClient *)sharedClient;
 
