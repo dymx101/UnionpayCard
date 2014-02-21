@@ -5,34 +5,34 @@
 	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
 	<false/>
 	<key>IDESourceControlProjectIdentifier</key>
-	<string>D6E95002-9B13-4983-98F2-6AF876B6DBB1</string>
+	<string>4B4812B5-DEFB-4DC1-A845-9881A320BBBA</string>
 	<key>IDESourceControlProjectName</key>
 	<string>UnionpayCard</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
-		<key>0288B9A9-B739-4E6C-8BAA-47F1CB6FF710</key>
-		<string>https://github.com/dymx101/UnionpayCard.git</string>
+		<key>13A180DC-E925-455D-9C3E-C22A145E4D9C</key>
+		<string>https://github.com/dymx101/UnionpayCard</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
 	<string>Source/UnionpayCard/UnionpayCard.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
-		<key>0288B9A9-B739-4E6C-8BAA-47F1CB6FF710</key>
+		<key>13A180DC-E925-455D-9C3E-C22A145E4D9C</key>
 		<string>../../..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
-	<string>https://github.com/dymx101/UnionpayCard.git</string>
+	<string>https://github.com/dymx101/UnionpayCard</string>
 	<key>IDESourceControlProjectVersion</key>
 	<integer>110</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>0288B9A9-B739-4E6C-8BAA-47F1CB6FF710</string>
+	<string>13A180DC-E925-455D-9C3E-C22A145E4D9C</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>0288B9A9-B739-4E6C-8BAA-47F1CB6FF710</string>
+			<string>13A180DC-E925-455D-9C3E-C22A145E4D9C</string>
 			<key>IDESourceControlWCCName</key>
 			<string>UnionpayCard</string>
 		</dict>

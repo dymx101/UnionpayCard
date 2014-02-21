@@ -13,4 +13,7 @@ AS_SINGLETON(TDImageLibrary)
 
 @property (nonatomic, strong) UIImage *logoName;
 @property (nonatomic, strong) UIImage *btnBgOrange;
+@property (nonatomic, strong) UIImage *mineAccountBg;
+@property (nonatomic, strong) UIImage *btnBgWhite;
+@property (nonatomic, strong) UIImage *dismiss;
 @end

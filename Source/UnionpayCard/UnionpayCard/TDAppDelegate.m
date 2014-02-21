@@ -27,7 +27,7 @@
 //        NSLog(@">>%@",responseObject);
 //    }];
     
-    //
+    // create tab bar controller
     _tabbarController = [RDVTabBarController new];
     NSArray *viewControllers = @[[self ncWithVC:[TDHomeVC new]]
                                  , [self ncWithVC:[TDMerchantsVC new]]
@@ -39,6 +39,8 @@
     _window.rootViewController = _tabbarController;
     
     [self.window makeKeyAndVisible];
+    
+    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
     
     [self customizeInterface];
     
