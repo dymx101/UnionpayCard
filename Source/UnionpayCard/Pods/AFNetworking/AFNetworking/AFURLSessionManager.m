@@ -348,7 +348,7 @@ expectedTotalBytes:(int64_t)expectedTotalBytes {
 - (void)setDelegate:(AFURLSessionManagerTaskDelegate *)delegate
             forTask:(NSURLSessionTask *)task
 {
-    NSParameterAssert(task);
+//    NSParameterAssert(task);
 
     [self.lock lock];
     self.mutableTaskDelegatesKeyedByTaskIdentifier[@(task.taskIdentifier)] = delegate;

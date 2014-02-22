@@ -53,12 +53,11 @@ static NSString *const BASEURL = @"http://localhost:8000/yscardII/json/";
     }
 }
 
-- (NSURLSessionDataTask *)processCommand:(TDHttpCommand * ) command callback:(TDBlock)aCallback
+- (void)processCommand:(TDHttpCommand * ) command callback:(TDBlock)aCallback
 {
-    
     NSURLSessionDataTask * task = nil;
     if(!command)
-        return nil;
+        return;
     
     if ([command.method isEqualToString:@"GET"]) {
         task =  [self GET:command.path parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
@@ -70,6 +69,25 @@ static NSString *const BASEURL = @"http://localhost:8000/yscardII/json/";
         } failure:^(NSURLSessionDataTask *task, NSError *error) {
             [self _handleResult:nil task:task error:error callback:aCallback];
         }];
+        //Compatible ios6
+        if(task == nil)
+        {
+            NSString * encodingString = [NSString stringWithFormat:@"%@%@",self.baseURL.absoluteString,command.path];
+            NSMutableURLRequest *request = [self.requestSerializer requestWithMethod:command.method URLString:encodingString parameters:nil error:nil];
+            AFHTTPRequestOperation *task_ios6operation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
+            [task_ios6operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
+                NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *)operation.response;
+                if (httpResponse.statusCode == 200) {
+                    NSString *requestTmp = [NSString stringWithString:operation.responseString];
+                    NSData *resData = [[NSData alloc] initWithData:[requestTmp dataUsingEncoding:NSUTF8StringEncoding]];
+                    NSDictionary *resultDic = [NSJSONSerialization JSONObjectWithData:resData options:NSJSONReadingMutableLeaves error:nil];
+                    [self _handleResult:resultDic task:task error:nil callback:aCallback];
+                }
+            } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                [self _handleResult:nil task:task error:error callback:aCallback];
+            }];
+            [task_ios6operation start];
+        }
     }
     else
     {
@@ -81,10 +99,28 @@ static NSString *const BASEURL = @"http://localhost:8000/yscardII/json/";
         } failure:^(NSURLSessionDataTask *task, NSError *error) {
             [self _handleResult:nil task:task error:error callback:aCallback];
         }];
+        //Compatible ios6
+        if(task == nil)
+        {
+            NSString * encodingString = [NSString stringWithFormat:@"%@%@",self.baseURL.absoluteString,command.path];
+            NSMutableURLRequest *request = [self.requestSerializer requestWithMethod:command.method URLString:encodingString parameters:nil error:nil];
+            AFHTTPRequestOperation *task_ios6operation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
+            [task_ios6operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
+                NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *)operation.response;
+                if (httpResponse.statusCode == 200) {
+                    NSString *requestTmp = [NSString stringWithString:operation.responseString];
+                    NSData *resData = [[NSData alloc] initWithData:[requestTmp dataUsingEncoding:NSUTF8StringEncoding]];
+                    NSDictionary *resultDic = [NSJSONSerialization JSONObjectWithData:resData options:NSJSONReadingMutableLeaves error:nil];
+                    [self _handleResult:resultDic task:task error:nil callback:aCallback];
+                }
+            } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                [self _handleResult:nil task:task error:error callback:aCallback];
+            }];
+            [task_ios6operation start];
+        }
     }
     
     [task resume];
-    return task;
 }
 
 -(void)_logRawResponse:(NSURLSessionDataTask *) task
