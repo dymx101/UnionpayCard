@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4C98AB1B18B7E13C007FAF12 /* JsonToDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C98AB1A18B7E13C007FAF12 /* JsonToDictionary.m */; };
 		4CA68EBD18B5122400D02209 /* TDHttpClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CA68EBC18B5122400D02209 /* TDHttpClient.m */; };
 		4CA68EC018B520EC00D02209 /* TDHttpCmd.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CA68EBF18B520EC00D02209 /* TDHttpCmd.m */; };
 		4CA68F0118B5BCA900D02209 /* TDAPIEngineTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CA68F0018B5BCA900D02209 /* TDAPIEngineTest.m */; };
@@ -799,6 +800,8 @@
 
 /* Begin PBXFileReference section */
 		1A21F1F75D364083A890944A /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		4C98AB1918B7E13C007FAF12 /* JsonToDictionary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JsonToDictionary.h; sourceTree = "<group>"; };
+		4C98AB1A18B7E13C007FAF12 /* JsonToDictionary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JsonToDictionary.m; sourceTree = "<group>"; };
 		4CA68EBB18B5122400D02209 /* TDHttpClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TDHttpClient.h; sourceTree = "<group>"; };
 		4CA68EBC18B5122400D02209 /* TDHttpClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TDHttpClient.m; sourceTree = "<group>"; };
 		4CA68EBE18B520EC00D02209 /* TDHttpCmd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TDHttpCmd.h; sourceTree = "<group>"; };
@@ -2559,6 +2562,8 @@
 		EAD1249018B5F2E500C6C145 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				4C98AB1918B7E13C007FAF12 /* JsonToDictionary.h */,
+				4C98AB1A18B7E13C007FAF12 /* JsonToDictionary.m */,
 				EAD1249918B604B600C6C145 /* FDColor.h */,
 				EAD1249A18B604B600C6C145 /* FDColor.m */,
 				EAD1249418B5F33300C6C145 /* FDDefine.h */,
@@ -3443,6 +3448,7 @@
 				EACC146C18B36EE900DD27B0 /* main.m in Sources */,
 				4CA68F0118B5BCA900D02209 /* TDAPIEngineTest.m in Sources */,
 				EACD0D2D18B3A1DD009109CB /* TDMerchantsVC.m in Sources */,
+				4C98AB1B18B7E13C007FAF12 /* JsonToDictionary.m in Sources */,
 				EACD0D3318B3A243009109CB /* TDSettingsVC.m in Sources */,
 				4CA68EBD18B5122400D02209 /* TDHttpClient.m in Sources */,
 				EACD0D2318B3A09E009109CB /* TDBaseVC.m in Sources */,

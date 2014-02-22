@@ -15,7 +15,15 @@
 
 
 +(void)testxxx {
-    [[TDHttpClient sharedClient] processCmd:[TDHttpCmd new] callback:^(NSURLSessionDataTask *task, id responseObject, NSError *anError) {
+    
+    // 入参数 封装成一个dictinary
+    NSMutableDictionary * input = [NSMutableDictionary new];
+    [input setValue:@"showBtype" forKey:@"method"];
+    TDHttpCmd * cmd = [TDHttpCmd new];
+    cmd.inPut = input;
+    
+    //命令模式调用
+    [[TDHttpClient sharedClient] processCmd:cmd callback:^(NSURLSessionDataTask *task, id responseObject, NSError *anError) {
         NSLog(@">>%@",responseObject);
     }];
 }

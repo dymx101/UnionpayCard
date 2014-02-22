@@ -113,7 +113,7 @@
                       success:(void (^)(NSURLSessionDataTask *task, id responseObject))success
                       failure:(void (^)(NSURLSessionDataTask *task, NSError *error))failure
 {
-    NSString * encodingString = [[NSString stringWithFormat:@"%@%@",self.baseURL.absoluteString,URLString] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+    NSString * encodingString = [NSString stringWithFormat:@"%@%@",self.baseURL.absoluteString,URLString];
     NSMutableURLRequest *request = [self.requestSerializer requestWithMethod:@"GET" URLString:encodingString parameters:parameters error:nil];
 
     __block NSURLSessionDataTask *task = [self dataTaskWithRequest:request completionHandler:^(NSURLResponse * __unused response, id responseObject, NSError *error) {
