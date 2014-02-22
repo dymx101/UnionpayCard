@@ -16,6 +16,6 @@ typedef void(^TDBlock)(NSURLSessionDataTask *task, id responseObject, NSError* a
 + (TDHttpClient *)sharedClient;
 
 
-- (void)processCommand:(TDHttpCommand * ) command callback:(TDBlock)aCallback;
+- (NSURLSessionDataTask *)processCommand:(TDHttpCommand * ) command callback:(TDBlock)aCallback;
 
 @end

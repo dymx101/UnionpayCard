@@ -9,9 +9,9 @@
 #import "TDHttpClient.h"
 
 //http://localhost:8000/yscardII/json/Show/{"method":"showBtype"}
-static NSString *const BASEURL = @"http://localhost:8000/yscardII/json/";
+//static NSString *const BASEURL = @"http://localhost:8000/yscardII/json/";
 // 外网地址
-//static NSString *const BASEURL = @"http://113.57.133.84:8081/yscardII/json/";
+static NSString *const BASEURL = @"http://113.57.133.84:8081/yscardII/json/";
 
 @implementation TDHttpClient
 
@@ -53,12 +53,12 @@ static NSString *const BASEURL = @"http://localhost:8000/yscardII/json/";
     }
 }
 
-- (void)processCommand:(TDHttpCommand * ) command callback:(TDBlock)aCallback
+- (NSURLSessionDataTask *)processCommand:(TDHttpCommand * ) command callback:(TDBlock)aCallback
 {
     
     NSURLSessionDataTask * task = nil;
     if(!command)
-        return;
+        return nil;
     
     if ([command.method isEqualToString:@"GET"]) {
         task =  [self GET:command.path parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
@@ -84,6 +84,7 @@ static NSString *const BASEURL = @"http://localhost:8000/yscardII/json/";
     }
     
     [task resume];
+    return task;
 }
 
 -(void)_logRawResponse:(NSURLSessionDataTask *) task
