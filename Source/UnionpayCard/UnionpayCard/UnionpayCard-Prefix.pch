@@ -21,7 +21,7 @@
 
 #import "FDDefine.h"                // defines
 #import "NSObject+BeeNotification.h"
-#import "TDHttpCmd.h"
+#import "TDHttpCommand.h"
 #import "TDHttpClient.h"
 
 

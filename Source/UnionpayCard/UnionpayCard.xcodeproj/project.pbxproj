@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		4C98AB1B18B7E13C007FAF12 /* JsonToDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C98AB1A18B7E13C007FAF12 /* JsonToDictionary.m */; };
 		4CA68EBD18B5122400D02209 /* TDHttpClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CA68EBC18B5122400D02209 /* TDHttpClient.m */; };
-		4CA68EC018B520EC00D02209 /* TDHttpCmd.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CA68EBF18B520EC00D02209 /* TDHttpCmd.m */; };
+		4CA68EC018B520EC00D02209 /* TDHttpCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CA68EBF18B520EC00D02209 /* TDHttpCommand.m */; };
 		4CA68F0118B5BCA900D02209 /* TDAPIEngineTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CA68F0018B5BCA900D02209 /* TDAPIEngineTest.m */; };
 		55A5FBCBCA064416B4607D7C /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A21F1F75D364083A890944A /* libPods.a */; };
 		EA901B0618B6491700B1E20F /* TDUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = EA901B0518B6491700B1E20F /* TDUtil.m */; };
@@ -804,8 +804,8 @@
 		4C98AB1A18B7E13C007FAF12 /* JsonToDictionary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JsonToDictionary.m; sourceTree = "<group>"; };
 		4CA68EBB18B5122400D02209 /* TDHttpClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TDHttpClient.h; sourceTree = "<group>"; };
 		4CA68EBC18B5122400D02209 /* TDHttpClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TDHttpClient.m; sourceTree = "<group>"; };
-		4CA68EBE18B520EC00D02209 /* TDHttpCmd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TDHttpCmd.h; sourceTree = "<group>"; };
-		4CA68EBF18B520EC00D02209 /* TDHttpCmd.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TDHttpCmd.m; sourceTree = "<group>"; };
+		4CA68EBE18B520EC00D02209 /* TDHttpCommand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TDHttpCommand.h; sourceTree = "<group>"; };
+		4CA68EBF18B520EC00D02209 /* TDHttpCommand.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TDHttpCommand.m; sourceTree = "<group>"; };
 		4CA68EFF18B5BCA900D02209 /* TDAPIEngineTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TDAPIEngineTest.h; sourceTree = "<group>"; };
 		4CA68F0018B5BCA900D02209 /* TDAPIEngineTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TDAPIEngineTest.m; sourceTree = "<group>"; };
 		B3BCF3CCEFF9419390ECB20A /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
@@ -1636,8 +1636,8 @@
 				4CA68EFE18B5BC9100D02209 /* Test */,
 				4CA68EBB18B5122400D02209 /* TDHttpClient.h */,
 				4CA68EBC18B5122400D02209 /* TDHttpClient.m */,
-				4CA68EBE18B520EC00D02209 /* TDHttpCmd.h */,
-				4CA68EBF18B520EC00D02209 /* TDHttpCmd.m */,
+				4CA68EBE18B520EC00D02209 /* TDHttpCommand.h */,
+				4CA68EBF18B520EC00D02209 /* TDHttpCommand.m */,
 			);
 			path = APIEngine;
 			sourceTree = "<group>";
@@ -3453,7 +3453,7 @@
 				4CA68EBD18B5122400D02209 /* TDHttpClient.m in Sources */,
 				EACD0D2318B3A09E009109CB /* TDBaseVC.m in Sources */,
 				EA901B0618B6491700B1E20F /* TDUtil.m in Sources */,
-				4CA68EC018B520EC00D02209 /* TDHttpCmd.m in Sources */,
+				4CA68EC018B520EC00D02209 /* TDHttpCommand.m in Sources */,
 				EACD0D3018B3A216009109CB /* TDProfileVC.m in Sources */,
 				EACD0D2718B3A125009109CB /* NSObject+BeeNotification.m in Sources */,
 				EACD0D2A18B3A166009109CB /* TDHomeVC.m in Sources */,

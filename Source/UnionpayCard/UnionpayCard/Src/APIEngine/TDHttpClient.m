@@ -9,9 +9,9 @@
 #import "TDHttpClient.h"
 
 //http://localhost:8000/yscardII/json/Show/{"method":"showBtype"}
-//static NSString *const BASEURL = @"http://localhost:8000/yscardII/json/";
+static NSString *const BASEURL = @"http://localhost:8000/yscardII/json/";
 // 外网地址
-static NSString *const BASEURL = @"http://113.57.133.84:8081/yscardII/json/";
+//static NSString *const BASEURL = @"http://113.57.133.84:8081/yscardII/json/";
 
 @implementation TDHttpClient
 
@@ -53,15 +53,15 @@ static NSString *const BASEURL = @"http://113.57.133.84:8081/yscardII/json/";
     }
 }
 
-- (void)processCmd:(TDHttpCmd * ) cmd callback:(TDBlock)aCallback
+- (void)processCommand:(TDHttpCommand * ) command callback:(TDBlock)aCallback
 {
     
     NSURLSessionDataTask * task = nil;
-    if(!cmd)
+    if(!command)
         return;
     
-    if ([cmd.method isEqualToString:@"GET"]) {
-        task =  [self GET:cmd.path parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
+    if ([command.method isEqualToString:@"GET"]) {
+        task =  [self GET:command.path parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
             NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *)task.response;
             
             if (httpResponse.statusCode == 200) {
@@ -73,7 +73,7 @@ static NSString *const BASEURL = @"http://113.57.133.84:8081/yscardII/json/";
     }
     else
     {
-        task = [self POST:cmd.path parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
+        task = [self POST:command.path parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
             NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *)task.response;
             if (httpResponse.statusCode == 200) {
                 [self _handleResult:responseObject task:task error:nil callback:aCallback];

@@ -19,11 +19,11 @@
     // 入参数 封装成一个dictinary
     NSMutableDictionary * input = [NSMutableDictionary new];
     [input setValue:@"showBtype" forKey:@"method"];
-    TDHttpCmd * cmd = [TDHttpCmd new];
-    cmd.inPut = input;
+    TDHttpCommand * command = [TDHttpCommand new];
+    command.inPut = input;
     
     //命令模式调用
-    [[TDHttpClient sharedClient] processCmd:cmd callback:^(NSURLSessionDataTask *task, id responseObject, NSError *anError) {
+    [[TDHttpClient sharedClient] processCommand:command callback:^(NSURLSessionDataTask *task, id responseObject, NSError *anError) {
         NSLog(@">>%@",responseObject);
     }];
 }

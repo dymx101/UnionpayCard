@@ -6,12 +6,12 @@
 //  Copyright (c) 2014年 Frodo. All rights reserved.
 //
 
-#import "TDHttpCmd.h"
+#import "TDHttpCommand.h"
 #import "JsonToDictionary.h"
 
-@implementation TDHttpCmd
+@implementation TDHttpCommand
 
-+ (id)cmd {
++ (id)command {
     
     return [[self alloc] init];
 }
