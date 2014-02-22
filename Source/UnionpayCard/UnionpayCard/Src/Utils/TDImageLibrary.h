@@ -18,4 +18,5 @@ AS_SINGLETON(TDImageLibrary)
 @property (nonatomic, strong) UIImage *btnBgGrayRound;
 @property (nonatomic, strong) UIImage *btnBackArrow;
 @property (nonatomic, strong) UIImage *dismiss;
+@property (nonatomic, strong) UIImage *bgLoginInput;
 @end

@@ -9,7 +9,9 @@
 #import "TDLoginVC.h"
 #import "TDForgetPasswordVC.h"
 
-@interface TDLoginVC ()
+@interface TDLoginVC () {
+    UIImageView *_loginInputView;
+}
 
 @end
 
@@ -36,6 +38,9 @@
     [forgetPwdBtn addTarget:self action:@selector(forgetPasswordAction:) forControlEvents:UIControlEventTouchUpInside];
     UIBarButtonItem *itemForgetPwd = [[UIBarButtonItem alloc] initWithCustomView:forgetPwdBtn];
     self.navigationItem.rightBarButtonItem = itemForgetPwd;
+    
+    [self createViews];
+    [self layoutViews];
 }
 
 #pragma mark -
@@ -46,6 +51,17 @@
 -(void)forgetPasswordAction:(id)sender {
     TDForgetPasswordVC *vc = [TDForgetPasswordVC new];
     [self.navigationController pushViewController:vc animated:YES];
+}
+
+-(void)createViews {
+    _loginInputView = [[UIImageView alloc] initWithImage:[TDImageLibrary sharedInstance].bgLoginInput];
+    [self.view addSubview:_loginInputView];
+}
+
+-(void)layoutViews {
+    [_loginInputView alignLeading:@"20" trailing:@"-20" toView:self.view];
+    [_loginInputView alignTopEdgeWithView:self.view predicate:@"20"];
+    [_loginInputView constrainHeight:@"60"];
 }
 
 @end
