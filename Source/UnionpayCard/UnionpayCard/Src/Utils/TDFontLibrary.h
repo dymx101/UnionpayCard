@@ -13,4 +13,6 @@ AS_SINGLETON(TDFontLibrary)
 
 @property (nonatomic, strong) UIFont    *fontTileButton;
 @property (nonatomic, strong) UIFont    *fontNormal;
+@property (nonatomic, strong) UIFont    *fontTitle;
+@property (nonatomic, strong) UIFont    *fontTitleBold;
 @end
