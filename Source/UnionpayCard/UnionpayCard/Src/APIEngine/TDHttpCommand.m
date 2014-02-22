@@ -7,7 +7,7 @@
 //
 
 #import "TDHttpCommand.h"
-#import "JsonToDictionary.h"
+#import "TDJsonToDictionary.h"
 
 @implementation TDHttpCommand
 
@@ -36,7 +36,7 @@
 }
 
 - (NSString *)realPath:(NSMutableDictionary *) aDictionary withPrefix:(NSString *) prefix{
-    NSString * realString = [NSString stringWithFormat:@"%@%@",prefix,[JsonToDictionary jsonStringFromDictionary:aDictionary]];
+    NSString * realString = [NSString stringWithFormat:@"%@%@",prefix,[TDJsonToDictionary jsonStringFromDictionary:aDictionary]];
     //去掉换行
     realString = [realString stringByReplacingOccurrencesOfString: @"\r" withString:@""];
     realString = [realString stringByReplacingOccurrencesOfString: @"\n" withString:@""];

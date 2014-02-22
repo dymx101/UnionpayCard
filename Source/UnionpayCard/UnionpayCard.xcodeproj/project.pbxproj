@@ -7,7 +7,23 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		4C98AB1B18B7E13C007FAF12 /* JsonToDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C98AB1A18B7E13C007FAF12 /* JsonToDictionary.m */; };
+		4C98AB1B18B7E13C007FAF12 /* TDJsonToDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C98AB1A18B7E13C007FAF12 /* TDJsonToDictionary.m */; };
+		4C98AB2718B9196E007FAF12 /* Btype.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C98AB2618B9196E007FAF12 /* Btype.m */; };
+		4C98ABE918B91E01007FAF12 /* NSArray+safe.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C98AB9F18B91E01007FAF12 /* NSArray+safe.m */; };
+		4C98ABEC18B91E01007FAF12 /* NSDictionary+safe.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C98ABA518B91E01007FAF12 /* NSDictionary+safe.m */; };
+		4C98ABED18B91E01007FAF12 /* NSMutableArray+safe.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C98ABA718B91E01007FAF12 /* NSMutableArray+safe.m */; };
+		4C98ABEE18B91E01007FAF12 /* NSMutableDictionary+safe.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C98ABA918B91E01007FAF12 /* NSMutableDictionary+safe.m */; };
+		4C98ABEF18B91E01007FAF12 /* NSMutableString+safe.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C98ABAB18B91E01007FAF12 /* NSMutableString+safe.m */; };
+		4C98ABF018B91E01007FAF12 /* NSNumber+otsCopy.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C98ABAD18B91E01007FAF12 /* NSNumber+otsCopy.m */; };
+		4C98ABF118B91E01007FAF12 /* NSNumber+safe.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C98ABAF18B91E01007FAF12 /* NSNumber+safe.m */; };
+		4C98ABF218B91E01007FAF12 /* NSObject+BeeNotification.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C98ABB118B91E01007FAF12 /* NSObject+BeeNotification.m */; };
+		4C98ABF318B91E01007FAF12 /* NSObject+Coder.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C98ABB318B91E01007FAF12 /* NSObject+Coder.m */; };
+		4C98ABF618B91E01007FAF12 /* NSObject+swizzle.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C98ABB918B91E01007FAF12 /* NSObject+swizzle.m */; };
+		4C98ABF818B91E01007FAF12 /* NSString+MD5Addition.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C98ABBD18B91E01007FAF12 /* NSString+MD5Addition.m */; };
+		4C98ABFA18B91E01007FAF12 /* NSString+safe.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C98ABC118B91E01007FAF12 /* NSString+safe.m */; };
+		4C98AC0118B91E01007FAF12 /* UILabel+Attribute.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C98ABCF18B91E01007FAF12 /* UILabel+Attribute.m */; };
+		4C98AC1518B9246F007FAF12 /* NSObject+JsonToVO.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C98AC1418B9246F007FAF12 /* NSObject+JsonToVO.m */; };
+		4C98AC1B18B92BF4007FAF12 /* TDJsonParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C98AC1A18B92BF4007FAF12 /* TDJsonParser.m */; };
 		4CA68EBD18B5122400D02209 /* TDHttpClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CA68EBC18B5122400D02209 /* TDHttpClient.m */; };
 		4CA68EC018B520EC00D02209 /* TDHttpCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CA68EBF18B520EC00D02209 /* TDHttpCommand.m */; };
 		4CA68F0118B5BCA900D02209 /* TDAPIEngineTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CA68F0018B5BCA900D02209 /* TDAPIEngineTest.m */; };
@@ -779,7 +795,6 @@
 		EACC1A7618B36F9200DD27B0 /* ump_icon_back_foucs.png in Resources */ = {isa = PBXBuildFile; fileRef = EACC178218B36F9100DD27B0 /* ump_icon_back_foucs.png */; };
 		EACC1A7718B36F9200DD27B0 /* ump_titlebar_bg.png in Resources */ = {isa = PBXBuildFile; fileRef = EACC178318B36F9100DD27B0 /* ump_titlebar_bg.png */; };
 		EACD0D2318B3A09E009109CB /* TDBaseVC.m in Sources */ = {isa = PBXBuildFile; fileRef = EACD0D2218B3A09E009109CB /* TDBaseVC.m */; };
-		EACD0D2718B3A125009109CB /* NSObject+BeeNotification.m in Sources */ = {isa = PBXBuildFile; fileRef = EACD0D2618B3A125009109CB /* NSObject+BeeNotification.m */; };
 		EACD0D2A18B3A166009109CB /* TDHomeVC.m in Sources */ = {isa = PBXBuildFile; fileRef = EACD0D2918B3A166009109CB /* TDHomeVC.m */; };
 		EACD0D2D18B3A1DD009109CB /* TDMerchantsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = EACD0D2C18B3A1DD009109CB /* TDMerchantsVC.m */; };
 		EACD0D3018B3A216009109CB /* TDProfileVC.m in Sources */ = {isa = PBXBuildFile; fileRef = EACD0D2F18B3A216009109CB /* TDProfileVC.m */; };
@@ -801,8 +816,40 @@
 
 /* Begin PBXFileReference section */
 		1A21F1F75D364083A890944A /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		4C98AB1918B7E13C007FAF12 /* JsonToDictionary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JsonToDictionary.h; sourceTree = "<group>"; };
-		4C98AB1A18B7E13C007FAF12 /* JsonToDictionary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JsonToDictionary.m; sourceTree = "<group>"; };
+		4C98AB1918B7E13C007FAF12 /* TDJsonToDictionary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TDJsonToDictionary.h; sourceTree = "<group>"; };
+		4C98AB1A18B7E13C007FAF12 /* TDJsonToDictionary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TDJsonToDictionary.m; sourceTree = "<group>"; };
+		4C98AB2518B9196E007FAF12 /* Btype.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Btype.h; sourceTree = "<group>"; };
+		4C98AB2618B9196E007FAF12 /* Btype.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Btype.m; sourceTree = "<group>"; };
+		4C98AB9E18B91E01007FAF12 /* NSArray+safe.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+safe.h"; sourceTree = "<group>"; };
+		4C98AB9F18B91E01007FAF12 /* NSArray+safe.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+safe.m"; sourceTree = "<group>"; };
+		4C98ABA418B91E01007FAF12 /* NSDictionary+safe.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+safe.h"; sourceTree = "<group>"; };
+		4C98ABA518B91E01007FAF12 /* NSDictionary+safe.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+safe.m"; sourceTree = "<group>"; };
+		4C98ABA618B91E01007FAF12 /* NSMutableArray+safe.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableArray+safe.h"; sourceTree = "<group>"; };
+		4C98ABA718B91E01007FAF12 /* NSMutableArray+safe.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableArray+safe.m"; sourceTree = "<group>"; };
+		4C98ABA818B91E01007FAF12 /* NSMutableDictionary+safe.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableDictionary+safe.h"; sourceTree = "<group>"; };
+		4C98ABA918B91E01007FAF12 /* NSMutableDictionary+safe.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableDictionary+safe.m"; sourceTree = "<group>"; };
+		4C98ABAA18B91E01007FAF12 /* NSMutableString+safe.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableString+safe.h"; sourceTree = "<group>"; };
+		4C98ABAB18B91E01007FAF12 /* NSMutableString+safe.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableString+safe.m"; sourceTree = "<group>"; };
+		4C98ABAC18B91E01007FAF12 /* NSNumber+otsCopy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSNumber+otsCopy.h"; sourceTree = "<group>"; };
+		4C98ABAD18B91E01007FAF12 /* NSNumber+otsCopy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSNumber+otsCopy.m"; sourceTree = "<group>"; };
+		4C98ABAE18B91E01007FAF12 /* NSNumber+safe.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSNumber+safe.h"; sourceTree = "<group>"; };
+		4C98ABAF18B91E01007FAF12 /* NSNumber+safe.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSNumber+safe.m"; sourceTree = "<group>"; };
+		4C98ABB018B91E01007FAF12 /* NSObject+BeeNotification.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+BeeNotification.h"; sourceTree = "<group>"; };
+		4C98ABB118B91E01007FAF12 /* NSObject+BeeNotification.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+BeeNotification.m"; sourceTree = "<group>"; };
+		4C98ABB218B91E01007FAF12 /* NSObject+Coder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+Coder.h"; sourceTree = "<group>"; };
+		4C98ABB318B91E01007FAF12 /* NSObject+Coder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+Coder.m"; sourceTree = "<group>"; };
+		4C98ABB418B91E01007FAF12 /* NSObject+JsonToVO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+JsonToVO.h"; sourceTree = "<group>"; };
+		4C98ABB818B91E01007FAF12 /* NSObject+swizzle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+swizzle.h"; sourceTree = "<group>"; };
+		4C98ABB918B91E01007FAF12 /* NSObject+swizzle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+swizzle.m"; sourceTree = "<group>"; };
+		4C98ABBC18B91E01007FAF12 /* NSString+MD5Addition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+MD5Addition.h"; sourceTree = "<group>"; };
+		4C98ABBD18B91E01007FAF12 /* NSString+MD5Addition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+MD5Addition.m"; sourceTree = "<group>"; };
+		4C98ABC018B91E01007FAF12 /* NSString+safe.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+safe.h"; sourceTree = "<group>"; };
+		4C98ABC118B91E01007FAF12 /* NSString+safe.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+safe.m"; sourceTree = "<group>"; };
+		4C98ABCE18B91E01007FAF12 /* UILabel+Attribute.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UILabel+Attribute.h"; sourceTree = "<group>"; };
+		4C98ABCF18B91E01007FAF12 /* UILabel+Attribute.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UILabel+Attribute.m"; sourceTree = "<group>"; };
+		4C98AC1418B9246F007FAF12 /* NSObject+JsonToVO.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+JsonToVO.m"; sourceTree = "<group>"; };
+		4C98AC1918B92BF4007FAF12 /* TDJsonParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TDJsonParser.h; sourceTree = "<group>"; };
+		4C98AC1A18B92BF4007FAF12 /* TDJsonParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TDJsonParser.m; sourceTree = "<group>"; };
 		4CA68EBB18B5122400D02209 /* TDHttpClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TDHttpClient.h; sourceTree = "<group>"; };
 		4CA68EBC18B5122400D02209 /* TDHttpClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TDHttpClient.m; sourceTree = "<group>"; };
 		4CA68EBE18B520EC00D02209 /* TDHttpCommand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TDHttpCommand.h; sourceTree = "<group>"; };
@@ -1588,8 +1635,6 @@
 		EACC178318B36F9100DD27B0 /* ump_titlebar_bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ump_titlebar_bg.png; sourceTree = "<group>"; };
 		EACD0D2118B3A09E009109CB /* TDBaseVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TDBaseVC.h; sourceTree = "<group>"; };
 		EACD0D2218B3A09E009109CB /* TDBaseVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TDBaseVC.m; sourceTree = "<group>"; };
-		EACD0D2518B3A125009109CB /* NSObject+BeeNotification.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+BeeNotification.h"; sourceTree = "<group>"; };
-		EACD0D2618B3A125009109CB /* NSObject+BeeNotification.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+BeeNotification.m"; sourceTree = "<group>"; };
 		EACD0D2818B3A166009109CB /* TDHomeVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TDHomeVC.h; sourceTree = "<group>"; };
 		EACD0D2918B3A166009109CB /* TDHomeVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TDHomeVC.m; sourceTree = "<group>"; };
 		EACD0D2B18B3A1DD009109CB /* TDMerchantsVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TDMerchantsVC.h; sourceTree = "<group>"; };
@@ -1653,6 +1698,8 @@
 		4C98AB1E18B8EBE3007FAF12 /* Parser */ = {
 			isa = PBXGroup;
 			children = (
+				4C98AC1918B92BF4007FAF12 /* TDJsonParser.h */,
+				4C98AC1A18B92BF4007FAF12 /* TDJsonParser.m */,
 			);
 			path = Parser;
 			sourceTree = "<group>";
@@ -1660,6 +1707,8 @@
 		4C98AB1F18B8EBE3007FAF12 /* VO */ = {
 			isa = PBXGroup;
 			children = (
+				4C98AB2518B9196E007FAF12 /* Btype.h */,
+				4C98AB2618B9196E007FAF12 /* Btype.m */,
 			);
 			path = VO;
 			sourceTree = "<group>";
@@ -2577,8 +2626,34 @@
 		EACD0D2418B3A100009109CB /* Categories */ = {
 			isa = PBXGroup;
 			children = (
-				EACD0D2518B3A125009109CB /* NSObject+BeeNotification.h */,
-				EACD0D2618B3A125009109CB /* NSObject+BeeNotification.m */,
+				4C98AB9E18B91E01007FAF12 /* NSArray+safe.h */,
+				4C98AB9F18B91E01007FAF12 /* NSArray+safe.m */,
+				4C98ABA418B91E01007FAF12 /* NSDictionary+safe.h */,
+				4C98ABA518B91E01007FAF12 /* NSDictionary+safe.m */,
+				4C98ABA618B91E01007FAF12 /* NSMutableArray+safe.h */,
+				4C98ABA718B91E01007FAF12 /* NSMutableArray+safe.m */,
+				4C98ABA818B91E01007FAF12 /* NSMutableDictionary+safe.h */,
+				4C98ABA918B91E01007FAF12 /* NSMutableDictionary+safe.m */,
+				4C98ABAA18B91E01007FAF12 /* NSMutableString+safe.h */,
+				4C98ABAB18B91E01007FAF12 /* NSMutableString+safe.m */,
+				4C98ABAC18B91E01007FAF12 /* NSNumber+otsCopy.h */,
+				4C98ABAD18B91E01007FAF12 /* NSNumber+otsCopy.m */,
+				4C98ABAE18B91E01007FAF12 /* NSNumber+safe.h */,
+				4C98ABAF18B91E01007FAF12 /* NSNumber+safe.m */,
+				4C98ABB018B91E01007FAF12 /* NSObject+BeeNotification.h */,
+				4C98ABB118B91E01007FAF12 /* NSObject+BeeNotification.m */,
+				4C98ABB218B91E01007FAF12 /* NSObject+Coder.h */,
+				4C98ABB318B91E01007FAF12 /* NSObject+Coder.m */,
+				4C98ABB418B91E01007FAF12 /* NSObject+JsonToVO.h */,
+				4C98AC1418B9246F007FAF12 /* NSObject+JsonToVO.m */,
+				4C98ABB818B91E01007FAF12 /* NSObject+swizzle.h */,
+				4C98ABB918B91E01007FAF12 /* NSObject+swizzle.m */,
+				4C98ABBC18B91E01007FAF12 /* NSString+MD5Addition.h */,
+				4C98ABBD18B91E01007FAF12 /* NSString+MD5Addition.m */,
+				4C98ABC018B91E01007FAF12 /* NSString+safe.h */,
+				4C98ABC118B91E01007FAF12 /* NSString+safe.m */,
+				4C98ABCE18B91E01007FAF12 /* UILabel+Attribute.h */,
+				4C98ABCF18B91E01007FAF12 /* UILabel+Attribute.m */,
 			);
 			path = Categories;
 			sourceTree = "<group>";
@@ -2599,8 +2674,8 @@
 		EAD1249018B5F2E500C6C145 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
-				4C98AB1918B7E13C007FAF12 /* JsonToDictionary.h */,
-				4C98AB1A18B7E13C007FAF12 /* JsonToDictionary.m */,
+				4C98AB1918B7E13C007FAF12 /* TDJsonToDictionary.h */,
+				4C98AB1A18B7E13C007FAF12 /* TDJsonToDictionary.m */,
 				EAD1249918B604B600C6C145 /* FDColor.h */,
 				EAD1249A18B604B600C6C145 /* FDColor.m */,
 				EAD1249418B5F33300C6C145 /* FDDefine.h */,
@@ -3480,24 +3555,39 @@
 			buildActionMask = 2147483647;
 			files = (
 				EACC147018B36EE900DD27B0 /* TDAppDelegate.m in Sources */,
+				4C98ABF818B91E01007FAF12 /* NSString+MD5Addition.m in Sources */,
+				4C98AC1518B9246F007FAF12 /* NSObject+JsonToVO.m in Sources */,
 				EAD1249B18B604B600C6C145 /* FDColor.m in Sources */,
+				4C98AB2718B9196E007FAF12 /* Btype.m in Sources */,
 				EAD1249618B5F33300C6C145 /* FDDefine.m in Sources */,
+				4C98ABED18B91E01007FAF12 /* NSMutableArray+safe.m in Sources */,
 				EACC146C18B36EE900DD27B0 /* main.m in Sources */,
+				4C98ABEC18B91E01007FAF12 /* NSDictionary+safe.m in Sources */,
 				4CA68F0118B5BCA900D02209 /* TDAPIEngineTest.m in Sources */,
+				4C98ABF618B91E01007FAF12 /* NSObject+swizzle.m in Sources */,
 				EACD0D2D18B3A1DD009109CB /* TDMerchantsVC.m in Sources */,
-				4C98AB1B18B7E13C007FAF12 /* JsonToDictionary.m in Sources */,
+				4C98ABF218B91E01007FAF12 /* NSObject+BeeNotification.m in Sources */,
+				4C98ABEF18B91E01007FAF12 /* NSMutableString+safe.m in Sources */,
+				4C98AB1B18B7E13C007FAF12 /* TDJsonToDictionary.m in Sources */,
+				4C98AC0118B91E01007FAF12 /* UILabel+Attribute.m in Sources */,
 				EACD0D3318B3A243009109CB /* TDSettingsVC.m in Sources */,
+				4C98ABF118B91E01007FAF12 /* NSNumber+safe.m in Sources */,
 				4CA68EBD18B5122400D02209 /* TDHttpClient.m in Sources */,
 				EACD0D2318B3A09E009109CB /* TDBaseVC.m in Sources */,
+				4C98ABE918B91E01007FAF12 /* NSArray+safe.m in Sources */,
 				EAC9D88418B888CF0096D555 /* TDForgetPasswordVC.m in Sources */,
 				EA901B0618B6491700B1E20F /* TDUtil.m in Sources */,
 				4CA68EC018B520EC00D02209 /* TDHttpCommand.m in Sources */,
+				4C98ABF018B91E01007FAF12 /* NSNumber+otsCopy.m in Sources */,
 				EACD0D3018B3A216009109CB /* TDProfileVC.m in Sources */,
-				EACD0D2718B3A125009109CB /* NSObject+BeeNotification.m in Sources */,
 				EACD0D2A18B3A166009109CB /* TDHomeVC.m in Sources */,
 				EAD1249318B5F30200C6C145 /* TDImageLibrary.m in Sources */,
 				EAD1249E18B605D500C6C145 /* TDFontLibrary.m in Sources */,
+				4C98ABF318B91E01007FAF12 /* NSObject+Coder.m in Sources */,
+				4C98AC1B18B92BF4007FAF12 /* TDJsonParser.m in Sources */,
 				EAD6ACC618B79BC00003B24E /* TDLoginVC.m in Sources */,
+				4C98ABFA18B91E01007FAF12 /* NSString+safe.m in Sources */,
+				4C98ABEE18B91E01007FAF12 /* NSMutableDictionary+safe.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

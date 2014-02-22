@@ -7,6 +7,8 @@
 //
 
 #import "TDAPIEngineTest.h"
+#import "TDJsonParser.h"
+#import "Btype.h"
 
 @implementation TDAPIEngineTest
 +(void)run {
@@ -24,7 +26,14 @@
     
     //命令模式调用
     [[TDHttpClient sharedClient] processCommand:command callback:^(NSURLSessionDataTask *task, id responseObject, NSError *anError) {
-        NSLog(@">>%@",responseObject);
+        if (anError==nil && [responseObject isKindOfClass:[NSArray class]]) {
+            NSArray * array = responseObject;
+            for (Btype * byt in array) {
+                NSLog(@">1 %@",byt.b_t_id);
+                NSLog(@">2 %@",byt.b_type_name);
+                NSLog(@">3 %@",byt.b_cord_type);
+            }
+        }
     }];
 }
 

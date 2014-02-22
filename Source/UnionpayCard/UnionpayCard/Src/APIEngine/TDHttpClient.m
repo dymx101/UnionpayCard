@@ -7,6 +7,7 @@
 //
 
 #import "TDHttpClient.h"
+#import "TDJsonParser.h"
 
 //http://localhost:8000/yscardII/json/Show/{"method":"showBtype"}
 static NSString *const BASEURL = @"http://localhost:8000/yscardII/json/";
@@ -48,7 +49,7 @@ static NSString *const BASEURL = @"http://localhost:8000/yscardII/json/";
     
     if (aCallback) {
         dispatch_async(dispatch_get_main_queue(), ^{
-            aCallback(task, responseObject, anError);
+            aCallback(task, [TDJsonParser parseData:responseObject], anError);
         });
     }
 }

@@ -1,13 +1,13 @@
 //
 //  JsonToDictionary.m
 //
-//  Created by Oscar Vicente Gonzalez Greco on 1/22/13.
-//  Copyright (c) 2013 Oscar Vicente Gonzalez Greco. All rights reserved.
+//  Created by towne on 14-2-23.
+//  Copyright (c) 2014年 Frodo. All rights reserved.
 //
 
-#import "JsonToDictionary.h"
+#import "TDJsonToDictionary.h"
 
-@implementation JsonToDictionary
+@implementation TDJsonToDictionary
 
 + (NSDictionary *)diccionaryFromJsonString:(NSString *)stringJson
 {

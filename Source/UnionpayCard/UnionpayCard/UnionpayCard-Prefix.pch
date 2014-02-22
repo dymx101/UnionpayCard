@@ -30,6 +30,14 @@
 #import "FDColor.h"
 #import "TDUtil.h"
 
+#import "NSNumber+safe.h"       //base category
+#import "NSString+safe.h"
+#import "NSMutableString+safe.h"
+#import "NSArray+safe.h"
+#import "NSMutableArray+safe.h"
+#import "NSDictionary+safe.h"
+#import "NSMutableDictionary+safe.h"
+
 #endif
 
 

@@ -7,7 +7,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface JsonToDictionary : NSObject
+@interface TDJsonToDictionary : NSObject
 
 + (NSDictionary *)diccionaryFromJsonString:(NSString *)stringJson;
 + (NSString *)jsonStringFromDictionary:(NSDictionary *)dictionary;

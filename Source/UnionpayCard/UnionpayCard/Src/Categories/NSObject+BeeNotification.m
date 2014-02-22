@@ -63,6 +63,7 @@
 
 - (void)handleNotification:(NSNotification *)notification
 {
+
 }
 
 - (void)observeNotification:(NSString *)name
@@ -95,11 +96,6 @@
 {
 	[[NSNotificationCenter defaultCenter] postNotificationName:name object:object];
 	return YES;
-}
-
--(NSString *)className
-{
-    return NSStringFromClass([self class]);
 }
 
 @end
