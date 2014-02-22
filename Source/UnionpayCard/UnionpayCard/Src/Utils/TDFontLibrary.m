@@ -13,6 +13,7 @@ DEF_SINGLETON(TDFontLibrary)
 
 -(void)doInit {
     _fontTileButton = [UIFont fontWithName:FONT_NAME_DUAN_NING_XING size:25.f];
+    _fontNormal = [UIFont systemFontOfSize:13.f];
 }
 
 - (id)init
