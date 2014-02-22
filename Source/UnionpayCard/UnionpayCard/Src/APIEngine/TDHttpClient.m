@@ -44,7 +44,7 @@ static NSString *const BASEURL = @"http://localhost:8000/yscardII/json/";
                error:(NSError *)anError
             callback:(TDBlock)aCallback
 {
-    [self _logRawResponse:task];
+//    [self _logRawResponse:task];
     
     if (aCallback) {
         dispatch_async(dispatch_get_main_queue(), ^{
@@ -125,6 +125,7 @@ static NSString *const BASEURL = @"http://localhost:8000/yscardII/json/";
 
 -(void)_logRawResponse:(NSURLSessionDataTask *) task
 {
+    
 }
 
 @end
