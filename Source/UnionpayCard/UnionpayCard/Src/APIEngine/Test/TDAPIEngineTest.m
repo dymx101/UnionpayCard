@@ -9,6 +9,7 @@
 #import "TDAPIEngineTest.h"
 #import "TDJsonParser.h"
 #import "Btype.h"
+#import "Post.h"
 
 @implementation TDAPIEngineTest
 +(void)run {
@@ -25,14 +26,27 @@
     command.inPut = input;
     
     //命令模式调用
+//    [[TDHttpClient sharedClient] processCommand:command callback:^(NSURLSessionDataTask *task, id responseObject, NSError *anError) {
+//        if (anError==nil && [responseObject isKindOfClass:[NSArray class]]) {
+//            NSArray * array = responseObject;
+//            for (Btype * byt in array) {
+//                NSLog(@">1 %@",byt.b_t_id);
+//                NSLog(@">2 %@",byt.b_type_name);
+//                NSLog(@">3 %@",byt.b_cord_type);
+//            }
+//        }
+//    }];
+    
+     [input setValue:@"ShowPost" forKey:@"method"];
+    [input setValue:@"1" forKey:@"frist"];
+    [input setValue:@"10" forKey:@"pageNum"];
+    
+    command.inPut = input;
+    
     [[TDHttpClient sharedClient] processCommand:command callback:^(NSURLSessionDataTask *task, id responseObject, NSError *anError) {
         if (anError==nil && [responseObject isKindOfClass:[NSArray class]]) {
-            NSArray * array = responseObject;
-            for (Btype * byt in array) {
-                NSLog(@">1 %@",byt.b_t_id);
-                NSLog(@">2 %@",byt.b_type_name);
-                NSLog(@">3 %@",byt.b_cord_type);
-            }
+            Post * post = [responseObject lastObject];
+            NSLog(@">> %@",post);
         }
     }];
 }

@@ -24,6 +24,7 @@
 		4C98AC0118B91E01007FAF12 /* UILabel+Attribute.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C98ABCF18B91E01007FAF12 /* UILabel+Attribute.m */; };
 		4C98AC1518B9246F007FAF12 /* NSObject+JsonToVO.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C98AC1418B9246F007FAF12 /* NSObject+JsonToVO.m */; };
 		4C98AC1B18B92BF4007FAF12 /* TDJsonParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C98AC1A18B92BF4007FAF12 /* TDJsonParser.m */; };
+		4C98AC1E18B9345B007FAF12 /* Post.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C98AC1D18B9345B007FAF12 /* Post.m */; };
 		4CA68EBD18B5122400D02209 /* TDHttpClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CA68EBC18B5122400D02209 /* TDHttpClient.m */; };
 		4CA68EC018B520EC00D02209 /* TDHttpCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CA68EBF18B520EC00D02209 /* TDHttpCommand.m */; };
 		4CA68F0118B5BCA900D02209 /* TDAPIEngineTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CA68F0018B5BCA900D02209 /* TDAPIEngineTest.m */; };
@@ -850,6 +851,8 @@
 		4C98AC1418B9246F007FAF12 /* NSObject+JsonToVO.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+JsonToVO.m"; sourceTree = "<group>"; };
 		4C98AC1918B92BF4007FAF12 /* TDJsonParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TDJsonParser.h; sourceTree = "<group>"; };
 		4C98AC1A18B92BF4007FAF12 /* TDJsonParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TDJsonParser.m; sourceTree = "<group>"; };
+		4C98AC1C18B9345B007FAF12 /* Post.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Post.h; sourceTree = "<group>"; };
+		4C98AC1D18B9345B007FAF12 /* Post.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Post.m; sourceTree = "<group>"; };
 		4CA68EBB18B5122400D02209 /* TDHttpClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TDHttpClient.h; sourceTree = "<group>"; };
 		4CA68EBC18B5122400D02209 /* TDHttpClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TDHttpClient.m; sourceTree = "<group>"; };
 		4CA68EBE18B520EC00D02209 /* TDHttpCommand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TDHttpCommand.h; sourceTree = "<group>"; };
@@ -1709,6 +1712,8 @@
 			children = (
 				4C98AB2518B9196E007FAF12 /* Btype.h */,
 				4C98AB2618B9196E007FAF12 /* Btype.m */,
+				4C98AC1C18B9345B007FAF12 /* Post.h */,
+				4C98AC1D18B9345B007FAF12 /* Post.m */,
 			);
 			path = VO;
 			sourceTree = "<group>";
@@ -3574,6 +3579,7 @@
 				4C98ABF118B91E01007FAF12 /* NSNumber+safe.m in Sources */,
 				4CA68EBD18B5122400D02209 /* TDHttpClient.m in Sources */,
 				EACD0D2318B3A09E009109CB /* TDBaseVC.m in Sources */,
+				4C98AC1E18B9345B007FAF12 /* Post.m in Sources */,
 				4C98ABE918B91E01007FAF12 /* NSArray+safe.m in Sources */,
 				EAC9D88418B888CF0096D555 /* TDForgetPasswordVC.m in Sources */,
 				EA901B0618B6491700B1E20F /* TDUtil.m in Sources */,
