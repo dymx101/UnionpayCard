@@ -133,7 +133,7 @@
 
 - (void)customizeInterface {
     UINavigationBar *navigationBarAppearance = [UINavigationBar appearance];
-    navigationBarAppearance.titleTextAttributes = [self naviBarAttributes];
+    
     
     if ([[[UIDevice currentDevice] systemVersion] integerValue] >= 7.0) {
         [navigationBarAppearance setBackgroundImage:[UIImage imageNamed:@"bg_navigationBar_tall"]
@@ -141,36 +141,34 @@
     } else {
         [navigationBarAppearance setBackgroundImage:[UIImage imageNamed:@"bg_navigationBar"]
                                       forBarMetrics:UIBarMetricsDefault];
-        
-        NSDictionary *textAttributes = nil;
-        
-        if ([[[UIDevice currentDevice] systemVersion] integerValue] >= 7.0) {
-            textAttributes = @{
-                               NSFontAttributeName: [UIFont boldSystemFontOfSize:20],
-                               NSForegroundColorAttributeName: [UIColor blackColor],
-                               };
-        } else {
-#if __IPHONE_OS_VERSION_MIN_REQUIRED < __IPHONE_7_0
-            textAttributes = @{
-                               UITextAttributeFont: [UIFont boldSystemFontOfSize:20],
-                               UITextAttributeTextColor: [UIColor blackColor],
-                               UITextAttributeTextShadowColor: [UIColor clearColor],
-                               UITextAttributeTextShadowOffset: [NSValue valueWithUIOffset:UIOffsetZero],
-                               };
-#endif
-        }
-        
-        [navigationBarAppearance setTitleTextAttributes:textAttributes];
     }
+    
+    navigationBarAppearance.titleTextAttributes = [self naviBarAttributes];
 }
 
--(NSMutableDictionary *)naviBarAttributes {
-    NSMutableDictionary *attributes = [[NSMutableDictionary alloc] init];
-    [attributes setValue:[UIColor whiteColor] forKey:UITextAttributeTextColor];
-    [attributes setValue:[UIColor darkGrayColor] forKey:UITextAttributeTextShadowColor];
-    [attributes setValue:[NSValue valueWithUIOffset:UIOffsetMake(0, 1)] forKey:UITextAttributeTextShadowOffset];
-    //[attributes setValue:[TDFontLibrary sharedInstance].fontTileButton forKey:UITextAttributeFont];
-    return attributes;
+-(NSDictionary *)naviBarAttributes {
+    
+    NSDictionary *textAttributes = nil;
+    
+    if ([[[UIDevice currentDevice] systemVersion] integerValue] >= 7.0) {
+        textAttributes = @{
+                           NSFontAttributeName : [UIFont boldSystemFontOfSize:20],
+                           NSForegroundColorAttributeName : [UIColor whiteColor],
+                           UITextAttributeTextShadowColor : [UIColor grayColor],
+                           UITextAttributeTextShadowOffset : [NSValue valueWithUIOffset:UIOffsetMake(1, 1)]
+                           };
+    } else {
+#if __IPHONE_OS_VERSION_MIN_REQUIRED < __IPHONE_7_0
+        textAttributes = @{
+                           UITextAttributeFont: [UIFont boldSystemFontOfSize:20],
+                           UITextAttributeTextColor: [UIColor whiteColor],
+                           UITextAttributeTextShadowColor: [UIColor grayColor],
+                           UITextAttributeTextShadowOffset: [NSValue valueWithUIOffset:UIOffsetZero]
+                           };
+#endif
+    }
+    
+    return textAttributes;
 }
 
 @end
