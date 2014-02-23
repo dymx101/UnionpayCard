@@ -30,7 +30,7 @@ DEF_SINGLETON(TDImageLibrary)
     _btnBackArrow = [UIImage imageNamed:@"btn_backItem"];
     _bgLoginInput = [[UIImage imageNamed:@"bg_login_inputView"] resizableImageWithCapInsets:UIEdgeInsetsMake(5, 5, 5, 5)];
     _btnBgGreen = [[UIImage imageNamed:@"btn_green"] resizableImageWithCapInsets:UIEdgeInsetsMake(5, 5, 5, 5)];
-
+    _blank = [[UIImage imageNamed:@"blank"] resizableImageWithCapInsets:UIEdgeInsetsMake(5, 5, 5, 5)];
 }
 
 @end

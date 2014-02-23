@@ -20,4 +20,5 @@ AS_SINGLETON(TDImageLibrary)
 @property (nonatomic, strong) UIImage *dismiss;
 @property (nonatomic, strong) UIImage *bgLoginInput;
 @property (nonatomic, strong) UIImage *btnBgGreen;
+@property (nonatomic, strong) UIImage *blank;
 @end
