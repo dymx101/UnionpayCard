@@ -8,6 +8,8 @@
 
 #import "TDLoginVC.h"
 #import "TDForgetPasswordVC.h"
+#import "TDRegisterVC.h"
+#import "TDRegisterNoAccountVC.h"
 
 @interface TDLoginVC () {
     UIImageView     *_loginInputView;
@@ -102,12 +104,14 @@
     _btnRegister = [UIButton new];
     [_btnRegister setTitle:@"立即注册" forState:UIControlStateNormal];
     [_btnRegister setTitleColor:[FDColor sharedInstance].caribbeanGreen forState:UIControlStateNormal];
+    [_btnRegister addTarget:self action:@selector(registerAction:) forControlEvents:UIControlEventTouchUpInside];
     _btnRegister.titleLabel.font = [TDFontLibrary sharedInstance].fontNormal;
     [self.view addSubview:_btnRegister];
     
     _btnRegisterNoAccount = [UIButton new];
     [_btnRegisterNoAccount setTitle:@"无账号快捷登录" forState:UIControlStateNormal];
     [_btnRegisterNoAccount setTitleColor:[FDColor sharedInstance].caribbeanGreen forState:UIControlStateNormal];
+    [_btnRegisterNoAccount addTarget:self action:@selector(registerNoAccountAction:) forControlEvents:UIControlEventTouchUpInside];
     _btnRegisterNoAccount.titleLabel.font = [TDFontLibrary sharedInstance].fontNormal;
     [self.view addSubview:_btnRegisterNoAccount];
 }
@@ -145,6 +149,18 @@
     
     [_btnRegisterNoAccount alignTrailingEdgeWithView:_btnLogin predicate:@"-15"];
     [_btnRegisterNoAccount constrainTopSpaceToView:_btnLogin predicate:@"10"];
+}
+
+
+#pragma mark - 
+-(void)registerAction:(id)sender {
+    TDRegisterVC *vc = [TDRegisterVC new];
+    [self.navigationController pushViewController:vc animated:YES];
+}
+
+-(void)registerNoAccountAction:(id)sender {
+    TDRegisterNoAccountVC *vc = [TDRegisterNoAccountVC new];
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 @end

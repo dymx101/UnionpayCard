@@ -18,6 +18,8 @@
 {
     [super viewDidLoad];
     self.navigationItem.title = @"商家";
+    
+    [self installLogoToNavibar];
     [self installMapAndSearchToNavibar];
 }
 

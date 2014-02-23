@@ -29,6 +29,8 @@
 		4CA68EC018B520EC00D02209 /* TDHttpCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CA68EBF18B520EC00D02209 /* TDHttpCommand.m */; };
 		4CA68F0118B5BCA900D02209 /* TDAPIEngineTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CA68F0018B5BCA900D02209 /* TDAPIEngineTest.m */; };
 		55A5FBCBCA064416B4607D7C /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A21F1F75D364083A890944A /* libPods.a */; };
+		EA098BC818B98E1C0034E0CF /* TDRegisterVC.m in Sources */ = {isa = PBXBuildFile; fileRef = EA098BC718B98E1C0034E0CF /* TDRegisterVC.m */; };
+		EA098BCB18B98E590034E0CF /* TDRegisterNoAccountVC.m in Sources */ = {isa = PBXBuildFile; fileRef = EA098BCA18B98E590034E0CF /* TDRegisterNoAccountVC.m */; };
 		EA901B0618B6491700B1E20F /* TDUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = EA901B0518B6491700B1E20F /* TDUtil.m */; };
 		EA901B0818B64A1B00B1E20F /* 钟齐段宁行书.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EA901B0718B64A1B00B1E20F /* 钟齐段宁行书.ttf */; };
 		EAC9D88418B888CF0096D555 /* TDForgetPasswordVC.m in Sources */ = {isa = PBXBuildFile; fileRef = EAC9D88318B888CF0096D555 /* TDForgetPasswordVC.m */; };
@@ -860,6 +862,10 @@
 		4CA68EFF18B5BCA900D02209 /* TDAPIEngineTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TDAPIEngineTest.h; sourceTree = "<group>"; };
 		4CA68F0018B5BCA900D02209 /* TDAPIEngineTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TDAPIEngineTest.m; sourceTree = "<group>"; };
 		B3BCF3CCEFF9419390ECB20A /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
+		EA098BC618B98E1C0034E0CF /* TDRegisterVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TDRegisterVC.h; sourceTree = "<group>"; };
+		EA098BC718B98E1C0034E0CF /* TDRegisterVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TDRegisterVC.m; sourceTree = "<group>"; };
+		EA098BC918B98E590034E0CF /* TDRegisterNoAccountVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TDRegisterNoAccountVC.h; sourceTree = "<group>"; };
+		EA098BCA18B98E590034E0CF /* TDRegisterNoAccountVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TDRegisterNoAccountVC.m; sourceTree = "<group>"; };
 		EA901B0418B6491700B1E20F /* TDUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TDUtil.h; sourceTree = "<group>"; };
 		EA901B0518B6491700B1E20F /* TDUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TDUtil.m; sourceTree = "<group>"; };
 		EA901B0718B64A1B00B1E20F /* 钟齐段宁行书.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "钟齐段宁行书.ttf"; sourceTree = "<group>"; };
@@ -2615,6 +2621,10 @@
 				EAD6ACC518B79BC00003B24E /* TDLoginVC.m */,
 				EAC9D88218B888CF0096D555 /* TDForgetPasswordVC.h */,
 				EAC9D88318B888CF0096D555 /* TDForgetPasswordVC.m */,
+				EA098BC618B98E1C0034E0CF /* TDRegisterVC.h */,
+				EA098BC718B98E1C0034E0CF /* TDRegisterVC.m */,
+				EA098BC918B98E590034E0CF /* TDRegisterNoAccountVC.h */,
+				EA098BCA18B98E590034E0CF /* TDRegisterNoAccountVC.m */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -3562,6 +3572,7 @@
 				EACC147018B36EE900DD27B0 /* TDAppDelegate.m in Sources */,
 				4C98ABF818B91E01007FAF12 /* NSString+MD5Addition.m in Sources */,
 				4C98AC1518B9246F007FAF12 /* NSObject+JsonToVO.m in Sources */,
+				EA098BC818B98E1C0034E0CF /* TDRegisterVC.m in Sources */,
 				EAD1249B18B604B600C6C145 /* FDColor.m in Sources */,
 				4C98AB2718B9196E007FAF12 /* Btype.m in Sources */,
 				EAD1249618B5F33300C6C145 /* FDDefine.m in Sources */,
@@ -3591,6 +3602,7 @@
 				EAD1249E18B605D500C6C145 /* TDFontLibrary.m in Sources */,
 				4C98ABF318B91E01007FAF12 /* NSObject+Coder.m in Sources */,
 				4C98AC1B18B92BF4007FAF12 /* TDJsonParser.m in Sources */,
+				EA098BCB18B98E590034E0CF /* TDRegisterNoAccountVC.m in Sources */,
 				EAD6ACC618B79BC00003B24E /* TDLoginVC.m in Sources */,
 				4C98ABFA18B91E01007FAF12 /* NSString+safe.m in Sources */,
 				4C98ABEE18B91E01007FAF12 /* NSMutableDictionary+safe.m in Sources */,

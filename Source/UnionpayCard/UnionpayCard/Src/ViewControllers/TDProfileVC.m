@@ -24,6 +24,8 @@
     
     [self createSubviews];
     [self layoutSubviews];
+    
+    [self installLogoToNavibar];
 }
 
 -(void)createSubviews {

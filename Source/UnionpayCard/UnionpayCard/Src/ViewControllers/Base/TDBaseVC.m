@@ -33,13 +33,11 @@
     }
     
     // add logo to navigation bar
-    UIImage *logoImg = [TDImageLibrary sharedInstance].logoName;
-    UIImageView *ivLogo = [[UIImageView alloc] initWithImage:logoImg];
-    float ratio = .5f;
-    ivLogo.frame = CGRectMake(0, 0, logoImg.size.width * ratio, logoImg.size.height * ratio);
-    UIBarButtonItem *itemLogo = [[UIBarButtonItem alloc] initWithCustomView:ivLogo];
-    self.navigationItem.leftBarButtonItem = itemLogo;
+    if (self.navigationController.viewControllers.count > 1 && self == self.navigationController.topViewController) {
+        [self installBackArrowToNavibar];
+    }
 }
+
 
 -(void)dealloc {
     [self unobserveAllNotifications];
@@ -51,7 +49,16 @@
     // Dispose of any resources that can be recreated.
 }
 
-#pragma mark - 
+#pragma mark -
+
+-(void)installLogoToNavibar {
+    UIImage *logoImg = [TDImageLibrary sharedInstance].logoName;
+    UIImageView *ivLogo = [[UIImageView alloc] initWithImage:logoImg];
+    float ratio = .5f;
+    ivLogo.frame = CGRectMake(0, 0, logoImg.size.width * ratio, logoImg.size.height * ratio);
+    UIBarButtonItem *itemLogo = [[UIBarButtonItem alloc] initWithCustomView:ivLogo];
+    self.navigationItem.leftBarButtonItem = itemLogo;
+}
 
 -(void)installMapAndSearchToNavibar {
     UIImage *mapImg = [UIImage imageNamed:@"icon_map"];
@@ -65,6 +72,20 @@
     UIBarButtonItem *searchItem = [[UIBarButtonItem alloc] initWithCustomView:btnSearch];
     
     self.navigationItem.rightBarButtonItems = @[searchItem, mapItem];
+}
+
+-(void)installBackArrowToNavibar {
+    UIImage *backImg = [TDImageLibrary sharedInstance].btnBackArrow;
+    UIButton *btnBack = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, backImg.size.width, backImg.size.height)];
+    [btnBack setImage:backImg forState:UIControlStateNormal];
+    [btnBack addTarget:self action:@selector(naviBackAction:) forControlEvents:UIControlEventTouchUpInside];
+    UIBarButtonItem *itemBack = [[UIBarButtonItem alloc] initWithCustomView:btnBack];
+    self.navigationItem.leftBarButtonItem = itemBack;
+    self.navigationItem.hidesBackButton = YES;
+}
+
+-(void)naviBackAction:(id)sender {
+    [self.navigationController popToRootViewControllerAnimated:YES];
 }
 
 @end

@@ -18,6 +18,8 @@
 {
     [super viewDidLoad];
     self.navigationItem.title = @"更多";
+    
+    [self installLogoToNavibar];
 }
 
 @end
