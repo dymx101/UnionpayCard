@@ -21,4 +21,11 @@ AS_SINGLETON(TDImageLibrary)
 @property (nonatomic, strong) UIImage *bgLoginInput;
 @property (nonatomic, strong) UIImage *btnBgGreen;
 @property (nonatomic, strong) UIImage *blank;
+
+@property (nonatomic, strong) UIImage *cellGroupTop;
+@property (nonatomic, strong) UIImage *cellGroupMiddle;
+@property (nonatomic, strong) UIImage *cellGroupBottom;
+@property (nonatomic, strong) UIImage *cellGroupRound;
+@property (nonatomic, strong) UIImage *cellRightArrow;
+
 @end

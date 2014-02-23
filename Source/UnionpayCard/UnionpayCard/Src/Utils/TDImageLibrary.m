@@ -31,6 +31,13 @@ DEF_SINGLETON(TDImageLibrary)
     _bgLoginInput = [[UIImage imageNamed:@"bg_login_inputView"] resizableImageWithCapInsets:UIEdgeInsetsMake(5, 5, 5, 5)];
     _btnBgGreen = [[UIImage imageNamed:@"btn_green"] resizableImageWithCapInsets:UIEdgeInsetsMake(5, 5, 5, 5)];
     _blank = [[UIImage imageNamed:@"blank"] resizableImageWithCapInsets:UIEdgeInsetsMake(5, 5, 5, 5)];
+    
+    
+    _cellGroupTop = [[UIImage imageNamed:@"tableCellTopBg"] resizableImageWithCapInsets:UIEdgeInsetsMake(5, 5, 5, 5)];
+    _cellGroupMiddle = [[UIImage imageNamed:@"tableCellMiddleBg"] resizableImageWithCapInsets:UIEdgeInsetsMake(5, 5, 5, 5)];
+    _cellGroupBottom = [[UIImage imageNamed:@"tableCellBottomBg"] resizableImageWithCapInsets:UIEdgeInsetsMake(5, 5, 5, 5)];
+    _cellGroupRound = [[UIImage imageNamed:@"tableCellRoundBg"] resizableImageWithCapInsets:UIEdgeInsetsMake(5, 5, 5, 5)];
+    _cellRightArrow = [UIImage imageNamed:@"icon_cell_rightArrow"];
 }
 
 @end
