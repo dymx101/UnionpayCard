@@ -20,6 +20,8 @@
     UITextField     *_tfPwd;
     
     UIButton        *_btnLogin;
+    UIButton        *_btnRegister;
+    UIButton        *_btnRegisterNoAccount;
 }
 
 @end
@@ -96,6 +98,18 @@
     [_btnLogin setTitle:@"登录" forState:UIControlStateNormal];
     _btnLogin.titleLabel.font = [TDFontLibrary sharedInstance].fontTitleBold;
     [self.view addSubview:_btnLogin];
+    
+    _btnRegister = [UIButton new];
+    [_btnRegister setTitle:@"立即注册" forState:UIControlStateNormal];
+    [_btnRegister setTitleColor:[FDColor sharedInstance].caribbeanGreen forState:UIControlStateNormal];
+    _btnRegister.titleLabel.font = [TDFontLibrary sharedInstance].fontNormal;
+    [self.view addSubview:_btnRegister];
+    
+    _btnRegisterNoAccount = [UIButton new];
+    [_btnRegisterNoAccount setTitle:@"无账号快捷登录" forState:UIControlStateNormal];
+    [_btnRegisterNoAccount setTitleColor:[FDColor sharedInstance].caribbeanGreen forState:UIControlStateNormal];
+    _btnRegisterNoAccount.titleLabel.font = [TDFontLibrary sharedInstance].fontNormal;
+    [self.view addSubview:_btnRegisterNoAccount];
 }
 
 -(void)layoutViews {
@@ -125,6 +139,12 @@
     [_btnLogin constrainWidthToView:_loginInputView predicate:nil];
     [_btnLogin alignLeadingEdgeWithView:_loginInputView predicate:nil];
     [_btnLogin constrainTopSpaceToView:_loginInputView predicate:@"20"];
+    
+    [_btnRegister alignLeadingEdgeWithView:_btnLogin predicate:@"15"];
+    [_btnRegister constrainTopSpaceToView:_btnLogin predicate:@"10"];
+    
+    [_btnRegisterNoAccount alignTrailingEdgeWithView:_btnLogin predicate:@"-15"];
+    [_btnRegisterNoAccount constrainTopSpaceToView:_btnLogin predicate:@"10"];
 }
 
 @end
