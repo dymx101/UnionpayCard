@@ -57,6 +57,8 @@
     _highlightCoverView.hidden = YES;
     
     _lblTitle = [UILabel new];
+    _lblTitle.textColor = [FDColor sharedInstance].gray;
+    _lblTitle.font = [TDFontLibrary sharedInstance].fontTitle;
     [self addSubview:_lblTitle];
 }
 
