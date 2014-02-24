@@ -7,6 +7,7 @@
 //
 
 #import "TDSettingsVC.h"
+#import "TDSettingCell.h"
 
 @interface TDSettingsVC () <UITableViewDelegate, UITableViewDataSource> {
     UITableView *_tvSettings;
@@ -36,6 +37,7 @@
     _tvSettings.backgroundColor = [UIColor clearColor];
     _tvSettings.delegate = self;
     _tvSettings.dataSource = self;
+    _tvSettings.separatorStyle = UITableViewCellSeparatorStyleNone;
     [self.view addSubview:_tvSettings];
     
 }
@@ -44,6 +46,8 @@
     [_tvSettings alignToView:self.view];
 }
 
+
+
 #pragma mark -
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return [self settingItems].count;
@@ -51,15 +55,21 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     static NSString *cellIDStr = @"cellID";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIDStr];
+    TDSettingCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIDStr];
     if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIDStr];
+        cell = [TDSettingCell new];//[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIDStr];
     }
     
     int row = indexPath.row;
-    cell.textLabel.text = [self settingItems][row];
+    ETDCellStyle cellStyle = [TDSettingCell cellStyleWithIndexPath:indexPath tableView:tableView tableViewDataSource:self];
+    [cell setStyle:cellStyle];
+   // cell.textLabel.text = [self settingItems][row];
     
     return cell;
+}
+
+-(float)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return [TDSettingCell HEIGHT];
 }
 
 @end

@@ -8,6 +8,20 @@
 
 #import <UIKit/UIKit.h>
 
+typedef enum {
+    kTDCellStyleTop = 0
+    , kTDCellStyleMiddle
+    , kTDCellStyleBottom
+    , kTDCellStyleRound
+}ETDCellStyle;
+
 @interface TDSettingCell : UITableViewCell
++(float)HEIGHT;
+
+-(void)setStyle:(ETDCellStyle)aStyle;
+
++(ETDCellStyle)cellStyleWithIndexPath:(NSIndexPath *)aIndexPath
+                            tableView:(UITableView *)aTableView
+                  tableViewDataSource:(id<UITableViewDataSource>)aTableViewDataSource;
 
 @end

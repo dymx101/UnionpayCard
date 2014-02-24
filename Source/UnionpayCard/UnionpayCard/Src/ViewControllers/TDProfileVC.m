@@ -73,6 +73,7 @@
     // label not logged in
     UILabel *lblNotLoggedIn = [UILabel new];
     lblNotLoggedIn.text = @"您还没有登录哦～";
+    lblNotLoggedIn.font = [TDFontLibrary sharedInstance].fontNormal;
     [viewNotLoggedIn addSubview:lblNotLoggedIn];
     [lblNotLoggedIn alignCenterXWithView:viewNotLoggedIn predicate:nil];
     [lblNotLoggedIn alignTopEdgeWithView:viewNotLoggedIn predicate:@"10"];
@@ -81,6 +82,7 @@
     UIButton *btnLogin = [UIButton new];
     [btnLogin setBackgroundImage:[TDImageLibrary sharedInstance].btnBgWhite forState:UIControlStateNormal];
     [btnLogin setTitle:@"马上登录" forState:UIControlStateNormal];
+    btnLogin.titleLabel.font = [TDFontLibrary sharedInstance].fontNormal;
     [btnLogin setTitleColor:[FDColor sharedInstance].black forState:UIControlStateNormal];
     [btnLogin addTarget:self action:@selector(loginAction:) forControlEvents:UIControlEventTouchUpInside];
     [viewNotLoggedIn addSubview:btnLogin];
