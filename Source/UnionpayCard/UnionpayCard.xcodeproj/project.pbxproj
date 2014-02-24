@@ -28,6 +28,33 @@
 		4CA68EBD18B5122400D02209 /* TDHttpClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CA68EBC18B5122400D02209 /* TDHttpClient.m */; };
 		4CA68EC018B520EC00D02209 /* TDHttpCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CA68EBF18B520EC00D02209 /* TDHttpCommand.m */; };
 		4CA68F0118B5BCA900D02209 /* TDAPIEngineTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CA68F0018B5BCA900D02209 /* TDAPIEngineTest.m */; };
+		4CB12C4918BBC3A200F23A76 /* AdminManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CB12C4818BBC3A200F23A76 /* AdminManager.m */; };
+		4CB12C4C18BBC42A00F23A76 /* Adver.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CB12C4B18BBC42A00F23A76 /* Adver.m */; };
+		4CB12C4F18BBC4C800F23A76 /* Announcement.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CB12C4E18BBC4C800F23A76 /* Announcement.m */; };
+		4CB12C5218BBC51F00F23A76 /* B2type.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CB12C5118BBC51F00F23A76 /* B2type.m */; };
+		4CB12C5518BBC56400F23A76 /* Bcbd.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CB12C5418BBC56400F23A76 /* Bcbd.m */; };
+		4CB12C5718BBC5B200F23A76 /* 预付费卡平台数据服务结构图.gif in Resources */ = {isa = PBXBuildFile; fileRef = 4CB12C5618BBC5B200F23A76 /* 预付费卡平台数据服务结构图.gif */; };
+		4CB12C5A18BBC5F800F23A76 /* Bcity.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CB12C5918BBC5F800F23A76 /* Bcity.m */; };
+		4CB12C5D18BBC63D00F23A76 /* Bcrcle.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CB12C5C18BBC63D00F23A76 /* Bcrcle.m */; };
+		4CB12C6018BBC66A00F23A76 /* Bdistrict.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CB12C5F18BBC66A00F23A76 /* Bdistrict.m */; };
+		4CB12C6318BBC6A700F23A76 /* Bhdr.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CB12C6218BBC6A700F23A76 /* Bhdr.m */; };
+		4CB12C6618BBC6E400F23A76 /* Bhtype.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CB12C6518BBC6E400F23A76 /* Bhtype.m */; };
+		4CB12C6918BBC71500F23A76 /* Binfor.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CB12C6818BBC71500F23A76 /* Binfor.m */; };
+		4CB12C6C18BBC7C400F23A76 /* Bprovince.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CB12C6B18BBC7C400F23A76 /* Bprovince.m */; };
+		4CB12C6F18BBC80600F23A76 /* Card.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CB12C6E18BBC80600F23A76 /* Card.m */; };
+		4CB12C7218BBC84B00F23A76 /* Consumption.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CB12C7118BBC84B00F23A76 /* Consumption.m */; };
+		4CB12C7518BBC88A00F23A76 /* IntegChange.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CB12C7418BBC88A00F23A76 /* IntegChange.m */; };
+		4CB12C7818BBC8C700F23A76 /* IntegRecords.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CB12C7718BBC8C700F23A76 /* IntegRecords.m */; };
+		4CB12C7B18BBC90700F23A76 /* IntegType.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CB12C7A18BBC90700F23A76 /* IntegType.m */; };
+		4CB12C7E18BBC93500F23A76 /* Message.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CB12C7D18BBC93500F23A76 /* Message.m */; };
+		4CB12C8118BBC96000F23A76 /* Parameters.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CB12C8018BBC96000F23A76 /* Parameters.m */; };
+		4CB12C8418BBC9A400F23A76 /* PreRecords.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CB12C8318BBC9A400F23A76 /* PreRecords.m */; };
+		4CB12C8718BBC9F200F23A76 /* Uemil.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CB12C8618BBC9F200F23A76 /* Uemil.m */; };
+		4CB12C8A18BBCA2600F23A76 /* Userinfor.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CB12C8918BBCA2600F23A76 /* Userinfor.m */; };
+		4CB12C8D18BBCAA800F23A76 /* Utocard.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CB12C8C18BBCAA800F23A76 /* Utocard.m */; };
+		4CB12C9018BBCADC00F23A76 /* Utoemil.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CB12C8F18BBCADC00F23A76 /* Utoemil.m */; };
+		4CB12C9318BBCB0F00F23A76 /* Uvip.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CB12C9218BBCB0F00F23A76 /* Uvip.m */; };
+		4CB12C9618BBCB4000F23A76 /* Ynbinfor.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CB12C9518BBCB4000F23A76 /* Ynbinfor.m */; };
 		55A5FBCBCA064416B4607D7C /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A21F1F75D364083A890944A /* libPods.a */; };
 		EA098BC818B98E1C0034E0CF /* TDRegisterVC.m in Sources */ = {isa = PBXBuildFile; fileRef = EA098BC718B98E1C0034E0CF /* TDRegisterVC.m */; };
 		EA098BCB18B98E590034E0CF /* TDRegisterNoAccountVC.m in Sources */ = {isa = PBXBuildFile; fileRef = EA098BCA18B98E590034E0CF /* TDRegisterNoAccountVC.m */; };
@@ -866,6 +893,59 @@
 		4CA68EBF18B520EC00D02209 /* TDHttpCommand.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TDHttpCommand.m; sourceTree = "<group>"; };
 		4CA68EFF18B5BCA900D02209 /* TDAPIEngineTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TDAPIEngineTest.h; sourceTree = "<group>"; };
 		4CA68F0018B5BCA900D02209 /* TDAPIEngineTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TDAPIEngineTest.m; sourceTree = "<group>"; };
+		4CB12C4718BBC3A200F23A76 /* AdminManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AdminManager.h; sourceTree = "<group>"; };
+		4CB12C4818BBC3A200F23A76 /* AdminManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AdminManager.m; sourceTree = "<group>"; };
+		4CB12C4A18BBC42A00F23A76 /* Adver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Adver.h; sourceTree = "<group>"; };
+		4CB12C4B18BBC42A00F23A76 /* Adver.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Adver.m; sourceTree = "<group>"; };
+		4CB12C4D18BBC4C800F23A76 /* Announcement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Announcement.h; sourceTree = "<group>"; };
+		4CB12C4E18BBC4C800F23A76 /* Announcement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Announcement.m; sourceTree = "<group>"; };
+		4CB12C5018BBC51F00F23A76 /* B2type.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = B2type.h; sourceTree = "<group>"; };
+		4CB12C5118BBC51F00F23A76 /* B2type.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = B2type.m; sourceTree = "<group>"; };
+		4CB12C5318BBC56400F23A76 /* Bcbd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Bcbd.h; sourceTree = "<group>"; };
+		4CB12C5418BBC56400F23A76 /* Bcbd.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Bcbd.m; sourceTree = "<group>"; };
+		4CB12C5618BBC5B200F23A76 /* 预付费卡平台数据服务结构图.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "预付费卡平台数据服务结构图.gif"; sourceTree = "<group>"; };
+		4CB12C5818BBC5F800F23A76 /* Bcity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Bcity.h; sourceTree = "<group>"; };
+		4CB12C5918BBC5F800F23A76 /* Bcity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Bcity.m; sourceTree = "<group>"; };
+		4CB12C5B18BBC63D00F23A76 /* Bcrcle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Bcrcle.h; sourceTree = "<group>"; };
+		4CB12C5C18BBC63D00F23A76 /* Bcrcle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Bcrcle.m; sourceTree = "<group>"; };
+		4CB12C5E18BBC66A00F23A76 /* Bdistrict.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Bdistrict.h; sourceTree = "<group>"; };
+		4CB12C5F18BBC66A00F23A76 /* Bdistrict.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Bdistrict.m; sourceTree = "<group>"; };
+		4CB12C6118BBC6A700F23A76 /* Bhdr.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Bhdr.h; sourceTree = "<group>"; };
+		4CB12C6218BBC6A700F23A76 /* Bhdr.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Bhdr.m; sourceTree = "<group>"; };
+		4CB12C6418BBC6E400F23A76 /* Bhtype.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Bhtype.h; sourceTree = "<group>"; };
+		4CB12C6518BBC6E400F23A76 /* Bhtype.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Bhtype.m; sourceTree = "<group>"; };
+		4CB12C6718BBC71500F23A76 /* Binfor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Binfor.h; sourceTree = "<group>"; };
+		4CB12C6818BBC71500F23A76 /* Binfor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Binfor.m; sourceTree = "<group>"; };
+		4CB12C6A18BBC7C400F23A76 /* Bprovince.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Bprovince.h; sourceTree = "<group>"; };
+		4CB12C6B18BBC7C400F23A76 /* Bprovince.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Bprovince.m; sourceTree = "<group>"; };
+		4CB12C6D18BBC80600F23A76 /* Card.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Card.h; sourceTree = "<group>"; };
+		4CB12C6E18BBC80600F23A76 /* Card.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Card.m; sourceTree = "<group>"; };
+		4CB12C7018BBC84B00F23A76 /* Consumption.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Consumption.h; sourceTree = "<group>"; };
+		4CB12C7118BBC84B00F23A76 /* Consumption.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Consumption.m; sourceTree = "<group>"; };
+		4CB12C7318BBC88A00F23A76 /* IntegChange.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IntegChange.h; sourceTree = "<group>"; };
+		4CB12C7418BBC88A00F23A76 /* IntegChange.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IntegChange.m; sourceTree = "<group>"; };
+		4CB12C7618BBC8C700F23A76 /* IntegRecords.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IntegRecords.h; sourceTree = "<group>"; };
+		4CB12C7718BBC8C700F23A76 /* IntegRecords.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IntegRecords.m; sourceTree = "<group>"; };
+		4CB12C7918BBC90700F23A76 /* IntegType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IntegType.h; sourceTree = "<group>"; };
+		4CB12C7A18BBC90700F23A76 /* IntegType.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IntegType.m; sourceTree = "<group>"; };
+		4CB12C7C18BBC93500F23A76 /* Message.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Message.h; sourceTree = "<group>"; };
+		4CB12C7D18BBC93500F23A76 /* Message.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Message.m; sourceTree = "<group>"; };
+		4CB12C7F18BBC96000F23A76 /* Parameters.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Parameters.h; sourceTree = "<group>"; };
+		4CB12C8018BBC96000F23A76 /* Parameters.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Parameters.m; sourceTree = "<group>"; };
+		4CB12C8218BBC9A400F23A76 /* PreRecords.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PreRecords.h; sourceTree = "<group>"; };
+		4CB12C8318BBC9A400F23A76 /* PreRecords.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PreRecords.m; sourceTree = "<group>"; };
+		4CB12C8518BBC9F200F23A76 /* Uemil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Uemil.h; sourceTree = "<group>"; };
+		4CB12C8618BBC9F200F23A76 /* Uemil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Uemil.m; sourceTree = "<group>"; };
+		4CB12C8818BBCA2600F23A76 /* Userinfor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Userinfor.h; sourceTree = "<group>"; };
+		4CB12C8918BBCA2600F23A76 /* Userinfor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Userinfor.m; sourceTree = "<group>"; };
+		4CB12C8B18BBCAA800F23A76 /* Utocard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Utocard.h; sourceTree = "<group>"; };
+		4CB12C8C18BBCAA800F23A76 /* Utocard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Utocard.m; sourceTree = "<group>"; };
+		4CB12C8E18BBCADC00F23A76 /* Utoemil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Utoemil.h; sourceTree = "<group>"; };
+		4CB12C8F18BBCADC00F23A76 /* Utoemil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Utoemil.m; sourceTree = "<group>"; };
+		4CB12C9118BBCB0F00F23A76 /* Uvip.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Uvip.h; sourceTree = "<group>"; };
+		4CB12C9218BBCB0F00F23A76 /* Uvip.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Uvip.m; sourceTree = "<group>"; };
+		4CB12C9418BBCB4000F23A76 /* Ynbinfor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Ynbinfor.h; sourceTree = "<group>"; };
+		4CB12C9518BBCB4000F23A76 /* Ynbinfor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Ynbinfor.m; sourceTree = "<group>"; };
 		B3BCF3CCEFF9419390ECB20A /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 		EA098BC618B98E1C0034E0CF /* TDRegisterVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TDRegisterVC.h; sourceTree = "<group>"; };
 		EA098BC718B98E1C0034E0CF /* TDRegisterVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TDRegisterVC.m; sourceTree = "<group>"; };
@@ -1727,10 +1807,63 @@
 		4C98AB1F18B8EBE3007FAF12 /* VO */ = {
 			isa = PBXGroup;
 			children = (
+				4CB12C5618BBC5B200F23A76 /* 预付费卡平台数据服务结构图.gif */,
 				4C98AB2518B9196E007FAF12 /* Btype.h */,
 				4C98AB2618B9196E007FAF12 /* Btype.m */,
 				4C98AC1C18B9345B007FAF12 /* Post.h */,
 				4C98AC1D18B9345B007FAF12 /* Post.m */,
+				4CB12C4718BBC3A200F23A76 /* AdminManager.h */,
+				4CB12C4818BBC3A200F23A76 /* AdminManager.m */,
+				4CB12C4A18BBC42A00F23A76 /* Adver.h */,
+				4CB12C4B18BBC42A00F23A76 /* Adver.m */,
+				4CB12C4D18BBC4C800F23A76 /* Announcement.h */,
+				4CB12C4E18BBC4C800F23A76 /* Announcement.m */,
+				4CB12C5018BBC51F00F23A76 /* B2type.h */,
+				4CB12C5118BBC51F00F23A76 /* B2type.m */,
+				4CB12C5318BBC56400F23A76 /* Bcbd.h */,
+				4CB12C5418BBC56400F23A76 /* Bcbd.m */,
+				4CB12C5818BBC5F800F23A76 /* Bcity.h */,
+				4CB12C5918BBC5F800F23A76 /* Bcity.m */,
+				4CB12C5B18BBC63D00F23A76 /* Bcrcle.h */,
+				4CB12C5C18BBC63D00F23A76 /* Bcrcle.m */,
+				4CB12C5E18BBC66A00F23A76 /* Bdistrict.h */,
+				4CB12C5F18BBC66A00F23A76 /* Bdistrict.m */,
+				4CB12C6118BBC6A700F23A76 /* Bhdr.h */,
+				4CB12C6218BBC6A700F23A76 /* Bhdr.m */,
+				4CB12C6418BBC6E400F23A76 /* Bhtype.h */,
+				4CB12C6518BBC6E400F23A76 /* Bhtype.m */,
+				4CB12C6718BBC71500F23A76 /* Binfor.h */,
+				4CB12C6818BBC71500F23A76 /* Binfor.m */,
+				4CB12C6A18BBC7C400F23A76 /* Bprovince.h */,
+				4CB12C6B18BBC7C400F23A76 /* Bprovince.m */,
+				4CB12C6D18BBC80600F23A76 /* Card.h */,
+				4CB12C6E18BBC80600F23A76 /* Card.m */,
+				4CB12C7018BBC84B00F23A76 /* Consumption.h */,
+				4CB12C7118BBC84B00F23A76 /* Consumption.m */,
+				4CB12C7318BBC88A00F23A76 /* IntegChange.h */,
+				4CB12C7418BBC88A00F23A76 /* IntegChange.m */,
+				4CB12C7618BBC8C700F23A76 /* IntegRecords.h */,
+				4CB12C7718BBC8C700F23A76 /* IntegRecords.m */,
+				4CB12C7918BBC90700F23A76 /* IntegType.h */,
+				4CB12C7A18BBC90700F23A76 /* IntegType.m */,
+				4CB12C7C18BBC93500F23A76 /* Message.h */,
+				4CB12C7D18BBC93500F23A76 /* Message.m */,
+				4CB12C7F18BBC96000F23A76 /* Parameters.h */,
+				4CB12C8018BBC96000F23A76 /* Parameters.m */,
+				4CB12C8218BBC9A400F23A76 /* PreRecords.h */,
+				4CB12C8318BBC9A400F23A76 /* PreRecords.m */,
+				4CB12C8518BBC9F200F23A76 /* Uemil.h */,
+				4CB12C8618BBC9F200F23A76 /* Uemil.m */,
+				4CB12C8818BBCA2600F23A76 /* Userinfor.h */,
+				4CB12C8918BBCA2600F23A76 /* Userinfor.m */,
+				4CB12C8B18BBCAA800F23A76 /* Utocard.h */,
+				4CB12C8C18BBCAA800F23A76 /* Utocard.m */,
+				4CB12C8E18BBCADC00F23A76 /* Utoemil.h */,
+				4CB12C8F18BBCADC00F23A76 /* Utoemil.m */,
+				4CB12C9118BBCB0F00F23A76 /* Uvip.h */,
+				4CB12C9218BBCB0F00F23A76 /* Uvip.m */,
+				4CB12C9418BBCB4000F23A76 /* Ynbinfor.h */,
+				4CB12C9518BBCB4000F23A76 /* Ynbinfor.m */,
 			);
 			path = VO;
 			sourceTree = "<group>";
@@ -3195,6 +3328,7 @@
 				EACC178D18B36F9100DD27B0 /* bg_collection_header@2x.png in Resources */,
 				EACC199F18B36F9100DD27B0 /* icon_movieTicketRedemptionMachine.png in Resources */,
 				EACC18E418B36F9100DD27B0 /* icon_deal_hotelBroadband_enabled@2x.png in Resources */,
+				4CB12C5718BBC5B200F23A76 /* 预付费卡平台数据服务结构图.gif in Resources */,
 				EACC1A0018B36F9100DD27B0 /* icon_tabbar_homepage_selected.png in Resources */,
 				EACC187E18B36F9100DD27B0 /* button_dealsmap_back_normal.png in Resources */,
 				EACC181318B36F9100DD27B0 /* bg_ticket_machine_hint_cell_top@2x.png in Resources */,
@@ -3606,44 +3740,70 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4CB12C6918BBC71500F23A76 /* Binfor.m in Sources */,
 				EACC147018B36EE900DD27B0 /* TDAppDelegate.m in Sources */,
 				4C98ABF818B91E01007FAF12 /* NSString+MD5Addition.m in Sources */,
 				4C98AC1518B9246F007FAF12 /* NSObject+JsonToVO.m in Sources */,
 				EA098BC818B98E1C0034E0CF /* TDRegisterVC.m in Sources */,
+				4CB12C5518BBC56400F23A76 /* Bcbd.m in Sources */,
 				EAD1249B18B604B600C6C145 /* FDColor.m in Sources */,
 				4C98AB2718B9196E007FAF12 /* Btype.m in Sources */,
 				EAD1249618B5F33300C6C145 /* FDDefine.m in Sources */,
 				4C98ABED18B91E01007FAF12 /* NSMutableArray+safe.m in Sources */,
+				4CB12C8718BBC9F200F23A76 /* Uemil.m in Sources */,
 				EA098BD818B9B4450034E0CF /* TDSettingCell.m in Sources */,
 				EACC146C18B36EE900DD27B0 /* main.m in Sources */,
+				4CB12C7518BBC88A00F23A76 /* IntegChange.m in Sources */,
 				4C98ABEC18B91E01007FAF12 /* NSDictionary+safe.m in Sources */,
+				4CB12C5D18BBC63D00F23A76 /* Bcrcle.m in Sources */,
 				4CA68F0118B5BCA900D02209 /* TDAPIEngineTest.m in Sources */,
+				4CB12C9318BBCB0F00F23A76 /* Uvip.m in Sources */,
+				4CB12C4C18BBC42A00F23A76 /* Adver.m in Sources */,
+				4CB12C7E18BBC93500F23A76 /* Message.m in Sources */,
+				4CB12C8A18BBCA2600F23A76 /* Userinfor.m in Sources */,
 				4C98ABF618B91E01007FAF12 /* NSObject+swizzle.m in Sources */,
 				EACD0D2D18B3A1DD009109CB /* TDMerchantsVC.m in Sources */,
 				4C98ABF218B91E01007FAF12 /* NSObject+BeeNotification.m in Sources */,
 				4C98ABEF18B91E01007FAF12 /* NSMutableString+safe.m in Sources */,
 				4C98AB1B18B7E13C007FAF12 /* TDJsonToDictionary.m in Sources */,
+				4CB12C6018BBC66A00F23A76 /* Bdistrict.m in Sources */,
 				4C98AC0118B91E01007FAF12 /* UILabel+Attribute.m in Sources */,
 				EACD0D3318B3A243009109CB /* TDSettingsVC.m in Sources */,
+				4CB12C6C18BBC7C400F23A76 /* Bprovince.m in Sources */,
 				4C98ABF118B91E01007FAF12 /* NSNumber+safe.m in Sources */,
 				4CA68EBD18B5122400D02209 /* TDHttpClient.m in Sources */,
+				4CB12C7B18BBC90700F23A76 /* IntegType.m in Sources */,
+				4CB12C4918BBC3A200F23A76 /* AdminManager.m in Sources */,
 				EACD0D2318B3A09E009109CB /* TDBaseVC.m in Sources */,
+				4CB12C8118BBC96000F23A76 /* Parameters.m in Sources */,
 				4C98AC1E18B9345B007FAF12 /* Post.m in Sources */,
 				4C98ABE918B91E01007FAF12 /* NSArray+safe.m in Sources */,
+				4CB12C7818BBC8C700F23A76 /* IntegRecords.m in Sources */,
+				4CB12C8418BBC9A400F23A76 /* PreRecords.m in Sources */,
 				EAC9D88418B888CF0096D555 /* TDForgetPasswordVC.m in Sources */,
 				EA901B0618B6491700B1E20F /* TDUtil.m in Sources */,
+				4CB12C6618BBC6E400F23A76 /* Bhtype.m in Sources */,
+				4CB12C5A18BBC5F800F23A76 /* Bcity.m in Sources */,
+				4CB12C9618BBCB4000F23A76 /* Ynbinfor.m in Sources */,
 				4CA68EC018B520EC00D02209 /* TDHttpCommand.m in Sources */,
 				4C98ABF018B91E01007FAF12 /* NSNumber+otsCopy.m in Sources */,
 				EACD0D3018B3A216009109CB /* TDProfileVC.m in Sources */,
+				4CB12C6F18BBC80600F23A76 /* Card.m in Sources */,
+				4CB12C5218BBC51F00F23A76 /* B2type.m in Sources */,
 				EACD0D2A18B3A166009109CB /* TDHomeVC.m in Sources */,
 				EAD1249318B5F30200C6C145 /* TDImageLibrary.m in Sources */,
+				4CB12C8D18BBCAA800F23A76 /* Utocard.m in Sources */,
 				EAD1249E18B605D500C6C145 /* TDFontLibrary.m in Sources */,
+				4CB12C6318BBC6A700F23A76 /* Bhdr.m in Sources */,
 				4C98ABF318B91E01007FAF12 /* NSObject+Coder.m in Sources */,
+				4CB12C4F18BBC4C800F23A76 /* Announcement.m in Sources */,
+				4CB12C9018BBCADC00F23A76 /* Utoemil.m in Sources */,
 				4C98AC1B18B92BF4007FAF12 /* TDJsonParser.m in Sources */,
 				EA098BCB18B98E590034E0CF /* TDRegisterNoAccountVC.m in Sources */,
 				EAD6ACC618B79BC00003B24E /* TDLoginVC.m in Sources */,
 				4C98ABFA18B91E01007FAF12 /* NSString+safe.m in Sources */,
 				4C98ABEE18B91E01007FAF12 /* NSMutableDictionary+safe.m in Sources */,
+				4CB12C7218BBC84B00F23A76 /* Consumption.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
