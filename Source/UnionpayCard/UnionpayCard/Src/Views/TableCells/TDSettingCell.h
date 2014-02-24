@@ -16,6 +16,7 @@ typedef enum {
 }ETDCellStyle;
 
 @interface TDSettingCell : UITableViewCell
+@property (nonatomic, strong) UILabel         *lblTitle;
 +(float)HEIGHT;
 
 -(void)setStyle:(ETDCellStyle)aStyle;

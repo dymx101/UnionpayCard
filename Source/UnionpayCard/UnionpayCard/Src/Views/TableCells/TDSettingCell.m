@@ -13,6 +13,10 @@
 @interface TDSettingCell () {
     UIImageView     *_ivBg;
     UIView          *_seperatorView;
+    UIImageView     *_ivArrow;
+    UIView          *_highlightCoverView;
+    
+    UILabel         *_lblTitle;
 }
 
 @end
@@ -41,6 +45,19 @@
     _seperatorView = [UIView new];
     _seperatorView.backgroundColor = [FDColor sharedInstance].silver;
     [self addSubview:_seperatorView];
+    
+    _ivArrow = [UIImageView new];
+    _ivArrow.image = [TDImageLibrary sharedInstance].cellRightArrow;
+    [self addSubview:_ivArrow];
+    
+    _highlightCoverView = [UIView new];
+    float grayValue = (0XEE/255.f);
+    _highlightCoverView.backgroundColor = [UIColor colorWithRed:grayValue green:grayValue blue:grayValue alpha:.5f];
+    [self addSubview:_highlightCoverView];
+    _highlightCoverView.hidden = YES;
+    
+    _lblTitle = [UILabel new];
+    [self addSubview:_lblTitle];
 }
 
 -(void)layoutViews {
@@ -51,7 +68,21 @@
     [_seperatorView constrainHeight:@"1"];
     [_seperatorView alignLeading:@"20" trailing:@"-20" toView:self];
     [_seperatorView alignBottomEdgeWithView:self predicate:nil];
+    
+    [_ivArrow alignCenterYWithView:self predicate:nil];
+    [_ivArrow alignTrailingEdgeWithView:self predicate:@"-40"];
+    
+    [_highlightCoverView alignToView:_ivBg];
+    
+    [_lblTitle alignCenterYWithView:self predicate:nil];
+    [_lblTitle alignLeadingEdgeWithView:_ivBg predicate:@"10"];
 }
+
+- (void)setHighlighted:(BOOL)highlighted animated:(BOOL)animated {
+    _highlightCoverView.hidden = !highlighted;
+}
+
+#pragma mark - style
 
 -(void)setStyle:(ETDCellStyle)aStyle {
     switch (aStyle) {

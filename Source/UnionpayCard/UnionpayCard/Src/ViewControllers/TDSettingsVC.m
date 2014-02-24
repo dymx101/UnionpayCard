@@ -29,7 +29,11 @@
 }
 
 -(NSArray *)settingItems {
-    return @[@"消息提醒", @"分享设置", @"清空缓存"];
+    NSMutableArray *items = [NSMutableArray array];
+    [items addObject:@[@"消息提醒", @"分享设置", @"清空缓存"]];
+    [items addObject:@[@"意见反馈", @"支付帮助", @"检查更新", @"关于朋派"]];
+    
+    return items;
 }
 
 -(void)createViews {
@@ -49,8 +53,13 @@
 
 
 #pragma mark -
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+-(int)numberOfSectionsInTableView:(UITableView *)tableView {
     return [self settingItems].count;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    NSArray *items = [self settingItems][section];
+    return items.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -60,16 +69,21 @@
         cell = [TDSettingCell new];//[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIDStr];
     }
     
+    int section = indexPath.section;
     int row = indexPath.row;
     ETDCellStyle cellStyle = [TDSettingCell cellStyleWithIndexPath:indexPath tableView:tableView tableViewDataSource:self];
     [cell setStyle:cellStyle];
-   // cell.textLabel.text = [self settingItems][row];
+    cell.lblTitle.text = [self settingItems][section][row];
     
     return cell;
 }
 
 -(float)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     return [TDSettingCell HEIGHT];
+}
+
+-(float)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
+    return 20.f;
 }
 
 @end
