@@ -35,6 +35,8 @@
 -(void)createSubviews {
     
     _scrollView = [UIScrollView new];
+    _scrollView.pagingEnabled = YES;
+    _scrollView.showsHorizontalScrollIndicator = NO;
     [self.view addSubview:_scrollView];
     
     //
@@ -87,9 +89,11 @@
     return btnTile;
 }
 
+#define PADDING_TOP              (20)
 #define PADDING_Y               (20)
 #define BUTTON_SIZE             (80)
 #define BUTTON_OFFSET_X_CENTER  (50)
+#define PAGE_WIDTH              (320)
 
 -(void)layoutSubviews {
     _scrollView.translatesAutoresizingMaskIntoConstraints = NO;
@@ -99,17 +103,24 @@
     for (int i = 0; i < btnCount; i++) {
         UIButton *btn = _tileButtons[i];
         
+        int timesOfSix = i / 6;
+        
         NSString *btnSize = (@(BUTTON_SIZE)).stringValue;
         [btn constrainWidth:btnSize height:btnSize];
         
-        NSNumber *offsetCenterX = @((i % 2) ? BUTTON_OFFSET_X_CENTER : -BUTTON_OFFSET_X_CENTER);
+        int offsetX = (i % 2) ? BUTTON_OFFSET_X_CENTER : -BUTTON_OFFSET_X_CENTER;
+        NSNumber *offsetCenterX = @(offsetX + PAGE_WIDTH * timesOfSix);
         [btn alignCenterXWithView:_scrollView predicate:offsetCenterX.stringValue];
         
-        NSNumber *paddingTop = @(PADDING_Y * (i / 2 + 1) + (i / 2) * BUTTON_SIZE);
+        int factor = i % 6;
+        NSNumber *paddingTop = @(PADDING_TOP + PADDING_Y * (factor / 2 + 1) + (factor / 2) * BUTTON_SIZE);
         [btn alignTopEdgeWithView:_scrollView predicate:paddingTop.stringValue];
         
+        
+        
         if (i == btnCount - 1) {
-            [btn alignBottomEdgeWithView:_scrollView predicate:(@(-PADDING_Y)).stringValue];
+            float paddingX = PAGE_WIDTH / 2 - BUTTON_OFFSET_X_CENTER - BUTTON_SIZE / 2;
+            [btn alignTrailingEdgeWithView:_scrollView predicate:(@(-paddingX)).stringValue];
         }
     }
 }
