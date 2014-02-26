@@ -8,9 +8,11 @@
 
 #import "TDHomeVC.h"
 
-@interface TDHomeVC () {
+@interface TDHomeVC () <UIScrollViewDelegate> {
     UIScrollView            *_scrollView;
     NSMutableArray         *_tileButtons;
+    
+    UIPageControl           *_pageControl;
 }
 
 @end
@@ -21,6 +23,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    //self.view.backgroundColor = [FDColor sharedInstance].lightGray;
     _tileButtons = [NSMutableArray array];
     
     [self installLogoToNavibar];
@@ -37,7 +40,16 @@
     _scrollView = [UIScrollView new];
     _scrollView.pagingEnabled = YES;
     _scrollView.showsHorizontalScrollIndicator = NO;
+    _scrollView.delegate = self;
     [self.view addSubview:_scrollView];
+    
+    _pageControl = [UIPageControl new];
+    _pageControl.numberOfPages = 2;
+    _pageControl.userInteractionEnabled = NO;
+    _pageControl.pageIndicatorTintColor = [FDColor sharedInstance].white;
+    _pageControl.currentPageIndicatorTintColor = [FDColor sharedInstance].caribbeanGreen;
+    //[_pageControl addTarget:self action:@selector(pageValueChanged:) forControlEvents:UIControlEventValueChanged];
+    [self.view addSubview:_pageControl];
     
     //
     UIButton *btnTile = [self tileButtonWithTitle:@"用户\n注册" action:nil];
@@ -96,6 +108,11 @@
 #define PAGE_WIDTH              (320)
 
 -(void)layoutSubviews {
+    
+    [_pageControl alignCenterXWithView:self.view predicate:nil];
+    [_pageControl constrainWidthToView:self.view predicate:nil];
+    [_pageControl alignBottomEdgeWithView:self.view predicate:@"-80"];
+    
     _scrollView.translatesAutoresizingMaskIntoConstraints = NO;
     [_scrollView alignToView:self.view];
     
@@ -123,6 +140,20 @@
             [btn alignTrailingEdgeWithView:_scrollView predicate:(@(-paddingX)).stringValue];
         }
     }
+}
+
+#pragma mark - scroll view delegate
+-(void)scrollViewDidScroll:(UIScrollView *)scrollView {
+    int offsetX = scrollView.contentOffset.x;
+    float scrollWidth = scrollView.frame.size.width;
+    int page = (offsetX + (scrollWidth / 2)) / scrollWidth;
+    _pageControl.currentPage = page;
+}
+
+#pragma mark - actions 
+-(void)pageValueChanged:(id)sender {
+    float offsetX = _pageControl.currentPage * PAGE_WIDTH;
+    [_scrollView setContentOffset:CGPointMake(offsetX, 0) animated:YES];
 }
 
 @end

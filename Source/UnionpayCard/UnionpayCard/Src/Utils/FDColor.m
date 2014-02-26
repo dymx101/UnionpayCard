@@ -10,6 +10,11 @@
 
 #import "FDColor.h"
 
+#define UIColorFromRGB(rgbValue) [UIColor \
+colorWithRed:((float)((rgbValue & 0xFF0000) >> 16))/255.0 \
+green:((float)((rgbValue & 0xFF00) >> 8))/255.0 \
+blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
+
 @implementation FDColor
 DEF_SINGLETON(FDColor)
 
@@ -33,6 +38,9 @@ DEF_SINGLETON(FDColor)
         _clear = [UIColor clearColor];
         
         _silver = [UIColor colorWithHexString:@"EFEFEF"];
+        
+        _darkGray = UIColorFromRGB(0x333333);
+        _lightGray = UIColorFromRGB(0x999999);
     }
     return self;
 }
