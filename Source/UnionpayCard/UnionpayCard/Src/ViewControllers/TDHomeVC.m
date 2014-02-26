@@ -109,10 +109,6 @@
 
 -(void)layoutSubviews {
     
-    [_pageControl alignCenterXWithView:self.view predicate:nil];
-    [_pageControl constrainWidthToView:self.view predicate:nil];
-    [_pageControl alignBottomEdgeWithView:self.view predicate:@"-80"];
-    
     _scrollView.translatesAutoresizingMaskIntoConstraints = NO;
     [_scrollView alignToView:self.view];
     
@@ -140,6 +136,10 @@
             [btn alignTrailingEdgeWithView:_scrollView predicate:(@(-paddingX)).stringValue];
         }
     }
+    
+    [_pageControl alignCenterXWithView:self.view predicate:nil];
+    [_pageControl constrainWidthToView:self.view predicate:nil];
+    [_pageControl alignBottomEdgeWithView:(UIButton*)(_tileButtons[5]) predicate:@"40"];
 }
 
 #pragma mark - scroll view delegate
