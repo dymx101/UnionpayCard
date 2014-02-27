@@ -29,6 +29,11 @@
     NSString *voName;
     id dataDic = [dic objectForKey:@"showtable"];
     
+    //不跟VO实体类关联
+    if (dataDic == nil) {
+        return dic;
+    }
+    
     //返回的data键所对应的value数据类型的判断
     if ([dataDic isKindOfClass:[NSDictionary class]])
     {

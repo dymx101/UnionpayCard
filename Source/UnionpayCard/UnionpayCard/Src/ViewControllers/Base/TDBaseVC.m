@@ -88,4 +88,52 @@
     [self.navigationController popToRootViewControllerAnimated:YES];
 }
 
+#pragma mark - HUD
+/**
+ *  功能:显示hud
+ */
+- (void)showHUD:(NSString *)aMessage
+{
+    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    hud.mode = MBProgressHUDModeIndeterminate;
+    hud.labelText = aMessage;
+}
+
+/**
+ *  功能:隐藏hud
+ */
+- (void)hideHUD
+{
+    [MBProgressHUD hideHUDForView:self.view animated:YES];
+}
+
+/**
+ *  功能:显示字符串hud几秒钟时间
+ */
+- (void)showStringHUD:(NSString *)aMessage second:(int)aSecond
+{
+    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+//    hud.customString = aMessage;
+//    hud.mode = MBProgressHUDModeNSString;
+    
+    [self performSelector:@selector(hideHUD) withObject:nil afterDelay:aSecond];
+}
+
+#pragma mark - Loading View
+/**
+ *  功能:显示loading
+ */
+- (void)showLoading
+{
+    [self showHUD:nil];
+}
+
+/**
+ *  功能:隐藏loading
+ */
+- (void)hideLoading
+{
+    [self hideHUD];
+}
+
 @end

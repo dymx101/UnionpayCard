@@ -9,6 +9,14 @@
 #import <UIKit/UIKit.h>
 #import "TDBaseVC.h"
 
+@protocol TDLoginVCDelegate <NSObject>
+
+- (void) getProfile:(NSString *) tOken;
+
+@end
+
 @interface TDLoginVC : TDBaseVC
+
+@property(nonatomic,weak) id<TDLoginVCDelegate> delegate;
 
 @end

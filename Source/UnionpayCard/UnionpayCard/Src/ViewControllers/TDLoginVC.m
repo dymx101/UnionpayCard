@@ -10,8 +10,9 @@
 #import "TDForgetPasswordVC.h"
 #import "TDRegisterVC.h"
 #import "TDRegisterNoAccountVC.h"
+#import "Btype.h"
 
-@interface TDLoginVC () {
+@interface TDLoginVC ()<MBProgressHUDDelegate> {
     UIImageView     *_loginInputView;
     UIView          *_lineView;
     
@@ -99,6 +100,7 @@
     [_btnLogin setBackgroundImage:[TDImageLibrary sharedInstance].btnBgGreen forState:UIControlStateNormal];
     [_btnLogin setTitle:@"登录" forState:UIControlStateNormal];
     _btnLogin.titleLabel.font = [TDFontLibrary sharedInstance].fontTitleBold;
+    [_btnLogin addTarget:self action:@selector(loginAction:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:_btnLogin];
     
     _btnRegister = [UIButton new];
@@ -152,11 +154,48 @@
 }
 
 
-#pragma mark - 
+#pragma mark -
 -(void)registerAction:(id)sender {
     TDRegisterVC *vc = [TDRegisterVC new];
     [self.navigationController pushViewController:vc animated:YES];
 }
+
+-(void)loginAction:(id)sender {
+    
+    MBProgressHUD * HUD = [[MBProgressHUD alloc] initWithView:self.view];
+    [self.view addSubview:HUD];
+	HUD.delegate = self;
+    HUD.labelText = @"努力装载中";
+	HUD.color = [UIColor clearColor];
+	HUD.square = YES;
+    
+    __block NSDictionary * loginResultMap;
+    //http://localhost:8000/yscardII/json/Show/{"method":"LoginUserinfor","u_logname":"tongling26","u_log_password":"123456"}
+    [HUD showAnimated:YES whileExecutingBlock:^{
+        NSMutableDictionary * input = [NSMutableDictionary new];
+        [input setValue:@"LoginUserinfor" forKey:@"method"];
+        [input setValue:@"tongling26" forKey:@"u_logname"];
+        [input setValue:@"123456" forKey:@"u_log_password"];
+        TDHttpCommand * command = [TDHttpCommand new];
+        command.inPut = input;
+        //命令模式调用
+        [[TDHttpClient sharedClient] processCommand:command callback:^(NSURLSessionDataTask *task, id responseObject, NSError *anError) {
+            if (anError==nil && [responseObject isKindOfClass:[NSDictionary class]]) {
+                 loginResultMap = responseObject;
+            }
+        }];
+    } completionBlock:^{
+        //刷新 UI 主线程
+        NSLog(@">>> %@",loginResultMap);
+        [self.delegate getProfile:[loginResultMap objectForKey:@"userToken"]];
+        [self dismissViewControllerAnimated:YES completion:nil];
+    }];
+}
+
+-(void)myTask {
+    sleep(10);
+}
+
 
 -(void)registerNoAccountAction:(id)sender {
     TDRegisterNoAccountVC *vc = [TDRegisterNoAccountVC new];

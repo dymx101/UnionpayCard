@@ -38,6 +38,8 @@
 #import "NSDictionary+safe.h"
 #import "NSMutableDictionary+safe.h"
 
+#import "MBProgressHUD.h"
+
 #endif
 
 
