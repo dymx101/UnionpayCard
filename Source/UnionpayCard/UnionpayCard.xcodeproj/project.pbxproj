@@ -66,6 +66,13 @@
 		EA901B0618B6491700B1E20F /* TDUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = EA901B0518B6491700B1E20F /* TDUtil.m */; };
 		EA901B0818B64A1B00B1E20F /* 钟齐段宁行书.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EA901B0718B64A1B00B1E20F /* 钟齐段宁行书.ttf */; };
 		EAC9D88418B888CF0096D555 /* TDForgetPasswordVC.m in Sources */ = {isa = PBXBuildFile; fileRef = EAC9D88318B888CF0096D555 /* TDForgetPasswordVC.m */; };
+		EACBE40118BF140F00F2E9CF /* TDCardListVC.m in Sources */ = {isa = PBXBuildFile; fileRef = EACBE40018BF140F00F2E9CF /* TDCardListVC.m */; };
+		EACBE40418BF149000F2E9CF /* TDVendorsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = EACBE40318BF149000F2E9CF /* TDVendorsVC.m */; };
+		EACBE40718BF153400F2E9CF /* TDAddMoneyVC.m in Sources */ = {isa = PBXBuildFile; fileRef = EACBE40618BF153400F2E9CF /* TDAddMoneyVC.m */; };
+		EACBE40A18BF155A00F2E9CF /* TDCreditVC.m in Sources */ = {isa = PBXBuildFile; fileRef = EACBE40918BF155A00F2E9CF /* TDCreditVC.m */; };
+		EACBE40D18BF15A400F2E9CF /* TDConsumeVC.m in Sources */ = {isa = PBXBuildFile; fileRef = EACBE40C18BF15A400F2E9CF /* TDConsumeVC.m */; };
+		EACBE41018BF15C100F2E9CF /* TDMailVC.m in Sources */ = {isa = PBXBuildFile; fileRef = EACBE40F18BF15C100F2E9CF /* TDMailVC.m */; };
+		EACBE41318BF15E900F2E9CF /* TDLifeVC.m in Sources */ = {isa = PBXBuildFile; fileRef = EACBE41218BF15E900F2E9CF /* TDLifeVC.m */; };
 		EACC146018B36EE900DD27B0 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EACC145F18B36EE900DD27B0 /* Foundation.framework */; };
 		EACC146218B36EE900DD27B0 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EACC146118B36EE900DD27B0 /* CoreGraphics.framework */; };
 		EACC146418B36EE900DD27B0 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EACC146318B36EE900DD27B0 /* UIKit.framework */; };
@@ -962,6 +969,20 @@
 		EA901B0718B64A1B00B1E20F /* 钟齐段宁行书.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "钟齐段宁行书.ttf"; sourceTree = "<group>"; };
 		EAC9D88218B888CF0096D555 /* TDForgetPasswordVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TDForgetPasswordVC.h; sourceTree = "<group>"; };
 		EAC9D88318B888CF0096D555 /* TDForgetPasswordVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TDForgetPasswordVC.m; sourceTree = "<group>"; };
+		EACBE3FF18BF140F00F2E9CF /* TDCardListVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TDCardListVC.h; sourceTree = "<group>"; };
+		EACBE40018BF140F00F2E9CF /* TDCardListVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TDCardListVC.m; sourceTree = "<group>"; };
+		EACBE40218BF149000F2E9CF /* TDVendorsVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TDVendorsVC.h; sourceTree = "<group>"; };
+		EACBE40318BF149000F2E9CF /* TDVendorsVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TDVendorsVC.m; sourceTree = "<group>"; };
+		EACBE40518BF153400F2E9CF /* TDAddMoneyVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TDAddMoneyVC.h; sourceTree = "<group>"; };
+		EACBE40618BF153400F2E9CF /* TDAddMoneyVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TDAddMoneyVC.m; sourceTree = "<group>"; };
+		EACBE40818BF155A00F2E9CF /* TDCreditVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TDCreditVC.h; sourceTree = "<group>"; };
+		EACBE40918BF155A00F2E9CF /* TDCreditVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TDCreditVC.m; sourceTree = "<group>"; };
+		EACBE40B18BF15A400F2E9CF /* TDConsumeVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TDConsumeVC.h; sourceTree = "<group>"; };
+		EACBE40C18BF15A400F2E9CF /* TDConsumeVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TDConsumeVC.m; sourceTree = "<group>"; };
+		EACBE40E18BF15C100F2E9CF /* TDMailVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TDMailVC.h; sourceTree = "<group>"; };
+		EACBE40F18BF15C100F2E9CF /* TDMailVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TDMailVC.m; sourceTree = "<group>"; };
+		EACBE41118BF15E900F2E9CF /* TDLifeVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TDLifeVC.h; sourceTree = "<group>"; };
+		EACBE41218BF15E900F2E9CF /* TDLifeVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TDLifeVC.m; sourceTree = "<group>"; };
 		EACC145C18B36EE900DD27B0 /* UnionpayCard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UnionpayCard.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EACC145F18B36EE900DD27B0 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		EACC146118B36EE900DD27B0 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -1906,6 +1927,27 @@
 			path = TableCells;
 			sourceTree = "<group>";
 		};
+		EACBE3FE18BF13E500F2E9CF /* SubVCs */ = {
+			isa = PBXGroup;
+			children = (
+				EACBE3FF18BF140F00F2E9CF /* TDCardListVC.h */,
+				EACBE40018BF140F00F2E9CF /* TDCardListVC.m */,
+				EACBE40218BF149000F2E9CF /* TDVendorsVC.h */,
+				EACBE40318BF149000F2E9CF /* TDVendorsVC.m */,
+				EACBE40518BF153400F2E9CF /* TDAddMoneyVC.h */,
+				EACBE40618BF153400F2E9CF /* TDAddMoneyVC.m */,
+				EACBE40818BF155A00F2E9CF /* TDCreditVC.h */,
+				EACBE40918BF155A00F2E9CF /* TDCreditVC.m */,
+				EACBE40B18BF15A400F2E9CF /* TDConsumeVC.h */,
+				EACBE40C18BF15A400F2E9CF /* TDConsumeVC.m */,
+				EACBE40E18BF15C100F2E9CF /* TDMailVC.h */,
+				EACBE40F18BF15C100F2E9CF /* TDMailVC.m */,
+				EACBE41118BF15E900F2E9CF /* TDLifeVC.h */,
+				EACBE41218BF15E900F2E9CF /* TDLifeVC.m */,
+			);
+			path = SubVCs;
+			sourceTree = "<group>";
+		};
 		EACC145318B36EE900DD27B0 = {
 			isa = PBXGroup;
 			children = (
@@ -2770,6 +2812,7 @@
 		EACD0D1F18B3A050009109CB /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				EACBE3FE18BF13E500F2E9CF /* SubVCs */,
 				EACD0D2018B3A050009109CB /* Base */,
 				EACD0D2818B3A166009109CB /* TDHomeVC.h */,
 				EACD0D2918B3A166009109CB /* TDHomeVC.m */,
@@ -3743,11 +3786,14 @@
 				4CB12C6918BBC71500F23A76 /* Binfor.m in Sources */,
 				EACC147018B36EE900DD27B0 /* TDAppDelegate.m in Sources */,
 				4C98ABF818B91E01007FAF12 /* NSString+MD5Addition.m in Sources */,
+				EACBE40118BF140F00F2E9CF /* TDCardListVC.m in Sources */,
 				4C98AC1518B9246F007FAF12 /* NSObject+JsonToVO.m in Sources */,
 				EA098BC818B98E1C0034E0CF /* TDRegisterVC.m in Sources */,
+				EACBE41318BF15E900F2E9CF /* TDLifeVC.m in Sources */,
 				4CB12C5518BBC56400F23A76 /* Bcbd.m in Sources */,
 				EAD1249B18B604B600C6C145 /* FDColor.m in Sources */,
 				4C98AB2718B9196E007FAF12 /* Btype.m in Sources */,
+				EACBE41018BF15C100F2E9CF /* TDMailVC.m in Sources */,
 				EAD1249618B5F33300C6C145 /* FDDefine.m in Sources */,
 				4C98ABED18B91E01007FAF12 /* NSMutableArray+safe.m in Sources */,
 				4CB12C8718BBC9F200F23A76 /* Uemil.m in Sources */,
@@ -3758,12 +3804,15 @@
 				4CB12C5D18BBC63D00F23A76 /* Bcrcle.m in Sources */,
 				4CA68F0118B5BCA900D02209 /* TDAPIEngineTest.m in Sources */,
 				4CB12C9318BBCB0F00F23A76 /* Uvip.m in Sources */,
+				EACBE40A18BF155A00F2E9CF /* TDCreditVC.m in Sources */,
 				4CB12C4C18BBC42A00F23A76 /* Adver.m in Sources */,
 				4CB12C7E18BBC93500F23A76 /* Message.m in Sources */,
 				4CB12C8A18BBCA2600F23A76 /* Userinfor.m in Sources */,
 				4C98ABF618B91E01007FAF12 /* NSObject+swizzle.m in Sources */,
 				EACD0D2D18B3A1DD009109CB /* TDMerchantsVC.m in Sources */,
+				EACBE40418BF149000F2E9CF /* TDVendorsVC.m in Sources */,
 				4C98ABF218B91E01007FAF12 /* NSObject+BeeNotification.m in Sources */,
+				EACBE40718BF153400F2E9CF /* TDAddMoneyVC.m in Sources */,
 				4C98ABEF18B91E01007FAF12 /* NSMutableString+safe.m in Sources */,
 				4C98AB1B18B7E13C007FAF12 /* TDJsonToDictionary.m in Sources */,
 				4CB12C6018BBC66A00F23A76 /* Bdistrict.m in Sources */,
@@ -3791,6 +3840,7 @@
 				4CB12C6F18BBC80600F23A76 /* Card.m in Sources */,
 				4CB12C5218BBC51F00F23A76 /* B2type.m in Sources */,
 				EACD0D2A18B3A166009109CB /* TDHomeVC.m in Sources */,
+				EACBE40D18BF15A400F2E9CF /* TDConsumeVC.m in Sources */,
 				EAD1249318B5F30200C6C145 /* TDImageLibrary.m in Sources */,
 				4CB12C8D18BBCAA800F23A76 /* Utocard.m in Sources */,
 				EAD1249E18B605D500C6C145 /* TDFontLibrary.m in Sources */,

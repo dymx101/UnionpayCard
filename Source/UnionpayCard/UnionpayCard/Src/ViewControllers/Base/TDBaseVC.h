@@ -12,4 +12,7 @@
 -(void)installLogoToNavibar;
 -(void)installMapAndSearchToNavibar;
 -(void)installBackArrowToNavibar;
+
+-(void)naviToVC:(Class)aClass;
+
 @end

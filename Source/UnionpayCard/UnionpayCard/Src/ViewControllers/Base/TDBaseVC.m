@@ -88,6 +88,15 @@
     [self.navigationController popToRootViewControllerAnimated:YES];
 }
 
+-(void)naviToVC:(Class)aClass {
+    if (aClass) {
+        id obj = [aClass new];
+        if ([obj isKindOfClass:[UIViewController class]]) {
+            [self.navigationController pushViewController:(UIViewController *)obj animated:YES];
+        }
+    }
+}
+
 #pragma mark - HUD
 /**
  *  功能:显示hud
