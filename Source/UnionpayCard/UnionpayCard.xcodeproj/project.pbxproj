@@ -73,6 +73,7 @@
 		EACBE40D18BF15A400F2E9CF /* TDConsumeVC.m in Sources */ = {isa = PBXBuildFile; fileRef = EACBE40C18BF15A400F2E9CF /* TDConsumeVC.m */; };
 		EACBE41018BF15C100F2E9CF /* TDMailVC.m in Sources */ = {isa = PBXBuildFile; fileRef = EACBE40F18BF15C100F2E9CF /* TDMailVC.m */; };
 		EACBE41318BF15E900F2E9CF /* TDLifeVC.m in Sources */ = {isa = PBXBuildFile; fileRef = EACBE41218BF15E900F2E9CF /* TDLifeVC.m */; };
+		EACBE41618BF2EB100F2E9CF /* UIView+Effect.m in Sources */ = {isa = PBXBuildFile; fileRef = EACBE41518BF2EB100F2E9CF /* UIView+Effect.m */; };
 		EACC146018B36EE900DD27B0 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EACC145F18B36EE900DD27B0 /* Foundation.framework */; };
 		EACC146218B36EE900DD27B0 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EACC146118B36EE900DD27B0 /* CoreGraphics.framework */; };
 		EACC146418B36EE900DD27B0 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EACC146318B36EE900DD27B0 /* UIKit.framework */; };
@@ -983,6 +984,8 @@
 		EACBE40F18BF15C100F2E9CF /* TDMailVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TDMailVC.m; sourceTree = "<group>"; };
 		EACBE41118BF15E900F2E9CF /* TDLifeVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TDLifeVC.h; sourceTree = "<group>"; };
 		EACBE41218BF15E900F2E9CF /* TDLifeVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TDLifeVC.m; sourceTree = "<group>"; };
+		EACBE41418BF2EB100F2E9CF /* UIView+Effect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Effect.h"; sourceTree = "<group>"; };
+		EACBE41518BF2EB100F2E9CF /* UIView+Effect.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Effect.m"; sourceTree = "<group>"; };
 		EACC145C18B36EE900DD27B0 /* UnionpayCard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UnionpayCard.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EACC145F18B36EE900DD27B0 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		EACC146118B36EE900DD27B0 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -2846,6 +2849,8 @@
 		EACD0D2418B3A100009109CB /* Categories */ = {
 			isa = PBXGroup;
 			children = (
+				EACBE41418BF2EB100F2E9CF /* UIView+Effect.h */,
+				EACBE41518BF2EB100F2E9CF /* UIView+Effect.m */,
 				4C98AB9E18B91E01007FAF12 /* NSArray+safe.h */,
 				4C98AB9F18B91E01007FAF12 /* NSArray+safe.m */,
 				4C98ABA418B91E01007FAF12 /* NSDictionary+safe.h */,
@@ -3818,6 +3823,7 @@
 				4CB12C6018BBC66A00F23A76 /* Bdistrict.m in Sources */,
 				4C98AC0118B91E01007FAF12 /* UILabel+Attribute.m in Sources */,
 				EACD0D3318B3A243009109CB /* TDSettingsVC.m in Sources */,
+				EACBE41618BF2EB100F2E9CF /* UIView+Effect.m in Sources */,
 				4CB12C6C18BBC7C400F23A76 /* Bprovince.m in Sources */,
 				4C98ABF118B91E01007FAF12 /* NSNumber+safe.m in Sources */,
 				4CA68EBD18B5122400D02209 /* TDHttpClient.m in Sources */,
