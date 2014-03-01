@@ -20,6 +20,7 @@
     UITableView         *_cateTv;
     NSLayoutConstraint  *_constraintCateTvHeight;
     float               _cateTvHeight;
+    int                 _cateTVSelectedIndex;
 }
 
 @end
@@ -121,6 +122,9 @@
             cell = [TDCategoryCell new];
         }
         
+        BOOL showCover = (indexPath.row == _cateTVSelectedIndex);
+        [cell setItemSelected:showCover];
+        
         return cell;
     }
     
@@ -133,6 +137,11 @@
     }
     
     return 0;
+}
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    _cateTVSelectedIndex = indexPath.row;
+    [tableView reloadData];
 }
 
 @end

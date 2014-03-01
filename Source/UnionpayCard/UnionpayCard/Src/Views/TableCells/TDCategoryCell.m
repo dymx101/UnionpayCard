@@ -33,25 +33,33 @@
 }
 
 -(void)createViews {
-    _btnCategory = [TDCateogryButton new];
-    [_btnCategory setCateType:kCateTypeAll];
-    [self.contentView addSubview:_btnCategory];
+    
     
     _highlightCoverView = [UIView new];
-    _highlightCoverView.backgroundColor = [UIColor colorWithWhite:0xEE / 255.f alpha:.5f];
-    [self.contentView addSubview:_highlightCoverView];
-    //_highlightCoverView.hidden = YES;
+    _highlightCoverView.backgroundColor = [UIColor colorWithWhite:0xDD / 255.f alpha:.5f];
+    [self addSubview:_highlightCoverView];
+    _highlightCoverView.hidden = YES;
+    
+    _btnCategory = [TDCateogryButton new];
+    [_btnCategory setCateType:kCateTypeAll];
+    [_btnCategory removeInnerAction];
+    [self addSubview:_btnCategory];
 }
 
 -(void)layoutViews {
-    [_btnCategory alignToView:_btnCategory.superview];
+    [_btnCategory alignToView:self];
     [_highlightCoverView alignToView:self];
-    //[_highlightCoverView alignTop:@"0" leading:@"0" bottom:@"0" trailing:@"0" toView:self];
 }
 
-- (void)setHighlighted:(BOOL)highlighted animated:(BOOL)animated {
-    _highlightCoverView.hidden = !highlighted;
+//- (void)setHighlighted:(BOOL)highlighted animated:(BOOL)animated {
+//    _highlightCoverView.hidden = !highlighted;
+//}
+
+-(void)setItemSelected:(BOOL)aSelected {
+    _highlightCoverView.hidden = !aSelected;
+    [_btnCategory setSelected:aSelected];
 }
+
 
 #pragma mark - style
 

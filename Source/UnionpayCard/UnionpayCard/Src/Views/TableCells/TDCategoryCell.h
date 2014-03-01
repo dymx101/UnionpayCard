@@ -12,4 +12,6 @@
 
 +(float)HEIGHT;
 
+-(void)setItemSelected:(BOOL)aSelected;
+
 @end

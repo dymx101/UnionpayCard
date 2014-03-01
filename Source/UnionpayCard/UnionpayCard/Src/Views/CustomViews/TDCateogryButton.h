@@ -18,4 +18,7 @@
 
 -(void)setSelected:(BOOL)aSelected;
 -(BOOL)selected;
+
+-(void)removeInnerAction;
+
 @end

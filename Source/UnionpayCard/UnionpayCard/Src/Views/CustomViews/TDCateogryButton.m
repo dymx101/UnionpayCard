@@ -9,8 +9,9 @@
 #import "TDCateogryButton.h"
 
 @interface TDCateogryButton () {
-    ETDCateType     _type;
-    BOOL            _selected;
+    ETDCateType             _type;
+    BOOL                    _selected;
+    UITapGestureRecognizer  *_tapGest;
 }
 
 
@@ -36,8 +37,7 @@
     [self addSubview:_lblTitle];
     
     //
-    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapAction:)];
-    [self addGestureRecognizer:tap];
+    [self addInnerAction];
 }
 
 -(void)layoutViews {
@@ -68,6 +68,16 @@
 
 -(void)update {
     _ivIcon.image = (_selected ? [TDCategoryResource imageSelected:_type] : [TDCategoryResource imageNormal:_type]);
+}
+
+#pragma mark - innner gest
+-(void)removeInnerAction {
+    [self removeGestureRecognizer:_tapGest];
+}
+
+-(void)addInnerAction {
+    _tapGest = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapAction:)];
+    [self addGestureRecognizer:_tapGest];
 }
 
 -(void)tapAction:(id)sender {
