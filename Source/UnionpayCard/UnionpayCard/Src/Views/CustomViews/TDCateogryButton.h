@@ -15,5 +15,7 @@
 @property (nonatomic, strong) UILabel       *lblTitle;
 
 -(void)setCateType:(ETDCateType)aCateType;
+
 -(void)setSelected:(BOOL)aSelected;
+-(BOOL)selected;
 @end

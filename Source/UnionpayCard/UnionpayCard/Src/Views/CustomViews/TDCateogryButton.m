@@ -62,6 +62,10 @@
     [self update];
 }
 
+-(BOOL)selected {
+    return _selected;
+}
+
 -(void)update {
     _ivIcon.image = (_selected ? [TDCategoryResource imageSelected:_type] : [TDCategoryResource imageNormal:_type]);
 }

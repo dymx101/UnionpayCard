@@ -45,4 +45,5 @@ DEF_SINGLETON(FDColor)
     return self;
 }
 
+
 @end

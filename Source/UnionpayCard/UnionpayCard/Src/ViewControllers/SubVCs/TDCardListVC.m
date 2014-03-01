@@ -11,9 +11,11 @@
 #import "TDCateogryButton.h"
 
 @interface TDCardListVC () {
-    UIView *_topBarShadowView;
-    UIView *_topBarView;
+    UIView              *_topBarShadowView;
+    UIView              *_topBarView;
     TDCateogryButton    *_btnCategory;
+    
+    UIView              *_viewMask;
 }
 
 @end
@@ -43,7 +45,19 @@
     _btnCategory = [TDCateogryButton new];
     _btnCategory.backgroundColor = [FDColor sharedInstance].silver;
     [_btnCategory setCateType:kCateTypeAll];
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(categoryTapAction:)];
+    [_btnCategory addGestureRecognizer:tap];
     [_topBarView addSubview:_btnCategory];
+    
+    // mask
+    _viewMask = [UIView new];
+    _viewMask.backgroundColor = [UIColor colorWithWhite:0 alpha:.5f];
+    [self.view addSubview:_viewMask];
+    [_viewMask alignToView:self.view];
+    UITapGestureRecognizer *tapMask = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(hideCateMenu:)];
+    [_viewMask addGestureRecognizer:tapMask];
+
+    [self hideCateMenu:nil];
 }
 
 -(void)layoutViews {
@@ -58,6 +72,15 @@
     [_btnCategory constrainWidth:@"100"];
     [_btnCategory alignTop:@"0" leading:@"0" toView:_topBarView];
     
+}
+
+#pragma mark - 
+-(void)categoryTapAction:(id)sender {
+    _viewMask.hidden = !_viewMask.hidden;
+}
+
+-(void)hideCateMenu:(id)sender {
+    _viewMask.hidden = YES;
 }
 
 @end
