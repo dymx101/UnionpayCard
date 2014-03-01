@@ -25,6 +25,7 @@
     UISearchBar         *_searchBar;
     
     UITableView         *_mainTv;
+    UIImageView         *_ivActiveCard;
 }
 
 @end
@@ -175,7 +176,43 @@
     [tableView reloadData];
 }
 
-#pragma mark -
+-(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
+    if (tableView == _mainTv) {
+        return [self mainHeader];
+    }
+    
+    return nil;
+}
+
+-(float)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
+    if (tableView == _mainTv) {
+        return 110;
+    }
+    
+    return 0;
+}
+
+#pragma mark - table header & footer
+-(UIView *)mainHeader {
+    static UIView *header = nil;
+    if (header == nil) {
+        header = [UIView new];
+        header.backgroundColor = [FDColor sharedInstance].lightGray;
+        
+        _ivActiveCard = [UIImageView new];
+        _ivActiveCard.image = [UIImage imageNamed:@"vendor_sample.jpg"];
+        [_ivActiveCard applyEffectRoundRectSilverBorder];
+        [header addSubview:_ivActiveCard];
+        
+        [_ivActiveCard constrainWidth:@"100" height:@"100"];
+        [_ivActiveCard alignCenterYWithView:header predicate:nil];
+        [_ivActiveCard alignLeadingEdgeWithView:header predicate:@"10"];
+    }
+    
+    return header;
+}
+
+#pragma mark - search bar
 -(void)searchBarCancelButtonClicked:(UISearchBar *)searchBar {
     searchBar.text = nil;
     [searchBar resignFirstResponder];

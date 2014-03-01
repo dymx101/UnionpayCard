@@ -66,6 +66,7 @@
 		EA58BEE418C1C75200E36E7E /* TDCategoryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EA58BEE318C1C75200E36E7E /* TDCategoryCell.m */; };
 		EA901B0618B6491700B1E20F /* TDUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = EA901B0518B6491700B1E20F /* TDUtil.m */; };
 		EA901B0818B64A1B00B1E20F /* 钟齐段宁行书.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EA901B0718B64A1B00B1E20F /* 钟齐段宁行书.ttf */; };
+		EAC90DC318C22BC30086AC2F /* vendor_sample.jpg in Resources */ = {isa = PBXBuildFile; fileRef = EAC90DC218C22BC30086AC2F /* vendor_sample.jpg */; };
 		EAC9796E18C1762600927CEE /* TDCateogryButton.m in Sources */ = {isa = PBXBuildFile; fileRef = EAC9796D18C1762600927CEE /* TDCateogryButton.m */; };
 		EAC9797118C1883B00927CEE /* TDCategoryResource.m in Sources */ = {isa = PBXBuildFile; fileRef = EAC9797018C1883B00927CEE /* TDCategoryResource.m */; };
 		EAC9D88418B888CF0096D555 /* TDForgetPasswordVC.m in Sources */ = {isa = PBXBuildFile; fileRef = EAC9D88318B888CF0096D555 /* TDForgetPasswordVC.m */; };
@@ -973,6 +974,7 @@
 		EA901B0418B6491700B1E20F /* TDUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TDUtil.h; sourceTree = "<group>"; };
 		EA901B0518B6491700B1E20F /* TDUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TDUtil.m; sourceTree = "<group>"; };
 		EA901B0718B64A1B00B1E20F /* 钟齐段宁行书.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "钟齐段宁行书.ttf"; sourceTree = "<group>"; };
+		EAC90DC218C22BC30086AC2F /* vendor_sample.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = vendor_sample.jpg; sourceTree = "<group>"; };
 		EAC9796C18C1762600927CEE /* TDCateogryButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TDCateogryButton.h; sourceTree = "<group>"; };
 		EAC9796D18C1762600927CEE /* TDCateogryButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TDCateogryButton.m; sourceTree = "<group>"; };
 		EAC9796F18C1883B00927CEE /* TDCategoryResource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TDCategoryResource.h; sourceTree = "<group>"; };
@@ -2060,6 +2062,7 @@
 		EACC148F18B36F8500DD27B0 /* MeituanImages */ = {
 			isa = PBXGroup;
 			children = (
+				EAC90DC218C22BC30086AC2F /* vendor_sample.jpg */,
 				EAD1248E18B5F1CD00C6C145 /* union_pay@2x.png */,
 				EAD1248C18B5EC2900C6C145 /* bg_navigationBar_tall@2x.png */,
 				EACC149018B36F8500DD27B0 /* Add_to_Passbook_CN.png */,
@@ -3482,6 +3485,7 @@
 				EACC19D318B36F9100DD27B0 /* icon_recommend_sectionSeperator_line.png in Resources */,
 				EACC17A718B36F9100DD27B0 /* bg_feedback_send.png in Resources */,
 				EACC1A6B18B36F9200DD27B0 /* ump_btn_default.png in Resources */,
+				EAC90DC318C22BC30086AC2F /* vendor_sample.jpg in Resources */,
 				EACC194D18B36F9100DD27B0 /* icon_map_highlighted.png in Resources */,
 				EACC190C18B36F9100DD27B0 /* icon_dropdown_triangle_down.png in Resources */,
 				EACC198D18B36F9100DD27B0 /* icon_mine_unpaid_disabled.png in Resources */,
