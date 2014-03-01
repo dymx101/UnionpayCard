@@ -28,4 +28,9 @@
     }
 
 }
+
++(BOOL)isIOS7 {
+    return NSFoundationVersionNumber > NSFoundationVersionNumber_iOS_6_1;
+}
+
 @end

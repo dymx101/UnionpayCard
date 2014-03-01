@@ -10,4 +10,6 @@
 
 @interface TDUtil : NSObject
 +(void)findFonts;
++(BOOL)isIOS7;
+
 @end
