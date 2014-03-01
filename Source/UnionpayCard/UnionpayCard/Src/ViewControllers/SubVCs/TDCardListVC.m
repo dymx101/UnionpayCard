@@ -16,13 +16,15 @@
     UIView              *_topBarView;
     TDCateogryButton    *_btnCategory;
     
-    UIButton              *_viewMask;
+    UIButton            *_viewMask;
     UITableView         *_cateTv;
     NSLayoutConstraint  *_constraintCateTvHeight;
     float               _cateTvHeight;
     int                 _cateTVSelectedIndex;
     
     UISearchBar         *_searchBar;
+    
+    UITableView         *_mainTv;
 }
 
 @end
@@ -42,6 +44,13 @@
 }
 
 -(void)createViews {
+    
+    _mainTv = [UITableView new];
+    _mainTv.delegate = self;
+    _mainTv.dataSource = self;
+    _mainTv.backgroundColor = [FDColor sharedInstance].caribbeanGreen;
+    [self.view addSubview:_mainTv];
+    
     _topBarShadowView = [UIView new];
     _topBarShadowView.backgroundColor = [FDColor sharedInstance].black;
     [_topBarShadowView applyEffectShadow];
@@ -85,10 +94,15 @@
 }
 
 -(void)layoutViews {
+    
     [_topBarShadowView constrainWidthToView:self.view predicate:nil];
     [_topBarShadowView constrainHeight:@"40"];
     [_topBarShadowView alignTopEdgeWithView:self.view predicate:nil];
     [_topBarShadowView alignCenterXWithView:self.view predicate:nil];
+    
+    [_mainTv alignLeading:@"0" trailing:@"0" toView:self.view];
+    [_mainTv constrainTopSpaceToView:_topBarView predicate:nil];
+    [_mainTv alignBottomEdgeWithView:self.view predicate:nil];
     
     [_topBarView alignToView:_topBarShadowView];
     
