@@ -9,13 +9,17 @@
 #import "TDCardListVC.h"
 #import "UIView+Effect.h"
 #import "TDCateogryButton.h"
+#import "TDCategoryCell.h"
 
-@interface TDCardListVC () {
+@interface TDCardListVC () <UITableViewDelegate, UITableViewDataSource> {
     UIView              *_topBarShadowView;
     UIView              *_topBarView;
     TDCateogryButton    *_btnCategory;
     
-    UIView              *_viewMask;
+    UIButton              *_viewMask;
+    UITableView         *_cateTv;
+    NSLayoutConstraint  *_constraintCateTvHeight;
+    float               _cateTvHeight;
 }
 
 @end
@@ -27,6 +31,8 @@
     [super viewDidLoad];
     //self.view.backgroundColor = [FDColor sharedInstance].red;
     self.navigationItem.title = @"卡片管理";
+    
+    _cateTvHeight = 400;
     
     [self createViews];
     [self layoutViews];
@@ -50,12 +56,21 @@
     [_topBarView addSubview:_btnCategory];
     
     // mask
-    _viewMask = [UIView new];
+    _viewMask = [UIButton new];
     _viewMask.backgroundColor = [UIColor colorWithWhite:0 alpha:.5f];
     [self.view addSubview:_viewMask];
-    [_viewMask alignToView:self.view];
-    UITapGestureRecognizer *tapMask = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(hideCateMenu:)];
-    [_viewMask addGestureRecognizer:tapMask];
+    [_viewMask addTarget:self action:@selector(hideCateMenu:) forControlEvents:UIControlEventTouchUpInside];
+    
+//    UITapGestureRecognizer *tapMask = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(hideCateMenu:)];
+//    [_viewMask addGestureRecognizer:tapMask];
+    
+    //
+    _cateTv = [UITableView new];
+    _cateTv.delegate = self;
+    _cateTv.dataSource = self;
+    _cateTv.separatorStyle = UITableViewCellSeparatorStyleNone;
+    [_viewMask addSubview:_cateTv];
+    
 
     [self hideCateMenu:nil];
 }
@@ -72,6 +87,11 @@
     [_btnCategory constrainWidth:@"100"];
     [_btnCategory alignTop:@"0" leading:@"0" toView:_topBarView];
     
+    [_viewMask alignToView:self.view];
+    
+    [_cateTv alignTop:@"40" leading:@"1" toView:_viewMask];
+    [_cateTv constrainWidth:@"99"];
+    _constraintCateTvHeight = [_cateTv constrainHeight:@(_cateTvHeight).stringValue].firstObject;
 }
 
 #pragma mark - 
@@ -81,6 +101,38 @@
 
 -(void)hideCateMenu:(id)sender {
     _viewMask.hidden = YES;
+}
+
+#pragma mark - table view
+-(int)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    if (tableView == _cateTv) {
+        return 8;
+    }
+    
+    return 0;
+}
+
+-(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    if (tableView == _cateTv) {
+        static NSString *cellIdStr = @"cellIdStr";
+        TDCategoryCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdStr];
+        if (cell == nil) {
+            cell = [TDCategoryCell new];
+        }
+        
+        return cell;
+    }
+    
+    return nil;
+}
+
+-(float)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (tableView == _cateTv) {
+        return [TDCategoryCell HEIGHT];
+    }
+    
+    return 0;
 }
 
 @end

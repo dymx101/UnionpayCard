@@ -63,6 +63,7 @@
 		EA098BD218B9B1E40034E0CF /* tableCellRoundBg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EA098BCE18B9B1E40034E0CF /* tableCellRoundBg@2x.png */; };
 		EA098BD318B9B1E40034E0CF /* tableCellTopBg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EA098BCF18B9B1E40034E0CF /* tableCellTopBg@2x.png */; };
 		EA098BD818B9B4450034E0CF /* TDSettingCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EA098BD718B9B4450034E0CF /* TDSettingCell.m */; };
+		EA58BEE418C1C75200E36E7E /* TDCategoryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EA58BEE318C1C75200E36E7E /* TDCategoryCell.m */; };
 		EA901B0618B6491700B1E20F /* TDUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = EA901B0518B6491700B1E20F /* TDUtil.m */; };
 		EA901B0818B64A1B00B1E20F /* 钟齐段宁行书.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EA901B0718B64A1B00B1E20F /* 钟齐段宁行书.ttf */; };
 		EAC9796E18C1762600927CEE /* TDCateogryButton.m in Sources */ = {isa = PBXBuildFile; fileRef = EAC9796D18C1762600927CEE /* TDCateogryButton.m */; };
@@ -967,6 +968,8 @@
 		EA098BCF18B9B1E40034E0CF /* tableCellTopBg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tableCellTopBg@2x.png"; sourceTree = "<group>"; };
 		EA098BD618B9B4450034E0CF /* TDSettingCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TDSettingCell.h; sourceTree = "<group>"; };
 		EA098BD718B9B4450034E0CF /* TDSettingCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TDSettingCell.m; sourceTree = "<group>"; };
+		EA58BEE218C1C75200E36E7E /* TDCategoryCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TDCategoryCell.h; sourceTree = "<group>"; };
+		EA58BEE318C1C75200E36E7E /* TDCategoryCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TDCategoryCell.m; sourceTree = "<group>"; };
 		EA901B0418B6491700B1E20F /* TDUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TDUtil.h; sourceTree = "<group>"; };
 		EA901B0518B6491700B1E20F /* TDUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TDUtil.m; sourceTree = "<group>"; };
 		EA901B0718B64A1B00B1E20F /* 钟齐段宁行书.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "钟齐段宁行书.ttf"; sourceTree = "<group>"; };
@@ -1933,6 +1936,8 @@
 			children = (
 				EA098BD618B9B4450034E0CF /* TDSettingCell.h */,
 				EA098BD718B9B4450034E0CF /* TDSettingCell.m */,
+				EA58BEE218C1C75200E36E7E /* TDCategoryCell.h */,
+				EA58BEE318C1C75200E36E7E /* TDCategoryCell.m */,
 			);
 			path = TableCells;
 			sourceTree = "<group>";
@@ -3809,6 +3814,7 @@
 				4CB12C6918BBC71500F23A76 /* Binfor.m in Sources */,
 				EACC147018B36EE900DD27B0 /* TDAppDelegate.m in Sources */,
 				4C98ABF818B91E01007FAF12 /* NSString+MD5Addition.m in Sources */,
+				EA58BEE418C1C75200E36E7E /* TDCategoryCell.m in Sources */,
 				EACBE40118BF140F00F2E9CF /* TDCardListVC.m in Sources */,
 				EAC9796E18C1762600927CEE /* TDCateogryButton.m in Sources */,
 				4C98AC1518B9246F007FAF12 /* NSObject+JsonToVO.m in Sources */,
