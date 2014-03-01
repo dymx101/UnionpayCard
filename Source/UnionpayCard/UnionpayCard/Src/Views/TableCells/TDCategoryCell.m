@@ -7,13 +7,12 @@
 //
 
 #import "TDCategoryCell.h"
-#import "TDCateogryButton.h"
+
 
 #define MY_HEIGHT   (35)
 
 @interface TDCategoryCell () {
     UIView                  *_highlightCoverView;
-    TDCateogryButton        *_btnCategory;
 }
 
 @end

@@ -10,6 +10,14 @@
 
 typedef enum {
     kCateTypeAll = 0
+    , kCateTypeMovie
+    , kCateTypeLeisure
+    , kCateTypeFood
+    , kCateTypeHotel
+    , kCateTypeLife
+    , kCateTypeShopping
+    , kCateTypeTravel
+    , kCateTypeAuto
 }ETDCateType;
 
 @interface TDCategoryResource : NSObject
@@ -17,5 +25,7 @@ typedef enum {
 +(UIImage *)imageSelected:(ETDCateType)aCateType;
 +(UIImage *)imageNormal:(ETDCateType)aCateType;
 +(NSString *)title:(ETDCateType)aCateType;
+
++(NSArray *)alltypes;
 
 @end

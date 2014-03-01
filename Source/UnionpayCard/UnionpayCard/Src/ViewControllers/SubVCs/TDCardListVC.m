@@ -11,7 +11,7 @@
 #import "TDCateogryButton.h"
 #import "TDCategoryCell.h"
 
-@interface TDCardListVC () <UITableViewDelegate, UITableViewDataSource> {
+@interface TDCardListVC () <UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate> {
     UIView              *_topBarShadowView;
     UIView              *_topBarView;
     TDCateogryButton    *_btnCategory;
@@ -21,6 +21,8 @@
     NSLayoutConstraint  *_constraintCateTvHeight;
     float               _cateTvHeight;
     int                 _cateTVSelectedIndex;
+    
+    UISearchBar         *_searchBar;
 }
 
 @end
@@ -33,7 +35,7 @@
     //self.view.backgroundColor = [FDColor sharedInstance].red;
     self.navigationItem.title = @"卡片管理";
     
-    _cateTvHeight = 400;
+    _cateTvHeight = 330;
     
     [self createViews];
     [self layoutViews];
@@ -46,7 +48,7 @@
     [self.view addSubview:_topBarShadowView];
     
     _topBarView = [UIView new];
-    _topBarView.backgroundColor = [FDColor sharedInstance].white;
+    _topBarView.backgroundColor = [FDColor sharedInstance].silver;
     [self.view addSubview:_topBarView];
     
     _btnCategory = [TDCateogryButton new];
@@ -62,9 +64,6 @@
     [self.view addSubview:_viewMask];
     [_viewMask addTarget:self action:@selector(hideCateMenu:) forControlEvents:UIControlEventTouchUpInside];
     
-//    UITapGestureRecognizer *tapMask = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(hideCateMenu:)];
-//    [_viewMask addGestureRecognizer:tapMask];
-    
     //
     _cateTv = [UITableView new];
     _cateTv.delegate = self;
@@ -72,6 +71,15 @@
     _cateTv.separatorStyle = UITableViewCellSeparatorStyleNone;
     [_viewMask addSubview:_cateTv];
     
+    // search bar
+    _searchBar = [UISearchBar new];
+    _searchBar.tintColor = [FDColor sharedInstance].caribbeanGreen;
+    _searchBar.showsCancelButton = YES;
+    _searchBar.delegate = self;
+    if([TDUtil isIOS7]) {
+        _searchBar.searchBarStyle = UISearchBarStyleMinimal;
+    }
+    [self.view addSubview:_searchBar];
 
     [self hideCateMenu:nil];
 }
@@ -93,6 +101,11 @@
     [_cateTv alignTop:@"40" leading:@"1" toView:_viewMask];
     [_cateTv constrainWidth:@"99"];
     _constraintCateTvHeight = [_cateTv constrainHeight:@(_cateTvHeight).stringValue].firstObject;
+    
+    [_searchBar constrainLeadingSpaceToView:_btnCategory predicate:nil];
+    [_searchBar constrainHeightToView:_topBarView predicate:nil];
+    [_searchBar alignTrailingEdgeWithView:_topBarView predicate:nil];
+    [_searchBar alignCenterYWithView:_topBarView predicate:nil];
 }
 
 #pragma mark - 
@@ -107,7 +120,7 @@
 #pragma mark - table view
 -(int)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     if (tableView == _cateTv) {
-        return 8;
+        return [TDCategoryResource alltypes].count;
     }
     
     return 0;
@@ -121,6 +134,8 @@
         if (cell == nil) {
             cell = [TDCategoryCell new];
         }
+        
+        [cell.btnCategory setCateType:[([TDCategoryResource alltypes][indexPath.row]) intValue]];
         
         BOOL showCover = (indexPath.row == _cateTVSelectedIndex);
         [cell setItemSelected:showCover];
@@ -141,7 +156,15 @@
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     _cateTVSelectedIndex = indexPath.row;
+    [_btnCategory setCateType:[([TDCategoryResource alltypes][_cateTVSelectedIndex]) intValue]];
+    [self hideCateMenu:nil];
     [tableView reloadData];
+}
+
+#pragma mark -
+-(void)searchBarCancelButtonClicked:(UISearchBar *)searchBar {
+    searchBar.text = nil;
+    [searchBar resignFirstResponder];
 }
 
 @end

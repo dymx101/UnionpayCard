@@ -7,8 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "TDCateogryButton.h"
 
 @interface TDCategoryCell : UITableViewCell
+@property (nonatomic, strong)     TDCateogryButton        *btnCategory;
 
 +(float)HEIGHT;
 
