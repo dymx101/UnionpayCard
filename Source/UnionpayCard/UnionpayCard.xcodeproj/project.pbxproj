@@ -65,6 +65,8 @@
 		EA098BD818B9B4450034E0CF /* TDSettingCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EA098BD718B9B4450034E0CF /* TDSettingCell.m */; };
 		EA901B0618B6491700B1E20F /* TDUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = EA901B0518B6491700B1E20F /* TDUtil.m */; };
 		EA901B0818B64A1B00B1E20F /* 钟齐段宁行书.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EA901B0718B64A1B00B1E20F /* 钟齐段宁行书.ttf */; };
+		EAC9796E18C1762600927CEE /* TDCateogryButton.m in Sources */ = {isa = PBXBuildFile; fileRef = EAC9796D18C1762600927CEE /* TDCateogryButton.m */; };
+		EAC9797118C1883B00927CEE /* TDCategoryResource.m in Sources */ = {isa = PBXBuildFile; fileRef = EAC9797018C1883B00927CEE /* TDCategoryResource.m */; };
 		EAC9D88418B888CF0096D555 /* TDForgetPasswordVC.m in Sources */ = {isa = PBXBuildFile; fileRef = EAC9D88318B888CF0096D555 /* TDForgetPasswordVC.m */; };
 		EACBE40118BF140F00F2E9CF /* TDCardListVC.m in Sources */ = {isa = PBXBuildFile; fileRef = EACBE40018BF140F00F2E9CF /* TDCardListVC.m */; };
 		EACBE40418BF149000F2E9CF /* TDVendorsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = EACBE40318BF149000F2E9CF /* TDVendorsVC.m */; };
@@ -968,6 +970,10 @@
 		EA901B0418B6491700B1E20F /* TDUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TDUtil.h; sourceTree = "<group>"; };
 		EA901B0518B6491700B1E20F /* TDUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TDUtil.m; sourceTree = "<group>"; };
 		EA901B0718B64A1B00B1E20F /* 钟齐段宁行书.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "钟齐段宁行书.ttf"; sourceTree = "<group>"; };
+		EAC9796C18C1762600927CEE /* TDCateogryButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TDCateogryButton.h; sourceTree = "<group>"; };
+		EAC9796D18C1762600927CEE /* TDCateogryButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TDCateogryButton.m; sourceTree = "<group>"; };
+		EAC9796F18C1883B00927CEE /* TDCategoryResource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TDCategoryResource.h; sourceTree = "<group>"; };
+		EAC9797018C1883B00927CEE /* TDCategoryResource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TDCategoryResource.m; sourceTree = "<group>"; };
 		EAC9D88218B888CF0096D555 /* TDForgetPasswordVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TDForgetPasswordVC.h; sourceTree = "<group>"; };
 		EAC9D88318B888CF0096D555 /* TDForgetPasswordVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TDForgetPasswordVC.m; sourceTree = "<group>"; };
 		EACBE3FF18BF140F00F2E9CF /* TDCardListVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TDCardListVC.h; sourceTree = "<group>"; };
@@ -1916,6 +1922,7 @@
 		EA098BD418B9B4320034E0CF /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				EAC9796B18C1760000927CEE /* CustomViews */,
 				EA098BD518B9B4320034E0CF /* TableCells */,
 			);
 			path = Views;
@@ -1928,6 +1935,17 @@
 				EA098BD718B9B4450034E0CF /* TDSettingCell.m */,
 			);
 			path = TableCells;
+			sourceTree = "<group>";
+		};
+		EAC9796B18C1760000927CEE /* CustomViews */ = {
+			isa = PBXGroup;
+			children = (
+				EAC9796C18C1762600927CEE /* TDCateogryButton.h */,
+				EAC9796D18C1762600927CEE /* TDCateogryButton.m */,
+				EAC9796F18C1883B00927CEE /* TDCategoryResource.h */,
+				EAC9797018C1883B00927CEE /* TDCategoryResource.m */,
+			);
+			path = CustomViews;
 			sourceTree = "<group>";
 		};
 		EACBE3FE18BF13E500F2E9CF /* SubVCs */ = {
@@ -3792,6 +3810,7 @@
 				EACC147018B36EE900DD27B0 /* TDAppDelegate.m in Sources */,
 				4C98ABF818B91E01007FAF12 /* NSString+MD5Addition.m in Sources */,
 				EACBE40118BF140F00F2E9CF /* TDCardListVC.m in Sources */,
+				EAC9796E18C1762600927CEE /* TDCateogryButton.m in Sources */,
 				4C98AC1518B9246F007FAF12 /* NSObject+JsonToVO.m in Sources */,
 				EA098BC818B98E1C0034E0CF /* TDRegisterVC.m in Sources */,
 				EACBE41318BF15E900F2E9CF /* TDLifeVC.m in Sources */,
@@ -3840,6 +3859,7 @@
 				4CB12C6618BBC6E400F23A76 /* Bhtype.m in Sources */,
 				4CB12C5A18BBC5F800F23A76 /* Bcity.m in Sources */,
 				4CB12C9618BBCB4000F23A76 /* Ynbinfor.m in Sources */,
+				EAC9797118C1883B00927CEE /* TDCategoryResource.m in Sources */,
 				4CA68EC018B520EC00D02209 /* TDHttpCommand.m in Sources */,
 				4C98ABF018B91E01007FAF12 /* NSNumber+otsCopy.m in Sources */,
 				EACD0D3018B3A216009109CB /* TDProfileVC.m in Sources */,
