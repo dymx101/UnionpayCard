@@ -28,6 +28,8 @@ DEF_SINGLETON(FDColor)
         _caribbeanGreen = [UIColor colorWithCrayola:@"Caribbean Green"];
         _desertSand = [UIColor colorWithCrayola:@"Desert Sand"];
         _purpleHeart = [UIColor colorWithCrayola:@"Purple Heart"];
+        _apricot = [UIColor colorWithCrayola:@"Apricot"];
+        _cerulean = [UIColor colorWithCrayola:@"Cerulean"];
         
         _black = [UIColor blackColor];
         _white = [UIColor whiteColor];

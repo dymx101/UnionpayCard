@@ -852,6 +852,8 @@
 		EACD0D3C18B3A52A009109CB /* navigationbar_background@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EACD0D3818B3A52A009109CB /* navigationbar_background@2x.png */; };
 		EACD0D3F18B3A6A1009109CB /* tabbar_normal_background.png in Resources */ = {isa = PBXBuildFile; fileRef = EACD0D3D18B3A6A1009109CB /* tabbar_normal_background.png */; };
 		EACD0D4018B3A6A1009109CB /* tabbar_normal_background@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EACD0D3E18B3A6A1009109CB /* tabbar_normal_background@2x.png */; };
+		EACDA60C18C2AFEE005BDC7E /* TDCardCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EACDA60B18C2AFEE005BDC7E /* TDCardCell.m */; };
+		EACDA60E18C2D12E005BDC7E /* vendor_sample@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EACDA60D18C2D12E005BDC7E /* vendor_sample@2x.png */; };
 		EAD1248D18B5EC2900C6C145 /* bg_navigationBar_tall@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EAD1248C18B5EC2900C6C145 /* bg_navigationBar_tall@2x.png */; };
 		EAD1248F18B5F1CD00C6C145 /* union_pay@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EAD1248E18B5F1CD00C6C145 /* union_pay@2x.png */; };
 		EAD1249318B5F30200C6C145 /* TDImageLibrary.m in Sources */ = {isa = PBXBuildFile; fileRef = EAD1249218B5F30200C6C145 /* TDImageLibrary.m */; };
@@ -1784,6 +1786,9 @@
 		EACD0D3818B3A52A009109CB /* navigationbar_background@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "navigationbar_background@2x.png"; sourceTree = "<group>"; };
 		EACD0D3D18B3A6A1009109CB /* tabbar_normal_background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tabbar_normal_background.png; sourceTree = "<group>"; };
 		EACD0D3E18B3A6A1009109CB /* tabbar_normal_background@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tabbar_normal_background@2x.png"; sourceTree = "<group>"; };
+		EACDA60A18C2AFEE005BDC7E /* TDCardCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TDCardCell.h; sourceTree = "<group>"; };
+		EACDA60B18C2AFEE005BDC7E /* TDCardCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TDCardCell.m; sourceTree = "<group>"; };
+		EACDA60D18C2D12E005BDC7E /* vendor_sample@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "vendor_sample@2x.png"; sourceTree = "<group>"; };
 		EAD1248C18B5EC2900C6C145 /* bg_navigationBar_tall@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg_navigationBar_tall@2x.png"; sourceTree = "<group>"; };
 		EAD1248E18B5F1CD00C6C145 /* union_pay@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "union_pay@2x.png"; sourceTree = "<group>"; };
 		EAD1249118B5F30200C6C145 /* TDImageLibrary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TDImageLibrary.h; sourceTree = "<group>"; };
@@ -1940,6 +1945,8 @@
 				EA098BD718B9B4450034E0CF /* TDSettingCell.m */,
 				EA58BEE218C1C75200E36E7E /* TDCategoryCell.h */,
 				EA58BEE318C1C75200E36E7E /* TDCategoryCell.m */,
+				EACDA60A18C2AFEE005BDC7E /* TDCardCell.h */,
+				EACDA60B18C2AFEE005BDC7E /* TDCardCell.m */,
 			);
 			path = TableCells;
 			sourceTree = "<group>";
@@ -2062,6 +2069,7 @@
 		EACC148F18B36F8500DD27B0 /* MeituanImages */ = {
 			isa = PBXGroup;
 			children = (
+				EACDA60D18C2D12E005BDC7E /* vendor_sample@2x.png */,
 				EAC90DC218C22BC30086AC2F /* vendor_sample.jpg */,
 				EAD1248E18B5F1CD00C6C145 /* union_pay@2x.png */,
 				EAD1248C18B5EC2900C6C145 /* bg_navigationBar_tall@2x.png */,
@@ -3277,6 +3285,7 @@
 				EACC1A4418B36F9200DD27B0 /* register_step3_banner.png in Resources */,
 				EACC17E418B36F9100DD27B0 /* bg_myCoupon_topHalf@2x.png in Resources */,
 				EACC190718B36F9100DD27B0 /* icon_dropdown_location_normal.png in Resources */,
+				EACDA60E18C2D12E005BDC7E /* vendor_sample@2x.png in Resources */,
 				EACC17B218B36F9100DD27B0 /* bg_homepage_hotTopicSection.png in Resources */,
 				EACC1A1518B36F9200DD27B0 /* input_textField_disabled@2x.png in Resources */,
 				EACC195418B36F9100DD27B0 /* icon_map_refresh@2x.png in Resources */,
@@ -3876,6 +3885,7 @@
 				4CB12C6F18BBC80600F23A76 /* Card.m in Sources */,
 				4CB12C5218BBC51F00F23A76 /* B2type.m in Sources */,
 				EACD0D2A18B3A166009109CB /* TDHomeVC.m in Sources */,
+				EACDA60C18C2AFEE005BDC7E /* TDCardCell.m in Sources */,
 				EACBE40D18BF15A400F2E9CF /* TDConsumeVC.m in Sources */,
 				EAD1249318B5F30200C6C145 /* TDImageLibrary.m in Sources */,
 				4CB12C8D18BBCAA800F23A76 /* Utocard.m in Sources */,

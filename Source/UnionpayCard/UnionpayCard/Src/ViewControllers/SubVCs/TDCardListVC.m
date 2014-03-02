@@ -10,6 +10,7 @@
 #import "UIView+Effect.h"
 #import "TDCateogryButton.h"
 #import "TDCategoryCell.h"
+#import "TDCardCell.h"
 
 @interface TDCardListVC () <UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate> {
     UIView              *_topBarShadowView;
@@ -25,7 +26,12 @@
     UISearchBar         *_searchBar;
     
     UITableView         *_mainTv;
+    
     UIImageView         *_ivActiveCard;
+    UILabel             *_lblActiveCardTitle;
+    UILabel             *_lblActiveCardNumber;
+    UILabel             *_lblActiveCardBalanceTitle;
+    UILabel             *_lblActiveCardBalanceValue;
 }
 
 @end
@@ -49,7 +55,9 @@
     _mainTv = [UITableView new];
     _mainTv.delegate = self;
     _mainTv.dataSource = self;
-    _mainTv.backgroundColor = [FDColor sharedInstance].caribbeanGreen;
+    _mainTv.backgroundColor = [FDColor sharedInstance].clear;
+    _mainTv.separatorStyle = UITableViewCellSeparatorStyleNone;
+    _mainTv.showsVerticalScrollIndicator = NO;
     [self.view addSubview:_mainTv];
     
     _topBarShadowView = [UIView new];
@@ -136,6 +144,9 @@
 -(int)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     if (tableView == _cateTv) {
         return [TDCategoryResource alltypes].count;
+    } else {
+#warning FAKE DATA
+        return 10;
     }
     
     return 0;
@@ -144,7 +155,7 @@
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
     if (tableView == _cateTv) {
-        static NSString *cellIdStr = @"cellIdStr";
+        static NSString *cellIdStr = @"TDCategoryCell";
         TDCategoryCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdStr];
         if (cell == nil) {
             cell = [TDCategoryCell new];
@@ -156,6 +167,15 @@
         [cell setItemSelected:showCover];
         
         return cell;
+        
+    } else if (tableView == _mainTv) {
+        static NSString *cellIdStr = @"TDCardCell";
+        TDCardCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdStr];
+        if (cell == nil) {
+            cell = [TDCardCell new];
+        }
+        
+        return cell;
     }
     
     return nil;
@@ -164,16 +184,20 @@
 -(float)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     if (tableView == _cateTv) {
         return [TDCategoryCell HEIGHT];
+    } else if (tableView == _mainTv) {
+        return [TDCardCell HEIGHT];
     }
     
     return 0;
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    _cateTVSelectedIndex = indexPath.row;
-    [_btnCategory setCateType:[([TDCategoryResource alltypes][_cateTVSelectedIndex]) intValue]];
-    [self hideCateMenu:nil];
-    [tableView reloadData];
+    if (tableView == _cateTv) {
+        _cateTVSelectedIndex = indexPath.row;
+        [_btnCategory setCateType:[([TDCategoryResource alltypes][_cateTVSelectedIndex]) intValue]];
+        [self hideCateMenu:nil];
+        [tableView reloadData];
+    }
 }
 
 -(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
@@ -197,16 +221,64 @@
     static UIView *header = nil;
     if (header == nil) {
         header = [UIView new];
-        header.backgroundColor = [FDColor sharedInstance].lightGray;
+        header.backgroundColor = [FDColor sharedInstance].apricot;
         
         _ivActiveCard = [UIImageView new];
-        _ivActiveCard.image = [UIImage imageNamed:@"vendor_sample.jpg"];
+        _ivActiveCard.image = [UIImage imageNamed:@"vendor_sample"];
         [_ivActiveCard applyEffectRoundRectSilverBorder];
         [header addSubview:_ivActiveCard];
         
-        [_ivActiveCard constrainWidth:@"100" height:@"100"];
+        [_ivActiveCard constrainWidth:@"125" height:@"85"];
         [_ivActiveCard alignCenterYWithView:header predicate:nil];
         [_ivActiveCard alignLeadingEdgeWithView:header predicate:@"10"];
+        
+        //
+        _lblActiveCardTitle = [UILabel new];
+        _lblActiveCardTitle.font = [TDFontLibrary sharedInstance].fontLargeBold;
+        _lblActiveCardTitle.text = @"仟吉西饼";
+        _lblActiveCardTitle.textColor = [FDColor sharedInstance].cerulean;
+        [header addSubview:_lblActiveCardTitle];
+        
+        [_lblActiveCardTitle alignTopEdgeWithView:_ivActiveCard predicate:@"10"];
+        [_lblActiveCardTitle constrainLeadingSpaceToView:_ivActiveCard predicate:@"10"];
+        
+        //
+        _lblActiveCardNumber = [UILabel new];
+        _lblActiveCardNumber.font = [TDFontLibrary sharedInstance].fontNormal;
+        _lblActiveCardNumber.text = @"[卡号] 40088877665544";
+        _lblActiveCardNumber.textColor = [FDColor sharedInstance].cerulean;
+        [header addSubview:_lblActiveCardNumber];
+        
+        [_lblActiveCardNumber constrainTopSpaceToView:_lblActiveCardTitle predicate:@"15"];
+        [_lblActiveCardNumber alignLeadingEdgeWithView:_lblActiveCardTitle predicate:nil];
+        
+        //
+        _lblActiveCardBalanceTitle = [UILabel new];
+        _lblActiveCardBalanceTitle.font = [TDFontLibrary sharedInstance].fontNormal;
+        _lblActiveCardBalanceTitle.text = @"余额 : ";
+        _lblActiveCardBalanceTitle.textColor = [FDColor sharedInstance].cerulean;
+        [header addSubview:_lblActiveCardBalanceTitle];
+        
+        [_lblActiveCardBalanceTitle constrainTopSpaceToView:_lblActiveCardNumber predicate:@"4"];
+        [_lblActiveCardBalanceTitle alignLeadingEdgeWithView:_lblActiveCardTitle predicate:nil];
+        
+        //
+        _lblActiveCardBalanceValue = [UILabel new];
+        _lblActiveCardBalanceValue.font = [TDFontLibrary sharedInstance].fontNormal;
+        _lblActiveCardBalanceValue.text = @"￥250.00";
+        _lblActiveCardBalanceValue.textColor = [FDColor sharedInstance].red;
+        [header addSubview:_lblActiveCardBalanceValue];
+        
+        [_lblActiveCardBalanceValue alignTopEdgeWithView:_lblActiveCardBalanceTitle predicate:nil];
+        [_lblActiveCardBalanceValue constrainLeadingSpaceToView:_lblActiveCardBalanceTitle predicate:@"0"];
+        
+        //
+        UIImageView *ivCheck = [UIImageView new];
+        ivCheck.image = [UIImage imageNamed:@"icon_orderReview_checked"];
+        [header addSubview:ivCheck];
+        
+        [ivCheck alignCenterYWithView:_lblActiveCardTitle predicate:nil];
+        [ivCheck constrainLeadingSpaceToView:_lblActiveCardTitle predicate:@"10"];
     }
     
     return header;
