@@ -1,23 +1,23 @@
 //
-//  TDLifeVC.m
+//  TDPhoneFeeVC.m
 //  UnionpayCard
 //
 //  Created by Dong Yiming on 3/2/14.
 //  Copyright (c) 2014 Frodo. All rights reserved.
 //
 
-#import "TDLifeVC.h"
+#import "TDPhoneFeeVC.h"
 
-@interface TDLifeVC ()
+@interface TDPhoneFeeVC ()
 
 @end
 
-@implementation TDLifeVC
+@implementation TDPhoneFeeVC
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.navigationItem.title = @"公共事业缴费";
+    self.navigationItem.title = @"话费充值";
 }
 
 @end

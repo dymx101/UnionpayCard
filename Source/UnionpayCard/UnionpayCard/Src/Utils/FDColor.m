@@ -44,6 +44,8 @@ DEF_SINGLETON(FDColor)
         
         _darkGray = UIColorFromRGB(0x333333);
         _lightGray = UIColorFromRGB(0x999999);
+        
+        _themeBlue = [UIColor colorWithRed:(20 / 255.f) green:(155 / 255.f) blue:(201 / 255.f) alpha:1.f];
     }
     return self;
 }

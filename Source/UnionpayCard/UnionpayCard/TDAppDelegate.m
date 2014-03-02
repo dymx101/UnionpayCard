@@ -76,7 +76,7 @@
     UIImage *unfinishedImage = finishedImage;//[UIImage imageNamed:@"tabbar_normal_background"];
     
     NSDictionary *selectedTitleAttributes = @{UITextAttributeFont : [UIFont systemFontOfSize:12.f],
-                                              UITextAttributeTextColor : [UIColor colorWithHexString:@"2EB6A8"]};
+                                              UITextAttributeTextColor : [FDColor sharedInstance].themeBlue};
     NSDictionary *unselectedTitleAttributes = @{UITextAttributeFont : [UIFont systemFontOfSize:12.f],
                                               UITextAttributeTextColor : [UIColor grayColor]};
     
@@ -133,7 +133,6 @@
 
 - (void)customizeInterface {
     UINavigationBar *navigationBarAppearance = [UINavigationBar appearance];
-    
     
     if ([[[UIDevice currentDevice] systemVersion] integerValue] >= 7.0) {
         [navigationBarAppearance setBackgroundImage:[UIImage imageNamed:@"bg_navigationBar_tall"]

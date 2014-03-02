@@ -35,4 +35,6 @@ AS_SINGLETON(FDColor)
 @property (nonatomic, strong) UIColor *darkGray;
 @property (nonatomic, strong) UIColor *lightGray;
 
+@property (nonatomic, strong) UIColor *themeBlue;
+
 @end

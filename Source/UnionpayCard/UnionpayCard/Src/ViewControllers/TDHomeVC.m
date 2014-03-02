@@ -17,6 +17,7 @@
 #import "TDMailVC.h"
 #import "TDLifeVC.h"
 #import "TDRegisterVC.h"
+#import "TDPhoneFeeVC.h"
 
 
 typedef enum {
@@ -28,6 +29,7 @@ typedef enum {
     , kVcConsume
     , kVcMail
     , kVcLife
+    , kVcPhoneFee
 }EVcType;
 
 
@@ -75,49 +77,57 @@ typedef enum {
 //    [self.view addSubview:_pageControl];
     
     //
-    UIButton *btnTile = [self tileButtonWithTitle:@"用户\n注册" action:nil];
-    btnTile.tag = kVcRegister;
+    UIButton *btnTile = [UIButton new];//[self tileButtonWithTitle:@"用户\n注册" action:nil];
+    [btnTile setImage:[UIImage imageNamed:@"tile_vendor"] forState:UIControlStateNormal];
+    btnTile.tag = kVcVendors;//kVcRegister;
     [btnTile addTarget:self action:@selector(tileButtonAction:) forControlEvents:UIControlEventTouchUpInside];
     [_scrollView addSubview:btnTile];
     [_tileButtons addObject:btnTile];
     
-    btnTile = [self tileButtonWithTitle:@"卡片\n管理" action:nil];
+    btnTile = [UIButton new];//[self tileButtonWithTitle:@"卡片\n管理" action:nil];
+    [btnTile setImage:[UIImage imageNamed:@"tile_card_mgr"] forState:UIControlStateNormal];
     btnTile.tag = kVcCardList;
     [btnTile addTarget:self action:@selector(tileButtonAction:) forControlEvents:UIControlEventTouchUpInside];
     [_scrollView addSubview:btnTile];
     [_tileButtons addObject:btnTile];
     
-    btnTile = [self tileButtonWithTitle:@"商户\n浏览" action:nil];
-    btnTile.tag = kVcVendors;
+    btnTile = [UIButton new];//[self tileButtonWithTitle:@"商户\n浏览" action:nil];
+    [btnTile setImage:[UIImage imageNamed:@"tile_add_money"] forState:UIControlStateNormal];
+    btnTile.tag = kVcAddMoney;//kVcVendors;
     [btnTile addTarget:self action:@selector(tileButtonAction:) forControlEvents:UIControlEventTouchUpInside];
     [_scrollView addSubview:btnTile];
     [_tileButtons addObject:btnTile];
     
-    btnTile = [self tileButtonWithTitle:@"消费\n充值" action:nil];
-    btnTile.tag = kVcAddMoney;
+    btnTile = [UIButton new];//[self tileButtonWithTitle:@"消费\n充值" action:nil];
+    [btnTile setImage:[UIImage imageNamed:@"tile_credit"] forState:UIControlStateNormal];
+    btnTile.tag = kVcCredit;//kVcAddMoney;
     [btnTile addTarget:self action:@selector(tileButtonAction:) forControlEvents:UIControlEventTouchUpInside];
     [_scrollView addSubview:btnTile];
     [_tileButtons addObject:btnTile];
     
-    btnTile = [self tileButtonWithTitle:@"积分\n活动" action:nil];
-    btnTile.tag = kVcCredit;
+    btnTile = [UIButton new];//[self tileButtonWithTitle:@"积分\n活动" action:nil];
+    [btnTile setImage:[UIImage imageNamed:@"tile_mail"] forState:UIControlStateNormal];
+    btnTile.tag = kVcMail;//kVcCredit;
     [btnTile addTarget:self action:@selector(tileButtonAction:) forControlEvents:UIControlEventTouchUpInside];
     [_scrollView addSubview:btnTile];
     [_tileButtons addObject:btnTile];
     
-    btnTile = [self tileButtonWithTitle:@"消费\n预定" action:nil];
+    btnTile = [UIButton new];//[self tileButtonWithTitle:@"消费\n预定" action:nil];
+    [btnTile setImage:[UIImage imageNamed:@"tile_order"] forState:UIControlStateNormal];
     btnTile.tag = kVcConsume;
     [btnTile addTarget:self action:@selector(tileButtonAction:) forControlEvents:UIControlEventTouchUpInside];
     [_scrollView addSubview:btnTile];
     [_tileButtons addObject:btnTile];
     
-    btnTile = [self tileButtonWithTitle:@"邮件\n管理" action:nil];
-    btnTile.tag = kVcMail;
+    btnTile = [UIButton new];//[self tileButtonWithTitle:@"邮件\n管理" action:nil];
+    [btnTile setImage:[UIImage imageNamed:@"tile_phone"] forState:UIControlStateNormal];
+    btnTile.tag = kVcPhoneFee;
     [btnTile addTarget:self action:@selector(tileButtonAction:) forControlEvents:UIControlEventTouchUpInside];
     [_scrollView addSubview:btnTile];
     [_tileButtons addObject:btnTile];
     
-    btnTile = [self tileButtonWithTitle:@"生活\n缴费" action:nil];
+    btnTile = [UIButton new];//[self tileButtonWithTitle:@"生活\n缴费" action:nil];
+    [btnTile setImage:[UIImage imageNamed:@"tile_public"] forState:UIControlStateNormal];
     btnTile.tag = kVcLife;
     [btnTile addTarget:self action:@selector(tileButtonAction:) forControlEvents:UIControlEventTouchUpInside];
     [_scrollView addSubview:btnTile];
@@ -173,6 +183,10 @@ typedef enum {
             
         case kVcLife:
             [self naviToVC:[TDLifeVC class]];
+            break;
+            
+        case kVcPhoneFee:
+            [self naviToVC:[TDPhoneFeeVC class]];
             break;
             
         default:

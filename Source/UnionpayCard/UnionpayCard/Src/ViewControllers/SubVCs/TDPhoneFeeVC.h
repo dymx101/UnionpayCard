@@ -1,5 +1,5 @@
 //
-//  TDLifeVC.h
+//  TDPhoneFeeVC.h
 //  UnionpayCard
 //
 //  Created by Dong Yiming on 3/2/14.
@@ -8,6 +8,6 @@
 
 #import "TDBaseVC.h"
 
-@interface TDLifeVC : TDBaseVC
+@interface TDPhoneFeeVC : TDBaseVC
 
 @end

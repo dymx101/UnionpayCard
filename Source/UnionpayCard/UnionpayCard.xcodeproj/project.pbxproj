@@ -66,6 +66,16 @@
 		EA58BEE418C1C75200E36E7E /* TDCategoryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EA58BEE318C1C75200E36E7E /* TDCategoryCell.m */; };
 		EA901B0618B6491700B1E20F /* TDUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = EA901B0518B6491700B1E20F /* TDUtil.m */; };
 		EA901B0818B64A1B00B1E20F /* 钟齐段宁行书.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EA901B0718B64A1B00B1E20F /* 钟齐段宁行书.ttf */; };
+		EAC428C018C3132C004F3941 /* tile_add_money@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EAC428B818C3132C004F3941 /* tile_add_money@2x.png */; };
+		EAC428C118C3132C004F3941 /* tile_card_mgr@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EAC428B918C3132C004F3941 /* tile_card_mgr@2x.png */; };
+		EAC428C218C3132C004F3941 /* tile_credit@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EAC428BA18C3132C004F3941 /* tile_credit@2x.png */; };
+		EAC428C318C3132C004F3941 /* tile_mail@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EAC428BB18C3132C004F3941 /* tile_mail@2x.png */; };
+		EAC428C418C3132C004F3941 /* tile_order@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EAC428BC18C3132C004F3941 /* tile_order@2x.png */; };
+		EAC428C518C3132C004F3941 /* tile_phone@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EAC428BD18C3132C004F3941 /* tile_phone@2x.png */; };
+		EAC428C618C3132C004F3941 /* tile_public@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EAC428BE18C3132C004F3941 /* tile_public@2x.png */; };
+		EAC428C718C3132C004F3941 /* tile_vendor@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EAC428BF18C3132C004F3941 /* tile_vendor@2x.png */; };
+		EAC428CA18C315FC004F3941 /* TDLifeVC.m in Sources */ = {isa = PBXBuildFile; fileRef = EAC428C918C315FC004F3941 /* TDLifeVC.m */; };
+		EAC428CD18C31632004F3941 /* TDPhoneFeeVC.m in Sources */ = {isa = PBXBuildFile; fileRef = EAC428CC18C31632004F3941 /* TDPhoneFeeVC.m */; };
 		EAC90DC318C22BC30086AC2F /* vendor_sample.jpg in Resources */ = {isa = PBXBuildFile; fileRef = EAC90DC218C22BC30086AC2F /* vendor_sample.jpg */; };
 		EAC9796E18C1762600927CEE /* TDCateogryButton.m in Sources */ = {isa = PBXBuildFile; fileRef = EAC9796D18C1762600927CEE /* TDCateogryButton.m */; };
 		EAC9797118C1883B00927CEE /* TDCategoryResource.m in Sources */ = {isa = PBXBuildFile; fileRef = EAC9797018C1883B00927CEE /* TDCategoryResource.m */; };
@@ -76,7 +86,6 @@
 		EACBE40A18BF155A00F2E9CF /* TDCreditVC.m in Sources */ = {isa = PBXBuildFile; fileRef = EACBE40918BF155A00F2E9CF /* TDCreditVC.m */; };
 		EACBE40D18BF15A400F2E9CF /* TDConsumeVC.m in Sources */ = {isa = PBXBuildFile; fileRef = EACBE40C18BF15A400F2E9CF /* TDConsumeVC.m */; };
 		EACBE41018BF15C100F2E9CF /* TDMailVC.m in Sources */ = {isa = PBXBuildFile; fileRef = EACBE40F18BF15C100F2E9CF /* TDMailVC.m */; };
-		EACBE41318BF15E900F2E9CF /* TDLifeVC.m in Sources */ = {isa = PBXBuildFile; fileRef = EACBE41218BF15E900F2E9CF /* TDLifeVC.m */; };
 		EACBE41618BF2EB100F2E9CF /* UIView+Effect.m in Sources */ = {isa = PBXBuildFile; fileRef = EACBE41518BF2EB100F2E9CF /* UIView+Effect.m */; };
 		EACC146018B36EE900DD27B0 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EACC145F18B36EE900DD27B0 /* Foundation.framework */; };
 		EACC146218B36EE900DD27B0 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EACC146118B36EE900DD27B0 /* CoreGraphics.framework */; };
@@ -976,6 +985,18 @@
 		EA901B0418B6491700B1E20F /* TDUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TDUtil.h; sourceTree = "<group>"; };
 		EA901B0518B6491700B1E20F /* TDUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TDUtil.m; sourceTree = "<group>"; };
 		EA901B0718B64A1B00B1E20F /* 钟齐段宁行书.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "钟齐段宁行书.ttf"; sourceTree = "<group>"; };
+		EAC428B818C3132C004F3941 /* tile_add_money@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tile_add_money@2x.png"; sourceTree = "<group>"; };
+		EAC428B918C3132C004F3941 /* tile_card_mgr@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tile_card_mgr@2x.png"; sourceTree = "<group>"; };
+		EAC428BA18C3132C004F3941 /* tile_credit@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tile_credit@2x.png"; sourceTree = "<group>"; };
+		EAC428BB18C3132C004F3941 /* tile_mail@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tile_mail@2x.png"; sourceTree = "<group>"; };
+		EAC428BC18C3132C004F3941 /* tile_order@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tile_order@2x.png"; sourceTree = "<group>"; };
+		EAC428BD18C3132C004F3941 /* tile_phone@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tile_phone@2x.png"; sourceTree = "<group>"; };
+		EAC428BE18C3132C004F3941 /* tile_public@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tile_public@2x.png"; sourceTree = "<group>"; };
+		EAC428BF18C3132C004F3941 /* tile_vendor@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tile_vendor@2x.png"; sourceTree = "<group>"; };
+		EAC428C818C315FC004F3941 /* TDLifeVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TDLifeVC.h; sourceTree = "<group>"; };
+		EAC428C918C315FC004F3941 /* TDLifeVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TDLifeVC.m; sourceTree = "<group>"; };
+		EAC428CB18C31632004F3941 /* TDPhoneFeeVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TDPhoneFeeVC.h; sourceTree = "<group>"; };
+		EAC428CC18C31632004F3941 /* TDPhoneFeeVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TDPhoneFeeVC.m; sourceTree = "<group>"; };
 		EAC90DC218C22BC30086AC2F /* vendor_sample.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = vendor_sample.jpg; sourceTree = "<group>"; };
 		EAC9796C18C1762600927CEE /* TDCateogryButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TDCateogryButton.h; sourceTree = "<group>"; };
 		EAC9796D18C1762600927CEE /* TDCateogryButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TDCateogryButton.m; sourceTree = "<group>"; };
@@ -995,8 +1016,6 @@
 		EACBE40C18BF15A400F2E9CF /* TDConsumeVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TDConsumeVC.m; sourceTree = "<group>"; };
 		EACBE40E18BF15C100F2E9CF /* TDMailVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TDMailVC.h; sourceTree = "<group>"; };
 		EACBE40F18BF15C100F2E9CF /* TDMailVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TDMailVC.m; sourceTree = "<group>"; };
-		EACBE41118BF15E900F2E9CF /* TDLifeVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TDLifeVC.h; sourceTree = "<group>"; };
-		EACBE41218BF15E900F2E9CF /* TDLifeVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TDLifeVC.m; sourceTree = "<group>"; };
 		EACBE41418BF2EB100F2E9CF /* UIView+Effect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Effect.h"; sourceTree = "<group>"; };
 		EACBE41518BF2EB100F2E9CF /* UIView+Effect.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Effect.m"; sourceTree = "<group>"; };
 		EACC145C18B36EE900DD27B0 /* UnionpayCard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UnionpayCard.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -1977,8 +1996,10 @@
 				EACBE40C18BF15A400F2E9CF /* TDConsumeVC.m */,
 				EACBE40E18BF15C100F2E9CF /* TDMailVC.h */,
 				EACBE40F18BF15C100F2E9CF /* TDMailVC.m */,
-				EACBE41118BF15E900F2E9CF /* TDLifeVC.h */,
-				EACBE41218BF15E900F2E9CF /* TDLifeVC.m */,
+				EAC428C818C315FC004F3941 /* TDLifeVC.h */,
+				EAC428C918C315FC004F3941 /* TDLifeVC.m */,
+				EAC428CB18C31632004F3941 /* TDPhoneFeeVC.h */,
+				EAC428CC18C31632004F3941 /* TDPhoneFeeVC.m */,
 			);
 			path = SubVCs;
 			sourceTree = "<group>";
@@ -2069,6 +2090,14 @@
 		EACC148F18B36F8500DD27B0 /* MeituanImages */ = {
 			isa = PBXGroup;
 			children = (
+				EAC428B818C3132C004F3941 /* tile_add_money@2x.png */,
+				EAC428B918C3132C004F3941 /* tile_card_mgr@2x.png */,
+				EAC428BA18C3132C004F3941 /* tile_credit@2x.png */,
+				EAC428BB18C3132C004F3941 /* tile_mail@2x.png */,
+				EAC428BC18C3132C004F3941 /* tile_order@2x.png */,
+				EAC428BD18C3132C004F3941 /* tile_phone@2x.png */,
+				EAC428BE18C3132C004F3941 /* tile_public@2x.png */,
+				EAC428BF18C3132C004F3941 /* tile_vendor@2x.png */,
 				EACDA60D18C2D12E005BDC7E /* vendor_sample@2x.png */,
 				EAC90DC218C22BC30086AC2F /* vendor_sample.jpg */,
 				EAD1248E18B5F1CD00C6C145 /* union_pay@2x.png */,
@@ -3219,6 +3248,7 @@
 				EACC19B018B36F9100DD27B0 /* icon_order_review_yes@2x.png in Resources */,
 				EACC18C218B36F9100DD27B0 /* icon_cate_selected_-2.png in Resources */,
 				EACC18B418B36F9100DD27B0 /* icon_bank@2x.png in Resources */,
+				EAC428C018C3132C004F3941 /* tile_add_money@2x.png in Resources */,
 				EACC1A5218B36F9200DD27B0 /* share_logo_renren.png in Resources */,
 				EACC19E018B36F9100DD27B0 /* icon_right.png in Resources */,
 				EACC19CD18B36F9100DD27B0 /* icon_radio_on.png in Resources */,
@@ -3235,6 +3265,7 @@
 				EACC19A018B36F9100DD27B0 /* icon_myCoupon_barcode.png in Resources */,
 				EACD0D3918B3A52A009109CB /* navigationbar_background_tall.png in Resources */,
 				EACC181718B36F9100DD27B0 /* bg_uploadimage_default@2x.png in Resources */,
+				EAC428C218C3132C004F3941 /* tile_credit@2x.png in Resources */,
 				EACC192218B36F9100DD27B0 /* icon_homepage_lifeServiceCategory.png in Resources */,
 				EACC19B318B36F9100DD27B0 /* icon_orderList_filterFooter.png in Resources */,
 				EACC180518B36F9100DD27B0 /* bg_segmented_left_normal@2x.png in Resources */,
@@ -3285,6 +3316,7 @@
 				EACC1A4418B36F9200DD27B0 /* register_step3_banner.png in Resources */,
 				EACC17E418B36F9100DD27B0 /* bg_myCoupon_topHalf@2x.png in Resources */,
 				EACC190718B36F9100DD27B0 /* icon_dropdown_location_normal.png in Resources */,
+				EAC428C618C3132C004F3941 /* tile_public@2x.png in Resources */,
 				EACDA60E18C2D12E005BDC7E /* vendor_sample@2x.png in Resources */,
 				EACC17B218B36F9100DD27B0 /* bg_homepage_hotTopicSection.png in Resources */,
 				EACC1A1518B36F9200DD27B0 /* input_textField_disabled@2x.png in Resources */,
@@ -3385,6 +3417,7 @@
 				EACC193318B36F9100DD27B0 /* icon_hotTopicList_redFlag@2x.png in Resources */,
 				EACC187018B36F9100DD27B0 /* btn_r.png in Resources */,
 				EACC17AC18B36F9100DD27B0 /* bg_filter_price_selected@2x.png in Resources */,
+				EAC428C418C3132C004F3941 /* tile_order@2x.png in Resources */,
 				EACC196118B36F9100DD27B0 /* icon_merchant_phone@2x.png in Resources */,
 				EACC18DB18B36F9100DD27B0 /* icon_common_point.png in Resources */,
 				EACC17CD18B36F9100DD27B0 /* bg_mine_header_highlighted.png in Resources */,
@@ -3475,6 +3508,7 @@
 				EACC185018B36F9100DD27B0 /* btn_green_highlighted.png in Resources */,
 				EACC19A518B36F9100DD27B0 /* icon_myCoupon_promocode.png in Resources */,
 				EACC188118B36F9100DD27B0 /* button_merchant_route_indicate@2x.png in Resources */,
+				EAC428C118C3132C004F3941 /* tile_card_mgr@2x.png in Resources */,
 				EACC17A618B36F9100DD27B0 /* bg_feedback_receive@2x.png in Resources */,
 				EACC183F18B36F9100DD27B0 /* btn_dismissItem@2x.png in Resources */,
 				EACC191118B36F9100DD27B0 /* icon_filter_priceSeperator@2x.png in Resources */,
@@ -3687,6 +3721,7 @@
 				EACC17DD18B36F9100DD27B0 /* bg_movie_vouchers_universal.png in Resources */,
 				EACC181A18B36F9100DD27B0 /* bg_vouchers@2x.png in Resources */,
 				EACC186318B36F9100DD27B0 /* btn_movie_showtime_date@2x.png in Resources */,
+				EAC428C318C3132C004F3941 /* tile_mail@2x.png in Resources */,
 				EACC17E918B36F9100DD27B0 /* bg_orderList_filter.png in Resources */,
 				EACC183718B36F9100DD27B0 /* btn_captcha_highlighted@2x.png in Resources */,
 				EACC199E18B36F9100DD27B0 /* icon_movieOrder_clock.png in Resources */,
@@ -3717,6 +3752,7 @@
 				EACC1A5118B36F9200DD27B0 /* share_logo_qzone@2x.png in Resources */,
 				EACC19AB18B36F9100DD27B0 /* icon_order_delivery.png in Resources */,
 				EACC192A18B36F9100DD27B0 /* icon_homepage_navArrow.png in Resources */,
+				EAC428C718C3132C004F3941 /* tile_vendor@2x.png in Resources */,
 				EACC197518B36F9100DD27B0 /* icon_mine_level1user@2x.png in Resources */,
 				EACC18E118B36F9100DD27B0 /* icon_deal_hotelBreakfast@2x.png in Resources */,
 				EACC19B518B36F9100DD27B0 /* icon_orderReview_rating_star_not_picked@2x.png in Resources */,
@@ -3727,6 +3763,7 @@
 				EACC19CF18B36F9100DD27B0 /* icon_radioBox_on.png in Resources */,
 				EACC19C118B36F9100DD27B0 /* icon_payment_999.png in Resources */,
 				EACC190118B36F9100DD27B0 /* icon_defaultimage_listcell_movieMerchant@2x.png in Resources */,
+				EAC428C518C3132C004F3941 /* tile_phone@2x.png in Resources */,
 				EACC184C18B36F9100DD27B0 /* btn_filter_select_on.png in Resources */,
 				EACC18B018B36F9100DD27B0 /* icon_alert@2x.png in Resources */,
 				EACC196B18B36F9100DD27B0 /* icon_mine_accountViewRightArrow.png in Resources */,
@@ -3832,7 +3869,6 @@
 				EAC9796E18C1762600927CEE /* TDCateogryButton.m in Sources */,
 				4C98AC1518B9246F007FAF12 /* NSObject+JsonToVO.m in Sources */,
 				EA098BC818B98E1C0034E0CF /* TDRegisterVC.m in Sources */,
-				EACBE41318BF15E900F2E9CF /* TDLifeVC.m in Sources */,
 				4CB12C5518BBC56400F23A76 /* Bcbd.m in Sources */,
 				EAD1249B18B604B600C6C145 /* FDColor.m in Sources */,
 				4C98AB2718B9196E007FAF12 /* Btype.m in Sources */,
@@ -3864,6 +3900,7 @@
 				EACBE41618BF2EB100F2E9CF /* UIView+Effect.m in Sources */,
 				4CB12C6C18BBC7C400F23A76 /* Bprovince.m in Sources */,
 				4C98ABF118B91E01007FAF12 /* NSNumber+safe.m in Sources */,
+				EAC428CD18C31632004F3941 /* TDPhoneFeeVC.m in Sources */,
 				4CA68EBD18B5122400D02209 /* TDHttpClient.m in Sources */,
 				4CB12C7B18BBC90700F23A76 /* IntegType.m in Sources */,
 				4CB12C4918BBC3A200F23A76 /* AdminManager.m in Sources */,
@@ -3871,6 +3908,7 @@
 				4CB12C8118BBC96000F23A76 /* Parameters.m in Sources */,
 				4C98AC1E18B9345B007FAF12 /* Post.m in Sources */,
 				4C98ABE918B91E01007FAF12 /* NSArray+safe.m in Sources */,
+				EAC428CA18C315FC004F3941 /* TDLifeVC.m in Sources */,
 				4CB12C7818BBC8C700F23A76 /* IntegRecords.m in Sources */,
 				4CB12C8418BBC9A400F23A76 /* PreRecords.m in Sources */,
 				EAC9D88418B888CF0096D555 /* TDForgetPasswordVC.m in Sources */,
