@@ -189,7 +189,7 @@
     
     [_btnCategory constrainHeightToView:_topBarView predicate:nil];
     [_btnCategory constrainWidth:@"100"];
-    [_btnCategory alignTop:@"0" leading:@"0" toView:_topBarView];
+    [_btnCategory alignTop:@"0" leading:@"20" toView:_topBarView];
     
     [_vertDevideLine constrainWidth:@"1"];
     [_vertDevideLine constrainLeadingSpaceToView:_btnCategory predicate:@"10"];
@@ -203,7 +203,7 @@
     [_viewMask alignToView:self.view];
     
     [_cateTv alignTop:@"40" leading:@"1" toView:_viewMask];
-    [_cateTv constrainWidth:@"99"];
+    [_cateTv constrainWidth:@"199"];
     _constraintCateTvHeight = [_cateTv constrainHeight:@(_cateTvHeight).stringValue].firstObject;
     
     [_searchBar alignToView:_topBarViewSearch];
@@ -306,7 +306,7 @@
     static UIView *header = nil;
     if (header == nil) {
         header = [UIView new];
-        header.backgroundColor = [FDColor sharedInstance].apricot;
+        header.backgroundColor = [FDColor sharedInstance].white;
         
         _ivActiveCard = [UIImageView new];
         _ivActiveCard.image = [UIImage imageNamed:@"vendor_sample"];
