@@ -14,6 +14,12 @@
 @interface TDProfileVC () <UITableViewDelegate, UITableViewDataSource,TDLoginVCDelegate> {
     UITableView             *_tv;
     UIView                  *_viewNotLoggedIn;
+    
+    UIView                  *_viewLoggedIn;
+    UILabel                 *_lblUserName;
+    UIImageView             *_ivVip;
+    UILabel                 *_lblBalance;
+    UIImageView             *_ivRightArrow;
 }
 @property (nonatomic,strong)     UIView                 *_headerView;
 
@@ -79,6 +85,7 @@
     UILabel *lblNotLoggedIn = [UILabel new];
     lblNotLoggedIn.text = @"您还没有登录哦～";
     lblNotLoggedIn.font = [TDFontLibrary sharedInstance].fontNormal;
+    lblNotLoggedIn.textColor = [FDColor sharedInstance].darkGray;
     [_viewNotLoggedIn addSubview:lblNotLoggedIn];
     [lblNotLoggedIn alignCenterXWithView:_viewNotLoggedIn predicate:nil];
     [lblNotLoggedIn alignTopEdgeWithView:_viewNotLoggedIn predicate:@"10"];
@@ -94,6 +101,47 @@
     [btnLogin alignCenterXWithView:_viewNotLoggedIn predicate:nil];
     [btnLogin constrainTopSpaceToView:lblNotLoggedIn predicate:@"5"];
     [btnLogin constrainWidth:@"100"];
+    
+    
+    // view logged in
+    _viewLoggedIn = [UIView new];
+    //_viewLoggedIn.backgroundColor = [UIColor redColor];
+    [__headerView addSubview:_viewLoggedIn];
+    _viewLoggedIn.hidden = YES;
+    [_viewLoggedIn alignToView:__headerView];
+    
+    _lblUserName = [UILabel new];
+    _lblUserName.font = [TDFontLibrary sharedInstance].fontNormal;
+    _lblUserName.text = @"霍比特人";
+    [_viewLoggedIn addSubview:_lblUserName];
+    
+    [_lblUserName alignTop:@"25" leading:@"30" toView:_viewLoggedIn];
+    
+    //
+    _ivVip = [UIImageView new];
+    _ivVip.image = [UIImage imageNamed:@"icon_mine_level2user"];
+    [_viewLoggedIn addSubview:_ivVip];
+    
+    [_ivVip alignCenterYWithView:_lblUserName predicate:nil];
+    [_ivVip constrainLeadingSpaceToView:_lblUserName predicate:@"8"];
+    
+    //
+    _lblBalance = [UILabel new];
+    _lblBalance.font = [TDFontLibrary sharedInstance].fontNormal;
+    _lblBalance.textColor = [FDColor sharedInstance].gray;
+    _lblBalance.text = @"余额: ￥500.00";
+    [_viewLoggedIn addSubview:_lblBalance];
+    
+    [_lblBalance constrainTopSpaceToView:_lblUserName predicate:@"10"];
+    [_lblBalance alignLeadingEdgeWithView:_lblUserName predicate:nil];
+    
+    //
+    _ivRightArrow = [UIImageView new];
+    _ivRightArrow.image = [UIImage imageNamed:@"icon_deal_arrow"];
+    [_viewLoggedIn addSubview:_ivRightArrow];
+    
+    [_ivRightArrow alignCenterYWithView:_viewLoggedIn predicate:nil];
+    [_ivRightArrow alignTrailingEdgeWithView:_viewLoggedIn predicate:@"-30"];
     
     return __headerView;
 }
@@ -137,26 +185,9 @@
     } completionBlock:^{
         //刷新 UI 主线程
         
-        UIImageView *ivBg = [[UIImageView alloc] initWithImage:[TDImageLibrary sharedInstance].mineAccountBg];
-        [__headerView addSubview:ivBg];
-        
-        [ivBg alignToView:__headerView];
-        
-        // view not logged in
-        UIView *viewNotLoggedIn = [UIView new];
-        [__headerView addSubview:viewNotLoggedIn];
-        [viewNotLoggedIn alignToView:__headerView];
-        
-        // label not logged in
-        UILabel *lblNotLoggedIn = [UILabel new];
-        lblNotLoggedIn.text = [mUser u_realname];
-        lblNotLoggedIn.font = [TDFontLibrary sharedInstance].fontNormal;
-        [viewNotLoggedIn addSubview:lblNotLoggedIn];
-        [lblNotLoggedIn alignCenterXWithView:viewNotLoggedIn predicate:nil];
-        [lblNotLoggedIn alignTopEdgeWithView:viewNotLoggedIn predicate:@"10"];
-        
-        [self.view addSubview:__headerView];
-        
+        BOOL loginOK = YES;
+        _viewLoggedIn.hidden = !loginOK;
+        _viewNotLoggedIn.hidden = loginOK;
         
     }];
 }
