@@ -110,6 +110,9 @@
     _viewLoggedIn.hidden = YES;
     [_viewLoggedIn alignToView:__headerView];
     
+    [_viewLoggedIn addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(viewAccountAction:)]];
+    
+    //
     _lblUserName = [UILabel new];
     _lblUserName.font = [TDFontLibrary sharedInstance].fontNormal;
     _lblUserName.text = @"霍比特人";
@@ -138,7 +141,7 @@
     //
     _btnRightArrow = [UIButton new];
     [_btnRightArrow setImage:[UIImage imageNamed:@"icon_deal_arrow"] forState:UIControlStateNormal];
-    [_btnRightArrow addTarget:self action:@selector(viewAccountAction:) forControlEvents:UIControlEventTouchUpInside];
+    //[_btnRightArrow addTarget:self action:@selector(viewAccountAction:) forControlEvents:UIControlEventTouchUpInside];
     [_viewLoggedIn addSubview:_btnRightArrow];
     
     [_btnRightArrow alignCenterYWithView:_viewLoggedIn predicate:nil];
