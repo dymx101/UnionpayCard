@@ -56,7 +56,8 @@ typedef enum {
     [self installMapAndSearchToNavibar];
 	
     [self createSubviews];
-    [self layoutSubviews];
+    [self layout8Tiles];
+    //[self layoutSubviews];
 }
 
 
@@ -196,9 +197,40 @@ typedef enum {
 
 #define PADDING_TOP              (20)
 #define PADDING_Y               (20)
-#define BUTTON_SIZE             (80)
+#define BUTTON_SIZE             (60)
 #define BUTTON_OFFSET_X_CENTER  (50)
 #define PAGE_WIDTH              (320)
+
+-(void)layout8Tiles {
+    _scrollView.translatesAutoresizingMaskIntoConstraints = NO;
+    [_scrollView alignToView:self.view];
+    
+    NSArray *firstLineButtons = [_tileButtons objectsAtIndexes:[NSIndexSet indexSetWithIndexesInRange:NSMakeRange(0, 4)]];
+    NSArray *secondLineButtons = [_tileButtons objectsAtIndexes:[NSIndexSet indexSetWithIndexesInRange:NSMakeRange(4, 4)]];
+    
+    int i = 0;
+    for (UIButton *btn in firstLineButtons) {
+        [btn alignTopEdgeWithView:_scrollView predicate:@"20"];
+
+        if (i == 0) {
+            [btn alignLeadingEdgeWithView:_scrollView predicate:@"22"];
+        }
+        i ++;
+    }
+    [UIView spaceOutViewsHorizontally:firstLineButtons predicate:@"20"];
+    
+    i = 0;
+    for (UIButton *btn in secondLineButtons) {
+        [btn alignTopEdgeWithView:_scrollView predicate:@"90"];
+        
+        if (i == 0) {
+            [btn alignLeadingEdgeWithView:_scrollView predicate:@"22"];
+        }
+        i ++;
+    }
+    [UIView spaceOutViewsHorizontally:secondLineButtons predicate:@"20"];
+
+}
 
 -(void)layoutSubviews {
     
@@ -210,16 +242,17 @@ typedef enum {
         UIButton *btn = _tileButtons[i];
         
         //int timesOfSix = i / 6;
+        int numPerRow = 2;
         
         NSString *btnSize = (@(BUTTON_SIZE)).stringValue;
         [btn constrainWidth:btnSize height:btnSize];
         
-        int offsetX = (i % 2) ? BUTTON_OFFSET_X_CENTER : -BUTTON_OFFSET_X_CENTER;
+        int offsetX = (i % numPerRow) ? BUTTON_OFFSET_X_CENTER : -BUTTON_OFFSET_X_CENTER;
         NSNumber *offsetCenterX = @(offsetX);//@(offsetX + PAGE_WIDTH * timesOfSix);
         [btn alignCenterXWithView:_scrollView predicate:offsetCenterX.stringValue];
         
         int factor = i;//i % 6;
-        NSNumber *paddingTop = @(PADDING_TOP + PADDING_Y * (factor / 2 + 1) + (factor / 2) * BUTTON_SIZE);
+        NSNumber *paddingTop = @(PADDING_TOP + PADDING_Y * (factor / numPerRow + 1) + (factor / numPerRow) * BUTTON_SIZE);
         [btn alignTopEdgeWithView:_scrollView predicate:paddingTop.stringValue];
         
         
