@@ -30,6 +30,7 @@ AS_SINGLETON(FDColor)
 @property (nonatomic, strong) UIColor *clear;
 
 @property (nonatomic, strong) UIColor *silver;
+@property (nonatomic, strong) UIColor *silverDark;
 
 @property (nonatomic, strong) UIColor *darkGray;
 @property (nonatomic, strong) UIColor *lightGray;
