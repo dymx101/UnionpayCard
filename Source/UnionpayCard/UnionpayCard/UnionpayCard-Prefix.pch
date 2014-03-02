@@ -44,4 +44,4 @@
 #endif
 
 
-#define FONT_NAME_DUAN_NING_XING    @"DuanNing-XIng"//@"MRocky HKS Bold"//@"FZZongYi-M05S" //
+//#define FONT_NAME_DUAN_NING_XING    @"DuanNing-XIng"//@"MRocky HKS Bold"//@"FZZongYi-M05S" //

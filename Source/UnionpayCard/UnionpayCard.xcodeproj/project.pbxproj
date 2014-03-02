@@ -65,7 +65,6 @@
 		EA098BD818B9B4450034E0CF /* TDSettingCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EA098BD718B9B4450034E0CF /* TDSettingCell.m */; };
 		EA58BEE418C1C75200E36E7E /* TDCategoryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EA58BEE318C1C75200E36E7E /* TDCategoryCell.m */; };
 		EA901B0618B6491700B1E20F /* TDUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = EA901B0518B6491700B1E20F /* TDUtil.m */; };
-		EA901B0818B64A1B00B1E20F /* 钟齐段宁行书.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EA901B0718B64A1B00B1E20F /* 钟齐段宁行书.ttf */; };
 		EAC428C018C3132C004F3941 /* tile_add_money@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EAC428B818C3132C004F3941 /* tile_add_money@2x.png */; };
 		EAC428C118C3132C004F3941 /* tile_card_mgr@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EAC428B918C3132C004F3941 /* tile_card_mgr@2x.png */; };
 		EAC428C218C3132C004F3941 /* tile_credit@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EAC428BA18C3132C004F3941 /* tile_credit@2x.png */; };
@@ -869,6 +868,7 @@
 		EAD1249618B5F33300C6C145 /* FDDefine.m in Sources */ = {isa = PBXBuildFile; fileRef = EAD1249518B5F33300C6C145 /* FDDefine.m */; };
 		EAD1249B18B604B600C6C145 /* FDColor.m in Sources */ = {isa = PBXBuildFile; fileRef = EAD1249A18B604B600C6C145 /* FDColor.m */; };
 		EAD1249E18B605D500C6C145 /* TDFontLibrary.m in Sources */ = {isa = PBXBuildFile; fileRef = EAD1249D18B605D500C6C145 /* TDFontLibrary.m */; };
+		EAD37F9018C34019003188D4 /* TDMyAccountVC.m in Sources */ = {isa = PBXBuildFile; fileRef = EAD37F8F18C34019003188D4 /* TDMyAccountVC.m */; };
 		EAD6ACC618B79BC00003B24E /* TDLoginVC.m in Sources */ = {isa = PBXBuildFile; fileRef = EAD6ACC518B79BC00003B24E /* TDLoginVC.m */; };
 /* End PBXBuildFile section */
 
@@ -984,7 +984,6 @@
 		EA58BEE318C1C75200E36E7E /* TDCategoryCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TDCategoryCell.m; sourceTree = "<group>"; };
 		EA901B0418B6491700B1E20F /* TDUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TDUtil.h; sourceTree = "<group>"; };
 		EA901B0518B6491700B1E20F /* TDUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TDUtil.m; sourceTree = "<group>"; };
-		EA901B0718B64A1B00B1E20F /* 钟齐段宁行书.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "钟齐段宁行书.ttf"; sourceTree = "<group>"; };
 		EAC428B818C3132C004F3941 /* tile_add_money@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tile_add_money@2x.png"; sourceTree = "<group>"; };
 		EAC428B918C3132C004F3941 /* tile_card_mgr@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tile_card_mgr@2x.png"; sourceTree = "<group>"; };
 		EAC428BA18C3132C004F3941 /* tile_credit@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tile_credit@2x.png"; sourceTree = "<group>"; };
@@ -1818,6 +1817,8 @@
 		EAD1249A18B604B600C6C145 /* FDColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FDColor.m; sourceTree = "<group>"; };
 		EAD1249C18B605D500C6C145 /* TDFontLibrary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TDFontLibrary.h; sourceTree = "<group>"; };
 		EAD1249D18B605D500C6C145 /* TDFontLibrary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TDFontLibrary.m; sourceTree = "<group>"; };
+		EAD37F8E18C34019003188D4 /* TDMyAccountVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TDMyAccountVC.h; path = UnionpayCard/Src/ViewControllers/TDMyAccountVC.h; sourceTree = SOURCE_ROOT; };
+		EAD37F8F18C34019003188D4 /* TDMyAccountVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TDMyAccountVC.m; path = UnionpayCard/Src/ViewControllers/TDMyAccountVC.m; sourceTree = SOURCE_ROOT; };
 		EAD6ACC418B79BC00003B24E /* TDLoginVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TDLoginVC.h; sourceTree = "<group>"; };
 		EAD6ACC518B79BC00003B24E /* TDLoginVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TDLoginVC.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -2080,7 +2081,6 @@
 		EACC148E18B36F8500DD27B0 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				EA901B0718B64A1B00B1E20F /* 钟齐段宁行书.ttf */,
 				EACD0D3418B3A51F009109CB /* Images */,
 				EACC148F18B36F8500DD27B0 /* MeituanImages */,
 			);
@@ -2896,6 +2896,8 @@
 				EA098BC718B98E1C0034E0CF /* TDRegisterVC.m */,
 				EA098BC918B98E590034E0CF /* TDRegisterNoAccountVC.h */,
 				EA098BCA18B98E590034E0CF /* TDRegisterNoAccountVC.m */,
+				EAD37F8E18C34019003188D4 /* TDMyAccountVC.h */,
+				EAD37F8F18C34019003188D4 /* TDMyAccountVC.m */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -3651,7 +3653,6 @@
 				EACC186718B36F9100DD27B0 /* btn_nearby_filter_left_selected@2x.png in Resources */,
 				EACC19E718B36F9100DD27B0 /* icon_route_end@2x.png in Resources */,
 				EACC1A2418B36F9200DD27B0 /* logo_share_sina_weibo.png in Resources */,
-				EA901B0818B64A1B00B1E20F /* 钟齐段宁行书.ttf in Resources */,
 				EACC199918B36F9100DD27B0 /* icon_movie_3D@2x.png in Resources */,
 				EACC17E318B36F9100DD27B0 /* bg_myCoupon_sideShadow@2x.png in Resources */,
 				EACC187118B36F9100DD27B0 /* btn_r@2x.png in Resources */,
@@ -3879,6 +3880,7 @@
 				EA098BD818B9B4450034E0CF /* TDSettingCell.m in Sources */,
 				EACC146C18B36EE900DD27B0 /* main.m in Sources */,
 				4CB12C7518BBC88A00F23A76 /* IntegChange.m in Sources */,
+				EAD37F9018C34019003188D4 /* TDMyAccountVC.m in Sources */,
 				4C98ABEC18B91E01007FAF12 /* NSDictionary+safe.m in Sources */,
 				4CB12C5D18BBC63D00F23A76 /* Bcrcle.m in Sources */,
 				4CA68F0118B5BCA900D02209 /* TDAPIEngineTest.m in Sources */,

@@ -9,9 +9,11 @@
 #import "TDProfileVC.h"
 #import "TDLoginVC.h"
 #import "Userinfor.h"
+#import "TDMyAccountVC.h"
 
 @interface TDProfileVC () <UITableViewDelegate, UITableViewDataSource,TDLoginVCDelegate> {
-    UITableView            *_tv;
+    UITableView             *_tv;
+    UIView                  *_viewNotLoggedIn;
 }
 @property (nonatomic,strong)     UIView                 *_headerView;
 
@@ -69,17 +71,17 @@
     [ivBg alignToView:__headerView];
     
     // view not logged in
-    UIView *viewNotLoggedIn = [UIView new];
-    [__headerView addSubview:viewNotLoggedIn];
-    [viewNotLoggedIn alignToView:__headerView];
+    _viewNotLoggedIn = [UIView new];
+    [__headerView addSubview:_viewNotLoggedIn];
+    [_viewNotLoggedIn alignToView:__headerView];
     
     // label not logged in
     UILabel *lblNotLoggedIn = [UILabel new];
     lblNotLoggedIn.text = @"您还没有登录哦～";
     lblNotLoggedIn.font = [TDFontLibrary sharedInstance].fontNormal;
-    [viewNotLoggedIn addSubview:lblNotLoggedIn];
-    [lblNotLoggedIn alignCenterXWithView:viewNotLoggedIn predicate:nil];
-    [lblNotLoggedIn alignTopEdgeWithView:viewNotLoggedIn predicate:@"10"];
+    [_viewNotLoggedIn addSubview:lblNotLoggedIn];
+    [lblNotLoggedIn alignCenterXWithView:_viewNotLoggedIn predicate:nil];
+    [lblNotLoggedIn alignTopEdgeWithView:_viewNotLoggedIn predicate:@"10"];
     
     // button log in
     UIButton *btnLogin = [UIButton new];
@@ -88,8 +90,8 @@
     btnLogin.titleLabel.font = [TDFontLibrary sharedInstance].fontNormal;
     [btnLogin setTitleColor:[FDColor sharedInstance].black forState:UIControlStateNormal];
     [btnLogin addTarget:self action:@selector(loginAction:) forControlEvents:UIControlEventTouchUpInside];
-    [viewNotLoggedIn addSubview:btnLogin];
-    [btnLogin alignCenterXWithView:viewNotLoggedIn predicate:nil];
+    [_viewNotLoggedIn addSubview:btnLogin];
+    [btnLogin alignCenterXWithView:_viewNotLoggedIn predicate:nil];
     [btnLogin constrainTopSpaceToView:lblNotLoggedIn predicate:@"5"];
     [btnLogin constrainWidth:@"100"];
     
