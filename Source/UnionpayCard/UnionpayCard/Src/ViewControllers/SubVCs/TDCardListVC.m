@@ -15,6 +15,8 @@
 @interface TDCardListVC () <UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate> {
     UIView              *_topBarShadowView;
     UIView              *_topBarView;
+    UIView              *_topBarViewSearch;
+    
     TDCateogryButton    *_btnCategory;
     
     UIButton            *_viewMask;
@@ -43,6 +45,7 @@
     [super viewDidLoad];
     //self.view.backgroundColor = [FDColor sharedInstance].red;
     self.navigationItem.title = @"卡片管理";
+    [self installSearchToNavibar];
     
     _cateTvHeight = 330;
     
@@ -69,6 +72,13 @@
     _topBarView.backgroundColor = [FDColor sharedInstance].silver;
     [self.view addSubview:_topBarView];
     
+    // background for search bar
+    _topBarViewSearch = [UIView new];
+    _topBarViewSearch.backgroundColor = [FDColor sharedInstance].silver;
+    [self.view addSubview:_topBarViewSearch];
+    _topBarViewSearch.hidden = YES;
+    
+    //
     _btnCategory = [TDCateogryButton new];
     _btnCategory.backgroundColor = [FDColor sharedInstance].silver;
     [_btnCategory setCateType:kCateTypeAll];
@@ -97,7 +107,8 @@
     if([TDUtil isIOS7]) {
         _searchBar.searchBarStyle = UISearchBarStyleMinimal;
     }
-    [self.view addSubview:_searchBar];
+    [_topBarViewSearch addSubview:_searchBar];
+
 
     [self hideCateMenu:nil];
 }
@@ -115,6 +126,8 @@
     
     [_topBarView alignToView:_topBarShadowView];
     
+    [_topBarViewSearch alignToView:_topBarShadowView];
+    
     [_btnCategory constrainHeightToView:_topBarView predicate:nil];
     [_btnCategory constrainWidth:@"100"];
     [_btnCategory alignTop:@"0" leading:@"0" toView:_topBarView];
@@ -125,10 +138,7 @@
     [_cateTv constrainWidth:@"99"];
     _constraintCateTvHeight = [_cateTv constrainHeight:@(_cateTvHeight).stringValue].firstObject;
     
-    [_searchBar constrainLeadingSpaceToView:_btnCategory predicate:nil];
-    [_searchBar constrainHeightToView:_topBarView predicate:nil];
-    [_searchBar alignTrailingEdgeWithView:_topBarView predicate:nil];
-    [_searchBar alignCenterYWithView:_topBarView predicate:nil];
+    [_searchBar alignToView:_topBarViewSearch];
 }
 
 #pragma mark - 
@@ -288,6 +298,11 @@
 -(void)searchBarCancelButtonClicked:(UISearchBar *)searchBar {
     searchBar.text = nil;
     [searchBar resignFirstResponder];
+    _topBarViewSearch.hidden = YES;
+}
+
+-(void)searchAction:(id)sender {
+    _topBarViewSearch.hidden = NO;
 }
 
 @end

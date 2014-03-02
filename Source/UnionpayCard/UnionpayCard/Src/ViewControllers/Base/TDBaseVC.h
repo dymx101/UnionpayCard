@@ -9,10 +9,15 @@
 #import <UIKit/UIKit.h>
 
 @interface TDBaseVC : UIViewController
+
 -(void)installLogoToNavibar;
+-(void)installSearchToNavibar;
 -(void)installMapAndSearchToNavibar;
 -(void)installBackArrowToNavibar;
 
 -(void)naviToVC:(Class)aClass;
+
+-(void)mapAction:(id)sender;
+-(void)searchAction:(id)sender;
 
 @end

@@ -8,7 +8,10 @@
 
 #import "TDBaseVC.h"
 
-@interface TDBaseVC ()
+@interface TDBaseVC () {
+    UIButton *_btnMap;
+    UIButton *_btnSearch;
+}
 
 @end
 
@@ -49,7 +52,36 @@
     // Dispose of any resources that can be recreated.
 }
 
-#pragma mark -
+#pragma mark - navi buttons
+
+-(UIBarButtonItem *)mapButtonItem {
+    if (_btnMap == nil) {
+        UIImage *mapImg = [UIImage imageNamed:@"icon_map"];
+        _btnMap = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, mapImg.size.width, mapImg.size.height)];
+        [_btnMap setImage:mapImg forState:UIControlStateNormal];
+        [_btnMap addTarget:self action:@selector(mapAction:) forControlEvents:UIControlEventTouchUpInside];
+    }
+    return [[UIBarButtonItem alloc] initWithCustomView:_btnMap];
+}
+
+-(void)mapAction:(id)sender {
+    
+}
+
+-(UIBarButtonItem *)searchButtonItem {
+    if (_btnSearch == nil) {
+        UIImage *searchImg = [UIImage imageNamed:@"icon_homepage_search"];
+        _btnSearch = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, searchImg.size.width, searchImg.size.height)];
+        [_btnSearch setImage:searchImg forState:UIControlStateNormal];
+        [_btnSearch addTarget:self action:@selector(searchAction:) forControlEvents:UIControlEventTouchUpInside];
+    }
+    
+    return [[UIBarButtonItem alloc] initWithCustomView:_btnSearch];
+}
+
+-(void)searchAction:(id)sender {
+    
+}
 
 -(void)installLogoToNavibar {
     UIImage *logoImg = [TDImageLibrary sharedInstance].logoName;
@@ -60,18 +92,12 @@
     self.navigationItem.leftBarButtonItem = itemLogo;
 }
 
+-(void)installSearchToNavibar {
+    self.navigationItem.rightBarButtonItem = [self searchButtonItem];
+}
+
 -(void)installMapAndSearchToNavibar {
-    UIImage *mapImg = [UIImage imageNamed:@"icon_map"];
-    UIButton *btnMap = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, mapImg.size.width, mapImg.size.height)];
-    [btnMap setImage:mapImg forState:UIControlStateNormal];
-    UIBarButtonItem *mapItem = [[UIBarButtonItem alloc] initWithCustomView:btnMap];
-    
-    UIImage *searchImg = [UIImage imageNamed:@"icon_homepage_search"];
-    UIButton *btnSearch = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, searchImg.size.width, searchImg.size.height)];
-    [btnSearch setImage:searchImg forState:UIControlStateNormal];
-    UIBarButtonItem *searchItem = [[UIBarButtonItem alloc] initWithCustomView:btnSearch];
-    
-    self.navigationItem.rightBarButtonItems = @[searchItem, mapItem];
+    self.navigationItem.rightBarButtonItems = @[[self searchButtonItem], [self mapButtonItem]];
 }
 
 -(void)installBackArrowToNavibar {
