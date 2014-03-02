@@ -170,11 +170,11 @@
 	HUD.square = YES;
     
     __block NSDictionary * loginResultMap;
-    //http://localhost:8000/yscardII/json/Show/{"method":"LoginUserinfor","u_logname":"tongling26","u_log_password":"123456"}
+    //http://113.57.133.84:8081/yscardII/json/Show/%7B%22method%22:%22LoginUserinfor%22,%22u_logname%22:%22say@qq.com%22,%22u_log_password%22:%22123456%22%7D
     [HUD showAnimated:YES whileExecutingBlock:^{
         NSMutableDictionary * input = [NSMutableDictionary new];
         [input setValue:@"LoginUserinfor" forKey:@"method"];
-        [input setValue:@"tongling26" forKey:@"u_logname"];
+        [input setValue:@"say@qq.com" forKey:@"u_logname"];
         [input setValue:@"123456" forKey:@"u_log_password"];
         TDHttpCommand * command = [TDHttpCommand new];
         command.inPut = input;
@@ -187,8 +187,10 @@
     } completionBlock:^{
         //刷新 UI 主线程
         NSLog(@">>> %@",loginResultMap);
-        [self.delegate getProfile:[loginResultMap objectForKey:@"userToken"]];
-        [self dismissViewControllerAnimated:YES completion:nil];
+        if (loginResultMap!=nil) {
+            [self.delegate getProfile:[loginResultMap objectForKey:@"userToken"]];
+            [self dismissViewControllerAnimated:YES completion:nil];
+        }
     }];
 }
 

@@ -3981,7 +3981,7 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Bin Deng (P2N4VAA4KT)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: yu zhang (QNM2K66DZU)";
 				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -4052,6 +4052,7 @@
 				INFOPLIST_FILE = "UnionpayCard/UnionpayCard-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "9E297D00-9EBE-45AF-BC1D-F019AFCFDC42";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -4069,6 +4070,7 @@
 				INFOPLIST_FILE = "UnionpayCard/UnionpayCard-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "9E297D00-9EBE-45AF-BC1D-F019AFCFDC42";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
