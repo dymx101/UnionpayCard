@@ -12,12 +12,19 @@
 #import "TDCategoryCell.h"
 #import "TDCardCell.h"
 
+#import "Card.h"
+
+#warning 重置按钮
+#warning 下拉刷新
+
 @interface TDCardListVC () <UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate> {
     UIView              *_topBarShadowView;
     UIView              *_topBarView;
     UIView              *_topBarViewSearch;
     
     TDCateogryButton    *_btnCategory;
+    UIView              *_vertDevideLine;
+    UIButton            *_btnReset;
     
     UIButton            *_viewMask;
     UITableView         *_cateTv;
@@ -34,6 +41,8 @@
     UILabel             *_lblActiveCardNumber;
     UILabel             *_lblActiveCardBalanceTitle;
     UILabel             *_lblActiveCardBalanceValue;
+    
+    Card                *_selectedCard;
 }
 
 @end
@@ -86,6 +95,18 @@
     [_btnCategory addGestureRecognizer:tap];
     [_topBarView addSubview:_btnCategory];
     
+    _vertDevideLine = [UIView new];
+    _vertDevideLine.backgroundColor = [FDColor sharedInstance].silverDark;
+    [_topBarView addSubview:_vertDevideLine];
+    
+    _btnReset = [UIButton new];
+    [_btnReset setTitle:@"卡片重置" forState:UIControlStateNormal];
+    _btnReset.titleLabel.font = [TDFontLibrary sharedInstance].fontNormal;
+    [_btnReset setTitleColor:[FDColor sharedInstance].darkGray forState:UIControlStateNormal];
+    [_btnReset setTitleColor:[FDColor sharedInstance].caribbeanGreen forState:UIControlStateHighlighted];
+    [_btnReset addTarget:self action:@selector(resetAction:) forControlEvents:UIControlEventTouchUpInside];
+    [_topBarView addSubview:_btnReset];
+    
     // mask
     _viewMask = [UIButton new];
     _viewMask.backgroundColor = [UIColor colorWithWhite:0 alpha:.5f];
@@ -131,6 +152,15 @@
     [_btnCategory constrainHeightToView:_topBarView predicate:nil];
     [_btnCategory constrainWidth:@"100"];
     [_btnCategory alignTop:@"0" leading:@"0" toView:_topBarView];
+    
+    [_vertDevideLine constrainWidth:@"1"];
+    [_vertDevideLine constrainLeadingSpaceToView:_btnCategory predicate:@"10"];
+    [_vertDevideLine alignTop:@"10" bottom:@"-10" toView:_topBarView];
+    
+    [_btnReset constrainHeightToView:_topBarView predicate:nil];
+    [_btnReset constrainLeadingSpaceToView:_vertDevideLine predicate:@"10"];
+    [_btnReset alignTrailingEdgeWithView:_topBarView predicate:@"-10"];
+    [_btnReset alignTopEdgeWithView:_topBarView predicate:nil];
     
     [_viewMask alignToView:self.view];
     
@@ -203,16 +233,23 @@
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     if (tableView == _cateTv) {
+        
         _cateTVSelectedIndex = indexPath.row;
         [_btnCategory setCateType:[([TDCategoryResource alltypes][_cateTVSelectedIndex]) intValue]];
         [self hideCateMenu:nil];
         [tableView reloadData];
+        
+    } else if (tableView == _mainTv) {
+        
+        _selectedCard = [Card new];
+        [tableView reloadData];
+        
     }
 }
 
 -(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
     if (tableView == _mainTv) {
-        return [self mainHeader];
+        return _selectedCard ? [self mainHeader] : nil;
     }
     
     return nil;
@@ -220,7 +257,7 @@
 
 -(float)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
     if (tableView == _mainTv) {
-        return 110;
+        return _selectedCard ? 110 : 0;
     }
     
     return 0;
@@ -303,6 +340,11 @@
 
 -(void)searchAction:(id)sender {
     _topBarViewSearch.hidden = NO;
+}
+
+-(void)resetAction:(id)sender {
+    _selectedCard = nil;
+    [_mainTv reloadData];
 }
 
 @end
