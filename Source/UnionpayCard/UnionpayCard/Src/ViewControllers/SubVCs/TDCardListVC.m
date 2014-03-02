@@ -15,7 +15,7 @@
 #import "Card.h"
 
 //#warning 重置按钮
-#warning 下拉刷新
+//#warning 下拉刷新
 #warning 定时刷新active card数据
 
 @interface TDCardListVC () <UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate> {

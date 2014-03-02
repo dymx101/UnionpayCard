@@ -79,6 +79,7 @@
 		EAC9796E18C1762600927CEE /* TDCateogryButton.m in Sources */ = {isa = PBXBuildFile; fileRef = EAC9796D18C1762600927CEE /* TDCateogryButton.m */; };
 		EAC9797118C1883B00927CEE /* TDCategoryResource.m in Sources */ = {isa = PBXBuildFile; fileRef = EAC9797018C1883B00927CEE /* TDCategoryResource.m */; };
 		EAC9D88418B888CF0096D555 /* TDForgetPasswordVC.m in Sources */ = {isa = PBXBuildFile; fileRef = EAC9D88318B888CF0096D555 /* TDForgetPasswordVC.m */; };
+		EACBD2D818C3598700DB89EE /* BackLog in Resources */ = {isa = PBXBuildFile; fileRef = EACBD2D718C3598700DB89EE /* BackLog */; };
 		EACBE40118BF140F00F2E9CF /* TDCardListVC.m in Sources */ = {isa = PBXBuildFile; fileRef = EACBE40018BF140F00F2E9CF /* TDCardListVC.m */; };
 		EACBE40418BF149000F2E9CF /* TDVendorsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = EACBE40318BF149000F2E9CF /* TDVendorsVC.m */; };
 		EACBE40718BF153400F2E9CF /* TDAddMoneyVC.m in Sources */ = {isa = PBXBuildFile; fileRef = EACBE40618BF153400F2E9CF /* TDAddMoneyVC.m */; };
@@ -1003,6 +1004,7 @@
 		EAC9797018C1883B00927CEE /* TDCategoryResource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TDCategoryResource.m; sourceTree = "<group>"; };
 		EAC9D88218B888CF0096D555 /* TDForgetPasswordVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TDForgetPasswordVC.h; sourceTree = "<group>"; };
 		EAC9D88318B888CF0096D555 /* TDForgetPasswordVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TDForgetPasswordVC.m; sourceTree = "<group>"; };
+		EACBD2D718C3598700DB89EE /* BackLog */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = BackLog; sourceTree = "<group>"; };
 		EACBE3FF18BF140F00F2E9CF /* TDCardListVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TDCardListVC.h; sourceTree = "<group>"; };
 		EACBE40018BF140F00F2E9CF /* TDCardListVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TDCardListVC.m; sourceTree = "<group>"; };
 		EACBE40218BF149000F2E9CF /* TDVendorsVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TDVendorsVC.h; sourceTree = "<group>"; };
@@ -2008,6 +2010,7 @@
 		EACC145318B36EE900DD27B0 = {
 			isa = PBXGroup;
 			children = (
+				EACBD2D718C3598700DB89EE /* BackLog */,
 				EACC146518B36EE900DD27B0 /* UnionpayCard */,
 				EACC147E18B36EE900DD27B0 /* UnionpayCardTests */,
 				EACC145E18B36EE900DD27B0 /* Frameworks */,
@@ -3242,6 +3245,7 @@
 				EACC181018B36F9100DD27B0 /* bg_tableViewCell_highlighted.png in Resources */,
 				EACC179718B36F9100DD27B0 /* bg_deal_moreDetail_buyAction@2x.png in Resources */,
 				EACC192118B36F9100DD27B0 /* icon_homepage_KTVCategory.png in Resources */,
+				EACBD2D818C3598700DB89EE /* BackLog in Resources */,
 				EACC181518B36F9100DD27B0 /* bg_uploadimage_addimage@2x.png in Resources */,
 				EACC18C318B36F9100DD27B0 /* icon_cate_selected_0.png in Resources */,
 				EACC1A1E18B36F9200DD27B0 /* logo_share_qq.png in Resources */,

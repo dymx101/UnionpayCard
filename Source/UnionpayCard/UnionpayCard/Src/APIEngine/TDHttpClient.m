@@ -10,7 +10,7 @@
 #import "TDJsonParser.h"
 
 //http://localhost:8000/yscardII/json/Show/{"method":"showBtype"}
-static NSString *const BASEURL = @"http://localhost:8000/yscardII/json/";
+static NSString *const BASEURL = @"http://172.20.10.2:8000/yscardII/json/";//@"http://localhost:8000/yscardII/json/";
 
 //static NSString *const BASEURL = @"http://113.57.133.84:8081/yscardII/json/"; // 外网地址
 

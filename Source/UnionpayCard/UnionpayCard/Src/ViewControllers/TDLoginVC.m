@@ -89,12 +89,14 @@
     _tfUserName.font = [TDFontLibrary sharedInstance].fontNormal;
     _tfUserName.clearButtonMode = UITextFieldViewModeWhileEditing;
     [_loginInputView addSubview:_tfUserName];
+    _tfUserName.text = @"tangqii@qq.com";
     
     _tfPwd = [UITextField new];
     _tfPwd.placeholder = @"密码";
     _tfPwd.font = [TDFontLibrary sharedInstance].fontNormal;
     _tfPwd.clearButtonMode = UITextFieldViewModeWhileEditing;
     [_loginInputView addSubview:_tfPwd];
+    _tfPwd.text = @"123456";
     
     _btnLogin = [UIButton new];
     [_btnLogin setBackgroundImage:[TDImageLibrary sharedInstance].btnBgGreen forState:UIControlStateNormal];
@@ -174,7 +176,7 @@
     [HUD showAnimated:YES whileExecutingBlock:^{
         NSMutableDictionary * input = [NSMutableDictionary new];
         [input setValue:@"LoginUserinfor" forKey:@"method"];
-        [input setValue:@"say@qq.com" forKey:@"u_logname"];
+        [input setValue:_tfUserName.text forKey:@"u_logname"];
         [input setValue:@"123456" forKey:@"u_log_password"];
         TDHttpCommand * command = [TDHttpCommand new];
         command.inPut = input;
@@ -182,15 +184,19 @@
         [[TDHttpClient sharedClient] processCommand:command callback:^(NSURLSessionDataTask *task, id responseObject, NSError *anError) {
             if (anError==nil && [responseObject isKindOfClass:[NSDictionary class]]) {
                  loginResultMap = responseObject;
+                
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    //刷新 UI 主线程
+                    NSLog(@">>> %@",loginResultMap);
+                    if (loginResultMap!=nil) {
+                        [self.delegate getProfile:[loginResultMap objectForKey:@"userToken"]];
+                        [self dismissViewControllerAnimated:YES completion:nil];
+                    }
+                });
             }
         }];
     } completionBlock:^{
-        //刷新 UI 主线程
-        NSLog(@">>> %@",loginResultMap);
-        if (loginResultMap!=nil) {
-            [self.delegate getProfile:[loginResultMap objectForKey:@"userToken"]];
-            [self dismissViewControllerAnimated:YES completion:nil];
-        }
+        
     }];
 }
 
