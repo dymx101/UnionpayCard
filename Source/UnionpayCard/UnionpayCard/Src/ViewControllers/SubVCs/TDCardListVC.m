@@ -44,8 +44,13 @@
     UILabel             *_lblActiveCardBalanceValue;
     
     Card                *_selectedCard;
+    
+
 }
 @property (nonatomic, strong)     UITableView         *mainTv;
+
+//For test
+@property (nonatomic, assign)   NSUInteger          testDataCount;
 
 @end
 
@@ -59,6 +64,7 @@
     [self installSearchToNavibar];
     
     _cateTvHeight = 330;
+    _testDataCount = 10;
     
     [self createViews];
     [self layoutViews];
@@ -88,6 +94,20 @@
     [_mainTv.pullToRefreshView setTitle:@"正在加载..." forState:SVPullToRefreshStateLoading];
     [_mainTv.pullToRefreshView setTitle:@"下拉刷新数据" forState:SVPullToRefreshStateStopped];
     [_mainTv.pullToRefreshView setTitle:@"释放开始加载" forState:SVPullToRefreshStateTriggered];
+    
+    [_mainTv addInfiniteScrollingWithActionHandler:^{
+        //
+        [MBProgressHUD showHUDAddedTo:weakSelf.view animated:YES];
+        double delayInSeconds = 2.0;
+        dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delayInSeconds * NSEC_PER_SEC));
+        dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
+            weakSelf.testDataCount = weakSelf.testDataCount + 10;
+            [weakSelf.mainTv reloadData];
+            
+            [MBProgressHUD hideHUDForView:weakSelf.view animated:YES];
+            [weakSelf.mainTv.infiniteScrollingView stopAnimating];
+        });
+    }];
 
     
     _topBarShadowView = [UIView new];
@@ -204,7 +224,7 @@
         return [TDCategoryResource alltypes].count;
     } else {
 #warning FAKE DATA
-        return 10;
+        return _testDataCount;
     }
     
     return 0;
