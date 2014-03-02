@@ -19,7 +19,7 @@
     UILabel                 *_lblUserName;
     UIImageView             *_ivVip;
     UILabel                 *_lblBalance;
-    UIImageView             *_ivRightArrow;
+    UIButton                *_btnRightArrow;
 }
 @property (nonatomic,strong)     UIView                 *_headerView;
 
@@ -136,12 +136,13 @@
     [_lblBalance alignLeadingEdgeWithView:_lblUserName predicate:nil];
     
     //
-    _ivRightArrow = [UIImageView new];
-    _ivRightArrow.image = [UIImage imageNamed:@"icon_deal_arrow"];
-    [_viewLoggedIn addSubview:_ivRightArrow];
+    _btnRightArrow = [UIButton new];
+    [_btnRightArrow setImage:[UIImage imageNamed:@"icon_deal_arrow"] forState:UIControlStateNormal];
+    [_btnRightArrow addTarget:self action:@selector(viewAccountAction:) forControlEvents:UIControlEventTouchUpInside];
+    [_viewLoggedIn addSubview:_btnRightArrow];
     
-    [_ivRightArrow alignCenterYWithView:_viewLoggedIn predicate:nil];
-    [_ivRightArrow alignTrailingEdgeWithView:_viewLoggedIn predicate:@"-30"];
+    [_btnRightArrow alignCenterYWithView:_viewLoggedIn predicate:nil];
+    [_btnRightArrow alignTrailingEdgeWithView:_viewLoggedIn predicate:@"-30"];
     
     return __headerView;
 }
@@ -156,6 +157,10 @@
     vc.delegate = self;
     UINavigationController *nc = [[UINavigationController alloc] initWithRootViewController:vc];
     [self presentViewController:nc animated:YES completion:nil];
+}
+
+-(void)viewAccountAction:(id)sender {
+    [self naviToVC:[TDMyAccountVC class]];
 }
 
 #pragma delegate - 
