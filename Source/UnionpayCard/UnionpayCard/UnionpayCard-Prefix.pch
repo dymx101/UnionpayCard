@@ -18,6 +18,7 @@
 #import <EDColor/EDColor.h>
 #import <AFNetworking/AFNetworking.h>
 #import <FLKAutoLayout/UIView+FLKAutoLayout.h>
+#import <SVPullToRefresh/SVPullToRefresh.h>
 
 #import "FDDefine.h"                // defines
 #import "NSObject+BeeNotification.h"

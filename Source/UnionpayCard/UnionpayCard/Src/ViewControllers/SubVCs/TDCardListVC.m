@@ -45,6 +45,7 @@
     
     Card                *_selectedCard;
 }
+@property (nonatomic, strong)     UITableView         *mainTv;
 
 @end
 
@@ -72,6 +73,22 @@
     _mainTv.separatorStyle = UITableViewCellSeparatorStyleNone;
     _mainTv.showsVerticalScrollIndicator = NO;
     [self.view addSubview:_mainTv];
+    
+    __weak TDCardListVC *weakSelf = self;
+    [_mainTv addPullToRefreshWithActionHandler:^{
+        //
+        [MBProgressHUD showHUDAddedTo:weakSelf.view animated:YES];
+        double delayInSeconds = 2.0;
+        dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delayInSeconds * NSEC_PER_SEC));
+        dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
+            [MBProgressHUD hideHUDForView:weakSelf.view animated:YES];
+            [weakSelf.mainTv.pullToRefreshView stopAnimating];
+        });
+    }];
+    [_mainTv.pullToRefreshView setTitle:@"正在加载..." forState:SVPullToRefreshStateLoading];
+    [_mainTv.pullToRefreshView setTitle:@"下拉刷新数据" forState:SVPullToRefreshStateStopped];
+    [_mainTv.pullToRefreshView setTitle:@"释放开始加载" forState:SVPullToRefreshStateTriggered];
+
     
     _topBarShadowView = [UIView new];
     _topBarShadowView.backgroundColor = [FDColor sharedInstance].black;
