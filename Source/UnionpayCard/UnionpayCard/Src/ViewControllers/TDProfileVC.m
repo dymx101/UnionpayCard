@@ -188,15 +188,20 @@
         [[TDHttpClient sharedClient] processCommand:command callback:^(NSURLSessionDataTask *task, id responseObject, NSError *anError) {
             if (anError==nil && [responseObject isKindOfClass:[NSArray class]]) {
                 mUser = responseObject;
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    //刷新 UI 主线程
+                    NSLog(@">>> %@",mUser);
+                    if (mUser!=nil) {
+                        BOOL loginOK = YES;
+                        _viewLoggedIn.hidden = !loginOK;
+                        _viewNotLoggedIn.hidden = loginOK;
+                    }
+                });
             }
         }];
     } completionBlock:^{
         //刷新 UI 主线程
-        
-        BOOL loginOK = YES;
-        _viewLoggedIn.hidden = !loginOK;
-        _viewNotLoggedIn.hidden = loginOK;
-        
+                
     }];
 }
 @end
