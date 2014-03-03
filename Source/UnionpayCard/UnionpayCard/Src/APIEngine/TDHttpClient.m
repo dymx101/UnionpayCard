@@ -10,7 +10,7 @@
 #import "TDJsonParser.h"
 
 //http://localhost:8000/yscardII/json/Show/{"method":"showBtype"}
-static NSString *const BASEURL = @"http://172.20.10.2:8000/yscardII/json/";//@"http://localhost:8000/yscardII/json/";
+static NSString *const BASEURL = @"http://192.168.1.104:8000/yscardII/json/";//@"http://localhost:8000/yscardII/json/";
 
 //static NSString *const BASEURL = @"http://113.57.133.84:8081/yscardII/json/"; // 外网地址
 
@@ -21,22 +21,17 @@ static NSString *const BASEURL = @"http://172.20.10.2:8000/yscardII/json/";//@"h
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         NSURL *baseURL = [NSURL URLWithString:BASEURL];
-        
         NSURLSessionConfiguration *config = [NSURLSessionConfiguration defaultSessionConfiguration];
         [config setHTTPAdditionalHeaders:@{ @"User-Agent" : @"TDHttpClient iOS 1.0"}];
-        
         //设置我们的缓存大小 其中内存缓存大小设置10M  磁盘缓存5M
         NSURLCache *cache = [[NSURLCache alloc] initWithMemoryCapacity:10 * 1024 * 1024
                                                           diskCapacity:50 * 1024 * 1024
                                                               diskPath:nil];
-        
         [config setURLCache:cache];
-        
         _sharedClient = [[TDHttpClient alloc] initWithBaseURL:baseURL
                                          sessionConfiguration:config];
         _sharedClient.responseSerializer = [AFJSONResponseSerializer serializer];
     });
-    
     return _sharedClient;
 }
 
@@ -46,7 +41,6 @@ static NSString *const BASEURL = @"http://172.20.10.2:8000/yscardII/json/";//@"h
             callback:(TDBlock)aCallback
 {
 //    [self _logRawResponse:task];
-    
     if (aCallback) {
         dispatch_async(dispatch_get_main_queue(), ^{
             aCallback(task, [TDJsonParser parseData:responseObject], anError);
@@ -124,8 +118,7 @@ static NSString *const BASEURL = @"http://172.20.10.2:8000/yscardII/json/";//@"h
     [task resume];
 }
 
--(void)_logRawResponse:(NSURLSessionDataTask *) task
-{
+-(void)_logRawResponse:(NSURLSessionDataTask *) task {
     
 }
 
