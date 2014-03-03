@@ -79,6 +79,7 @@
 		EAC9796E18C1762600927CEE /* TDCateogryButton.m in Sources */ = {isa = PBXBuildFile; fileRef = EAC9796D18C1762600927CEE /* TDCateogryButton.m */; };
 		EAC9797118C1883B00927CEE /* TDCategoryResource.m in Sources */ = {isa = PBXBuildFile; fileRef = EAC9797018C1883B00927CEE /* TDCategoryResource.m */; };
 		EAC9D88418B888CF0096D555 /* TDForgetPasswordVC.m in Sources */ = {isa = PBXBuildFile; fileRef = EAC9D88318B888CF0096D555 /* TDForgetPasswordVC.m */; };
+		EACB6F8918C4B454000ED7A0 /* TDRecordCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EACB6F8818C4B454000ED7A0 /* TDRecordCell.m */; };
 		EACBD2D818C3598700DB89EE /* BackLog in Resources */ = {isa = PBXBuildFile; fileRef = EACBD2D718C3598700DB89EE /* BackLog */; };
 		EACBE40118BF140F00F2E9CF /* TDCardListVC.m in Sources */ = {isa = PBXBuildFile; fileRef = EACBE40018BF140F00F2E9CF /* TDCardListVC.m */; };
 		EACBE40418BF149000F2E9CF /* TDVendorsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = EACBE40318BF149000F2E9CF /* TDVendorsVC.m */; };
@@ -1004,6 +1005,8 @@
 		EAC9797018C1883B00927CEE /* TDCategoryResource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TDCategoryResource.m; sourceTree = "<group>"; };
 		EAC9D88218B888CF0096D555 /* TDForgetPasswordVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TDForgetPasswordVC.h; sourceTree = "<group>"; };
 		EAC9D88318B888CF0096D555 /* TDForgetPasswordVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TDForgetPasswordVC.m; sourceTree = "<group>"; };
+		EACB6F8718C4B454000ED7A0 /* TDRecordCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TDRecordCell.h; sourceTree = "<group>"; };
+		EACB6F8818C4B454000ED7A0 /* TDRecordCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TDRecordCell.m; sourceTree = "<group>"; };
 		EACBD2D718C3598700DB89EE /* BackLog */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = BackLog; sourceTree = "<group>"; };
 		EACBE3FF18BF140F00F2E9CF /* TDCardListVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TDCardListVC.h; sourceTree = "<group>"; };
 		EACBE40018BF140F00F2E9CF /* TDCardListVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TDCardListVC.m; sourceTree = "<group>"; };
@@ -1969,6 +1972,8 @@
 				EA58BEE318C1C75200E36E7E /* TDCategoryCell.m */,
 				EACDA60A18C2AFEE005BDC7E /* TDCardCell.h */,
 				EACDA60B18C2AFEE005BDC7E /* TDCardCell.m */,
+				EACB6F8718C4B454000ED7A0 /* TDRecordCell.h */,
+				EACB6F8818C4B454000ED7A0 /* TDRecordCell.m */,
 			);
 			path = TableCells;
 			sourceTree = "<group>";
@@ -3907,6 +3912,7 @@
 				4CB12C6C18BBC7C400F23A76 /* Bprovince.m in Sources */,
 				4C98ABF118B91E01007FAF12 /* NSNumber+safe.m in Sources */,
 				EAC428CD18C31632004F3941 /* TDPhoneFeeVC.m in Sources */,
+				EACB6F8918C4B454000ED7A0 /* TDRecordCell.m in Sources */,
 				4CA68EBD18B5122400D02209 /* TDHttpClient.m in Sources */,
 				4CB12C7B18BBC90700F23A76 /* IntegType.m in Sources */,
 				4CB12C4918BBC3A200F23A76 /* AdminManager.m in Sources */,
