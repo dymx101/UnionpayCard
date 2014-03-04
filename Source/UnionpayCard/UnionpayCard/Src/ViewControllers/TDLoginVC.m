@@ -163,7 +163,7 @@
 }
 
 -(void)loginAction:(id)sender {
-    
+    __weak TDLoginVC * weakSelf = self;
     MBProgressHUD * HUD = [[MBProgressHUD alloc] initWithView:self.view];
     [self.view addSubview:HUD];
 	HUD.color = MBColor;
@@ -172,8 +172,8 @@
         
         [TDHttpService LoginUserinfor:_tfUserName.text loginPass:_tfPwd.text completionBlock:^(id responseObject) {
             if (responseObject != nil && [responseObject isKindOfClass:[NSDictionary class]]) {
-                [self.delegate getProfile:[responseObject objectForKey:@"userToken"]];
-                [self dismissViewControllerAnimated:YES completion:nil];
+                [weakSelf.delegate getProfile:[responseObject objectForKey:@"userToken"]];
+                [weakSelf dismissViewControllerAnimated:YES completion:nil];
             }
         }];
     } completionBlock:nil];

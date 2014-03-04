@@ -21,4 +21,9 @@
  */
 + (void)ShowcrrutUser:(NSString *) userToken completionBlock:(TDCompletionBlock)aCompletionBlock;
 
+/**
+ *  功能:商户一级类别
+ */
++ (void)showBtype:(TDCompletionBlock)aCompletionBlock;
+
 @end

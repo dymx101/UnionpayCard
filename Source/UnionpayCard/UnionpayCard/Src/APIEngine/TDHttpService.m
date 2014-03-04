@@ -51,7 +51,6 @@
     [input setValue:logpassword forKey:@"u_log_password"];
     TDHttpCommand * command = [TDHttpCommand new];
     command.inPut = input;
-    
     [self postCommand:command completionBlock:aCompletionBlock];
 }
 
@@ -61,8 +60,14 @@
     [input setValue:userToken forKey:@"userToken"];
     TDHttpCommand * command = [TDHttpCommand new];
     command.inPut = input;
-    
     [self postCommand:command completionBlock:aCompletionBlock];
-    
+}
+
++ (void)showBtype:(TDCompletionBlock)aCompletionBlock {
+    NSMutableDictionary * input = [NSMutableDictionary new];
+    [input setValue: [self interfaceNameFromSelector:_cmd] forKey:@"method"];
+    TDHttpCommand * command = [TDHttpCommand new];
+    command.inPut = input;
+    [self postCommand:command completionBlock:aCompletionBlock];
 }
 @end

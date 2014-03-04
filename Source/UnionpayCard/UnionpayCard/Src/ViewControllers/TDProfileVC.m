@@ -174,11 +174,11 @@
     MBProgressHUD * HUD = [[MBProgressHUD alloc] initWithView:self.view];
     [self.view addSubview:HUD];
 	HUD.color = MBColor;
-    
+    __weak TDProfileVC * weakSelf = self;
     [HUD showAnimated:YES whileExecutingBlock:^{
          [TDHttpService ShowcrrutUser:tOken completionBlock:^(id responseObject) {
              if (responseObject != nil && [responseObject isKindOfClass:[NSArray class]]) {
-                 self._mUser = [responseObject lastObject];
+                 weakSelf._mUser = [responseObject lastObject];
                  BOOL loginOK = YES;
                  _viewLoggedIn.hidden = !loginOK;
                  _viewNotLoggedIn.hidden = loginOK;
