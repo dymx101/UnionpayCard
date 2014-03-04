@@ -292,6 +292,7 @@
         
         _constraintHeaderHeight.constant = 110;
         [UIView animateWithDuration:.3f animations:^{
+            [self mainHeader].alpha = 1;
             [self.view layoutIfNeeded];
         }];
     }
@@ -397,6 +398,7 @@
 
     _constraintHeaderHeight.constant = 0;
     [UIView animateWithDuration:.3f animations:^{
+        [self mainHeader].alpha = 0;
         [self.view layoutIfNeeded];
     }];
 }
