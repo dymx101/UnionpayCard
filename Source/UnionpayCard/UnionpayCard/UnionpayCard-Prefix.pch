@@ -10,6 +10,8 @@
 #warning "This project uses features only available in iOS SDK 3.0 and later."
 #endif
 
+#define MBColor [UIColor colorWithHexString:@"359de8"]
+
 #ifdef __OBJC__
 #import <UIKit/UIKit.h>
 #import <Foundation/Foundation.h>
@@ -24,6 +26,7 @@
 #import "NSObject+BeeNotification.h"
 #import "TDHttpCommand.h"
 #import "TDHttpClient.h"
+#import "TDHttpService.h"
 
 
 #import "TDImageLibrary.h"      // image library

@@ -22,6 +22,7 @@
     UIButton                *_btnRightArrow;
 }
 @property (nonatomic,strong)     UIView                 *_headerView;
+@property (nonatomic,strong)     Userinfor              *_mUser;
 
 @end
 
@@ -172,36 +173,19 @@
     
     MBProgressHUD * HUD = [[MBProgressHUD alloc] initWithView:self.view];
     [self.view addSubview:HUD];
+	HUD.color = MBColor;
     
-    HUD.labelText = @"努力装载中";
-	HUD.color = [UIColor clearColor];
-	HUD.square = YES;
-    
-    __block Userinfor * mUser = nil;
     [HUD showAnimated:YES whileExecutingBlock:^{
-        NSMutableDictionary * input = [NSMutableDictionary new];
-        [input setValue:@"ShowcrrutUser" forKey:@"method"];
-        [input setValue:tOken forKey:@"userToken"];
-        TDHttpCommand * command = [TDHttpCommand new];
-        command.inPut = input;
-        //命令模式调用
-        [[TDHttpClient sharedClient] processCommand:command callback:^(NSURLSessionDataTask *task, id responseObject, NSError *anError) {
-            if (anError==nil && [responseObject isKindOfClass:[NSArray class]]) {
-                mUser = responseObject;
-                dispatch_async(dispatch_get_main_queue(), ^{
-                    //刷新 UI 主线程
-                    NSLog(@">>> %@",mUser);
-                    if (mUser!=nil) {
-                        BOOL loginOK = YES;
-                        _viewLoggedIn.hidden = !loginOK;
-                        _viewNotLoggedIn.hidden = loginOK;
-                    }
-                });
-            }
-        }];
-    } completionBlock:^{
-        //刷新 UI 主线程
-                
-    }];
+         [TDHttpService ShowcrrutUser:tOken completionBlock:^(id responseObject) {
+             if (responseObject != nil && [responseObject isKindOfClass:[NSArray class]]) {
+                 self._mUser = [responseObject lastObject];
+                 BOOL loginOK = YES;
+                 _viewLoggedIn.hidden = !loginOK;
+                 _viewNotLoggedIn.hidden = loginOK;
+                 _lblUserName.text = [__mUser u_name];
+                 _lblBalance.text = [NSString stringWithFormat:@"余额: ￥%0.0f",[__mUser.u_rec_money doubleValue]];
+             }
+         }];
+    } completionBlock:nil];
 }
 @end

@@ -10,6 +10,9 @@
 
 typedef void(^TDBlock)(NSURLSessionDataTask *task, id responseObject, NSError* anError);
 
+typedef void(^TDCompletionBlock)(id responseObject);
+
+
 @interface TDHttpClient : AFHTTPSessionManager
 
 
@@ -17,5 +20,7 @@ typedef void(^TDBlock)(NSURLSessionDataTask *task, id responseObject, NSError* a
 
 
 - (void)processCommand:(TDHttpCommand * ) command callback:(TDBlock)aCallback;
+
+
 
 @end

@@ -166,44 +166,18 @@
     
     MBProgressHUD * HUD = [[MBProgressHUD alloc] initWithView:self.view];
     [self.view addSubview:HUD];
-	HUD.delegate = self;
-    HUD.labelText = @"努力装载中";
-	HUD.color = [UIColor clearColor];
-	HUD.square = YES;
+	HUD.color = MBColor;
     
-    __block NSDictionary * loginResultMap;
-    //http://113.57.133.84:8081/yscardII/json/Show/%7B%22method%22:%22LoginUserinfor%22,%22u_logname%22:%22say@qq.com%22,%22u_log_password%22:%22123456%22%7D
     [HUD showAnimated:YES whileExecutingBlock:^{
-        NSMutableDictionary * input = [NSMutableDictionary new];
-        [input setValue:@"LoginUserinfor" forKey:@"method"];
-        [input setValue:_tfUserName.text forKey:@"u_logname"];
-        [input setValue:@"123456" forKey:@"u_log_password"];
-        TDHttpCommand * command = [TDHttpCommand new];
-        command.inPut = input;
-        //命令模式调用
-        [[TDHttpClient sharedClient] processCommand:command callback:^(NSURLSessionDataTask *task, id responseObject, NSError *anError) {
-            if (anError==nil && [responseObject isKindOfClass:[NSDictionary class]]) {
-                 loginResultMap = responseObject;
-                
-                dispatch_async(dispatch_get_main_queue(), ^{
-                    //刷新 UI 主线程
-                    NSLog(@">>> %@",loginResultMap);
-                    if (loginResultMap!=nil) {
-                        [self.delegate getProfile:[loginResultMap objectForKey:@"userToken"]];
-                        [self dismissViewControllerAnimated:YES completion:nil];
-                    }
-                });
+        
+        [TDHttpService LoginUserinfor:_tfUserName.text loginPass:_tfPwd.text completionBlock:^(id responseObject) {
+            if (responseObject != nil && [responseObject isKindOfClass:[NSDictionary class]]) {
+                [self.delegate getProfile:[responseObject objectForKey:@"userToken"]];
+                [self dismissViewControllerAnimated:YES completion:nil];
             }
         }];
-    } completionBlock:^{
-        
-    }];
+    } completionBlock:nil];
 }
-
--(void)myTask {
-    sleep(10);
-}
-
 
 -(void)registerNoAccountAction:(id)sender {
     TDRegisterNoAccountVC *vc = [TDRegisterNoAccountVC new];
