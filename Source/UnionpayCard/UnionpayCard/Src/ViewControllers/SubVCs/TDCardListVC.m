@@ -36,7 +36,8 @@
     UISearchBar         *_searchBar;
     
     UITableView         *_mainTv;
-    NSLayoutConstraint  *_constraintHeaderHeight;
+    UIView              *_header;
+    __weak NSLayoutConstraint  *_constraintHeaderHeight;
     
     UIImageView         *_ivActiveCard;
     UILabel             *_lblActiveCardTitle;
@@ -291,6 +292,7 @@
         _selectedCard = [Card new];
         
         _constraintHeaderHeight.constant = 110;
+        [self.view setNeedsUpdateConstraints];
         [UIView animateWithDuration:.3f animations:^{
             [self mainHeader].alpha = 1;
             [self.view layoutIfNeeded];
@@ -316,26 +318,26 @@
 
 #pragma mark - table header & footer
 -(UIView *)mainHeader {
-    static UIView *header = nil;
-    if (header == nil) {
-        header = [UIView new];
-        header.backgroundColor = [FDColor sharedInstance].white;
+
+    if (_header == nil) {
+        _header = [UIView new];
+        _header.backgroundColor = [FDColor sharedInstance].white;
         
         _ivActiveCard = [UIImageView new];
         _ivActiveCard.image = [UIImage imageNamed:@"vendor_sample"];
         [_ivActiveCard applyEffectRoundRectSilverBorder];
-        [header addSubview:_ivActiveCard];
+        [_header addSubview:_ivActiveCard];
         
         [_ivActiveCard constrainWidth:@"125" height:@"85"];
-        [_ivActiveCard alignCenterYWithView:header predicate:nil];
-        [_ivActiveCard alignLeadingEdgeWithView:header predicate:@"10"];
+        [_ivActiveCard alignCenterYWithView:_header predicate:nil];
+        [_ivActiveCard alignLeadingEdgeWithView:_header predicate:@"10"];
         
         //
         _lblActiveCardTitle = [UILabel new];
         _lblActiveCardTitle.font = [TDFontLibrary sharedInstance].fontLargeBold;
         _lblActiveCardTitle.text = @"仟吉西饼";
         _lblActiveCardTitle.textColor = [FDColor sharedInstance].cerulean;
-        [header addSubview:_lblActiveCardTitle];
+        [_header addSubview:_lblActiveCardTitle];
         
         [_lblActiveCardTitle alignTopEdgeWithView:_ivActiveCard predicate:@"10"];
         [_lblActiveCardTitle constrainLeadingSpaceToView:_ivActiveCard predicate:@"10"];
@@ -345,7 +347,7 @@
         _lblActiveCardNumber.font = [TDFontLibrary sharedInstance].fontNormal;
         _lblActiveCardNumber.text = @"[卡号] 40088877665544";
         _lblActiveCardNumber.textColor = [FDColor sharedInstance].cerulean;
-        [header addSubview:_lblActiveCardNumber];
+        [_header addSubview:_lblActiveCardNumber];
         
         [_lblActiveCardNumber constrainTopSpaceToView:_lblActiveCardTitle predicate:@"15"];
         [_lblActiveCardNumber alignLeadingEdgeWithView:_lblActiveCardTitle predicate:nil];
@@ -355,7 +357,7 @@
         _lblActiveCardBalanceTitle.font = [TDFontLibrary sharedInstance].fontNormal;
         _lblActiveCardBalanceTitle.text = @"余额 : ";
         _lblActiveCardBalanceTitle.textColor = [FDColor sharedInstance].cerulean;
-        [header addSubview:_lblActiveCardBalanceTitle];
+        [_header addSubview:_lblActiveCardBalanceTitle];
         
         [_lblActiveCardBalanceTitle constrainTopSpaceToView:_lblActiveCardNumber predicate:@"4"];
         [_lblActiveCardBalanceTitle alignLeadingEdgeWithView:_lblActiveCardTitle predicate:nil];
@@ -365,7 +367,7 @@
         _lblActiveCardBalanceValue.font = [TDFontLibrary sharedInstance].fontNormal;
         _lblActiveCardBalanceValue.text = @"￥250.00";
         _lblActiveCardBalanceValue.textColor = [FDColor sharedInstance].red;
-        [header addSubview:_lblActiveCardBalanceValue];
+        [_header addSubview:_lblActiveCardBalanceValue];
         
         [_lblActiveCardBalanceValue alignTopEdgeWithView:_lblActiveCardBalanceTitle predicate:nil];
         [_lblActiveCardBalanceValue constrainLeadingSpaceToView:_lblActiveCardBalanceTitle predicate:@"0"];
@@ -373,13 +375,13 @@
         //
         UIImageView *ivCheck = [UIImageView new];
         ivCheck.image = [UIImage imageNamed:@"icon_orderReview_checked"];
-        [header addSubview:ivCheck];
+        [_header addSubview:ivCheck];
         
         [ivCheck alignCenterYWithView:_lblActiveCardTitle predicate:nil];
         [ivCheck constrainLeadingSpaceToView:_lblActiveCardTitle predicate:@"10"];
     }
     
-    return header;
+    return _header;
 }
 
 #pragma mark - search bar
@@ -397,10 +399,12 @@
     _selectedCard = nil;
 
     _constraintHeaderHeight.constant = 0;
+    [self.view setNeedsUpdateConstraints];
     [UIView animateWithDuration:.3f animations:^{
         [self mainHeader].alpha = 0;
         [self.view layoutIfNeeded];
     }];
 }
+
 
 @end
