@@ -36,6 +36,7 @@
     UISearchBar         *_searchBar;
     
     UITableView         *_mainTv;
+    NSLayoutConstraint  *_constraintHeaderHeight;
     
     UIImageView         *_ivActiveCard;
     UILabel             *_lblActiveCardTitle;
@@ -71,6 +72,8 @@
 }
 
 -(void)createViews {
+    
+    [self.view addSubview:[self mainHeader]];
     
     _mainTv = [UITableView new];
     _mainTv.delegate = self;
@@ -179,8 +182,14 @@
     [_topBarShadowView alignTopEdgeWithView:self.view predicate:nil];
     [_topBarShadowView alignCenterXWithView:self.view predicate:nil];
     
+    UIView *header = [self mainHeader];
+    [header constrainWidthToView:_topBarShadowView predicate:nil];
+    [header constrainTopSpaceToView:_topBarShadowView predicate:nil];
+    _constraintHeaderHeight = [header constrainHeight:@"0"].firstObject;
+    [header alignCenterXWithView:_topBarShadowView predicate:nil];
+    
     [_mainTv alignLeading:@"0" trailing:@"0" toView:self.view];
-    [_mainTv constrainTopSpaceToView:_topBarView predicate:nil];
+    [_mainTv constrainTopSpaceToView:header predicate:nil];
     [_mainTv alignBottomEdgeWithView:self.view predicate:nil];
     
     [_topBarView alignToView:_topBarShadowView];
@@ -280,8 +289,11 @@
     } else if (tableView == _mainTv) {
         
         _selectedCard = [Card new];
-        [tableView reloadData];
         
+        _constraintHeaderHeight.constant = 110;
+        [UIView animateWithDuration:.3f animations:^{
+            [self.view layoutIfNeeded];
+        }];
     }
 }
 
@@ -382,7 +394,11 @@
 
 -(void)resetAction:(id)sender {
     _selectedCard = nil;
-    [_mainTv reloadData];
+
+    _constraintHeaderHeight.constant = 0;
+    [UIView animateWithDuration:.3f animations:^{
+        [self.view layoutIfNeeded];
+    }];
 }
 
 @end
