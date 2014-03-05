@@ -169,11 +169,8 @@
 
 #pragma delegate - 
 - (void) getProfile:(NSString *) tOken{
-    NSLog(@">>> %@",tOken);
-    
     MBProgressHUD * HUD = [[MBProgressHUD alloc] initWithView:self.view];
     [self.view addSubview:HUD];
-	HUD.color = MBColor;
     __weak TDProfileVC * weakSelf = self;
     [HUD showAnimated:YES whileExecutingBlock:^{
          [TDHttpService ShowcrrutUser:tOken completionBlock:^(id responseObject) {

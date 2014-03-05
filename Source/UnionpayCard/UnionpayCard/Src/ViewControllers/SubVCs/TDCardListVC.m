@@ -13,6 +13,7 @@
 #import "TDCardCell.h"
 
 #import "Card.h"
+#import "Btype.h"
 
 //#warning 重置按钮
 //#warning 下拉刷新
@@ -46,7 +47,7 @@
     UILabel             *_lblActiveCardBalanceValue;
     
     Card                *_selectedCard;
-    
+    Btype               *_TDCategoryResource;
 
 }
 @property (nonatomic, strong)     UITableView         *mainTv;

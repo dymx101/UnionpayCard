@@ -166,10 +166,8 @@
     __weak TDLoginVC * weakSelf = self;
     MBProgressHUD * HUD = [[MBProgressHUD alloc] initWithView:self.view];
     [self.view addSubview:HUD];
-	HUD.color = MBColor;
     
     [HUD showAnimated:YES whileExecutingBlock:^{
-        
         [TDHttpService LoginUserinfor:_tfUserName.text loginPass:_tfPwd.text completionBlock:^(id responseObject) {
             if (responseObject != nil && [responseObject isKindOfClass:[NSDictionary class]]) {
                 [weakSelf.delegate getProfile:[responseObject objectForKey:@"userToken"]];

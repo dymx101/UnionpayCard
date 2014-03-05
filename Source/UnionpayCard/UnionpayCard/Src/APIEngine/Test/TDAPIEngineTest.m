@@ -26,18 +26,18 @@
     command.inPut = input;
     
     //命令模式调用
-//    [[TDHttpClient sharedClient] processCommand:command callback:^(NSURLSessionDataTask *task, id responseObject, NSError *anError) {
-//        if (anError==nil && [responseObject isKindOfClass:[NSArray class]]) {
-//            NSArray * array = responseObject;
-//            for (Btype * byt in array) {
-//                NSLog(@">1 %@",byt.b_t_id);
-//                NSLog(@">2 %@",byt.b_type_name);
-//                NSLog(@">3 %@",byt.b_cord_type);
-//            }
-//        }
-//    }];
+    //    [[TDHttpClient sharedClient] processCommand:command callback:^(NSURLSessionDataTask *task, id responseObject, NSError *anError) {
+    //        if (anError==nil && [responseObject isKindOfClass:[NSArray class]]) {
+    //            NSArray * array = responseObject;
+    //            for (Btype * byt in array) {
+    //                NSLog(@">1 %@",byt.b_t_id);
+    //                NSLog(@">2 %@",byt.b_type_name);
+    //                NSLog(@">3 %@",byt.b_cord_type);
+    //            }
+    //        }
+    //    }];
     
-     [input setValue:@"ShowPost" forKey:@"method"];
+    [input setValue:@"ShowPost" forKey:@"method"];
     [input setValue:@"1" forKey:@"frist"];
     [input setValue:@"10" forKey:@"pageNum"];
     
@@ -45,8 +45,18 @@
     
     [[TDHttpClient sharedClient] processCommand:command callback:^(NSURLSessionDataTask *task, id responseObject, NSError *anError) {
         if (anError==nil && [responseObject isKindOfClass:[NSArray class]]) {
-            Post * post = [responseObject lastObject];
-            NSLog(@">> %@",post);
+//            Post * post = [responseObject lastObject];
+//            NSLog(@">> %@",post);
+        }
+    }];
+    
+    
+    [TDHttpService showBtype:^(id responseObject) {
+        if (responseObject != nil && [responseObject isKindOfClass:[NSArray class]]) {
+            NSArray  * array = responseObject;
+            for (Btype * byt in array) {
+//                NSLog(@">1 %@",byt.b_type_name);
+            }
         }
     }];
 }
