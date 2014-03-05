@@ -74,7 +74,9 @@
 
 -(void)createViews {
     
-    [self.view addSubview:[self mainHeader]];
+    UIView *header = [self mainHeader];
+    header.alpha = 0;
+    [self.view addSubview:header];
     
     _mainTv = [UITableView new];
     _mainTv.delegate = self;
@@ -186,8 +188,9 @@
     UIView *header = [self mainHeader];
     [header constrainWidthToView:_topBarShadowView predicate:nil];
     [header constrainTopSpaceToView:_topBarShadowView predicate:nil];
-    _constraintHeaderHeight = [header constrainHeight:@"0"].firstObject;
     [header alignCenterXWithView:_topBarShadowView predicate:nil];
+    _constraintHeaderHeight = [header constrainHeight:@"0"].firstObject;
+    
     
     [_mainTv alignLeading:@"0" trailing:@"0" toView:self.view];
     [_mainTv constrainTopSpaceToView:header predicate:nil];
@@ -292,7 +295,7 @@
         _selectedCard = [Card new];
         
         _constraintHeaderHeight.constant = 110;
-        [self.view setNeedsUpdateConstraints];
+
         [UIView animateWithDuration:.3f animations:^{
             [self mainHeader].alpha = 1;
             [self.view layoutIfNeeded];
@@ -300,28 +303,20 @@
     }
 }
 
--(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
-    if (tableView == _mainTv) {
-        return _selectedCard ? [self mainHeader] : nil;
-    }
-    
-    return nil;
-}
-
--(float)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
-    if (tableView == _mainTv) {
-        return _selectedCard ? 110 : 0;
-    }
-    
-    return 0;
-}
-
 #pragma mark - table header & footer
 -(UIView *)mainHeader {
 
     if (_header == nil) {
         _header = [UIView new];
-        _header.backgroundColor = [FDColor sharedInstance].white;
+        _header.backgroundColor = [FDColor sharedInstance].clear;
+        
+        UIView  *bgView = [UIView new];
+        bgView.backgroundColor = [FDColor sharedInstance].white;
+        [_header addSubview:bgView];
+        [bgView alignLeading:@"0" trailing:@"0" toView:_header];
+        [bgView alignTopEdgeWithView:_header predicate:nil];
+        [bgView constrainHeight:@"109.5"];
+        [bgView applyEffectShadow];
         
         _ivActiveCard = [UIImageView new];
         _ivActiveCard.image = [UIImage imageNamed:@"vendor_sample"];
@@ -399,7 +394,7 @@
     _selectedCard = nil;
 
     _constraintHeaderHeight.constant = 0;
-    [self.view setNeedsUpdateConstraints];
+
     [UIView animateWithDuration:.3f animations:^{
         [self mainHeader].alpha = 0;
         [self.view layoutIfNeeded];
