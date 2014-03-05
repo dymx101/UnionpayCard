@@ -62,15 +62,15 @@
     
     cell.btnFreeze.hidden = !_showAddMoneyRecord;
     if (_showAddMoneyRecord) {
-        cell.lblVendorName.text = @"仟吉西饼";
-        cell.lblCardNumber.text = @"卡号: 12378378123871283";
+        cell.lblVendorName.text = @"皇冠蛋糕";
+        cell.lblCardNumber.text = @"[卡号] 12378378123871283";
         cell.lblAmount.text = @"充值金额: ￥200.00";
-        cell.lblFlowNumber.text = @"充值流水号: 34573784537456347";
+        cell.lblFlowNumber.text = @"充值流水号: 3457378453745";
     } else {
         cell.lblVendorName.text = @"周黑鸭";
         cell.lblCardNumber.text = @"卡号: 2348348385345835";
         cell.lblAmount.text = @"消费金额: ￥100.00";
-        cell.lblFlowNumber.text = @"消费流水号: 34573784537456347";
+        cell.lblFlowNumber.text = @"消费流水号: 3457378453745";
     }
     
     return cell;
@@ -107,6 +107,14 @@
         [_btnAddMoneyRec alignCenterYWithView:bgView predicate:nil];
         [_btnAddMoneyRec constrainWidthToView:bgView predicate:@"*.5"];
         _btnAddMoneyRec.selected = _showAddMoneyRecord;
+        
+        //
+        UIView *_vertDevideLine = [UIView new];
+        _vertDevideLine.backgroundColor = [FDColor sharedInstance].silverDark;
+        [bgView addSubview:_vertDevideLine];
+        [_vertDevideLine constrainWidth:@"1"];
+        [_vertDevideLine alignCenterXWithView:bgView predicate:nil];
+        [_vertDevideLine alignTop:@"10" bottom:@"-10" toView:bgView];
         
         //
         _btnUseMoneyRec = [UIButton new];
