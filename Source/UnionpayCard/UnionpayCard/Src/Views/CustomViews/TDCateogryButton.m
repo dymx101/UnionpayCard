@@ -42,12 +42,12 @@
 
 -(void)layoutViews {
     [_ivIcon alignCenterYWithView:self predicate:nil];
-    [_ivIcon alignLeadingEdgeWithView:self predicate:@"10"];
+    [_ivIcon alignLeadingEdgeWithView:self predicate:@"20"];
     [_ivIcon constrainWidth:@"19" height:@"19"];
     
     [_lblTitle alignCenterYWithView:self predicate:nil];
     _lblTitle.font = [TDFontLibrary sharedInstance].fontNormal;
-    [_lblTitle constrainLeadingSpaceToView:_ivIcon predicate:@"5"];
+    [_lblTitle constrainLeadingSpaceToView:_ivIcon predicate:@"10"];
 }
 
 #pragma mark - 

@@ -9,7 +9,7 @@
 #import "TDCategoryCell.h"
 
 
-#define MY_HEIGHT   (35)
+#define MY_HEIGHT   (40)
 
 @interface TDCategoryCell () {
     UIView                  *_highlightCoverView;

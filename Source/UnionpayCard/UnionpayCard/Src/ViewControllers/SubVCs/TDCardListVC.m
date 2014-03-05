@@ -65,7 +65,7 @@
     self.navigationItem.title = @"卡片管理";
     [self installSearchToNavibar];
     
-    _cateTvHeight = 330;
+    _cateTvHeight = 380;
     _testDataCount = 10;
     
     [self createViews];
@@ -175,7 +175,7 @@
     [_topBarViewSearch addSubview:_searchBar];
 
 
-    [self hideCateMenu:nil];
+    _viewMask.alpha = 0;
 }
 
 -(void)layoutViews {
@@ -201,22 +201,22 @@
     [_topBarViewSearch alignToView:_topBarShadowView];
     
     [_btnCategory constrainHeightToView:_topBarView predicate:nil];
-    [_btnCategory constrainWidth:@"100"];
-    [_btnCategory alignTop:@"0" leading:@"20" toView:_topBarView];
+    [_btnCategory constrainWidthToView:_topBarView predicate:@"*.5"];
+    [_btnCategory alignTop:@"0" leading:@"0" toView:_topBarView];
     
     [_vertDevideLine constrainWidth:@"1"];
-    [_vertDevideLine constrainLeadingSpaceToView:_btnCategory predicate:@"10"];
+    [_vertDevideLine constrainLeadingSpaceToView:_btnCategory predicate:@"0"];
     [_vertDevideLine alignTop:@"10" bottom:@"-10" toView:_topBarView];
     
     [_btnReset constrainHeightToView:_topBarView predicate:nil];
-    [_btnReset constrainLeadingSpaceToView:_vertDevideLine predicate:@"10"];
+    [_btnReset constrainLeadingSpaceToView:_vertDevideLine predicate:@"0"];
     [_btnReset alignTrailingEdgeWithView:_topBarView predicate:@"-10"];
     [_btnReset alignTopEdgeWithView:_topBarView predicate:nil];
     
     [_viewMask alignToView:self.view];
     
     [_cateTv alignTop:@"40" leading:@"1" toView:_viewMask];
-    [_cateTv constrainWidth:@"199"];
+    [_cateTv constrainWidth:@"150"];
     _constraintCateTvHeight = [_cateTv constrainHeight:@(_cateTvHeight).stringValue].firstObject;
     
     [_searchBar alignToView:_topBarViewSearch];
@@ -224,11 +224,16 @@
 
 #pragma mark - 
 -(void)categoryTapAction:(id)sender {
-    _viewMask.hidden = !_viewMask.hidden;
+    [UIView animateWithDuration:.2f animations:^{
+        _viewMask.alpha =  (_viewMask.alpha ? 0 : 1) ;
+    }];
 }
 
 -(void)hideCateMenu:(id)sender {
-    _viewMask.hidden = YES;
+    
+    [UIView animateWithDuration:.2f animations:^{
+        _viewMask.alpha = 0;
+    }];
 }
 
 #pragma mark - table view
