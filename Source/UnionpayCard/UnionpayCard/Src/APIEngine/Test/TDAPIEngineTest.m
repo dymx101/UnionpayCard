@@ -10,6 +10,8 @@
 #import "TDJsonParser.h"
 #import "Btype.h"
 #import "Post.h"
+#import "Userinfor.h"
+#import "Utocard.h"
 
 @implementation TDAPIEngineTest
 +(void)run {
@@ -19,46 +21,38 @@
 
 +(void)testxxx {
     
-    // 入参数 封装成一个dictinary
-    NSMutableDictionary * input = [NSMutableDictionary new];
-    [input setValue:@"showBtype" forKey:@"method"];
-    TDHttpCommand * command = [TDHttpCommand new];
-    command.inPut = input;
-    
-    //命令模式调用
-    //    [[TDHttpClient sharedClient] processCommand:command callback:^(NSURLSessionDataTask *task, id responseObject, NSError *anError) {
-    //        if (anError==nil && [responseObject isKindOfClass:[NSArray class]]) {
-    //            NSArray * array = responseObject;
-    //            for (Btype * byt in array) {
-    //                NSLog(@">1 %@",byt.b_t_id);
-    //                NSLog(@">2 %@",byt.b_type_name);
-    //                NSLog(@">3 %@",byt.b_cord_type);
-    //            }
-    //        }
-    //    }];
-    
-    [input setValue:@"ShowPost" forKey:@"method"];
-    [input setValue:@"1" forKey:@"frist"];
-    [input setValue:@"10" forKey:@"pageNum"];
-    
-    command.inPut = input;
-    
-    [[TDHttpClient sharedClient] processCommand:command callback:^(NSURLSessionDataTask *task, id responseObject, NSError *anError) {
-        if (anError==nil && [responseObject isKindOfClass:[NSArray class]]) {
-//            Post * post = [responseObject lastObject];
-//            NSLog(@">> %@",post);
-        }
-    }];
-    
-    
     [TDHttpService showBtype:^(id responseObject) {
         if (responseObject != nil && [responseObject isKindOfClass:[NSArray class]]) {
             NSArray  * array = responseObject;
             for (Btype * byt in array) {
-//                NSLog(@">1 %@",byt.b_type_name);
+                NSLog(@">1 %@",byt);
             }
         }
     }];
+    
+    
+    __block NSString * token = nil;
+    __block Userinfor * user = nil;
+    [TDHttpService LoginUserinfor:@"s@qq.com" loginPass:@"123456" completionBlock:^(id responseObject) {
+        if (responseObject != nil && [responseObject isKindOfClass:[NSDictionary class]]) {
+            token = [responseObject objectForKey:@"userToken"];
+             [TDHttpService ShowcrrutUser:token completionBlock:^(id responseObject) {
+                 if (responseObject != nil && [responseObject isKindOfClass:[NSArray class]]) {
+                     user = [responseObject lastObject];
+                     NSString * userId = [NSString stringWithFormat:@"%d",[user.u_id intValue]];
+                     [TDHttpService ShowUtocard:userId completionBlock:^(id responseObject) {
+                         if (responseObject != nil && [responseObject isKindOfClass:[NSArray class]]) {
+                             NSArray * array = responseObject;
+                             for (Utocard * utocard in array) {
+                                 NSLog(@">2 %@",utocard);
+                             }
+                         }
+                     }];
+                 }
+             }];
+        }
+    }];
+    
 }
 
 @end

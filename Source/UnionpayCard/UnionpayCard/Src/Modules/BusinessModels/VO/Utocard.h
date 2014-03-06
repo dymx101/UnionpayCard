@@ -20,5 +20,6 @@
 @property(nonatomic,strong) NSString * b_cordimg;
 @property(nonatomic,strong) NSNumber * card_state;
 @property(nonatomic,strong) NSString * card_balance;
+@property(nonatomic,strong) NSString * b_c_name;
 
 @end

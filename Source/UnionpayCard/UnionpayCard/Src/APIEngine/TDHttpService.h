@@ -26,4 +26,8 @@
  */
 + (void)showBtype:(TDCompletionBlock)aCompletionBlock;
 
+/**
+ *  功能：展示用户卡片
+ */
++ (void)ShowUtocard:(NSString *) userId completionBlock:(TDCompletionBlock)aCompletionBlock;
 @end

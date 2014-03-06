@@ -70,4 +70,13 @@
     command.inPut = input;
     [self postCommand:command completionBlock:aCompletionBlock];
 }
+
++ (void)ShowUtocard:(NSString *) userId completionBlock:(TDCompletionBlock)aCompletionBlock {
+    NSMutableDictionary * input = [NSMutableDictionary new];
+    [input setValue: [self interfaceNameFromSelector:_cmd] forKey:@"method"];
+    [input setValue:userId forKey:@"u_id"];
+    TDHttpCommand * command = [TDHttpCommand new];
+    command.inPut = input;
+    [self postCommand:command completionBlock:aCompletionBlock];
+}
 @end

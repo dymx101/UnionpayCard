@@ -7,6 +7,7 @@
 //
 
 #import "TDCardCell.h"
+#import "Utocard.h"
 
 #define MY_HEIGHT   (75)
 
@@ -36,7 +37,7 @@
 
 -(void)createViews {
     _ivPhoto = [UIImageView new];
-    _ivPhoto.image = [UIImage imageNamed:@"vendor_sample"];
+//    _ivPhoto.image = [UIImage imageNamed:@"vendor_sample"];
     [self.contentView addSubview:_ivPhoto];
     
     //
@@ -97,6 +98,26 @@
     
     [_lblBalanceValue alignTopEdgeWithView:_lblBalanceTitle predicate:nil];
     [_lblBalanceValue constrainLeadingSpaceToView:_lblBalanceTitle predicate:@"0"];
+}
+
+- (NSCache *)UpdateCardInfo:(Utocard *) Utocard addCache:(NSCache *) __cache {
+    //1
+    dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0ul);
+    dispatch_async(queue, ^{
+        NSData  * imageData = [NSData dataWithContentsOfURL:[NSURL URLWithString:Utocard.b_cordimg]];
+        UIImage * image = [[UIImage alloc] initWithData:imageData];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            _ivPhoto.layer.contents = (__bridge id)(image.CGImage);
+            [__cache setObject:image forKey:Utocard.b_cordimg];
+        });
+    });
+    //2
+    _lblTitle.text = Utocard.b_jname;
+    //3
+    _lblCardNumber.text = [NSString stringWithFormat:@"[卡号] %@",Utocard.u_card];
+    //4
+    _lblBalanceValue.text = [NSString stringWithFormat:@"%@",Utocard.card_balance];
+    return __cache;
 }
 
 

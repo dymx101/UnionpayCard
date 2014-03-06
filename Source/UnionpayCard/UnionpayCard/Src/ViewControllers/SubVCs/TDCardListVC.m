@@ -14,6 +14,8 @@
 
 #import "Card.h"
 #import "Btype.h"
+#import "Utocard.h"
+#import "Userinfor.h"
 
 //#warning 重置按钮
 //#warning 下拉刷新
@@ -46,14 +48,16 @@
     UILabel             *_lblActiveCardBalanceTitle;
     UILabel             *_lblActiveCardBalanceValue;
     
-    Card                *_selectedCard;
+    Utocard             *_selectedCard;
     Btype               *_TDCategoryResource;
-
+    
 }
 @property (nonatomic, strong)     UITableView         *mainTv;
 
 //For test
 @property (nonatomic, assign)   NSUInteger          testDataCount;
+@property (nonatomic, strong)   NSArray             * UtoCards;
+@property(nonatomic, strong)    NSCache 	        * imageCache;
 
 @end
 
@@ -71,6 +75,28 @@
     
     [self createViews];
     [self layoutViews];
+    [self sendRequest];
+}
+
+- (void)didReceiveMemoryWarning {
+    [self.imageCache removeAllObjects];
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
+
+- (void)dealloc {
+    [self.imageCache removeAllObjects];
+    self.imageCache = nil;
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
+- (NSCache *) imageCache {
+    if (_imageCache == nil) {
+        _imageCache = [NSCache new];
+        [_imageCache setName:@"JKImageCache"];
+        return _imageCache;
+    }
+    return _imageCache;
 }
 
 -(void)createViews {
@@ -115,7 +141,7 @@
             [weakSelf.mainTv.infiniteScrollingView stopAnimating];
         });
     }];
-
+    
     
     _topBarShadowView = [UIView new];
     _topBarShadowView.backgroundColor = [FDColor sharedInstance].black;
@@ -174,8 +200,8 @@
         _searchBar.searchBarStyle = UISearchBarStyleMinimal;
     }
     [_topBarViewSearch addSubview:_searchBar];
-
-
+    
+    
     _viewMask.alpha = 0;
 }
 
@@ -223,7 +249,41 @@
     [_searchBar alignToView:_topBarViewSearch];
 }
 
-#pragma mark - 
+- (void) sendRequest {
+    
+    __weak TDCardListVC * weakSelf = self;
+    
+    __block NSString * token = nil;
+    __block Userinfor * user = nil;
+    
+    MBProgressHUD * HUD = [[MBProgressHUD alloc] initWithView:self.view];
+    [self.view addSubview:HUD];
+    [HUD show:YES];
+    
+    [TDHttpService LoginUserinfor:@"s@qq.com" loginPass:@"123456" completionBlock:^(id responseObject) {
+        if (responseObject != nil && [responseObject isKindOfClass:[NSDictionary class]]) {
+            token = [responseObject objectForKey:@"userToken"];
+            [TDHttpService ShowcrrutUser:token completionBlock:^(id responseObject) {
+                if (responseObject != nil && [responseObject isKindOfClass:[NSArray class]]) {
+                    user = [responseObject lastObject];
+                    NSString * userId = [NSString stringWithFormat:@"%d",[user.u_id intValue]];
+                    [TDHttpService ShowUtocard:userId completionBlock:^(id responseObject) {
+                        if (responseObject != nil && [responseObject isKindOfClass:[NSArray class]]) {
+                            weakSelf.UtoCards= responseObject;
+                            [HUD hide:YES];
+                            [weakSelf.mainTv reloadData];
+                        }
+                    }];
+                }
+            }];
+        }
+    }];
+    
+    
+    
+}
+
+#pragma mark -
 -(void)categoryTapAction:(id)sender {
     [UIView animateWithDuration:.2f animations:^{
         _viewMask.alpha =  (_viewMask.alpha ? 0 : 1) ;
@@ -243,7 +303,7 @@
         return [TDCategoryResource alltypes].count;
     } else {
 #warning FAKE DATA
-        return _testDataCount;
+        return [self.UtoCards count];
     }
     
     return 0;
@@ -271,7 +331,7 @@
         if (cell == nil) {
             cell = [TDCardCell new];
         }
-        
+        self.imageCache = [cell UpdateCardInfo:_UtoCards[indexPath.row] addCache:self.imageCache];
         return cell;
     }
     
@@ -298,11 +358,19 @@
         
     } else if (tableView == _mainTv) {
         
-        _selectedCard = [Card new];
-        
+        _selectedCard = _UtoCards[indexPath.row];
         _constraintHeaderHeight.constant = 110;
-
+        
         [UIView animateWithDuration:.3f animations:^{
+            //>1
+            UIImage * image = [self.imageCache objectForKey:_selectedCard.b_cordimg];
+            _ivActiveCard.layer.contents = (__bridge id)(image.CGImage);
+            //>2
+            _lblActiveCardTitle.text = _selectedCard.b_jname;
+            //>3
+            _lblActiveCardNumber.text = [NSString stringWithFormat:@"[卡号] %@",_selectedCard.u_card];
+            //>4
+            _lblActiveCardBalanceValue.text = [NSString stringWithFormat:@"%@",_selectedCard.card_balance];
             [self mainHeader].alpha = 1;
             [self.view layoutIfNeeded];
         }];
@@ -311,7 +379,7 @@
 
 #pragma mark - table header & footer
 -(UIView *)mainHeader {
-
+    
     if (_header == nil) {
         _header = [UIView new];
         _header.backgroundColor = [FDColor sharedInstance].clear;
@@ -325,9 +393,17 @@
         [bgView applyEffectShadow];
         
         _ivActiveCard = [UIImageView new];
-        _ivActiveCard.image = [UIImage imageNamed:@"vendor_sample"];
         [_ivActiveCard applyEffectRoundRectSilverBorder];
         [_header addSubview:_ivActiveCard];
+        dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0ul);
+        dispatch_async(queue, ^{
+            NSData  * imageData = [NSData dataWithContentsOfURL:[NSURL URLWithString:_selectedCard.b_cordimg]];
+            UIImage * image = [[UIImage alloc] initWithData:imageData];
+            dispatch_async(dispatch_get_main_queue(), ^{
+                _ivActiveCard.layer.contents = (__bridge id)(image.CGImage);
+            });
+        });
+        
         
         [_ivActiveCard constrainWidth:@"125" height:@"85"];
         [_ivActiveCard alignCenterYWithView:_header predicate:nil];
@@ -336,7 +412,7 @@
         //
         _lblActiveCardTitle = [UILabel new];
         _lblActiveCardTitle.font = [TDFontLibrary sharedInstance].fontLargeBold;
-        _lblActiveCardTitle.text = @"仟吉西饼";
+        _lblActiveCardTitle.text = _selectedCard.b_jname;
         _lblActiveCardTitle.textColor = [FDColor sharedInstance].cerulean;
         [_header addSubview:_lblActiveCardTitle];
         
@@ -346,7 +422,7 @@
         //
         _lblActiveCardNumber = [UILabel new];
         _lblActiveCardNumber.font = [TDFontLibrary sharedInstance].fontNormal;
-        _lblActiveCardNumber.text = @"[卡号] 40088877665544";
+        _lblActiveCardNumber.text = [NSString stringWithFormat:@"[卡号] %@",_selectedCard.u_card];
         _lblActiveCardNumber.textColor = [FDColor sharedInstance].cerulean;
         [_header addSubview:_lblActiveCardNumber];
         
@@ -366,7 +442,7 @@
         //
         _lblActiveCardBalanceValue = [UILabel new];
         _lblActiveCardBalanceValue.font = [TDFontLibrary sharedInstance].fontNormal;
-        _lblActiveCardBalanceValue.text = @"￥250.00";
+        _lblActiveCardBalanceValue.text = [NSString stringWithFormat:@"%@",_selectedCard.card_balance];
         _lblActiveCardBalanceValue.textColor = [FDColor sharedInstance].red;
         [_header addSubview:_lblActiveCardBalanceValue];
         
@@ -398,14 +474,13 @@
 
 -(void)resetAction:(id)sender {
     _selectedCard = nil;
-
+    
     _constraintHeaderHeight.constant = 0;
-
+    
     [UIView animateWithDuration:.3f animations:^{
         [self mainHeader].alpha = 0;
         [self.view layoutIfNeeded];
     }];
 }
-
 
 @end
