@@ -390,9 +390,6 @@
 		EACC18A718B36F9100DD27B0 /* ic_smsverification_waiting@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EACC15B318B36F8800DD27B0 /* ic_smsverification_waiting@2x.png */; };
 		EACC18A818B36F9100DD27B0 /* ic_sold.png in Resources */ = {isa = PBXBuildFile; fileRef = EACC15B418B36F8800DD27B0 /* ic_sold.png */; };
 		EACC18A918B36F9100DD27B0 /* ic_sold_large.png in Resources */ = {isa = PBXBuildFile; fileRef = EACC15B518B36F8800DD27B0 /* ic_sold_large.png */; };
-		EACC18AA18B36F9100DD27B0 /* Icon-120.png in Resources */ = {isa = PBXBuildFile; fileRef = EACC15B618B36F8800DD27B0 /* Icon-120.png */; };
-		EACC18AB18B36F9100DD27B0 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = EACC15B718B36F8800DD27B0 /* Icon.png */; };
-		EACC18AC18B36F9100DD27B0 /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EACC15B818B36F8800DD27B0 /* Icon@2x.png */; };
 		EACC18AD18B36F9100DD27B0 /* icon_about_meituan.png in Resources */ = {isa = PBXBuildFile; fileRef = EACC15B918B36F8800DD27B0 /* icon_about_meituan.png */; };
 		EACC18AE18B36F9100DD27B0 /* icon_AD_close.png in Resources */ = {isa = PBXBuildFile; fileRef = EACC15BA18B36F8800DD27B0 /* icon_AD_close.png */; };
 		EACC18AF18B36F9100DD27B0 /* icon_addVoucher_success@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EACC15BB18B36F8800DD27B0 /* icon_addVoucher_success@2x.png */; };
@@ -871,6 +868,17 @@
 		EAD1249618B5F33300C6C145 /* FDDefine.m in Sources */ = {isa = PBXBuildFile; fileRef = EAD1249518B5F33300C6C145 /* FDDefine.m */; };
 		EAD1249B18B604B600C6C145 /* FDColor.m in Sources */ = {isa = PBXBuildFile; fileRef = EAD1249A18B604B600C6C145 /* FDColor.m */; };
 		EAD1249E18B605D500C6C145 /* TDFontLibrary.m in Sources */ = {isa = PBXBuildFile; fileRef = EAD1249D18B605D500C6C145 /* TDFontLibrary.m */; };
+		EAD2F0AF18C815B400FC3805 /* Icon-72.png in Resources */ = {isa = PBXBuildFile; fileRef = EAD2F0A518C815B400FC3805 /* Icon-72.png */; };
+		EAD2F0B018C815B400FC3805 /* Icon-72@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EAD2F0A618C815B400FC3805 /* Icon-72@2x.png */; };
+		EAD2F0B118C815B400FC3805 /* Icon-Small-50.png in Resources */ = {isa = PBXBuildFile; fileRef = EAD2F0A718C815B400FC3805 /* Icon-Small-50.png */; };
+		EAD2F0B218C815B400FC3805 /* Icon-Small-50@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EAD2F0A818C815B400FC3805 /* Icon-Small-50@2x.png */; };
+		EAD2F0B318C815B400FC3805 /* Icon-Small.png in Resources */ = {isa = PBXBuildFile; fileRef = EAD2F0A918C815B400FC3805 /* Icon-Small.png */; };
+		EAD2F0B418C815B400FC3805 /* Icon-Small@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EAD2F0AA18C815B400FC3805 /* Icon-Small@2x.png */; };
+		EAD2F0B518C815B400FC3805 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = EAD2F0AB18C815B400FC3805 /* Icon.png */; };
+		EAD2F0B618C815B400FC3805 /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EAD2F0AC18C815B400FC3805 /* Icon@2x.png */; };
+		EAD2F0B718C815B400FC3805 /* iTunesArtwork.png in Resources */ = {isa = PBXBuildFile; fileRef = EAD2F0AD18C815B400FC3805 /* iTunesArtwork.png */; };
+		EAD2F0B818C815B400FC3805 /* iTunesArtwork@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EAD2F0AE18C815B400FC3805 /* iTunesArtwork@2x.png */; };
+		EAD2F0BA18C816A500FC3805 /* Icon-120.png in Resources */ = {isa = PBXBuildFile; fileRef = EAD2F0B918C816A500FC3805 /* Icon-120.png */; };
 		EAD37F9018C34019003188D4 /* TDMyAccountVC.m in Sources */ = {isa = PBXBuildFile; fileRef = EAD37F8F18C34019003188D4 /* TDMyAccountVC.m */; };
 		EAD6ACC618B79BC00003B24E /* TDLoginVC.m in Sources */ = {isa = PBXBuildFile; fileRef = EAD6ACC518B79BC00003B24E /* TDLoginVC.m */; };
 /* End PBXBuildFile section */
@@ -1334,9 +1342,6 @@
 		EACC15B318B36F8800DD27B0 /* ic_smsverification_waiting@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ic_smsverification_waiting@2x.png"; sourceTree = "<group>"; };
 		EACC15B418B36F8800DD27B0 /* ic_sold.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_sold.png; sourceTree = "<group>"; };
 		EACC15B518B36F8800DD27B0 /* ic_sold_large.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_sold_large.png; sourceTree = "<group>"; };
-		EACC15B618B36F8800DD27B0 /* Icon-120.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-120.png"; sourceTree = "<group>"; };
-		EACC15B718B36F8800DD27B0 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
-		EACC15B818B36F8800DD27B0 /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon@2x.png"; sourceTree = "<group>"; };
 		EACC15B918B36F8800DD27B0 /* icon_about_meituan.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_about_meituan.png; sourceTree = "<group>"; };
 		EACC15BA18B36F8800DD27B0 /* icon_AD_close.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_AD_close.png; sourceTree = "<group>"; };
 		EACC15BB18B36F8800DD27B0 /* icon_addVoucher_success@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_addVoucher_success@2x.png"; sourceTree = "<group>"; };
@@ -1825,6 +1830,17 @@
 		EAD1249A18B604B600C6C145 /* FDColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FDColor.m; sourceTree = "<group>"; };
 		EAD1249C18B605D500C6C145 /* TDFontLibrary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TDFontLibrary.h; sourceTree = "<group>"; };
 		EAD1249D18B605D500C6C145 /* TDFontLibrary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TDFontLibrary.m; sourceTree = "<group>"; };
+		EAD2F0A518C815B400FC3805 /* Icon-72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-72.png"; sourceTree = "<group>"; };
+		EAD2F0A618C815B400FC3805 /* Icon-72@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-72@2x.png"; sourceTree = "<group>"; };
+		EAD2F0A718C815B400FC3805 /* Icon-Small-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-Small-50.png"; sourceTree = "<group>"; };
+		EAD2F0A818C815B400FC3805 /* Icon-Small-50@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-Small-50@2x.png"; sourceTree = "<group>"; };
+		EAD2F0A918C815B400FC3805 /* Icon-Small.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-Small.png"; sourceTree = "<group>"; };
+		EAD2F0AA18C815B400FC3805 /* Icon-Small@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-Small@2x.png"; sourceTree = "<group>"; };
+		EAD2F0AB18C815B400FC3805 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
+		EAD2F0AC18C815B400FC3805 /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon@2x.png"; sourceTree = "<group>"; };
+		EAD2F0AD18C815B400FC3805 /* iTunesArtwork.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iTunesArtwork.png; sourceTree = "<group>"; };
+		EAD2F0AE18C815B400FC3805 /* iTunesArtwork@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iTunesArtwork@2x.png"; sourceTree = "<group>"; };
+		EAD2F0B918C816A500FC3805 /* Icon-120.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-120.png"; sourceTree = "<group>"; };
 		EAD37F8E18C34019003188D4 /* TDMyAccountVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TDMyAccountVC.h; path = UnionpayCard/Src/ViewControllers/TDMyAccountVC.h; sourceTree = SOURCE_ROOT; };
 		EAD37F8F18C34019003188D4 /* TDMyAccountVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TDMyAccountVC.m; path = UnionpayCard/Src/ViewControllers/TDMyAccountVC.m; sourceTree = SOURCE_ROOT; };
 		EAD6ACC418B79BC00003B24E /* TDLoginVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TDLoginVC.h; sourceTree = "<group>"; };
@@ -2020,6 +2036,17 @@
 		EACC145318B36EE900DD27B0 = {
 			isa = PBXGroup;
 			children = (
+				EAD2F0B918C816A500FC3805 /* Icon-120.png */,
+				EAD2F0A518C815B400FC3805 /* Icon-72.png */,
+				EAD2F0A618C815B400FC3805 /* Icon-72@2x.png */,
+				EAD2F0A718C815B400FC3805 /* Icon-Small-50.png */,
+				EAD2F0A818C815B400FC3805 /* Icon-Small-50@2x.png */,
+				EAD2F0A918C815B400FC3805 /* Icon-Small.png */,
+				EAD2F0AA18C815B400FC3805 /* Icon-Small@2x.png */,
+				EAD2F0AB18C815B400FC3805 /* Icon.png */,
+				EAD2F0AC18C815B400FC3805 /* Icon@2x.png */,
+				EAD2F0AD18C815B400FC3805 /* iTunesArtwork.png */,
+				EAD2F0AE18C815B400FC3805 /* iTunesArtwork@2x.png */,
 				EACBD2D718C3598700DB89EE /* BackLog */,
 				EACC146518B36EE900DD27B0 /* UnionpayCard */,
 				EACC147E18B36EE900DD27B0 /* UnionpayCardTests */,
@@ -2409,9 +2436,6 @@
 				EACC15B318B36F8800DD27B0 /* ic_smsverification_waiting@2x.png */,
 				EACC15B418B36F8800DD27B0 /* ic_sold.png */,
 				EACC15B518B36F8800DD27B0 /* ic_sold_large.png */,
-				EACC15B618B36F8800DD27B0 /* Icon-120.png */,
-				EACC15B718B36F8800DD27B0 /* Icon.png */,
-				EACC15B818B36F8800DD27B0 /* Icon@2x.png */,
 				EACC15B918B36F8800DD27B0 /* icon_about_meituan.png */,
 				EACC15BA18B36F8800DD27B0 /* icon_AD_close.png */,
 				EACC15BB18B36F8800DD27B0 /* icon_addVoucher_success@2x.png */,
@@ -3135,6 +3159,7 @@
 				EACC17F218B36F9100DD27B0 /* bg_orderReview_slidebar_activity.png in Resources */,
 				EACC181118B36F9100DD27B0 /* bg_ticket_machine_hint_cell_bottom@2x.png in Resources */,
 				EACC193918B36F9100DD27B0 /* icon_loading_animating_2.png in Resources */,
+				EAD2F0B218C815B400FC3805 /* Icon-Small-50@2x.png in Resources */,
 				EACC190418B36F9100DD27B0 /* icon_dropdown_currentkind.png in Resources */,
 				EACC18C918B36F9100DD27B0 /* icon_cate_selected_4.png in Resources */,
 				EACC184518B36F9100DD27B0 /* btn_filter_finish@2x.png in Resources */,
@@ -3218,6 +3243,7 @@
 				EACC194318B36F9100DD27B0 /* icon_map_cateid_2.png in Resources */,
 				EACC17C218B36F9100DD27B0 /* bg_map_merchant_pop@2x.png in Resources */,
 				EACC18B218B36F9100DD27B0 /* icon_arrow_dropdown_selected.png in Resources */,
+				EAD2F0B118C815B400FC3805 /* Icon-Small-50.png in Resources */,
 				EACC189518B36F9100DD27B0 /* ic_canchoose_large.png in Resources */,
 				EACC195018B36F9100DD27B0 /* icon_map_locate.png in Resources */,
 				EACC185C18B36F9100DD27B0 /* btn_homepage_hotdealMore_selected.png in Resources */,
@@ -3260,6 +3286,7 @@
 				EACC18C318B36F9100DD27B0 /* icon_cate_selected_0.png in Resources */,
 				EACC1A1E18B36F9200DD27B0 /* logo_share_qq.png in Resources */,
 				EACC1A5A18B36F9200DD27B0 /* share_logo_weixinFriends.png in Resources */,
+				EAD2F0B818C815B400FC3805 /* iTunesArtwork@2x.png in Resources */,
 				EACC18A818B36F9100DD27B0 /* ic_sold.png in Resources */,
 				EACC19B018B36F9100DD27B0 /* icon_order_review_yes@2x.png in Resources */,
 				EACC18C218B36F9100DD27B0 /* icon_cate_selected_-2.png in Resources */,
@@ -3276,6 +3303,7 @@
 				EACC19FF18B36F9100DD27B0 /* icon_tabbar_homepage.png in Resources */,
 				EACC195F18B36F9100DD27B0 /* icon_merchant_mark_zuo.png in Resources */,
 				EACC18B818B36F9100DD27B0 /* icon_cate_normal_1.png in Resources */,
+				EAD2F0B718C815B400FC3805 /* iTunesArtwork.png in Resources */,
 				EACC18A918B36F9100DD27B0 /* ic_sold_large.png in Resources */,
 				EACC1A3418B36F9200DD27B0 /* mc_log_animation1.png in Resources */,
 				EACC19A018B36F9100DD27B0 /* icon_myCoupon_barcode.png in Resources */,
@@ -3302,6 +3330,7 @@
 				EACC19D518B36F9100DD27B0 /* icon_refresh_header_arrow.png in Resources */,
 				EACC19AF18B36F9100DD27B0 /* icon_order_review_separatorLine@2x.png in Resources */,
 				EACC19ED18B36F9100DD27B0 /* icon_route_start_end@2x.png in Resources */,
+				EAD2F0BA18C816A500FC3805 /* Icon-120.png in Resources */,
 				EACC17CA18B36F9100DD27B0 /* bg_mine_dailyRecommned_section_normal@2x.png in Resources */,
 				EACC178F18B36F9100DD27B0 /* bg_customerReview_highlightedBar@2x.png in Resources */,
 				EACC18AD18B36F9100DD27B0 /* icon_about_meituan.png in Resources */,
@@ -3317,6 +3346,7 @@
 				EACC17AB18B36F9100DD27B0 /* bg_filter_price_selected.png in Resources */,
 				EACC19F918B36F9100DD27B0 /* icon_search_glass@2x.png in Resources */,
 				EACC18AF18B36F9100DD27B0 /* icon_addVoucher_success@2x.png in Resources */,
+				EAD2F0B018C815B400FC3805 /* Icon-72@2x.png in Resources */,
 				EACC191318B36F9100DD27B0 /* icon_filter_seperator@2x.png in Resources */,
 				EACC19F518B36F9100DD27B0 /* icon_route_walk@2x.png in Resources */,
 				EACC18F918B36F9100DD27B0 /* icon_dealsmap_back.png in Resources */,
@@ -3327,6 +3357,7 @@
 				EACC18DE18B36F9100DD27B0 /* icon_deal_empty.png in Resources */,
 				EACC1A0818B36F9100DD27B0 /* icon_tabbar_nearby_selected.png in Resources */,
 				EACC17C418B36F9100DD27B0 /* bg_merchant_photo_placeholder_big@2x.png in Resources */,
+				EAD2F0B618C815B400FC3805 /* Icon@2x.png in Resources */,
 				EACC19FE18B36F9100DD27B0 /* icon_success_tip.png in Resources */,
 				EACC180818B36F9100DD27B0 /* bg_segmented_right_selected@2x.png in Resources */,
 				EACC1A4418B36F9200DD27B0 /* register_step3_banner.png in Resources */,
@@ -3386,11 +3417,13 @@
 				EACC179E18B36F9100DD27B0 /* bg_deals_headButtons.png in Resources */,
 				EACC18D818B36F9100DD27B0 /* icon_collect_empty.png in Resources */,
 				EACC193C18B36F9100DD27B0 /* icon_login_qqLogo.png in Resources */,
+				EAD2F0AF18C815B400FC3805 /* Icon-72.png in Resources */,
 				EACC198718B36F9100DD27B0 /* icon_mine_myCoupon_seperator.png in Resources */,
 				EACC181E18B36F9100DD27B0 /* bg_vouchers_grey.png in Resources */,
 				EACC18A118B36F9100DD27B0 /* ic_deal_supportOnlineReservation@2x.png in Resources */,
 				EACC194B18B36F9100DD27B0 /* icon_map_cateid_default.png in Resources */,
 				EACC1A5F18B36F9200DD27B0 /* share_text_frame@2x.png in Resources */,
+				EAD2F0B318C815B400FC3805 /* Icon-Small.png in Resources */,
 				EACC1A5818B36F9200DD27B0 /* share_logo_weixin.png in Resources */,
 				EACC182218B36F9100DD27B0 /* bg_vouchers_tips.png in Resources */,
 				EACC198218B36F9100DD27B0 /* icon_mine_myAccount_address.png in Resources */,
@@ -3408,7 +3441,6 @@
 				EACC181418B36F9100DD27B0 /* bg_transparent.png in Resources */,
 				EACD0D3A18B3A52A009109CB /* navigationbar_background_tall@2x.png in Resources */,
 				EACC1A5418B36F9200DD27B0 /* share_logo_sms.png in Resources */,
-				EACC18AA18B36F9100DD27B0 /* Icon-120.png in Resources */,
 				EACC1A1018B36F9100DD27B0 /* icon_yes_gray@2x.png in Resources */,
 				EACC182D18B36F9100DD27B0 /* btn_backItem_highlighted.png in Resources */,
 				EACC1A0418B36F9100DD27B0 /* icon_tabbar_mine_selected.png in Resources */,
@@ -3471,6 +3503,7 @@
 				EACC18EC18B36F9100DD27B0 /* icon_deal_nobooking@2x.png in Resources */,
 				EACC17D618B36F9100DD27B0 /* bg_morepage_subCell_selected.png in Resources */,
 				EACC1A6418B36F9200DD27B0 /* ump_bg_input_default.png in Resources */,
+				EAD2F0B418C815B400FC3805 /* Icon-Small@2x.png in Resources */,
 				EACC182818B36F9100DD27B0 /* bt_login.png in Resources */,
 				EACC183618B36F9100DD27B0 /* btn_captcha_highlighted.png in Resources */,
 				EACC1A6818B36F9200DD27B0 /* ump_bottom_logo.png in Resources */,
@@ -3543,6 +3576,7 @@
 				EACC17E618B36F9100DD27B0 /* bg_navigationBar@2x.png in Resources */,
 				EACC19D318B36F9100DD27B0 /* icon_recommend_sectionSeperator_line.png in Resources */,
 				EACC17A718B36F9100DD27B0 /* bg_feedback_send.png in Resources */,
+				EAD2F0B518C815B400FC3805 /* Icon.png in Resources */,
 				EACC1A6B18B36F9200DD27B0 /* ump_btn_default.png in Resources */,
 				EAC90DC318C22BC30086AC2F /* vendor_sample.jpg in Resources */,
 				EACC194D18B36F9100DD27B0 /* icon_map_highlighted.png in Resources */,
@@ -3635,7 +3669,6 @@
 				EACC18D918B36F9100DD27B0 /* icon_collect_empty@2x.png in Resources */,
 				EACC195B18B36F9100DD27B0 /* icon_merchant_empty.png in Resources */,
 				EACC184E18B36F9100DD27B0 /* btn_green.png in Resources */,
-				EACC18AB18B36F9100DD27B0 /* Icon.png in Resources */,
 				EACC17F318B36F9100DD27B0 /* bg_orderReview_smilingface@2x.png in Resources */,
 				EACC17F618B36F9100DD27B0 /* bg_ordreReview_normalface@2x.png in Resources */,
 				EACC189718B36F9100DD27B0 /* ic_choosed_large.png in Resources */,
@@ -3658,7 +3691,6 @@
 				EACC196218B36F9100DD27B0 /* icon_merchant_route@2x.png in Resources */,
 				EACC188B18B36F9100DD27B0 /* cell_single_selected_highlighted@2x.png in Resources */,
 				EACC189118B36F9100DD27B0 /* Default.png in Resources */,
-				EACC18AC18B36F9100DD27B0 /* Icon@2x.png in Resources */,
 				EACC17E818B36F9100DD27B0 /* bg_orderList_deletionView@2x.png in Resources */,
 				EACC1A7318B36F9200DD27B0 /* ump_check_on.png in Resources */,
 				EACC18BD18B36F9100DD27B0 /* icon_cate_normal_4.png in Resources */,
@@ -4062,7 +4094,6 @@
 			baseConfigurationReference = B3BCF3CCEFF9419390ECB20A /* Pods.xcconfig */;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD)";
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer: Luosheng Peng (75BAGEK59M)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -4080,7 +4111,6 @@
 			baseConfigurationReference = B3BCF3CCEFF9419390ECB20A /* Pods.xcconfig */;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD)";
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer: Luosheng Peng (75BAGEK59M)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
