@@ -21,6 +21,14 @@
     
     [self installLogoToNavibar];
     [self installMapAndSearchToNavibar];
+    
+    [self setupViews];
+}
+
+-(void)setupViews {
+    UIImageView *iv = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"union_pay"]];
+    [self.view addSubview:iv];
+    [iv alignCenterWithView:self.view];
 }
 
 @end
