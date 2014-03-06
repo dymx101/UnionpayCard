@@ -10,6 +10,7 @@
 #import "TDLoginVC.h"
 #import "Userinfor.h"
 #import "TDMyAccountVC.h"
+#import "TDSettingCell.h"
 
 @interface TDProfileVC () <UITableViewDelegate, UITableViewDataSource,TDLoginVCDelegate> {
     UITableView             *_tv;
@@ -40,11 +41,20 @@
     [self installLogoToNavibar];
 }
 
+-(NSArray *)settingItems {
+    NSMutableArray *items = [NSMutableArray array];
+    [items addObject:@[@"充值记录", @"消费记录"]];
+    [items addObject:@[@"我的收藏", @"我的代金券"]];
+    
+    return items;
+}
+
 -(void)createSubviews {
     
     _tv = [UITableView new];
     _tv.delegate = self;
     _tv.dataSource = self;
+    _tv.separatorStyle = UITableViewCellSeparatorStyleNone;
     [self.view addSubview:_tv];
 }
 
@@ -55,27 +65,43 @@
 }
 
 #pragma mark -
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 0;
+-(int)numberOfSectionsInTableView:(UITableView *)tableView {
+    return [self settingItems].count;
 }
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    NSArray *items = [self settingItems][section];
+    return items.count;
+}
+
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     static NSString *cellIDStr = @"cellID";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIDStr];
+    TDSettingCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIDStr];
     if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:0 reuseIdentifier:cellIDStr];
+        cell = [TDSettingCell new];//[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIDStr];
     }
+    
+    int section = indexPath.section;
+    int row = indexPath.row;
+    ETDCellStyle cellStyle = [TDSettingCell cellStyleWithIndexPath:indexPath tableView:tableView tableViewDataSource:self];
+    [cell setStyle:cellStyle];
+    cell.lblTitle.text = [self settingItems][section][row];
     
     return cell;
 }
 
 -(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
     
+    if (section != 0) {
+        return nil;
+    }
+    
     __headerView = [UIView new];
     UIImageView *ivBg = [[UIImageView alloc] initWithImage:[TDImageLibrary sharedInstance].mineAccountBg];
     [__headerView addSubview:ivBg];
     
-    [ivBg alignToView:__headerView];
+    [ivBg alignTop:@"0" leading:@"0" bottom:@"-20" trailing:@"0" toView:__headerView];
     
     // view not logged in
     _viewNotLoggedIn = [UIView new];
@@ -152,7 +178,11 @@
 }
 
 -(float)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
-    return [TDImageLibrary sharedInstance].mineAccountBg.size.height;
+    if (section != 0) {
+        return 20;
+    }
+    
+    return [TDImageLibrary sharedInstance].mineAccountBg.size.height + 20;
 }
 
 #pragma mark - 
