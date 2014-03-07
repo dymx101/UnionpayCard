@@ -21,6 +21,9 @@ PODS:
   - FLKAutoLayout (0.1.1)
   - MBProgressHUD (0.8)
   - RDVTabBarController (1.1.3)
+  - SDWebImage (3.5.2):
+    - SDWebImage/Core
+  - SDWebImage/Core (3.5.2)
   - SVPullToRefresh (0.4.1)
 
 DEPENDENCIES:
@@ -29,6 +32,7 @@ DEPENDENCIES:
   - FLKAutoLayout (~> 0.1.1)
   - MBProgressHUD (~> 0.6)
   - RDVTabBarController (~> 1.1.3)
+  - SDWebImage (~> 3.5.2)
   - SVPullToRefresh (~> 0.4.1)
 
 SPEC CHECKSUMS:
@@ -37,6 +41,7 @@ SPEC CHECKSUMS:
   FLKAutoLayout: fc04b932009174d4118ef4bda9dc8fedf1369efc
   MBProgressHUD: 2bbc6f470111daf7f3eaa4eb12b8cbf01c4c0622
   RDVTabBarController: 98bb589109d139821ac08e26ab9215b9057285f6
+  SDWebImage: fe7ce01ae4e0a884d168f59c9dd82d35baf8429e
   SVPullToRefresh: 61a0e4bd12bd6f8e3465909810b0fbeb1a28d5f2
 
 COCOAPODS: 0.29.0
