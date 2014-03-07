@@ -13,6 +13,7 @@
 @property (nonatomic, strong) UILabel   *lblCardNumber;
 @property (nonatomic, strong) UILabel   *lblAmount;
 @property (nonatomic, strong) UILabel   *lblFlowNumber;
+@property (nonatomic, strong) UILabel   *lblDataNumber;
 @property (nonatomic, strong) UIButton  *btnFreeze;
 
 +(float)HEIGHT;

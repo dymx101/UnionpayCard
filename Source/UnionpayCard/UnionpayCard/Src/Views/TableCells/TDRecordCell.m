@@ -46,7 +46,7 @@
     _lblVendorName.font = [TDFontLibrary sharedInstance].fontLargeBold;
     _lblVendorName.textColor = [FDColor sharedInstance].black;
     [self addSubview:_lblVendorName];
-    [_lblVendorName alignTop:@"15" leading:@"20" toView:self];
+    [_lblVendorName alignTop:@"10" leading:@"20" toView:self];
     
     //
     _lblCardNumber = [UILabel new];
@@ -73,14 +73,22 @@
     [_lblFlowNumber alignLeadingEdgeWithView:_lblVendorName predicate:@"0"];
     
     //
-    _btnFreeze = [UIButton new];
-    [_btnFreeze setBackgroundImage:[TDImageLibrary sharedInstance].btnBgGreen forState:UIControlStateNormal];
-    [_btnFreeze setTitle:@"冻结" forState:UIControlStateNormal];
-    _btnFreeze.titleLabel.font = [TDFontLibrary sharedInstance].fontNormal;
-    [self addSubview:_btnFreeze];
-    [_btnFreeze alignBottomEdgeWithView:_lblFlowNumber predicate:nil];
-    [_btnFreeze alignTrailingEdgeWithView:self predicate:@"-15"];
-    [_btnFreeze constrainWidth:@"60" height:@"25"];
+    _lblDataNumber = [UILabel new];
+    _lblDataNumber.font = [TDFontLibrary sharedInstance].fontSmall;
+    _lblDataNumber.textColor = [FDColor sharedInstance].themeBlue;
+    [self addSubview:_lblDataNumber];
+    [_lblDataNumber constrainTopSpaceToView:_lblFlowNumber predicate:@"5"];
+    [_lblDataNumber alignLeadingEdgeWithView:_lblFlowNumber predicate:@"0"];
+    
+    //
+//    _btnFreeze = [UIButton new];
+//    [_btnFreeze setBackgroundImage:[TDImageLibrary sharedInstance].btnBgGreen forState:UIControlStateNormal];
+//    [_btnFreeze setTitle:@"冻结" forState:UIControlStateNormal];
+//    _btnFreeze.titleLabel.font = [TDFontLibrary sharedInstance].fontNormal;
+//    [self addSubview:_btnFreeze];
+//    [_btnFreeze alignBottomEdgeWithView:_lblFlowNumber predicate:nil];
+//    [_btnFreeze alignTrailingEdgeWithView:self predicate:@"-15"];
+//    [_btnFreeze constrainWidth:@"60" height:@"25"];
     
     //
     UIView *bottomLine = [UIView new];

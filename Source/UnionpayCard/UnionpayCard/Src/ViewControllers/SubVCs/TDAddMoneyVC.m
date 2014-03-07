@@ -9,6 +9,9 @@
 #import "TDAddMoneyVC.h"
 #import "TDRecordCell.h"
 #import "UIView+Effect.h"
+#import "Userinfor.h"
+#import "Consumption.h"
+#import "PreRecords.h"
 
 @interface TDAddMoneyVC () <UITableViewDelegate, UITableViewDataSource> {
     UITableView     *_tv;
@@ -16,11 +19,17 @@
     UIButton        *_btnUseMoneyRec;
     
     BOOL            _showAddMoneyRecord;
+    
 }
 
+@property (nonatomic, strong) Userinfor * userinfor;
+@property (nonatomic, strong) NSArray * Consumptions;
+@property (nonatomic, strong) NSArray * PreRecords;
 @end
 
+
 @implementation TDAddMoneyVC
+
 
 - (void)viewDidLoad
 {
@@ -32,7 +41,47 @@
     [self createViews];
     [self layoutViews];
     
+    [self sendRequest];
+    
     [_tv reloadData];
+}
+
+- (void) sendRequest {
+    
+    __weak TDAddMoneyVC * weakSelf = self;
+    
+    __block NSString * token = nil;
+    __block Userinfor * user = nil;
+    
+    MBProgressHUD * HUD = [[MBProgressHUD alloc] initWithView:self.view];
+    [self.view addSubview:HUD];
+    [HUD show:YES];
+    
+    [TDHttpService LoginUserinfor:@"songwei" loginPass:@"123456" completionBlock:^(id responseObject) {
+        if (responseObject != nil && [responseObject isKindOfClass:[NSDictionary class]]) {
+            token = [responseObject objectForKey:@"userToken"];
+            [TDHttpService ShowcrrutUser:token completionBlock:^(id responseObject) {
+                if (responseObject != nil && [responseObject isKindOfClass:[NSArray class]]) {
+                    user = [responseObject lastObject];
+                    weakSelf.userinfor = user;
+                    NSString * userId = [NSString stringWithFormat:@"%d",[user.u_id intValue]];
+                    [TDHttpService ShowConsumption:userId completionBlock:^(id responseObject) {
+                        if (responseObject!=nil && [responseObject isKindOfClass:[NSArray class]]) {
+                            weakSelf.Consumptions = responseObject;
+                            [TDHttpService ShowPreRecords:userId completionBlock:^(id responseObject) {
+                                if (responseObject != nil && [responseObject isKindOfClass:[NSArray class]]) {
+                                    weakSelf.PreRecords = responseObject;
+                                    [HUD hide:YES];
+                                    [self->_tv reloadData];
+                                }
+                            }];
+                        }
+                    }];
+                }
+            }];
+        }
+    }];
+
 }
 
 -(void)createViews {
@@ -50,7 +99,14 @@
 
 #pragma mark - 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 20;
+    int numberofrows = 0;
+    if (_showAddMoneyRecord) {
+        numberofrows = [self.PreRecords count];
+    }
+    else {
+        numberofrows = [self.Consumptions count];
+    }
+    return numberofrows;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -62,15 +118,19 @@
     
     cell.btnFreeze.hidden = !_showAddMoneyRecord;
     if (_showAddMoneyRecord) {
-        cell.lblVendorName.text = @"皇冠蛋糕";
-        cell.lblCardNumber.text = @"[卡号] 12378378123871283";
-        cell.lblAmount.text = @"充值金额: ￥200.00";
-        cell.lblFlowNumber.text = @"充值流水号: 3457378453745";
+        PreRecords * preRecord = self.PreRecords[indexPath.row];
+        cell.lblVendorName.text = preRecord.b_jname;
+        cell.lblCardNumber.text = [NSString stringWithFormat:@"[卡号] %@",preRecord.card];
+        cell.lblAmount.text = [NSString stringWithFormat:@"上账金额: ￥%@",preRecord.card_amount];
+        cell.lblFlowNumber.text = [NSString stringWithFormat:@"充值流水号: %@",preRecord.b_no];
+        cell.lblDataNumber.text = [NSString stringWithFormat:@"充值时间: %@",preRecord.pre_r_tmd];
     } else {
-        cell.lblVendorName.text = @"周黑鸭";
-        cell.lblCardNumber.text = @"卡号: 2348348385345835";
-        cell.lblAmount.text = @"消费金额: ￥100.00";
-        cell.lblFlowNumber.text = @"消费流水号: 3457378453745";
+        Consumption * consumption =  self.Consumptions[indexPath.row];
+        cell.lblVendorName.text = consumption.b_jname;
+        cell.lblCardNumber.text = [NSString stringWithFormat:@"[卡号] %@",consumption.card];
+        cell.lblAmount.text = [NSString stringWithFormat:@"上账金额: ￥%@",consumption.con_amount];
+        cell.lblFlowNumber.text =[NSString stringWithFormat:@"充值流水号: %@",consumption.b_no];
+        cell.lblDataNumber.text = [NSString stringWithFormat:@"充值时间: %@",consumption.con_tmd];
     }
     
     return cell;
@@ -100,7 +160,10 @@
         [_btnAddMoneyRec setTitleColor:[FDColor sharedInstance].black forState:UIControlStateSelected];
         _btnAddMoneyRec.titleLabel.font = [TDFontLibrary sharedInstance].fontTitleBold;
         
-        [_btnAddMoneyRec addTarget:self action:@selector(addMoneyRecordAction:) forControlEvents:UIControlEventTouchUpInside];
+        if ([self respondsToSelector:@selector(addMoneyRecordAction:)]) {
+            [_btnAddMoneyRec addTarget:self action:@selector(addMoneyRecordAction:) forControlEvents:UIControlEventTouchUpInside];
+        }
+
         [bgView addSubview:_btnAddMoneyRec];
         [_btnAddMoneyRec alignLeadingEdgeWithView:bgView predicate:@"0"];
         [_btnAddMoneyRec constrainHeightToView:bgView predicate:nil];
@@ -122,7 +185,11 @@
         [_btnUseMoneyRec setTitleColor:[FDColor sharedInstance].themeBlue forState:UIControlStateHighlighted];
         _btnUseMoneyRec.titleLabel.font = [TDFontLibrary sharedInstance].fontTitleBold;
         
-        [_btnUseMoneyRec addTarget:self action:@selector(useMoneyRecordAction:) forControlEvents:UIControlEventTouchUpInside];
+        // crash bug  is not this responds To
+        if ([self respondsToSelector:@selector(useMoneyRecordAction:)]) {
+            [_btnUseMoneyRec addTarget:self action:@selector(useMoneyRecordAction:) forControlEvents:UIControlEventTouchUpInside];
+        }
+        
         [_btnUseMoneyRec setTitleColor:[FDColor sharedInstance].gray forState:UIControlStateNormal];
         [_btnUseMoneyRec setTitleColor:[FDColor sharedInstance].black forState:UIControlStateSelected];
         [bgView addSubview:_btnUseMoneyRec];

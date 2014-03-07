@@ -59,6 +59,10 @@
 @property (nonatomic, strong)   NSArray             * UtoCards;
 @property(nonatomic, strong)    NSCache 	        * imageCache;
 
+@property(nonatomic, strong)    NSString            * u_pre_num; //当前使用卡号
+@property(nonatomic, strong)    NSString            * u_prefix;  //当前使用卡柄
+@property(nonatomic, strong)    Userinfor           * userinfor; //当前用户
+
 @end
 
 @implementation TDCardListVC
@@ -130,14 +134,13 @@
     
     [_mainTv addInfiniteScrollingWithActionHandler:^{
         //
-        [MBProgressHUD showHUDAddedTo:weakSelf.view animated:YES];
         double delayInSeconds = 2.0;
         dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delayInSeconds * NSEC_PER_SEC));
         dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
             weakSelf.testDataCount = weakSelf.testDataCount + 10;
-            [weakSelf.mainTv reloadData];
             
-            [MBProgressHUD hideHUDForView:weakSelf.view animated:YES];
+//            [weakSelf.mainTv reloadData];
+            [weakSelf sendRequest];
             [weakSelf.mainTv.infiniteScrollingView stopAnimating];
         });
     }];
@@ -266,12 +269,37 @@
             [TDHttpService ShowcrrutUser:token completionBlock:^(id responseObject) {
                 if (responseObject != nil && [responseObject isKindOfClass:[NSArray class]]) {
                     user = [responseObject lastObject];
+                    self.u_pre_num = user.u_pre_num;
+                    self.u_prefix = user.u_prefix;
+                    self.userinfor = user;
                     NSString * userId = [NSString stringWithFormat:@"%d",[user.u_id intValue]];
                     [TDHttpService ShowUtocard:userId completionBlock:^(id responseObject) {
                         if (responseObject != nil && [responseObject isKindOfClass:[NSArray class]]) {
                             weakSelf.UtoCards= responseObject;
                             [HUD hide:YES];
                             [weakSelf.mainTv reloadData];
+                            
+                            /********************************初始化选中的卡******************************/
+                            for (UtocardVO * utocard in weakSelf.UtoCards) {
+                                if ([[self.userinfor.u_pre_num stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]] isEqualToString:[[utocard u_card] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]]]) {
+                                    _constraintHeaderHeight.constant = 110;
+                                    [UIView animateWithDuration:.3f animations:^{
+                                        //>1
+                                        [_ivActiveCard setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://113.57.133.83:1982/active/upload/shop/%@",utocard.b_cordimg]] placeholderImage:nil];
+                                        //>2
+                                        _lblActiveCardTitle.text = utocard.b_jname;
+                                        //>3
+                                        _lblActiveCardNumber.text = [NSString stringWithFormat:@"[卡号] %@",utocard.u_card];
+                                        //>4
+                                        _lblActiveCardBalanceValue.text = [NSString stringWithFormat:@"%@",utocard.card_balance];
+                                        [self mainHeader].alpha = 1;
+                                        [self.view layoutIfNeeded];
+                                    }];
+                                }
+                            }
+                            if ([[self.userinfor.u_pre_num stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]] isEqualToString:[NSString stringWithFormat:@"%d",0]]) {
+                                [self resetAction:nil];
+                            }
                         }
                     }];
                 }
@@ -359,20 +387,23 @@
     } else if (tableView == _mainTv) {
         
         _selectedCard = _UtoCards[indexPath.row];
-        _constraintHeaderHeight.constant = 110;
         
-        [UIView animateWithDuration:.3f animations:^{
-            //>1
-            UIImage * image = [self.imageCache objectForKey:_selectedCard.b_cordimg];
-            _ivActiveCard.layer.contents = (__bridge id)(image.CGImage);
-            //>2
-            _lblActiveCardTitle.text = _selectedCard.b_jname;
-            //>3
-            _lblActiveCardNumber.text = [NSString stringWithFormat:@"[卡号] %@",_selectedCard.u_card];
-            //>4
-            _lblActiveCardBalanceValue.text = [NSString stringWithFormat:@"%@",_selectedCard.card_balance];
-            [self mainHeader].alpha = 1;
-            [self.view layoutIfNeeded];
+        [TDHttpService updateUserinfor:_selectedCard.u_card uPrefix:_selectedCard.b_prefilx uId:[NSString stringWithFormat:@"%d",[self.userinfor.u_id intValue]] completionBlock:^(id responseObject) {
+            if ([[responseObject objectForKey:@"State"] integerValue] == 0) {
+                _constraintHeaderHeight.constant = 110;
+                [UIView animateWithDuration:.3f animations:^{
+                    //>1
+                    [_ivActiveCard setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://113.57.133.83:1982/active/upload/shop/%@",_selectedCard.b_cordimg]] placeholderImage:nil];
+                    //>2
+                    _lblActiveCardTitle.text = _selectedCard.b_jname;
+                    //>3
+                    _lblActiveCardNumber.text = [NSString stringWithFormat:@"[卡号] %@",_selectedCard.u_card];
+                    //>4
+                    _lblActiveCardBalanceValue.text = [NSString stringWithFormat:@"%@",_selectedCard.card_balance];
+                    [self mainHeader].alpha = 1;
+                    [self.view layoutIfNeeded];
+                }];
+            }
         }];
     }
 }
@@ -395,15 +426,8 @@
         _ivActiveCard = [UIImageView new];
         [_ivActiveCard applyEffectRoundRectSilverBorder];
         [_header addSubview:_ivActiveCard];
-        dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0ul);
-        dispatch_async(queue, ^{
-            NSData  * imageData = [NSData dataWithContentsOfURL:[NSURL URLWithString:_selectedCard.b_cordimg]];
-            UIImage * image = [[UIImage alloc] initWithData:imageData];
-            dispatch_async(dispatch_get_main_queue(), ^{
-                _ivActiveCard.layer.contents = (__bridge id)(image.CGImage);
-            });
-        });
         
+        [_ivActiveCard setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://113.57.133.83:1982/active/upload/shop/%@",_selectedCard.b_cordimg]] placeholderImage:nil];
         
         [_ivActiveCard constrainWidth:@"125" height:@"85"];
         [_ivActiveCard alignCenterYWithView:_header predicate:nil];
@@ -473,14 +497,18 @@
 }
 
 -(void)resetAction:(id)sender {
-    _selectedCard = nil;
-    
-    _constraintHeaderHeight.constant = 0;
-    
-    [UIView animateWithDuration:.3f animations:^{
-        [self mainHeader].alpha = 0;
-        [self.view layoutIfNeeded];
+
+    [TDHttpService updateUserinfor:@"0" uPrefix:@"0" uId:[NSString stringWithFormat:@"%d",[self.userinfor.u_id intValue]] completionBlock:^(id responseObject) {
+        if ([[responseObject objectForKey:@"State"] integerValue] == 0) {
+            _selectedCard = nil;
+            _constraintHeaderHeight.constant = 0;
+            [UIView animateWithDuration:.3f animations:^{
+                [self mainHeader].alpha = 0;
+                [self.view layoutIfNeeded];
+            }];
+        }
     }];
+
 }
 
 @end

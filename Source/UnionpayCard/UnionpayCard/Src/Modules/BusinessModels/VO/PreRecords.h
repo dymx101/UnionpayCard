@@ -16,6 +16,7 @@
 @property(nonatomic,strong) NSNumber * userinfor;
 @property(nonatomic,strong) NSString * u_realname;
 @property(nonatomic,strong) NSString * b_jname;
+@property(nonatomic,strong) NSString * b_no;
 @property(nonatomic,strong) NSString * card;
 @property(nonatomic,strong) NSNumber * amount;
 @property(nonatomic,strong) NSNumber * card_amount;
