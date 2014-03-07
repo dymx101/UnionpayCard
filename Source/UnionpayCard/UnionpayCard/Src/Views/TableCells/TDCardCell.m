@@ -102,15 +102,11 @@
 
 - (NSCache *)UpdateCardInfo:(UtocardVO *) Utocard addCache:(NSCache *) __cache {
     //1
-    dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0ul);
-    dispatch_async(queue, ^{
-        NSData  * imageData = [NSData dataWithContentsOfURL:[NSURL URLWithString:Utocard.b_cordimg]];
-        UIImage * image = [[UIImage alloc] initWithData:imageData];
-        dispatch_async(dispatch_get_main_queue(), ^{
-            _ivPhoto.layer.contents = (__bridge id)(image.CGImage);
-            [__cache setObject:image forKey:Utocard.b_cordimg];
-        });
-    });
+       __weak UIImageView * weakivphone = _ivPhoto;
+    [_ivPhoto setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://113.57.133.83:1982/active/upload/shop/%@",Utocard.b_cordimg]] placeholderImage:nil completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType) {
+        [__cache setObject:weakivphone.image forKey:Utocard.b_cordimg];
+    }];
+
     //2
     _lblTitle.text = Utocard.b_jname;
     //3

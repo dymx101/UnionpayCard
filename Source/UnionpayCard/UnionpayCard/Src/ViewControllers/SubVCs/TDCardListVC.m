@@ -260,7 +260,7 @@
     [self.view addSubview:HUD];
     [HUD show:YES];
     
-    [TDHttpService LoginUserinfor:@"s@qq.com" loginPass:@"123456" completionBlock:^(id responseObject) {
+    [TDHttpService LoginUserinfor:@"songwei" loginPass:@"123456" completionBlock:^(id responseObject) {
         if (responseObject != nil && [responseObject isKindOfClass:[NSDictionary class]]) {
             token = [responseObject objectForKey:@"userToken"];
             [TDHttpService ShowcrrutUser:token completionBlock:^(id responseObject) {
