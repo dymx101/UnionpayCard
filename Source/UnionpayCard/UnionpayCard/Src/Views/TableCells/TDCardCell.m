@@ -7,7 +7,7 @@
 //
 
 #import "TDCardCell.h"
-#import "Utocard.h"
+#import "UtocardVO.h"
 
 #define MY_HEIGHT   (75)
 
@@ -100,7 +100,7 @@
     [_lblBalanceValue constrainLeadingSpaceToView:_lblBalanceTitle predicate:@"0"];
 }
 
-- (NSCache *)UpdateCardInfo:(Utocard *) Utocard addCache:(NSCache *) __cache {
+- (NSCache *)UpdateCardInfo:(UtocardVO *) Utocard addCache:(NSCache *) __cache {
     //1
     dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0ul);
     dispatch_async(queue, ^{

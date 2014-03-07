@@ -6,8 +6,8 @@
 //  Copyright (c) 2014年 Frodo. All rights reserved.
 //
 
-#import "Utocard.h"
+#import "UtocardVO.h"
 
-@implementation Utocard
+@implementation UtocardVO
 
 @end

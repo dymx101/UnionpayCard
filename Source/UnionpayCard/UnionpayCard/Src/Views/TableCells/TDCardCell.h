@@ -7,10 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
-@class Utocard;
+@class UtocardVO;
 
 
 @interface TDCardCell : UITableViewCell
 +(float)HEIGHT;
-- (NSCache *)UpdateCardInfo:(Utocard *) Utocard addCache:(NSCache *) __cache;
+- (NSCache *)UpdateCardInfo:(UtocardVO *) Utocard addCache:(NSCache *) __cache;
 @end

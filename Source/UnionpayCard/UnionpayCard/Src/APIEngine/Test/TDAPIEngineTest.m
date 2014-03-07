@@ -11,7 +11,7 @@
 #import "Btype.h"
 #import "Post.h"
 #import "Userinfor.h"
-#import "Utocard.h"
+#import "UtocardVO.h"
 
 @implementation TDAPIEngineTest
 +(void)run {
@@ -21,14 +21,14 @@
 
 +(void)testxxx {
     
-    [TDHttpService showBtype:^(id responseObject) {
-        if (responseObject != nil && [responseObject isKindOfClass:[NSArray class]]) {
-            NSArray  * array = responseObject;
-            for (Btype * byt in array) {
-                NSLog(@">1 %@",byt);
-            }
-        }
-    }];
+//    [TDHttpService showBtype:^(id responseObject) {
+//        if (responseObject != nil && [responseObject isKindOfClass:[NSArray class]]) {
+//            NSArray  * array = responseObject;
+//            for (Btype * byt in array) {
+//                NSLog(@">1 %@",byt);
+//            }
+//        }
+//    }];
     
     
     __block NSString * token = nil;
@@ -43,7 +43,7 @@
                      [TDHttpService ShowUtocard:userId completionBlock:^(id responseObject) {
                          if (responseObject != nil && [responseObject isKindOfClass:[NSArray class]]) {
                              NSArray * array = responseObject;
-                             for (Utocard * utocard in array) {
+                             for (UtocardVO * utocard in array) {
                                  NSLog(@">2 %@",utocard);
                              }
                          }

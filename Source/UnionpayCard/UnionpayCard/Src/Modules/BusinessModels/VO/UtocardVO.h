@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface Utocard : NSObject
+@interface UtocardVO : NSObject
 
 @property(nonatomic,strong) NSNumber * u_t_cid;
 @property(nonatomic,strong) NSNumber * userinfor;

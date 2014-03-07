@@ -23,10 +23,6 @@
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     self.window.backgroundColor = [UIColor whiteColor];
     
-//    [TDHttpClient processCmd:[TDHttpCmd cmd] callback:^(NSURLSessionDataTask *task, id responseObject, NSError *anError) {
-//        NSLog(@">>%@",responseObject);
-//    }];
-    
     // create tab bar controller
     _tabbarController = [RDVTabBarController new];
     NSArray *viewControllers = @[[self ncWithVC:[TDHomeVC new]]

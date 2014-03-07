@@ -52,7 +52,7 @@
 		4CB12C8418BBC9A400F23A76 /* PreRecords.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CB12C8318BBC9A400F23A76 /* PreRecords.m */; };
 		4CB12C8718BBC9F200F23A76 /* Uemil.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CB12C8618BBC9F200F23A76 /* Uemil.m */; };
 		4CB12C8A18BBCA2600F23A76 /* Userinfor.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CB12C8918BBCA2600F23A76 /* Userinfor.m */; };
-		4CB12C8D18BBCAA800F23A76 /* Utocard.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CB12C8C18BBCAA800F23A76 /* Utocard.m */; };
+		4CB12C8D18BBCAA800F23A76 /* UtocardVO.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CB12C8C18BBCAA800F23A76 /* UtocardVO.m */; };
 		4CB12C9018BBCADC00F23A76 /* Utoemil.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CB12C8F18BBCADC00F23A76 /* Utoemil.m */; };
 		4CB12C9318BBCB0F00F23A76 /* Uvip.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CB12C9218BBCB0F00F23A76 /* Uvip.m */; };
 		4CB12C9618BBCB4000F23A76 /* Ynbinfor.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CB12C9518BBCB4000F23A76 /* Ynbinfor.m */; };
@@ -974,8 +974,8 @@
 		4CB12C8618BBC9F200F23A76 /* Uemil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Uemil.m; sourceTree = "<group>"; };
 		4CB12C8818BBCA2600F23A76 /* Userinfor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Userinfor.h; sourceTree = "<group>"; };
 		4CB12C8918BBCA2600F23A76 /* Userinfor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Userinfor.m; sourceTree = "<group>"; };
-		4CB12C8B18BBCAA800F23A76 /* Utocard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Utocard.h; sourceTree = "<group>"; };
-		4CB12C8C18BBCAA800F23A76 /* Utocard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Utocard.m; sourceTree = "<group>"; };
+		4CB12C8B18BBCAA800F23A76 /* UtocardVO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UtocardVO.h; sourceTree = "<group>"; };
+		4CB12C8C18BBCAA800F23A76 /* UtocardVO.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UtocardVO.m; sourceTree = "<group>"; };
 		4CB12C8E18BBCADC00F23A76 /* Utoemil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Utoemil.h; sourceTree = "<group>"; };
 		4CB12C8F18BBCADC00F23A76 /* Utoemil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Utoemil.m; sourceTree = "<group>"; };
 		4CB12C9118BBCB0F00F23A76 /* Uvip.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Uvip.h; sourceTree = "<group>"; };
@@ -1940,8 +1940,8 @@
 				4CB12C8618BBC9F200F23A76 /* Uemil.m */,
 				4CB12C8818BBCA2600F23A76 /* Userinfor.h */,
 				4CB12C8918BBCA2600F23A76 /* Userinfor.m */,
-				4CB12C8B18BBCAA800F23A76 /* Utocard.h */,
-				4CB12C8C18BBCAA800F23A76 /* Utocard.m */,
+				4CB12C8B18BBCAA800F23A76 /* UtocardVO.h */,
+				4CB12C8C18BBCAA800F23A76 /* UtocardVO.m */,
 				4CB12C8E18BBCADC00F23A76 /* Utoemil.h */,
 				4CB12C8F18BBCADC00F23A76 /* Utoemil.m */,
 				4CB12C9118BBCB0F00F23A76 /* Uvip.h */,
@@ -3976,7 +3976,7 @@
 				EACDA60C18C2AFEE005BDC7E /* TDCardCell.m in Sources */,
 				EACBE40D18BF15A400F2E9CF /* TDConsumeVC.m in Sources */,
 				EAD1249318B5F30200C6C145 /* TDImageLibrary.m in Sources */,
-				4CB12C8D18BBCAA800F23A76 /* Utocard.m in Sources */,
+				4CB12C8D18BBCAA800F23A76 /* UtocardVO.m in Sources */,
 				EAD1249E18B605D500C6C145 /* TDFontLibrary.m in Sources */,
 				4CB12C6318BBC6A700F23A76 /* Bhdr.m in Sources */,
 				4C98ABF318B91E01007FAF12 /* NSObject+Coder.m in Sources */,

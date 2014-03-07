@@ -14,7 +14,7 @@
 
 #import "Card.h"
 #import "Btype.h"
-#import "Utocard.h"
+#import "UtocardVO.h"
 #import "Userinfor.h"
 
 //#warning 重置按钮
@@ -48,7 +48,7 @@
     UILabel             *_lblActiveCardBalanceTitle;
     UILabel             *_lblActiveCardBalanceValue;
     
-    Utocard             *_selectedCard;
+    UtocardVO             *_selectedCard;
     Btype               *_TDCategoryResource;
     
 }
