@@ -26,7 +26,8 @@
 }
 
 -(void)setupViews {
-    UIImageView *iv = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"union_pay"]];
+    UIImageView *iv = [UIImageView new];
+    [iv setImageWithURL:[NSURL URLWithString:@"http://orzhd.com/briian/2007/08/0022.png"] placeholderImage:[UIImage imageNamed:@"union_pay"]];
     [self.view addSubview:iv];
     [iv alignCenterWithView:self.view];
 }

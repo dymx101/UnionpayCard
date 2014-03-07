@@ -1,53 +1,53 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "0500"
-   version = "1.3">
+   version = "1.3"
+   LastUpgradeVersion = "0500">
    <BuildAction
       buildImplicitDependencies = "YES"
       parallelizeBuildables = "YES">
       <BuildActionEntries>
          <BuildActionEntry
-            buildForRunning = "YES"
+            buildForProfiling = "YES"
             buildForTesting = "YES"
             buildForAnalyzing = "YES"
             buildForArchiving = "YES"
-            buildForProfiling = "YES">
+            buildForRunning = "YES">
             <BuildableReference
                BlueprintName = "Pods"
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "C6C74B9492C14B51BD0F8961"
                BuildableName = "libPods.a"
-               BlueprintIdentifier = "DC97FD01ABE3424FB676020E"
-               ReferencedContainer = "container:Pods.xcodeproj"
-               BuildableIdentifier = "primary">
+               ReferencedContainer = "container:Pods.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
    </BuildAction>
    <TestAction
-      buildConfiguration = "Debug"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
+      selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       shouldUseLaunchSchemeArgsEnv = "YES"
-      selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB">
+      buildConfiguration = "Debug">
       <Testables>
       </Testables>
    </TestAction>
    <LaunchAction
       debugDocumentVersioning = "YES"
-      useCustomWorkingDirectory = "NO"
-      buildConfiguration = "Debug"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
+      selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       ignoresPersistentStateOnLaunch = "NO"
       launchStyle = "0"
-      allowLocationSimulation = "YES"
-      selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB">
+      buildConfiguration = "Debug"
+      useCustomWorkingDirectory = "NO"
+      allowLocationSimulation = "YES">
       <AdditionalOptions>
       </AdditionalOptions>
    </LaunchAction>
    <ProfileAction
       debugDocumentVersioning = "YES"
-      useCustomWorkingDirectory = "NO"
+      shouldUseLaunchSchemeArgsEnv = "YES"
       buildConfiguration = "Release"
       savedToolIdentifier = ""
-      shouldUseLaunchSchemeArgsEnv = "YES">
+      useCustomWorkingDirectory = "NO">
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug">
