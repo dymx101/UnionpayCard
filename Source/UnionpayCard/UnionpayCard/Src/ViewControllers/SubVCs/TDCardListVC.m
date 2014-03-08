@@ -120,11 +120,12 @@
     __weak TDCardListVC *weakSelf = self;
     [_mainTv addPullToRefreshWithActionHandler:^{
         //
-        [MBProgressHUD showHUDAddedTo:weakSelf.view animated:YES];
+//        [MBProgressHUD showHUDAddedTo:weakSelf.view animated:YES];
         double delayInSeconds = 2.0;
         dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delayInSeconds * NSEC_PER_SEC));
         dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
-            [MBProgressHUD hideHUDForView:weakSelf.view animated:YES];
+//            [MBProgressHUD hideHUDForView:weakSelf.view animated:YES];
+            [weakSelf sendRequest];
             [weakSelf.mainTv.pullToRefreshView stopAnimating];
         });
     }];
@@ -138,8 +139,6 @@
         dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delayInSeconds * NSEC_PER_SEC));
         dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
             weakSelf.testDataCount = weakSelf.testDataCount + 10;
-            
-//            [weakSelf.mainTv reloadData];
             [weakSelf sendRequest];
             [weakSelf.mainTv.infiniteScrollingView stopAnimating];
         });
@@ -275,8 +274,9 @@
                     NSString * userId = [NSString stringWithFormat:@"%d",[user.u_id intValue]];
                     [TDHttpService ShowUtocard:userId completionBlock:^(id responseObject) {
                         if (responseObject != nil && [responseObject isKindOfClass:[NSArray class]]) {
-                            weakSelf.UtoCards= responseObject;
                             [HUD hide:YES];
+                            
+                            weakSelf.UtoCards= responseObject;
                             [weakSelf.mainTv reloadData];
                             
                             /********************************初始化选中的卡******************************/
