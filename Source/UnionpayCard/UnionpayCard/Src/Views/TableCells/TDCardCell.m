@@ -12,6 +12,7 @@
 #define MY_HEIGHT   (75)
 
 @interface TDCardCell () {
+    UIView              *_bgView;
     UIImageView         *_ivPhoto;
     UILabel             *_lblTitle;
     UILabel             *_lblCardNumber;
@@ -36,6 +37,13 @@
 }
 
 -(void)createViews {
+    //
+    _bgView = [UIView new];
+    _bgView.backgroundColor = [FDColor sharedInstance].silver;
+    [self.contentView addSubview:_bgView];
+    [_bgView alignToView:self.contentView];
+    _bgView.hidden = YES;
+    
     _ivPhoto = [UIImageView new];
 //    _ivPhoto.image = [UIImage imageNamed:@"vendor_sample"];
     [self.contentView addSubview:_ivPhoto];
@@ -116,6 +124,9 @@
     return __cache;
 }
 
+-(void)setHighlighted:(BOOL)highlighted animated:(BOOL)animated {
+    _bgView.hidden = !highlighted;
+}
 
 #pragma mark - style
 
