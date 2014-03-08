@@ -19,7 +19,7 @@
     UIButton        *_btnUseMoneyRec;
     
     BOOL            _showAddMoneyRecord;
-    
+    UIView          *header;
 }
 
 @property (nonatomic, strong) Userinfor * userinfor;
@@ -141,7 +141,7 @@
 }
 
 -(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
-    static UIView *header = nil;
+
     if (header == nil) {
         header = [UIView new];
         header.backgroundColor = [UIColor blackColor];
@@ -160,9 +160,9 @@
         [_btnAddMoneyRec setTitleColor:[FDColor sharedInstance].black forState:UIControlStateSelected];
         _btnAddMoneyRec.titleLabel.font = [TDFontLibrary sharedInstance].fontTitleBold;
         
-        if ([self respondsToSelector:@selector(addMoneyRecordAction:)]) {
-            [_btnAddMoneyRec addTarget:self action:@selector(addMoneyRecordAction:) forControlEvents:UIControlEventTouchUpInside];
-        }
+        //UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(addMoneyRecordAction:)];
+        //[_btnAddMoneyRec addGestureRecognizer:tap];
+        [_btnAddMoneyRec addTarget:self action:@selector(addMoneyRecordAction:) forControlEvents:UIControlEventTouchUpInside];
 
         [bgView addSubview:_btnAddMoneyRec];
         [_btnAddMoneyRec alignLeadingEdgeWithView:bgView predicate:@"0"];
@@ -186,9 +186,9 @@
         _btnUseMoneyRec.titleLabel.font = [TDFontLibrary sharedInstance].fontTitleBold;
         
         // crash bug  is not this responds To
-        if ([self respondsToSelector:@selector(useMoneyRecordAction:)]) {
-            [_btnUseMoneyRec addTarget:self action:@selector(useMoneyRecordAction:) forControlEvents:UIControlEventTouchUpInside];
-        }
+        //tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(useMoneyRecordAction:)];
+        //[_btnUseMoneyRec addGestureRecognizer:tap];
+        [_btnUseMoneyRec addTarget:self action:@selector(useMoneyRecordAction:) forControlEvents:UIControlEventTouchUpInside];
         
         [_btnUseMoneyRec setTitleColor:[FDColor sharedInstance].gray forState:UIControlStateNormal];
         [_btnUseMoneyRec setTitleColor:[FDColor sharedInstance].black forState:UIControlStateSelected];
