@@ -330,7 +330,6 @@
     if (tableView == _cateTv) {
         return [TDCategoryResource alltypes].count;
     } else {
-#warning FAKE DATA
         return [self.UtoCards count];
     }
     
@@ -390,8 +389,13 @@
         
         [TDHttpService updateUserinfor:_selectedCard.u_card uPrefix:_selectedCard.b_prefilx uId:[NSString stringWithFormat:@"%d",[self.userinfor.u_id intValue]] completionBlock:^(id responseObject) {
             if ([[responseObject objectForKey:@"State"] integerValue] == 0) {
+                
+                UIView *header = [self mainHeader];
+                
                 _constraintHeaderHeight.constant = 110;
-                [UIView animateWithDuration:.3f animations:^{
+                [header viewWithTag:2014].alpha = .7f;
+                
+                [UIView animateWithDuration:.2f animations:^{
                     //>1
                     [_ivActiveCard setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://113.57.133.83:1982/active/upload/shop/%@",_selectedCard.b_cordimg]] placeholderImage:nil];
                     //>2
@@ -400,8 +404,11 @@
                     _lblActiveCardNumber.text = [NSString stringWithFormat:@"[卡号] %@",_selectedCard.u_card];
                     //>4
                     _lblActiveCardBalanceValue.text = [NSString stringWithFormat:@"%@",_selectedCard.card_balance];
-                    [self mainHeader].alpha = 1;
+                    header.alpha = 1;
+                    [header viewWithTag:2014].alpha = 0;
                     [self.view layoutIfNeeded];
+                } completion:^(BOOL finished) {
+                    //
                 }];
             }
         }];
@@ -480,6 +487,16 @@
         
         [ivCheck alignCenterYWithView:_lblActiveCardTitle predicate:nil];
         [ivCheck constrainLeadingSpaceToView:_lblActiveCardTitle predicate:@"10"];
+        
+        // splash
+        UIView  *splash = [UIView new];
+        splash.tag = 2014;
+        splash.backgroundColor = [FDColor sharedInstance].white;
+        splash.alpha = 0;
+        [_header addSubview:splash];
+        [splash alignLeading:@"0" trailing:@"0" toView:_header];
+        [splash alignTopEdgeWithView:_header predicate:nil];
+        [splash constrainHeight:@"109.5"];
     }
     
     return _header;
