@@ -40,43 +40,43 @@
 -(void)createViews {
     _ivBg = [UIImageView new];
     //_ivBg.backgroundColor = [UIColor redColor];
-    [self addSubview:_ivBg];
+    [self.contentView addSubview:_ivBg];
     
     _seperatorView = [UIView new];
     _seperatorView.backgroundColor = [FDColor sharedInstance].silver;
-    [self addSubview:_seperatorView];
+    [self.contentView addSubview:_seperatorView];
     
     _ivArrow = [UIImageView new];
     _ivArrow.image = [TDImageLibrary sharedInstance].cellRightArrow;
-    [self addSubview:_ivArrow];
+    [self.contentView addSubview:_ivArrow];
     
     _highlightCoverView = [UIView new];
     float grayValue = (0XEE/255.f);
     _highlightCoverView.backgroundColor = [UIColor colorWithRed:grayValue green:grayValue blue:grayValue alpha:.5f];
-    [self addSubview:_highlightCoverView];
+    [self.contentView addSubview:_highlightCoverView];
     _highlightCoverView.hidden = YES;
     
     _lblTitle = [UILabel new];
     _lblTitle.textColor = [FDColor sharedInstance].gray;
     _lblTitle.font = [TDFontLibrary sharedInstance].fontTitle;
-    [self addSubview:_lblTitle];
+    [self.contentView addSubview:_lblTitle];
 }
 
 -(void)layoutViews {
-    [_ivBg constrainHeightToView:self predicate:nil];
-    [_ivBg alignTopEdgeWithView:self predicate:nil];
+    [_ivBg constrainHeightToView:self.contentView predicate:nil];
+    [_ivBg alignTopEdgeWithView:self.contentView predicate:nil];
     [_ivBg alignLeading:@"20" trailing:@"-20" toView:self];
     
     [_seperatorView constrainHeight:@"1"];
     [_seperatorView alignLeading:@"20" trailing:@"-20" toView:self];
     [_seperatorView alignBottomEdgeWithView:self predicate:nil];
     
-    [_ivArrow alignCenterYWithView:self predicate:nil];
-    [_ivArrow alignTrailingEdgeWithView:self predicate:@"-40"];
+    [_ivArrow alignCenterYWithView:self.contentView predicate:nil];
+    [_ivArrow alignTrailingEdgeWithView:self.contentView predicate:@"-40"];
     
     [_highlightCoverView alignToView:_ivBg];
     
-    [_lblTitle alignCenterYWithView:self predicate:nil];
+    [_lblTitle alignCenterYWithView:self.contentView predicate:nil];
     [_lblTitle alignLeadingEdgeWithView:_ivBg predicate:@"10"];
 }
 

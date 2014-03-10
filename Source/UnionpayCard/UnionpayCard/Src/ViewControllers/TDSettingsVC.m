@@ -82,6 +82,10 @@
     return [TDSettingCell HEIGHT];
 }
 
+-(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
+    return [UIView new];
+}
+
 -(float)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
     return 20.f;
 }
