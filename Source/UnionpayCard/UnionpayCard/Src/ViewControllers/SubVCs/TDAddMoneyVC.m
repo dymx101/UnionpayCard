@@ -69,12 +69,16 @@
                         if (responseObject!=nil && [responseObject isKindOfClass:[NSArray class]]) {
                             weakSelf.Consumptions = responseObject;
                             [TDHttpService ShowPreRecords:userId completionBlock:^(id responseObject) {
+                                [HUD hide:YES];
                                 if (responseObject != nil && [responseObject isKindOfClass:[NSArray class]]) {
                                     weakSelf.PreRecords = responseObject;
-                                    [HUD hide:YES];
                                     [self->_tv reloadData];
                                 }
                             }];
+                        }
+                        else
+                        {
+                            [HUD hide:YES];
                         }
                     }];
                 }
