@@ -12,6 +12,29 @@
 
 #define MBColor [UIColor colorWithHexString:@"359de8"]
 
+// 单例
+#undef	AS_SINGLETON
+#define AS_SINGLETON( __class ) \
++ (__class *)sharedInstance;
+
+#undef	DEF_SINGLETON
+#define DEF_SINGLETON( __class ) \
++ (__class *)sharedInstance \
+{ \
+static dispatch_once_t once; \
+static __class * __singleton__; \
+dispatch_once( &once, ^{ __singleton__ = [[__class alloc] init]; } ); \
+return __singleton__; \
+}
+
+//弹出框
+#define ALERT_MSG(title,msg)\
+{\
+UIAlertView*_alert=[[UIAlertView alloc] initWithTitle:title message:msg delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil];\
+_alert.transform=CGAffineTransformMakeTranslation(0,80); \
+[_alert show];\
+}
+
 #ifdef __OBJC__
 #import <UIKit/UIKit.h>
 #import <Foundation/Foundation.h>
@@ -28,6 +51,7 @@
 #import "TDHttpCommand.h"
 #import "TDHttpClient.h"
 #import "TDHttpService.h"
+#import "TDGlobalValue.h"
 
 
 #import "TDImageLibrary.h"      // image library
@@ -47,5 +71,7 @@
 
 #endif
 
+#define SharedToken   ([TDGlobalValue sharedInstance].token)
+#define SharedAppUser ([TDGlobalValue sharedInstance].currentAppUser)
 
 //#define FONT_NAME_DUAN_NING_XING    @"DuanNing-XIng"//@"MRocky HKS Bold"//@"FZZongYi-M05S" //
