@@ -16,6 +16,7 @@
 #import "Btype.h"
 #import "UtocardVO.h"
 #import "Userinfor.h"
+#import "TDLoginVC.h"
 
 //#warning 重置按钮
 //#warning 下拉刷新
@@ -253,13 +254,13 @@
 
 - (void) sendRequest {
     
-    __weak TDCardListVC * weakSelf = self;
-    
-    MBProgressHUD * HUD = [[MBProgressHUD alloc] initWithView:self.view];
-    [self.view addSubview:HUD];
-    [HUD show:YES];
-    
     if (SharedAppUser) {
+        
+        __weak TDCardListVC * weakSelf = self;
+        MBProgressHUD * HUD = [[MBProgressHUD alloc] initWithView:self.view];
+        [self.view addSubview:HUD];
+        [HUD show:YES];
+
         self.u_pre_num = SharedAppUser.u_pre_num;
         self.u_prefix = SharedAppUser.u_prefix;
         self.userinfor = SharedAppUser;
@@ -294,9 +295,6 @@
                 }
             }
         }];
-
-    } else {
-        ALERT_MSG(nil, @"用户未登录");
     }
 }
 

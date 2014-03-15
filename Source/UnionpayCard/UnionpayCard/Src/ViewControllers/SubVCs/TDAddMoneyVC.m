@@ -12,6 +12,7 @@
 #import "Userinfor.h"
 #import "Consumption.h"
 #import "PreRecords.h"
+#import "TDLoginVC.h"
 
 @interface TDAddMoneyVC () <UITableViewDelegate, UITableViewDataSource> {
     UITableView     *_tv;
@@ -48,16 +49,16 @@
 
 - (void) sendRequest {
     
-    __weak TDAddMoneyVC * weakSelf = self;
-    
-    MBProgressHUD * HUD = [[MBProgressHUD alloc] initWithView:self.view];
-    [self.view addSubview:HUD];
-    [HUD show:YES];
-    
     if (SharedAppUser) {
+        
+        __weak TDAddMoneyVC * weakSelf = self;
+        MBProgressHUD * HUD = [[MBProgressHUD alloc] initWithView:self.view];
+        [self.view addSubview:HUD];
+        [HUD show:YES];
         NSString * userId = [NSString stringWithFormat:@"%d",[SharedAppUser.u_id intValue]];
         
         [TDHttpService ShowConsumption:userId completionBlock:^(id responseObject) {
+            [HUD hide:YES];
             if (responseObject!=nil && [responseObject isKindOfClass:[NSArray class]]) {
                 weakSelf.Consumptions = responseObject;
                 [TDHttpService ShowPreRecords:userId completionBlock:^(id responseObject) {
@@ -68,12 +69,7 @@
                     }
                 }];
             }
-            else {
-                [HUD hide:YES];
-            }
         }];
-    } else {
-        ALERT_MSG(nil, @"用户未登录");
     }
 }
 
@@ -90,7 +86,7 @@
     [_tv alignToView:self.view];
 }
 
-#pragma mark - 
+#pragma mark -
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     int numberofrows = 0;
     if (_showAddMoneyRecord) {
@@ -134,7 +130,7 @@
 }
 
 -(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
-
+    
     if (header == nil) {
         header = [UIView new];
         header.backgroundColor = [UIColor blackColor];
@@ -156,7 +152,7 @@
         //UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(addMoneyRecordAction:)];
         //[_btnAddMoneyRec addGestureRecognizer:tap];
         [_btnAddMoneyRec addTarget:self action:@selector(addMoneyRecordAction:) forControlEvents:UIControlEventTouchUpInside];
-
+        
         [bgView addSubview:_btnAddMoneyRec];
         [_btnAddMoneyRec alignLeadingEdgeWithView:bgView predicate:@"0"];
         [_btnAddMoneyRec constrainHeightToView:bgView predicate:nil];
@@ -199,7 +195,7 @@
     return 50;
 }
 
-#pragma mark - 
+#pragma mark -
 -(void)addMoneyRecordAction:(id)sender {
     _showAddMoneyRecord = YES;
     _btnAddMoneyRec.selected = _showAddMoneyRecord;

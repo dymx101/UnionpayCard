@@ -44,14 +44,20 @@
     UIBarButtonItem *itemDismiss = [[UIBarButtonItem alloc] initWithCustomView:btnDismiss];
     self.navigationItem.leftBarButtonItem = itemDismiss;
     
-    UIImage *forgetPwdBgImg = [TDImageLibrary sharedInstance].btnBgGrayRound;
-    UIButton *forgetPwdBtn = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 80, 30)];
-    [forgetPwdBtn setBackgroundImage:forgetPwdBgImg forState:UIControlStateNormal];
-    [forgetPwdBtn setTitle:@"忘记密码" forState:UIControlStateNormal];
-    forgetPwdBtn.titleLabel.font = [TDFontLibrary sharedInstance].fontNormal;
-    [forgetPwdBtn addTarget:self action:@selector(forgetPasswordAction:) forControlEvents:UIControlEventTouchUpInside];
-    UIBarButtonItem *itemForgetPwd = [[UIBarButtonItem alloc] initWithCustomView:forgetPwdBtn];
-    self.navigationItem.rightBarButtonItem = itemForgetPwd;
+    /**
+     
+     忘记密码 在网页上面实现
+     
+     UIImage *forgetPwdBgImg = [TDImageLibrary sharedInstance].btnBgGrayRound;
+     UIButton *forgetPwdBtn = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 80, 30)];
+     [forgetPwdBtn setBackgroundImage:forgetPwdBgImg forState:UIControlStateNormal];
+     [forgetPwdBtn setTitle:@"忘记密码" forState:UIControlStateNormal];
+     forgetPwdBtn.titleLabel.font = [TDFontLibrary sharedInstance].fontNormal;
+     [forgetPwdBtn addTarget:self action:@selector(forgetPasswordAction:) forControlEvents:UIControlEventTouchUpInside];
+     UIBarButtonItem *itemForgetPwd = [[UIBarButtonItem alloc] initWithCustomView:forgetPwdBtn];
+     self.navigationItem.rightBarButtonItem = itemForgetPwd;
+     
+     */
     
     [self createViews];
     [self layoutViews];
@@ -168,23 +174,23 @@
     MBProgressHUD * HUD = [[MBProgressHUD alloc] initWithView:self.view];
     [self.view addSubview:HUD];
     
-    [HUD showAnimated:YES whileExecutingBlock:^{
-        [TDHttpService LoginUserinfor:_tfUserName.text loginPass:_tfPwd.text completionBlock:^(id responseObject) {
-            if (responseObject != nil && [responseObject isKindOfClass:[NSDictionary class]]) {
-                SharedToken = [responseObject objectForKey:@"userToken"];
-                [TDHttpService ShowcrrutUser:SharedToken completionBlock:^(id responseObject) {
-                    if (responseObject != nil && [responseObject isKindOfClass:[NSArray class]]) {
-                        SharedAppUser = [responseObject lastObject];
-                        [weakSelf.delegate getProfile:SharedToken];
-                        [weakSelf dismissViewControllerAnimated:YES completion:nil];
-                    }
-                }];
-                
-            } else {
-                ALERT_MSG(nil, @"用户名与密码不匹配");
-            }
-        }];
-    } completionBlock:nil];
+    [HUD show:YES];
+    
+    [TDHttpService LoginUserinfor:_tfUserName.text loginPass:_tfPwd.text completionBlock:^(id responseObject) {
+        if (responseObject != nil && [responseObject isKindOfClass:[NSDictionary class]]) {
+            SharedToken = [responseObject objectForKey:@"userToken"];
+            [TDHttpService ShowcrrutUser:SharedToken completionBlock:^(id responseObject) {
+                [HUD hide:YES];
+                if (responseObject != nil && [responseObject isKindOfClass:[NSArray class]]) {
+                    SharedAppUser = [responseObject lastObject];
+                    [weakSelf.delegate getProfile:SharedToken];
+                    [weakSelf dismissViewControllerAnimated:YES completion:nil];
+                } else {
+                    ALERT_MSG(nil, @"用户登录异常");
+                }
+            }];
+        }
+    }];
 }
 
 -(void)registerNoAccountAction:(id)sender {
