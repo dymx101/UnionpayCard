@@ -3052,6 +3052,11 @@
 				CLASSPREFIX = TD;
 				LastUpgradeCheck = 0500;
 				ORGANIZATIONNAME = Frodo;
+				TargetAttributes = {
+					EACC145B18B36EE900DD27B0 = {
+						DevelopmentTeam = 2L7KL2QHQ3;
+					};
+				};
 			};
 			buildConfigurationList = EACC145718B36EE900DD27B0 /* Build configuration list for PBXProject "UnionpayCard" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -4095,13 +4100,14 @@
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD)";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Luosheng Peng (75BAGEK59M)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "UnionpayCard/UnionpayCard-Prefix.pch";
 				INFOPLIST_FILE = "UnionpayCard/UnionpayCard-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "9E297D00-9EBE-45AF-BC1D-F019AFCFDC42";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -4112,13 +4118,14 @@
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD)";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Luosheng Peng (75BAGEK59M)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "UnionpayCard/UnionpayCard-Prefix.pch";
 				INFOPLIST_FILE = "UnionpayCard/UnionpayCard-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "9E297D00-9EBE-45AF-BC1D-F019AFCFDC42";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
