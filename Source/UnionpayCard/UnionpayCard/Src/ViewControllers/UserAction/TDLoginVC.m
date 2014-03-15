@@ -44,6 +44,10 @@
     UIBarButtonItem *itemDismiss = [[UIBarButtonItem alloc] initWithCustomView:btnDismiss];
     self.navigationItem.leftBarButtonItem = itemDismiss;
     
+    /**
+     
+    忘记密码 在网页上面实现
+     
     UIImage *forgetPwdBgImg = [TDImageLibrary sharedInstance].btnBgGrayRound;
     UIButton *forgetPwdBtn = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 80, 30)];
     [forgetPwdBtn setBackgroundImage:forgetPwdBgImg forState:UIControlStateNormal];
@@ -52,6 +56,8 @@
     [forgetPwdBtn addTarget:self action:@selector(forgetPasswordAction:) forControlEvents:UIControlEventTouchUpInside];
     UIBarButtonItem *itemForgetPwd = [[UIBarButtonItem alloc] initWithCustomView:forgetPwdBtn];
     self.navigationItem.rightBarButtonItem = itemForgetPwd;
+     
+     */
     
     [self createViews];
     [self layoutViews];
@@ -112,12 +118,17 @@
     _btnRegister.titleLabel.font = [TDFontLibrary sharedInstance].fontNormal;
     [self.view addSubview:_btnRegister];
     
+    /**
+     暂时无“无账号登录”
+     
     _btnRegisterNoAccount = [UIButton new];
     [_btnRegisterNoAccount setTitle:@"无账号快捷登录" forState:UIControlStateNormal];
     [_btnRegisterNoAccount setTitleColor:[FDColor sharedInstance].caribbeanGreen forState:UIControlStateNormal];
     [_btnRegisterNoAccount addTarget:self action:@selector(registerNoAccountAction:) forControlEvents:UIControlEventTouchUpInside];
     _btnRegisterNoAccount.titleLabel.font = [TDFontLibrary sharedInstance].fontNormal;
     [self.view addSubview:_btnRegisterNoAccount];
+     
+     **/
 }
 
 -(void)layoutViews {
