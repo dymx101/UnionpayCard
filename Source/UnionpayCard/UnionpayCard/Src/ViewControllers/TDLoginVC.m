@@ -170,8 +170,17 @@
     [HUD showAnimated:YES whileExecutingBlock:^{
         [TDHttpService LoginUserinfor:_tfUserName.text loginPass:_tfPwd.text completionBlock:^(id responseObject) {
             if (responseObject != nil && [responseObject isKindOfClass:[NSDictionary class]]) {
-                [weakSelf.delegate getProfile:[responseObject objectForKey:@"userToken"]];
-                [weakSelf dismissViewControllerAnimated:YES completion:nil];
+                SharedToken = [responseObject objectForKey:@"userToken"];
+                [TDHttpService ShowcrrutUser:SharedToken completionBlock:^(id responseObject) {
+                    if (responseObject != nil && [responseObject isKindOfClass:[NSArray class]]) {
+                        SharedAppUser = [responseObject lastObject];
+                        [weakSelf.delegate getProfile:SharedToken];
+                        [weakSelf dismissViewControllerAnimated:YES completion:nil];
+                    }
+                }];
+                
+            } else {
+                ALERT_MSG(nil, @"用户名与密码不匹配");
             }
         }];
     } completionBlock:nil];

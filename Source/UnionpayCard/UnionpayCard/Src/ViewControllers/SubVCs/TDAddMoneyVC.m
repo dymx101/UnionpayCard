@@ -50,38 +50,31 @@
     
     __weak TDAddMoneyVC * weakSelf = self;
     
-    __block NSString * token = nil;
-    __block Userinfor * user = nil;
-    
     MBProgressHUD * HUD = [[MBProgressHUD alloc] initWithView:self.view];
     [self.view addSubview:HUD];
     [HUD show:YES];
     
-    [TDHttpService LoginUserinfor:@"songwei" loginPass:@"123456" completionBlock:^(id responseObject) {
-        if (responseObject != nil && [responseObject isKindOfClass:[NSDictionary class]]) {
-            token = [responseObject objectForKey:@"userToken"];
-            [TDHttpService ShowcrrutUser:token completionBlock:^(id responseObject) {
-                if (responseObject != nil && [responseObject isKindOfClass:[NSArray class]]) {
-                    user = [responseObject lastObject];
-                    weakSelf.userinfor = user;
-                    NSString * userId = [NSString stringWithFormat:@"%d",[user.u_id intValue]];
-                    [TDHttpService ShowConsumption:userId completionBlock:^(id responseObject) {
-                        if (responseObject!=nil && [responseObject isKindOfClass:[NSArray class]]) {
-                            weakSelf.Consumptions = responseObject;
-                            [TDHttpService ShowPreRecords:userId completionBlock:^(id responseObject) {
-                                if (responseObject != nil && [responseObject isKindOfClass:[NSArray class]]) {
-                                    weakSelf.PreRecords = responseObject;
-                                    [HUD hide:YES];
-                                    [self->_tv reloadData];
-                                }
-                            }];
-                        }
-                    }];
-                }
-            }];
-        }
-    }];
-
+    if (SharedAppUser) {
+        NSString * userId = [NSString stringWithFormat:@"%d",[SharedAppUser.u_id intValue]];
+        
+        [TDHttpService ShowConsumption:userId completionBlock:^(id responseObject) {
+            if (responseObject!=nil && [responseObject isKindOfClass:[NSArray class]]) {
+                weakSelf.Consumptions = responseObject;
+                [TDHttpService ShowPreRecords:userId completionBlock:^(id responseObject) {
+                    [HUD hide:YES];
+                    if (responseObject != nil && [responseObject isKindOfClass:[NSArray class]]) {
+                        weakSelf.PreRecords = responseObject;
+                        [self->_tv reloadData];
+                    }
+                }];
+            }
+            else {
+                [HUD hide:YES];
+            }
+        }];
+    } else {
+        ALERT_MSG(nil, @"用户未登录");
+    }
 }
 
 -(void)createViews {

@@ -255,60 +255,49 @@
     
     __weak TDCardListVC * weakSelf = self;
     
-    __block NSString * token = nil;
-    __block Userinfor * user = nil;
-    
     MBProgressHUD * HUD = [[MBProgressHUD alloc] initWithView:self.view];
     [self.view addSubview:HUD];
     [HUD show:YES];
     
-    [TDHttpService LoginUserinfor:@"songwei" loginPass:@"123456" completionBlock:^(id responseObject) {
-        if (responseObject != nil && [responseObject isKindOfClass:[NSDictionary class]]) {
-            token = [responseObject objectForKey:@"userToken"];
-            [TDHttpService ShowcrrutUser:token completionBlock:^(id responseObject) {
-                if (responseObject != nil && [responseObject isKindOfClass:[NSArray class]]) {
-                    user = [responseObject lastObject];
-                    self.u_pre_num = user.u_pre_num;
-                    self.u_prefix = user.u_prefix;
-                    self.userinfor = user;
-                    NSString * userId = [NSString stringWithFormat:@"%d",[user.u_id intValue]];
-                    [TDHttpService ShowUtocard:userId completionBlock:^(id responseObject) {
-                        if (responseObject != nil && [responseObject isKindOfClass:[NSArray class]]) {
-                            [HUD hide:YES];
-                            
-                            weakSelf.UtoCards= responseObject;
-                            [weakSelf.mainTv reloadData];
-                            
-                            /********************************初始化选中的卡******************************/
-                            for (UtocardVO * utocard in weakSelf.UtoCards) {
-                                if ([[self.userinfor.u_pre_num stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]] isEqualToString:[[utocard u_card] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]]]) {
-                                    _constraintHeaderHeight.constant = 110;
-                                    [UIView animateWithDuration:.3f animations:^{
-                                        //>1
-                                        [_ivActiveCard setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://113.57.133.83:1982/active/upload/shop/%@",utocard.b_cordimg]] placeholderImage:nil];
-                                        //>2
-                                        _lblActiveCardTitle.text = utocard.b_jname;
-                                        //>3
-                                        _lblActiveCardNumber.text = [NSString stringWithFormat:@"[卡号] %@",utocard.u_card];
-                                        //>4
-                                        _lblActiveCardBalanceValue.text = [NSString stringWithFormat:@"%@",utocard.card_balance];
-                                        [self mainHeader].alpha = 1;
-                                        [self.view layoutIfNeeded];
-                                    }];
-                                }
-                            }
-                            if ([[self.userinfor.u_pre_num stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]] isEqualToString:[NSString stringWithFormat:@"%d",0]]) {
-                                [self resetAction:nil];
-                            }
-                        }
-                    }];
+    if (SharedAppUser) {
+        self.u_pre_num = SharedAppUser.u_pre_num;
+        self.u_prefix = SharedAppUser.u_prefix;
+        self.userinfor = SharedAppUser;
+        NSString * userId = [NSString stringWithFormat:@"%d",[SharedAppUser.u_id intValue]];
+        [TDHttpService ShowUtocard:userId completionBlock:^(id responseObject) {
+            if (responseObject != nil && [responseObject isKindOfClass:[NSArray class]]) {
+                [HUD hide:YES];
+                
+                weakSelf.UtoCards= responseObject;
+                [weakSelf.mainTv reloadData];
+                
+                /********************************初始化选中的卡******************************/
+                for (UtocardVO * utocard in weakSelf.UtoCards) {
+                    if ([[self.userinfor.u_pre_num stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]] isEqualToString:[[utocard u_card] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]]]) {
+                        _constraintHeaderHeight.constant = 110;
+                        [UIView animateWithDuration:.3f animations:^{
+                            //>1
+                            [_ivActiveCard setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://113.57.133.83:1982/active/upload/shop/%@",utocard.b_cordimg]] placeholderImage:nil];
+                            //>2
+                            _lblActiveCardTitle.text = utocard.b_jname;
+                            //>3
+                            _lblActiveCardNumber.text = [NSString stringWithFormat:@"[卡号] %@",utocard.u_card];
+                            //>4
+                            _lblActiveCardBalanceValue.text = [NSString stringWithFormat:@"%@",utocard.card_balance];
+                            [self mainHeader].alpha = 1;
+                            [self.view layoutIfNeeded];
+                        }];
+                    }
                 }
-            }];
-        }
-    }];
-    
-    
-    
+                if ([[self.userinfor.u_pre_num stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]] isEqualToString:[NSString stringWithFormat:@"%d",0]]) {
+                    [self resetAction:nil];
+                }
+            }
+        }];
+
+    } else {
+        ALERT_MSG(nil, @"用户未登录");
+    }
 }
 
 #pragma mark -

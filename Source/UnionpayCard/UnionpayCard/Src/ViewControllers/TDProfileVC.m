@@ -202,17 +202,15 @@
     MBProgressHUD * HUD = [[MBProgressHUD alloc] initWithView:self.view];
     [self.view addSubview:HUD];
     __weak TDProfileVC * weakSelf = self;
-    [HUD showAnimated:YES whileExecutingBlock:^{
-         [TDHttpService ShowcrrutUser:tOken completionBlock:^(id responseObject) {
-             if (responseObject != nil && [responseObject isKindOfClass:[NSArray class]]) {
-                 weakSelf._mUser = [responseObject lastObject];
-                 BOOL loginOK = YES;
-                 _viewLoggedIn.hidden = !loginOK;
-                 _viewNotLoggedIn.hidden = loginOK;
-                 _lblUserName.text = [__mUser u_name];
-                 _lblBalance.text = [NSString stringWithFormat:@"余额: ￥%0.0f",[__mUser.u_rec_money doubleValue]];
-             }
-         }];
-    } completionBlock:nil];
+    if (SharedAppUser) {
+        weakSelf._mUser = SharedAppUser;
+        BOOL loginOK = YES;
+        _viewLoggedIn.hidden = !loginOK;
+         _viewNotLoggedIn.hidden = loginOK;
+        _lblUserName.text = [__mUser u_name];
+        _lblBalance.text = [NSString stringWithFormat:@"余额: ￥%0.0f",[__mUser.u_rec_money doubleValue]];
+    } else {
+        ALERT_MSG(nil, @"用户未登录");
+    }
 }
 @end

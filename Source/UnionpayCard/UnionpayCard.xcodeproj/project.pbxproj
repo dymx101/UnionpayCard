@@ -56,6 +56,7 @@
 		4CB12C9018BBCADC00F23A76 /* Utoemil.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CB12C8F18BBCADC00F23A76 /* Utoemil.m */; };
 		4CB12C9318BBCB0F00F23A76 /* Uvip.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CB12C9218BBCB0F00F23A76 /* Uvip.m */; };
 		4CB12C9618BBCB4000F23A76 /* Ynbinfor.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CB12C9518BBCB4000F23A76 /* Ynbinfor.m */; };
+		4CF30A5318D34A5D002F083E /* TDGlobalValue.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CF30A5218D34A5D002F083E /* TDGlobalValue.m */; };
 		55A5FBCBCA064416B4607D7C /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A21F1F75D364083A890944A /* libPods.a */; };
 		EA098BC818B98E1C0034E0CF /* TDRegisterVC.m in Sources */ = {isa = PBXBuildFile; fileRef = EA098BC718B98E1C0034E0CF /* TDRegisterVC.m */; };
 		EA098BCB18B98E590034E0CF /* TDRegisterNoAccountVC.m in Sources */ = {isa = PBXBuildFile; fileRef = EA098BCA18B98E590034E0CF /* TDRegisterNoAccountVC.m */; };
@@ -982,6 +983,8 @@
 		4CB12C9218BBCB0F00F23A76 /* Uvip.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Uvip.m; sourceTree = "<group>"; };
 		4CB12C9418BBCB4000F23A76 /* Ynbinfor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Ynbinfor.h; sourceTree = "<group>"; };
 		4CB12C9518BBCB4000F23A76 /* Ynbinfor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Ynbinfor.m; sourceTree = "<group>"; };
+		4CF30A5118D34A5D002F083E /* TDGlobalValue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TDGlobalValue.h; sourceTree = "<group>"; };
+		4CF30A5218D34A5D002F083E /* TDGlobalValue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TDGlobalValue.m; sourceTree = "<group>"; };
 		B3BCF3CCEFF9419390ECB20A /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 		EA098BC618B98E1C0034E0CF /* TDRegisterVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TDRegisterVC.h; sourceTree = "<group>"; };
 		EA098BC718B98E1C0034E0CF /* TDRegisterVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TDRegisterVC.m; sourceTree = "<group>"; };
@@ -1875,6 +1878,8 @@
 			children = (
 				4C98AB1E18B8EBE3007FAF12 /* Parser */,
 				4C98AB1F18B8EBE3007FAF12 /* VO */,
+				4CF30A5118D34A5D002F083E /* TDGlobalValue.h */,
+				4CF30A5218D34A5D002F083E /* TDGlobalValue.m */,
 			);
 			path = BusinessModels;
 			sourceTree = "<group>";
@@ -3936,6 +3941,7 @@
 				4C98ABEC18B91E01007FAF12 /* NSDictionary+safe.m in Sources */,
 				4CB12C5D18BBC63D00F23A76 /* Bcrcle.m in Sources */,
 				4CA68F0118B5BCA900D02209 /* TDAPIEngineTest.m in Sources */,
+				4CF30A5318D34A5D002F083E /* TDGlobalValue.m in Sources */,
 				4CB12C9318BBCB0F00F23A76 /* Uvip.m in Sources */,
 				EACBE40A18BF155A00F2E9CF /* TDCreditVC.m in Sources */,
 				4CB12C4C18BBC42A00F23A76 /* Adver.m in Sources */,
@@ -4035,8 +4041,8 @@
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: yu zhang (QNM2K66DZU)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Luosheng Peng (75BAGEK59M)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Luosheng Peng (75BAGEK59M)";
 				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -4054,7 +4060,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				ONLY_ACTIVE_ARCH = YES;
-				PROVISIONING_PROFILE = "9E297D00-9EBE-45AF-BC1D-F019AFCFDC42";
+				PROVISIONING_PROFILE = "C3C67352-498C-4762-8245-589BDC2F944B";
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -4088,7 +4094,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
-				PROVISIONING_PROFILE = "9E297D00-9EBE-45AF-BC1D-F019AFCFDC42";
+				PROVISIONING_PROFILE = "C3C67352-498C-4762-8245-589BDC2F944B";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -4107,7 +4113,7 @@
 				INFOPLIST_FILE = "UnionpayCard/UnionpayCard-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "C3C67352-498C-4762-8245-589BDC2F944B";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -4125,7 +4131,7 @@
 				INFOPLIST_FILE = "UnionpayCard/UnionpayCard-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "C3C67352-498C-4762-8245-589BDC2F944B";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

@@ -8,9 +8,12 @@
 
 #import <Foundation/Foundation.h>
 
+//省份信息
 @interface Bprovince : NSObject
 
 @property(nonatomic,strong) NSNumber *  b_p_id;
+
+/** 省名称 */
 @property(nonatomic,strong) NSString * b_p_name;
 
 @end
