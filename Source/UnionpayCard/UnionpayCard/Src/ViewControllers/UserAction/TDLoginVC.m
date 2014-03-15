@@ -46,16 +46,16 @@
     
     /**
      
-    忘记密码 在网页上面实现
+     忘记密码 在网页上面实现
      
-    UIImage *forgetPwdBgImg = [TDImageLibrary sharedInstance].btnBgGrayRound;
-    UIButton *forgetPwdBtn = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 80, 30)];
-    [forgetPwdBtn setBackgroundImage:forgetPwdBgImg forState:UIControlStateNormal];
-    [forgetPwdBtn setTitle:@"忘记密码" forState:UIControlStateNormal];
-    forgetPwdBtn.titleLabel.font = [TDFontLibrary sharedInstance].fontNormal;
-    [forgetPwdBtn addTarget:self action:@selector(forgetPasswordAction:) forControlEvents:UIControlEventTouchUpInside];
-    UIBarButtonItem *itemForgetPwd = [[UIBarButtonItem alloc] initWithCustomView:forgetPwdBtn];
-    self.navigationItem.rightBarButtonItem = itemForgetPwd;
+     UIImage *forgetPwdBgImg = [TDImageLibrary sharedInstance].btnBgGrayRound;
+     UIButton *forgetPwdBtn = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 80, 30)];
+     [forgetPwdBtn setBackgroundImage:forgetPwdBgImg forState:UIControlStateNormal];
+     [forgetPwdBtn setTitle:@"忘记密码" forState:UIControlStateNormal];
+     forgetPwdBtn.titleLabel.font = [TDFontLibrary sharedInstance].fontNormal;
+     [forgetPwdBtn addTarget:self action:@selector(forgetPasswordAction:) forControlEvents:UIControlEventTouchUpInside];
+     UIBarButtonItem *itemForgetPwd = [[UIBarButtonItem alloc] initWithCustomView:forgetPwdBtn];
+     self.navigationItem.rightBarButtonItem = itemForgetPwd;
      
      */
     
@@ -121,12 +121,12 @@
     /**
      暂时无“无账号登录”
      
-    _btnRegisterNoAccount = [UIButton new];
-    [_btnRegisterNoAccount setTitle:@"无账号快捷登录" forState:UIControlStateNormal];
-    [_btnRegisterNoAccount setTitleColor:[FDColor sharedInstance].caribbeanGreen forState:UIControlStateNormal];
-    [_btnRegisterNoAccount addTarget:self action:@selector(registerNoAccountAction:) forControlEvents:UIControlEventTouchUpInside];
-    _btnRegisterNoAccount.titleLabel.font = [TDFontLibrary sharedInstance].fontNormal;
-    [self.view addSubview:_btnRegisterNoAccount];
+     _btnRegisterNoAccount = [UIButton new];
+     [_btnRegisterNoAccount setTitle:@"无账号快捷登录" forState:UIControlStateNormal];
+     [_btnRegisterNoAccount setTitleColor:[FDColor sharedInstance].caribbeanGreen forState:UIControlStateNormal];
+     [_btnRegisterNoAccount addTarget:self action:@selector(registerNoAccountAction:) forControlEvents:UIControlEventTouchUpInside];
+     _btnRegisterNoAccount.titleLabel.font = [TDFontLibrary sharedInstance].fontNormal;
+     [self.view addSubview:_btnRegisterNoAccount];
      
      **/
 }
@@ -178,23 +178,23 @@
     MBProgressHUD * HUD = [[MBProgressHUD alloc] initWithView:self.view];
     [self.view addSubview:HUD];
     
-    [HUD showAnimated:YES whileExecutingBlock:^{
-        [TDHttpService LoginUserinfor:_tfUserName.text loginPass:_tfPwd.text completionBlock:^(id responseObject) {
-            if (responseObject != nil && [responseObject isKindOfClass:[NSDictionary class]]) {
-                SharedToken = [responseObject objectForKey:@"userToken"];
-                [TDHttpService ShowcrrutUser:SharedToken completionBlock:^(id responseObject) {
-                    if (responseObject != nil && [responseObject isKindOfClass:[NSArray class]]) {
-                        SharedAppUser = [responseObject lastObject];
-                        [weakSelf.delegate getProfile:SharedToken];
-                        [weakSelf dismissViewControllerAnimated:YES completion:nil];
-                    }
-                }];
-                
-            } else {
-                ALERT_MSG(nil, @"用户名与密码不匹配");
-            }
-        }];
-    } completionBlock:nil];
+    [HUD show:YES];
+    
+    [TDHttpService LoginUserinfor:_tfUserName.text loginPass:_tfPwd.text completionBlock:^(id responseObject) {
+        if (responseObject != nil && [responseObject isKindOfClass:[NSDictionary class]]) {
+            SharedToken = [responseObject objectForKey:@"userToken"];
+            [TDHttpService ShowcrrutUser:SharedToken completionBlock:^(id responseObject) {
+                [HUD hide:YES];
+                if (responseObject != nil && [responseObject isKindOfClass:[NSArray class]]) {
+                    SharedAppUser = [responseObject lastObject];
+                    [weakSelf.delegate getProfile:SharedToken];
+                    [weakSelf dismissViewControllerAnimated:YES completion:nil];
+                } else {
+                    ALERT_MSG(nil, @"用户登录异常");
+                }
+            }];
+        }
+    }];
 }
 
 -(void)registerNoAccountAction:(id)sender {
