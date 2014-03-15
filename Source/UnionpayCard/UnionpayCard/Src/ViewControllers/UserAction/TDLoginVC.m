@@ -118,6 +118,7 @@
     [_btnRegisterNoAccount addTarget:self action:@selector(registerNoAccountAction:) forControlEvents:UIControlEventTouchUpInside];
     _btnRegisterNoAccount.titleLabel.font = [TDFontLibrary sharedInstance].fontNormal;
     [self.view addSubview:_btnRegisterNoAccount];
+    _btnRegisterNoAccount.hidden = YES;
 }
 
 -(void)layoutViews {
@@ -148,8 +149,8 @@
     [_btnLogin alignLeadingEdgeWithView:_loginInputView predicate:nil];
     [_btnLogin constrainTopSpaceToView:_loginInputView predicate:@"20"];
     
-    [_btnRegister alignLeadingEdgeWithView:_btnLogin predicate:@"15"];
-    [_btnRegister constrainTopSpaceToView:_btnLogin predicate:@"10"];
+    [_btnRegister alignCenterXWithView:self.view predicate:nil];
+    [_btnRegister constrainTopSpaceToView:_btnLogin predicate:@"20"];
     
     [_btnRegisterNoAccount alignTrailingEdgeWithView:_btnLogin predicate:@"-15"];
     [_btnRegisterNoAccount constrainTopSpaceToView:_btnLogin predicate:@"10"];

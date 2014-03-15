@@ -287,7 +287,7 @@
         
         //如果是日期，NSDate转成NSNumber
         if ([value isKindOfClass:[NSDate class]]) {
-            NSNumber *dateNum = __DOUBLE(((NSDate*)value).timeIntervalSince1970 * 1000);
+            NSNumber *dateNum = @(((NSDate*)value).timeIntervalSince1970 * 1000);
             [dictionary setValue:dateNum forKey:propertyName];
             continue;
         }

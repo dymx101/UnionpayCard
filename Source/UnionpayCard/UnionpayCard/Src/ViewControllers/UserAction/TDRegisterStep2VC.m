@@ -7,6 +7,7 @@
 //
 
 #import "TDRegisterStep2VC.h"
+#import "TDRegisterStep3VC.h"
 
 @interface TDRegisterStep2VC () {
     UIImageView     *_ivProgress;
@@ -90,11 +91,13 @@
 
 #pragma mark - actions
 -(void)requestCodeAgainAction:(id)sender {
-    
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"重新发送验证码成功，请查收" message:nil delegate:nil cancelButtonTitle:@"确定" otherButtonTitles: nil];
+    [alert show];
 }
 
 -(void)submitCodeAction:(id)sender {
-    
+    TDRegisterStep3VC *vc = [TDRegisterStep3VC new];
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 @end

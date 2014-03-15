@@ -84,7 +84,7 @@
     
     int section = indexPath.section;
     int row = indexPath.row;
-    ETDCellStyle cellStyle = [TDSettingCell cellStyleWithIndexPath:indexPath tableView:tableView tableViewDataSource:self];
+    ETDCellStyle cellStyle = [TDUtil cellStyleWithIndexPath:indexPath tableView:tableView tableViewDataSource:self];
     [cell setStyle:cellStyle];
     cell.lblTitle.text = [self settingItems][section][row];
     

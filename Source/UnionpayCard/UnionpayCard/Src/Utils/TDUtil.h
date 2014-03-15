@@ -12,4 +12,9 @@
 +(void)findFonts;
 +(BOOL)isIOS7;
 +(UIButton *)checkBoxWithTitle:(NSString *)aTitle target:(id)aTarget action:(SEL)anAction;
+
++(ETDCellStyle)cellStyleWithIndexPath:(NSIndexPath *)aIndexPath
+                            tableView:(UITableView *)aTableView
+                  tableViewDataSource:(id<UITableViewDataSource>)aTableViewDataSource;
+
 @end

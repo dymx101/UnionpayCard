@@ -884,6 +884,8 @@
 		EAD2F0B818C815B400FC3805 /* iTunesArtwork@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EAD2F0AE18C815B400FC3805 /* iTunesArtwork@2x.png */; };
 		EAD2F0BA18C816A500FC3805 /* Icon-120.png in Resources */ = {isa = PBXBuildFile; fileRef = EAD2F0B918C816A500FC3805 /* Icon-120.png */; };
 		EAD37F9018C34019003188D4 /* TDMyAccountVC.m in Sources */ = {isa = PBXBuildFile; fileRef = EAD37F8F18C34019003188D4 /* TDMyAccountVC.m */; };
+		EAD58FC618D43F220081B5A7 /* TDRegisterStep3VC.m in Sources */ = {isa = PBXBuildFile; fileRef = EAD58FC518D43F220081B5A7 /* TDRegisterStep3VC.m */; };
+		EAD58FC918D442A20081B5A7 /* GNTextFieldCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EAD58FC818D442A20081B5A7 /* GNTextFieldCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -1854,6 +1856,10 @@
 		EAD2F0B918C816A500FC3805 /* Icon-120.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-120.png"; sourceTree = "<group>"; };
 		EAD37F8E18C34019003188D4 /* TDMyAccountVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TDMyAccountVC.h; path = UnionpayCard/Src/ViewControllers/TDMyAccountVC.h; sourceTree = SOURCE_ROOT; };
 		EAD37F8F18C34019003188D4 /* TDMyAccountVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TDMyAccountVC.m; path = UnionpayCard/Src/ViewControllers/TDMyAccountVC.m; sourceTree = SOURCE_ROOT; };
+		EAD58FC418D43F220081B5A7 /* TDRegisterStep3VC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TDRegisterStep3VC.h; sourceTree = "<group>"; };
+		EAD58FC518D43F220081B5A7 /* TDRegisterStep3VC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TDRegisterStep3VC.m; sourceTree = "<group>"; };
+		EAD58FC718D442A20081B5A7 /* GNTextFieldCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GNTextFieldCell.h; sourceTree = "<group>"; };
+		EAD58FC818D442A20081B5A7 /* GNTextFieldCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GNTextFieldCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1997,6 +2003,8 @@
 				EA0801A218D428DC00D0E805 /* TDRegisterVC.m */,
 				EA0801A618D428FC00D0E805 /* TDRegisterStep2VC.h */,
 				EA0801A718D428FC00D0E805 /* TDRegisterStep2VC.m */,
+				EAD58FC418D43F220081B5A7 /* TDRegisterStep3VC.h */,
+				EAD58FC518D43F220081B5A7 /* TDRegisterStep3VC.m */,
 			);
 			path = UserAction;
 			sourceTree = "<group>";
@@ -2954,6 +2962,8 @@
 				EACD0D2F18B3A216009109CB /* TDProfileVC.m */,
 				EACD0D3118B3A243009109CB /* TDSettingsVC.h */,
 				EACD0D3218B3A243009109CB /* TDSettingsVC.m */,
+				EAD58FC718D442A20081B5A7 /* GNTextFieldCell.h */,
+				EAD58FC818D442A20081B5A7 /* GNTextFieldCell.m */,
 				EAC9D88218B888CF0096D555 /* TDForgetPasswordVC.h */,
 				EAC9D88318B888CF0096D555 /* TDForgetPasswordVC.m */,
 				EAD37F8E18C34019003188D4 /* TDMyAccountVC.h */,
@@ -3991,6 +4001,8 @@
 				4C98ABE918B91E01007FAF12 /* NSArray+safe.m in Sources */,
 				EAC428CA18C315FC004F3941 /* TDLifeVC.m in Sources */,
 				4CB12C7818BBC8C700F23A76 /* IntegRecords.m in Sources */,
+				EAD58FC918D442A20081B5A7 /* GNTextFieldCell.m in Sources */,
+				EAD58FC618D43F220081B5A7 /* TDRegisterStep3VC.m in Sources */,
 				4CB12C8418BBC9A400F23A76 /* PreRecords.m in Sources */,
 				EAC9D88418B888CF0096D555 /* TDForgetPasswordVC.m in Sources */,
 				EA901B0618B6491700B1E20F /* TDUtil.m in Sources */,

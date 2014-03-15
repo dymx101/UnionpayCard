@@ -113,24 +113,7 @@
     }
 }
 
-+(ETDCellStyle)cellStyleWithIndexPath:(NSIndexPath *)aIndexPath tableView:(UITableView *)aTableView tableViewDataSource:(id<UITableViewDataSource>)aTableViewDataSource {
-    
-    int section = aIndexPath.section;
-    int row = aIndexPath.row;
-    
-    int count = [aTableViewDataSource tableView:aTableView numberOfRowsInSection:section];
-    if (count > 1) {
-        if (row == 0) {
-            return kTDCellStyleTop;
-        } else if (row == count - 1) {
-            return kTDCellStyleBottom;
-        } else {
-            return kTDCellStyleMiddle;
-        }
-    }
-    
-    return kTDCellStyleRound;
-}
+
 
 +(float)HEIGHT {
     return MY_HEIGHT;

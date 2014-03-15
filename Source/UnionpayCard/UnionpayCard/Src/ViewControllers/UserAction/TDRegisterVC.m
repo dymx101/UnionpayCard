@@ -96,6 +96,7 @@
 #pragma mark - action
 -(void)agreeAvtion:(id)sender {
     _btnAgree.selected = !_btnAgree.selected;
+    _btnGetCode.enabled = _btnAgree.selected;
 }
 
 -(void)seeAgreementAction:(id)sender {
