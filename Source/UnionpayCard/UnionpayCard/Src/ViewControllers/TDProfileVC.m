@@ -210,7 +210,10 @@
         _lblUserName.text = [__mUser u_name];
         _lblBalance.text = [NSString stringWithFormat:@"余额: ￥%0.0f",[__mUser.u_rec_money doubleValue]];
     } else {
-        ALERT_MSG(nil, @"用户未登录");
+        TDLoginVC *vc = [TDLoginVC new];
+        vc.delegate = self;
+        UINavigationController *nc = [[UINavigationController alloc] initWithRootViewController:vc];
+        [self presentViewController:nc animated:YES completion:nil];
     }
 }
 @end
