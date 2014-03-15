@@ -59,8 +59,10 @@
 		4CF30A5318D34A5D002F083E /* TDGlobalValue.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CF30A5218D34A5D002F083E /* TDGlobalValue.m */; };
 		55A5FBCBCA064416B4607D7C /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A21F1F75D364083A890944A /* libPods.a */; };
 		EA08019B18D426A100D0E805 /* GNWebVC.m in Sources */ = {isa = PBXBuildFile; fileRef = EA08019A18D426A100D0E805 /* GNWebVC.m */; };
-		EA098BC818B98E1C0034E0CF /* TDRegisterVC.m in Sources */ = {isa = PBXBuildFile; fileRef = EA098BC718B98E1C0034E0CF /* TDRegisterVC.m */; };
-		EA098BCB18B98E590034E0CF /* TDRegisterNoAccountVC.m in Sources */ = {isa = PBXBuildFile; fileRef = EA098BCA18B98E590034E0CF /* TDRegisterNoAccountVC.m */; };
+		EA0801A318D428DC00D0E805 /* TDLoginVC.m in Sources */ = {isa = PBXBuildFile; fileRef = EA08019E18D428DC00D0E805 /* TDLoginVC.m */; };
+		EA0801A418D428DC00D0E805 /* TDRegisterNoAccountVC.m in Sources */ = {isa = PBXBuildFile; fileRef = EA0801A018D428DC00D0E805 /* TDRegisterNoAccountVC.m */; };
+		EA0801A518D428DC00D0E805 /* TDRegisterVC.m in Sources */ = {isa = PBXBuildFile; fileRef = EA0801A218D428DC00D0E805 /* TDRegisterVC.m */; };
+		EA0801A818D428FC00D0E805 /* TDRegisterStep2VC.m in Sources */ = {isa = PBXBuildFile; fileRef = EA0801A718D428FC00D0E805 /* TDRegisterStep2VC.m */; };
 		EA098BD018B9B1E40034E0CF /* tableCellBottomBg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EA098BCC18B9B1E40034E0CF /* tableCellBottomBg@2x.png */; };
 		EA098BD118B9B1E40034E0CF /* tableCellMiddleBg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EA098BCD18B9B1E40034E0CF /* tableCellMiddleBg@2x.png */; };
 		EA098BD218B9B1E40034E0CF /* tableCellRoundBg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EA098BCE18B9B1E40034E0CF /* tableCellRoundBg@2x.png */; };
@@ -882,7 +884,6 @@
 		EAD2F0B818C815B400FC3805 /* iTunesArtwork@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EAD2F0AE18C815B400FC3805 /* iTunesArtwork@2x.png */; };
 		EAD2F0BA18C816A500FC3805 /* Icon-120.png in Resources */ = {isa = PBXBuildFile; fileRef = EAD2F0B918C816A500FC3805 /* Icon-120.png */; };
 		EAD37F9018C34019003188D4 /* TDMyAccountVC.m in Sources */ = {isa = PBXBuildFile; fileRef = EAD37F8F18C34019003188D4 /* TDMyAccountVC.m */; };
-		EAD6ACC618B79BC00003B24E /* TDLoginVC.m in Sources */ = {isa = PBXBuildFile; fileRef = EAD6ACC518B79BC00003B24E /* TDLoginVC.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -989,10 +990,14 @@
 		B3BCF3CCEFF9419390ECB20A /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 		EA08019918D426A100D0E805 /* GNWebVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GNWebVC.h; sourceTree = "<group>"; };
 		EA08019A18D426A100D0E805 /* GNWebVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GNWebVC.m; sourceTree = "<group>"; };
-		EA098BC618B98E1C0034E0CF /* TDRegisterVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TDRegisterVC.h; sourceTree = "<group>"; };
-		EA098BC718B98E1C0034E0CF /* TDRegisterVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TDRegisterVC.m; sourceTree = "<group>"; };
-		EA098BC918B98E590034E0CF /* TDRegisterNoAccountVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TDRegisterNoAccountVC.h; sourceTree = "<group>"; };
-		EA098BCA18B98E590034E0CF /* TDRegisterNoAccountVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TDRegisterNoAccountVC.m; sourceTree = "<group>"; };
+		EA08019D18D428DC00D0E805 /* TDLoginVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TDLoginVC.h; sourceTree = "<group>"; };
+		EA08019E18D428DC00D0E805 /* TDLoginVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TDLoginVC.m; sourceTree = "<group>"; };
+		EA08019F18D428DC00D0E805 /* TDRegisterNoAccountVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TDRegisterNoAccountVC.h; sourceTree = "<group>"; };
+		EA0801A018D428DC00D0E805 /* TDRegisterNoAccountVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TDRegisterNoAccountVC.m; sourceTree = "<group>"; };
+		EA0801A118D428DC00D0E805 /* TDRegisterVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TDRegisterVC.h; sourceTree = "<group>"; };
+		EA0801A218D428DC00D0E805 /* TDRegisterVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TDRegisterVC.m; sourceTree = "<group>"; };
+		EA0801A618D428FC00D0E805 /* TDRegisterStep2VC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TDRegisterStep2VC.h; sourceTree = "<group>"; };
+		EA0801A718D428FC00D0E805 /* TDRegisterStep2VC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TDRegisterStep2VC.m; sourceTree = "<group>"; };
 		EA098BCC18B9B1E40034E0CF /* tableCellBottomBg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tableCellBottomBg@2x.png"; sourceTree = "<group>"; };
 		EA098BCD18B9B1E40034E0CF /* tableCellMiddleBg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tableCellMiddleBg@2x.png"; sourceTree = "<group>"; };
 		EA098BCE18B9B1E40034E0CF /* tableCellRoundBg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tableCellRoundBg@2x.png"; sourceTree = "<group>"; };
@@ -1849,8 +1854,6 @@
 		EAD2F0B918C816A500FC3805 /* Icon-120.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-120.png"; sourceTree = "<group>"; };
 		EAD37F8E18C34019003188D4 /* TDMyAccountVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TDMyAccountVC.h; path = UnionpayCard/Src/ViewControllers/TDMyAccountVC.h; sourceTree = SOURCE_ROOT; };
 		EAD37F8F18C34019003188D4 /* TDMyAccountVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TDMyAccountVC.m; path = UnionpayCard/Src/ViewControllers/TDMyAccountVC.m; sourceTree = SOURCE_ROOT; };
-		EAD6ACC418B79BC00003B24E /* TDLoginVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TDLoginVC.h; sourceTree = "<group>"; };
-		EAD6ACC518B79BC00003B24E /* TDLoginVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TDLoginVC.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1981,6 +1984,21 @@
 				4CA68F0018B5BCA900D02209 /* TDAPIEngineTest.m */,
 			);
 			path = Test;
+			sourceTree = "<group>";
+		};
+		EA08019C18D428DC00D0E805 /* UserAction */ = {
+			isa = PBXGroup;
+			children = (
+				EA08019D18D428DC00D0E805 /* TDLoginVC.h */,
+				EA08019E18D428DC00D0E805 /* TDLoginVC.m */,
+				EA08019F18D428DC00D0E805 /* TDRegisterNoAccountVC.h */,
+				EA0801A018D428DC00D0E805 /* TDRegisterNoAccountVC.m */,
+				EA0801A118D428DC00D0E805 /* TDRegisterVC.h */,
+				EA0801A218D428DC00D0E805 /* TDRegisterVC.m */,
+				EA0801A618D428FC00D0E805 /* TDRegisterStep2VC.h */,
+				EA0801A718D428FC00D0E805 /* TDRegisterStep2VC.m */,
+			);
+			path = UserAction;
 			sourceTree = "<group>";
 		};
 		EA098BD418B9B4320034E0CF /* Views */ = {
@@ -2923,6 +2941,7 @@
 		EACD0D1F18B3A050009109CB /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				EA08019C18D428DC00D0E805 /* UserAction */,
 				EA08019918D426A100D0E805 /* GNWebVC.h */,
 				EA08019A18D426A100D0E805 /* GNWebVC.m */,
 				EACBE3FE18BF13E500F2E9CF /* SubVCs */,
@@ -2935,14 +2954,8 @@
 				EACD0D2F18B3A216009109CB /* TDProfileVC.m */,
 				EACD0D3118B3A243009109CB /* TDSettingsVC.h */,
 				EACD0D3218B3A243009109CB /* TDSettingsVC.m */,
-				EAD6ACC418B79BC00003B24E /* TDLoginVC.h */,
-				EAD6ACC518B79BC00003B24E /* TDLoginVC.m */,
 				EAC9D88218B888CF0096D555 /* TDForgetPasswordVC.h */,
 				EAC9D88318B888CF0096D555 /* TDForgetPasswordVC.m */,
-				EA098BC618B98E1C0034E0CF /* TDRegisterVC.h */,
-				EA098BC718B98E1C0034E0CF /* TDRegisterVC.m */,
-				EA098BC918B98E590034E0CF /* TDRegisterNoAccountVC.h */,
-				EA098BCA18B98E590034E0CF /* TDRegisterNoAccountVC.m */,
 				EAD37F8E18C34019003188D4 /* TDMyAccountVC.h */,
 				EAD37F8F18C34019003188D4 /* TDMyAccountVC.m */,
 			);
@@ -3923,6 +3936,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EA0801A318D428DC00D0E805 /* TDLoginVC.m in Sources */,
 				4CB12C6918BBC71500F23A76 /* Binfor.m in Sources */,
 				EACC147018B36EE900DD27B0 /* TDAppDelegate.m in Sources */,
 				4C98ABF818B91E01007FAF12 /* NSString+MD5Addition.m in Sources */,
@@ -3931,7 +3945,6 @@
 				EACBE40118BF140F00F2E9CF /* TDCardListVC.m in Sources */,
 				EAC9796E18C1762600927CEE /* TDCateogryButton.m in Sources */,
 				4C98AC1518B9246F007FAF12 /* NSObject+JsonToVO.m in Sources */,
-				EA098BC818B98E1C0034E0CF /* TDRegisterVC.m in Sources */,
 				4CB12C5518BBC56400F23A76 /* Bcbd.m in Sources */,
 				EAD1249B18B604B600C6C145 /* FDColor.m in Sources */,
 				4C98AB2718B9196E007FAF12 /* Btype.m in Sources */,
@@ -3962,6 +3975,7 @@
 				4CB12C6018BBC66A00F23A76 /* Bdistrict.m in Sources */,
 				4C98AC0118B91E01007FAF12 /* UILabel+Attribute.m in Sources */,
 				EACD0D3318B3A243009109CB /* TDSettingsVC.m in Sources */,
+				EA0801A818D428FC00D0E805 /* TDRegisterStep2VC.m in Sources */,
 				EACBE41618BF2EB100F2E9CF /* UIView+Effect.m in Sources */,
 				4CB12C6C18BBC7C400F23A76 /* Bprovince.m in Sources */,
 				4C98ABF118B91E01007FAF12 /* NSNumber+safe.m in Sources */,
@@ -3972,6 +3986,7 @@
 				4CB12C4918BBC3A200F23A76 /* AdminManager.m in Sources */,
 				EACD0D2318B3A09E009109CB /* TDBaseVC.m in Sources */,
 				4CB12C8118BBC96000F23A76 /* Parameters.m in Sources */,
+				EA0801A518D428DC00D0E805 /* TDRegisterVC.m in Sources */,
 				4C98AC1E18B9345B007FAF12 /* Post.m in Sources */,
 				4C98ABE918B91E01007FAF12 /* NSArray+safe.m in Sources */,
 				EAC428CA18C315FC004F3941 /* TDLifeVC.m in Sources */,
@@ -3983,6 +3998,7 @@
 				4CB12C5A18BBC5F800F23A76 /* Bcity.m in Sources */,
 				4CB12C9618BBCB4000F23A76 /* Ynbinfor.m in Sources */,
 				EAC9797118C1883B00927CEE /* TDCategoryResource.m in Sources */,
+				EA0801A418D428DC00D0E805 /* TDRegisterNoAccountVC.m in Sources */,
 				4CA68EC018B520EC00D02209 /* TDHttpCommand.m in Sources */,
 				4C98ABF018B91E01007FAF12 /* NSNumber+otsCopy.m in Sources */,
 				EACD0D3018B3A216009109CB /* TDProfileVC.m in Sources */,
@@ -4000,8 +4016,6 @@
 				EA08019B18D426A100D0E805 /* GNWebVC.m in Sources */,
 				4CB12C9018BBCADC00F23A76 /* Utoemil.m in Sources */,
 				4C98AC1B18B92BF4007FAF12 /* TDJsonParser.m in Sources */,
-				EA098BCB18B98E590034E0CF /* TDRegisterNoAccountVC.m in Sources */,
-				EAD6ACC618B79BC00003B24E /* TDLoginVC.m in Sources */,
 				4C98ABFA18B91E01007FAF12 /* NSString+safe.m in Sources */,
 				4C98ABEE18B91E01007FAF12 /* NSMutableDictionary+safe.m in Sources */,
 				4CB12C7218BBC84B00F23A76 /* Consumption.m in Sources */,

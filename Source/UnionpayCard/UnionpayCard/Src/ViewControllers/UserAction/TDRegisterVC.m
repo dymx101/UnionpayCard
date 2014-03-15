@@ -7,6 +7,7 @@
 //
 
 #import "TDRegisterVC.h"
+#import "TDRegisterStep2VC.h"
 #import "GNWebVC.h"
 
 #define STR_I_AGREE @"我已阅读并同意"
@@ -38,6 +39,7 @@
     _ivProgress = [UIImageView new];
     _ivProgress.image = [UIImage imageNamed:@"register_step1_banner"];
     [self.view addSubview:_ivProgress];
+
     
     _ivBgInput = [UIImageView new];
     _ivBgInput.image = [TDImageLibrary sharedInstance].blank;
@@ -54,6 +56,7 @@
     [_btnGetCode setBackgroundImage:[TDImageLibrary sharedInstance].btnBgGreen forState:UIControlStateNormal];
     [_btnGetCode setTitle:@"获取验证码" forState:UIControlStateNormal];
     _btnGetCode.titleLabel.font = [TDFontLibrary sharedInstance].fontTitleBold;
+    [_btnGetCode addTarget:self action:@selector(getcodeAction:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:_btnGetCode];
     
     _btnAgree = [TDUtil checkBoxWithTitle:STR_I_AGREE target:self action:@selector(agreeAvtion:)];
@@ -100,6 +103,11 @@
     webvc.title = @"朋派网用户协议";
     webvc.urlStr = @"http://www.nuomi.com/about/eula";
     [self.navigationController pushViewController:webvc animated:YES];
+}
+
+-(void)getcodeAction:(id)sender {
+    TDRegisterStep2VC *vc = [TDRegisterStep2VC new];
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 @end

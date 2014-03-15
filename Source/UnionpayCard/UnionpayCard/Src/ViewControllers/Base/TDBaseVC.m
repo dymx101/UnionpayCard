@@ -111,7 +111,7 @@
 }
 
 -(void)naviBackAction:(id)sender {
-    [self.navigationController popToRootViewControllerAnimated:YES];
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 -(void)naviToVC:(Class)aClass {
