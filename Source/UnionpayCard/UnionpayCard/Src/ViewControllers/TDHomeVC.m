@@ -18,6 +18,7 @@
 #import "TDLifeVC.h"
 #import "TDRegisterVC.h"
 #import "TDPhoneFeeVC.h"
+#import "TDLoginVC.h"
 
 
 typedef enum {
@@ -158,8 +159,16 @@ typedef enum {
             [self naviToVC:[TDRegisterVC class]];
             break;
             
-        case kVcCardList:
-            [self naviToVC:[TDCardListVC class]];
+        case kVcCardList: {
+            if (SharedAppUser) {
+                [self naviToVC:[TDCardListVC class]];
+            } else {
+                /** go to login*/
+                TDLoginVC *vc = [TDLoginVC new];
+                UINavigationController *nc = [[UINavigationController alloc] initWithRootViewController:vc];
+                [self presentViewController:nc animated:YES completion:nil];
+            }
+        }
             break;
             
         case kVcVendors:
@@ -167,7 +176,14 @@ typedef enum {
             break;
             
         case kVcAddMoney:
-            [self naviToVC:[TDAddMoneyVC class]];
+            if (SharedAppUser) {
+                [self naviToVC:[TDAddMoneyVC class]];
+            } else {
+                /** go to login*/
+                TDLoginVC *vc = [TDLoginVC new];
+                UINavigationController *nc = [[UINavigationController alloc] initWithRootViewController:vc];
+                [self presentViewController:nc animated:YES completion:nil];
+            }
             break;
             
         case kVcCredit:
