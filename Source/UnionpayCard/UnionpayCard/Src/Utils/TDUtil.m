@@ -33,4 +33,19 @@
     return NSFoundationVersionNumber > NSFoundationVersionNumber_iOS_6_1;
 }
 
++(UIButton *)checkBoxWithTitle:(NSString *)aTitle target:(id)aTarget action:(SEL)anAction {
+    UIButton *btn = [UIButton new];
+    //btn.backgroundColor = [UIColor blueColor];
+    [btn setTitle:aTitle forState:UIControlStateNormal];
+    [btn setImage:[TDImageLibrary sharedInstance].boxUnchecked forState:UIControlStateNormal];
+    [btn setImage:[TDImageLibrary sharedInstance].boxChecked forState:UIControlStateSelected];
+    [btn addTarget:aTarget action:anAction forControlEvents:UIControlEventTouchUpInside];
+    btn.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
+    btn.titleEdgeInsets = UIEdgeInsetsMake(0, 5, 0, 0);
+    btn.titleLabel.font = [TDFontLibrary sharedInstance].fontNormal;
+    [btn setTitleColor:[FDColor sharedInstance].black forState:UIControlStateNormal];
+    
+    return btn;
+}
+
 @end

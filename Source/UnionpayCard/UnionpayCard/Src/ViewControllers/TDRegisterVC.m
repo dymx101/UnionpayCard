@@ -7,12 +7,18 @@
 //
 
 #import "TDRegisterVC.h"
+#import "GNWebVC.h"
+
+#define STR_I_AGREE @"我已阅读并同意"
 
 @interface TDRegisterVC () {
     UIImageView     *_ivProgress;
     UIImageView     *_ivBgInput;
     UITextField     *_tfInput;
     UIButton        *_btnGetCode;
+    
+    UIButton        *_btnAgree;
+    UIButton        *_btnAgreement;
 }
 
 @end
@@ -49,6 +55,17 @@
     [_btnGetCode setTitle:@"获取验证码" forState:UIControlStateNormal];
     _btnGetCode.titleLabel.font = [TDFontLibrary sharedInstance].fontTitleBold;
     [self.view addSubview:_btnGetCode];
+    
+    _btnAgree = [TDUtil checkBoxWithTitle:STR_I_AGREE target:self action:@selector(agreeAvtion:)];
+    _btnAgree.selected = YES;
+    [self.view addSubview:_btnAgree];
+    
+    _btnAgreement = [UIButton new];
+    [_btnAgreement setTitleColor:[FDColor sharedInstance].themeBlue forState:UIControlStateNormal];
+    _btnAgreement.titleLabel.font = [TDFontLibrary sharedInstance].fontNormal;
+    [_btnAgreement setTitle:@"朋派网用户协议" forState:UIControlStateNormal];
+    [_btnAgreement addTarget:self action:@selector(seeAgreementAction:) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:_btnAgreement];
 }
 
 -(void)layoutViews {
@@ -64,8 +81,25 @@
     [_btnGetCode constrainWidthToView:_ivBgInput predicate:nil];
     [_btnGetCode alignCenterXWithView:self.view predicate:nil];
     [_btnGetCode constrainTopSpaceToView:_ivBgInput predicate:@"20"];
+    
+    [_btnAgree alignLeadingEdgeWithView:_btnGetCode predicate:nil];
+    [_btnAgree constrainTopSpaceToView:_btnGetCode predicate:@"15"];
+    [_btnAgree constrainWidth:@"120"];
+    
+    [_btnAgreement alignBaselineWithView:_btnAgree predicate:nil];
+    [_btnAgreement constrainLeadingSpaceToView:_btnAgree predicate:@"0"];
 }
 
+#pragma mark - action
+-(void)agreeAvtion:(id)sender {
+    _btnAgree.selected = !_btnAgree.selected;
+}
 
+-(void)seeAgreementAction:(id)sender {
+    GNWebVC *webvc = [GNWebVC new];
+    webvc.title = @"朋派网用户协议";
+    webvc.urlStr = @"http://www.nuomi.com/about/eula";
+    [self.navigationController pushViewController:webvc animated:YES];
+}
 
 @end

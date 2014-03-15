@@ -11,5 +11,5 @@
 @interface TDUtil : NSObject
 +(void)findFonts;
 +(BOOL)isIOS7;
-
++(UIButton *)checkBoxWithTitle:(NSString *)aTitle target:(id)aTarget action:(SEL)anAction;
 @end

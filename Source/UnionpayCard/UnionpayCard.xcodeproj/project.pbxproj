@@ -58,6 +58,7 @@
 		4CB12C9618BBCB4000F23A76 /* Ynbinfor.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CB12C9518BBCB4000F23A76 /* Ynbinfor.m */; };
 		4CF30A5318D34A5D002F083E /* TDGlobalValue.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CF30A5218D34A5D002F083E /* TDGlobalValue.m */; };
 		55A5FBCBCA064416B4607D7C /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A21F1F75D364083A890944A /* libPods.a */; };
+		EA08019B18D426A100D0E805 /* GNWebVC.m in Sources */ = {isa = PBXBuildFile; fileRef = EA08019A18D426A100D0E805 /* GNWebVC.m */; };
 		EA098BC818B98E1C0034E0CF /* TDRegisterVC.m in Sources */ = {isa = PBXBuildFile; fileRef = EA098BC718B98E1C0034E0CF /* TDRegisterVC.m */; };
 		EA098BCB18B98E590034E0CF /* TDRegisterNoAccountVC.m in Sources */ = {isa = PBXBuildFile; fileRef = EA098BCA18B98E590034E0CF /* TDRegisterNoAccountVC.m */; };
 		EA098BD018B9B1E40034E0CF /* tableCellBottomBg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EA098BCC18B9B1E40034E0CF /* tableCellBottomBg@2x.png */; };
@@ -986,6 +987,8 @@
 		4CF30A5118D34A5D002F083E /* TDGlobalValue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TDGlobalValue.h; sourceTree = "<group>"; };
 		4CF30A5218D34A5D002F083E /* TDGlobalValue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TDGlobalValue.m; sourceTree = "<group>"; };
 		B3BCF3CCEFF9419390ECB20A /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
+		EA08019918D426A100D0E805 /* GNWebVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GNWebVC.h; sourceTree = "<group>"; };
+		EA08019A18D426A100D0E805 /* GNWebVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GNWebVC.m; sourceTree = "<group>"; };
 		EA098BC618B98E1C0034E0CF /* TDRegisterVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TDRegisterVC.h; sourceTree = "<group>"; };
 		EA098BC718B98E1C0034E0CF /* TDRegisterVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TDRegisterVC.m; sourceTree = "<group>"; };
 		EA098BC918B98E590034E0CF /* TDRegisterNoAccountVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TDRegisterNoAccountVC.h; sourceTree = "<group>"; };
@@ -2920,6 +2923,8 @@
 		EACD0D1F18B3A050009109CB /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				EA08019918D426A100D0E805 /* GNWebVC.h */,
+				EA08019A18D426A100D0E805 /* GNWebVC.m */,
 				EACBE3FE18BF13E500F2E9CF /* SubVCs */,
 				EACD0D2018B3A050009109CB /* Base */,
 				EACD0D2818B3A166009109CB /* TDHomeVC.h */,
@@ -3992,6 +3997,7 @@
 				4CB12C6318BBC6A700F23A76 /* Bhdr.m in Sources */,
 				4C98ABF318B91E01007FAF12 /* NSObject+Coder.m in Sources */,
 				4CB12C4F18BBC4C800F23A76 /* Announcement.m in Sources */,
+				EA08019B18D426A100D0E805 /* GNWebVC.m in Sources */,
 				4CB12C9018BBCADC00F23A76 /* Utoemil.m in Sources */,
 				4C98AC1B18B92BF4007FAF12 /* TDJsonParser.m in Sources */,
 				EA098BCB18B98E590034E0CF /* TDRegisterNoAccountVC.m in Sources */,

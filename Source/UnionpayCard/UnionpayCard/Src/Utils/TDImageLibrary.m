@@ -38,6 +38,9 @@ DEF_SINGLETON(TDImageLibrary)
     _cellGroupBottom = [[UIImage imageNamed:@"tableCellBottomBg"] resizableImageWithCapInsets:UIEdgeInsetsMake(5, 5, 5, 5)];
     _cellGroupRound = [[UIImage imageNamed:@"tableCellRoundBg"] resizableImageWithCapInsets:UIEdgeInsetsMake(5, 5, 5, 5)];
     _cellRightArrow = [UIImage imageNamed:@"icon_cell_rightArrow"];
+    
+    _boxChecked = [UIImage imageNamed:@"icon_orderReview_checked"];
+    _boxUnchecked = [UIImage imageNamed:@"icon_orderReview_unchecked"];
 }
 
 @end

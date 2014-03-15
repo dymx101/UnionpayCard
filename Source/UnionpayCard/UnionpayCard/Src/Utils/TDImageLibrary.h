@@ -28,4 +28,7 @@ AS_SINGLETON(TDImageLibrary)
 @property (nonatomic, strong) UIImage *cellGroupRound;
 @property (nonatomic, strong) UIImage *cellRightArrow;
 
+@property (nonatomic, strong) UIImage *boxChecked;
+@property (nonatomic, strong) UIImage *boxUnchecked;
+
 @end
