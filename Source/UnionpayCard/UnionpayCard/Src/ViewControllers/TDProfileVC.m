@@ -20,6 +20,7 @@
     UILabel                 *_lblUserName;
     UIImageView             *_ivVip;
     UILabel                 *_lblBalance;
+    UILabel                 *_lblPoints;
     UIButton                *_btnRightArrow;
 }
 @property (nonatomic,strong)     UIView                 *_headerView;
@@ -44,7 +45,7 @@
 -(NSArray *)settingItems {
     NSMutableArray *items = [NSMutableArray array];
     [items addObject:@[@"充值记录", @"消费记录"]];
-    [items addObject:@[@"我的收藏", @"我的代金券"]];
+    [items addObject:@[@"修改登录密码", @"修改交易密码",@"紧急挂失"]];
     
     return items;
 }
@@ -166,6 +167,11 @@
     [_lblBalance alignLeadingEdgeWithView:_lblUserName predicate:nil];
     
     //
+    _lblPoints = [UILabel new];
+    _lblPoints.font = [TDFontLibrary sharedInstance].fontNormal;
+    
+    
+    //
     _btnRightArrow = [UIButton new];
     [_btnRightArrow setImage:[UIImage imageNamed:@"icon_deal_arrow"] forState:UIControlStateNormal];
     //[_btnRightArrow addTarget:self action:@selector(viewAccountAction:) forControlEvents:UIControlEventTouchUpInside];
@@ -208,7 +214,7 @@
         _viewLoggedIn.hidden = !loginOK;
          _viewNotLoggedIn.hidden = loginOK;
         _lblUserName.text = [__mUser u_name];
-        _lblBalance.text = [NSString stringWithFormat:@"余额: ￥%0.0f",[__mUser.u_rec_money doubleValue]];
+        _lblBalance.text = [NSString stringWithFormat:@"账户余额: ￥%0.0f",[__mUser.u_rec_money doubleValue]];
     } else {
         TDLoginVC *vc = [TDLoginVC new];
         vc.delegate = self;
