@@ -96,7 +96,7 @@
     normalImage = [UIImage imageNamed:@"icon_tabbar_merchant_normal.png"];
     selectedImage = [UIImage imageNamed:@"icon_tabbar_merchant_selected.png"];
     item = tabItems[1];
-    [item setTitle:@"分类"];
+    [item setTitle:@"商家"];
     item.selectedTitleAttributes = selectedTitleAttributes;
     item.unselectedTitleAttributes = unselectedTitleAttributes;
     [item setFinishedSelectedImage:selectedImage withFinishedUnselectedImage:normalImage];
