@@ -32,7 +32,7 @@
 {
     NSError *error;
     NSData *jsonData = [NSJSONSerialization dataWithJSONObject:dictionary
-                                                       options:NSJSONWritingPrettyPrinted
+                                                       options:kNilOptions
                                                          error:&error];
     if (error)
     {

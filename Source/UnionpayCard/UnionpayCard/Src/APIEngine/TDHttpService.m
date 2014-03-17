@@ -62,7 +62,7 @@
 /**
  *  功能:根据tOken 查询用户
  */
-+ (void)ShowcrrutUser:(NSString *) userToken completionBlock:(TDCompletionBlock)aCompletionBlock {
++ (void)ShowUserinfor:(NSString *) userToken completionBlock:(TDCompletionBlock)aCompletionBlock {
     NSMutableDictionary * input = [NSMutableDictionary new];
     [input setValue: [self interfaceNameFromSelector:_cmd] forKey:@"method"];
     [input setValue:userToken forKey:@"userToken"];
@@ -85,10 +85,10 @@
 /**
  *  功能：展示用户卡片
  */
-+ (void)ShowUtocard:(NSString *) userId completionBlock:(TDCompletionBlock)aCompletionBlock {
++ (void)ShowUtocard:(NSString *) userToken completionBlock:(TDCompletionBlock)aCompletionBlock {
     NSMutableDictionary * input = [NSMutableDictionary new];
     [input setValue: [self interfaceNameFromSelector:_cmd] forKey:@"method"];
-    [input setValue:userId forKey:@"u_id"];
+    [input setValue:userToken forKey:@"userToken"];
     TDHttpCommand * command = [TDHttpCommand new];
     command.inPut = input;
     [self postCommand:command completionBlock:aCompletionBlock];
@@ -99,14 +99,13 @@
  *  u_pre_num 当前用户使用卡号
  *  u_prefix  当前用户使用卡柄
  */
-+ (void)updateUserinfor:(NSString *) u_pre_num uPrefix:(NSString *) u_prefix uId:(NSString *)u_id completionBlock:(TDCompletionBlock)aCompletionBlock {
++ (void)updateUserinfor:(NSString *) u_pre_num uPrefix:(NSString *) u_prefix userToken:(NSString *)userToken completionBlock:(TDCompletionBlock)aCompletionBlock {
     NSMutableDictionary * input = [NSMutableDictionary new];
     [input setValue:[self interfaceNameFromSelector:_cmd] forKey:@"method"];
     [input setValue:u_pre_num forKey:@"u_pre_num"];
     [input setValue:u_prefix forKey:@"u_prefix"];
-    [input setValue:u_id forKey:@"u_id"];
+    [input setValue:userToken forKey:@"userToken"];
     TDHttpCommand * command = [TDHttpCommand new];
-    command.prefix = @"SOUOD/";
     command.inPut = input;
     [self postCommand:command completionBlock:aCompletionBlock];
 }
@@ -114,10 +113,10 @@
 /**
  *  功能:消费记录
  */
-+ (void)ShowConsumption:(NSString * ) u_id completionBlock:(TDCompletionBlock)aCompletionBlock {
++ (void)ShowConsumption:(NSString * ) userToken completionBlock:(TDCompletionBlock)aCompletionBlock {
     NSMutableDictionary * input = [NSMutableDictionary new];
     [input setValue:[self interfaceNameFromSelector:_cmd] forKey:@"method"];
-    [input setValue:u_id forKey:@"u_id"];
+    [input setValue:userToken forKey:@"userToken"];
     [input setValue:@"0" forKey:@"frist"];
     [input setValue:@"0" forKey:@"pageNum"];
     TDHttpCommand * command = [TDHttpCommand new];
@@ -128,10 +127,10 @@
 /**
  *  功能：充值记录
  */
-+ (void)ShowPreRecords:(NSString * ) u_id completionBlock:(TDCompletionBlock)aCompletionBlock {
++ (void)ShowPreRecords:(NSString * ) userToken completionBlock:(TDCompletionBlock)aCompletionBlock {
     NSMutableDictionary * input = [NSMutableDictionary new];
     [input setValue:[self interfaceNameFromSelector:_cmd] forKey:@"method"];
-    [input setValue:u_id forKey:@"u_id"];
+    [input setValue:userToken forKey:@"userToken"];
     [input setValue:@"0" forKey:@"frist"];
     [input setValue:@"0" forKey:@"pageNum"];
     TDHttpCommand * command = [TDHttpCommand new];

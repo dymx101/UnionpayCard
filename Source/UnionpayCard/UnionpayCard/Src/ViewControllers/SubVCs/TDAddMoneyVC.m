@@ -55,13 +55,12 @@
         MBProgressHUD * HUD = [[MBProgressHUD alloc] initWithView:self.view];
         [self.view addSubview:HUD];
         [HUD show:YES];
-        NSString * userId = [NSString stringWithFormat:@"%d",[SharedAppUser.u_id intValue]];
         
-        [TDHttpService ShowConsumption:userId completionBlock:^(id responseObject) {
+        [TDHttpService ShowConsumption:SharedToken completionBlock:^(id responseObject) {
             [HUD hide:YES];
             if (responseObject!=nil && [responseObject isKindOfClass:[NSArray class]]) {
                 weakSelf.Consumptions = responseObject;
-                [TDHttpService ShowPreRecords:userId completionBlock:^(id responseObject) {
+                [TDHttpService ShowPreRecords:SharedToken completionBlock:^(id responseObject) {
                     [HUD hide:YES];
                     if (responseObject != nil && [responseObject isKindOfClass:[NSArray class]]) {
                         weakSelf.PreRecords = responseObject;

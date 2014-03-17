@@ -264,8 +264,8 @@
         self.u_pre_num = SharedAppUser.u_pre_num;
         self.u_prefix = SharedAppUser.u_prefix;
         self.userinfor = SharedAppUser;
-        NSString * userId = [NSString stringWithFormat:@"%d",[SharedAppUser.u_id intValue]];
-        [TDHttpService ShowUtocard:userId completionBlock:^(id responseObject) {
+        
+        [TDHttpService ShowUtocard:SharedToken completionBlock:^(id responseObject) {
             if (responseObject != nil && [responseObject isKindOfClass:[NSArray class]]) {
                 [HUD hide:YES];
                 
@@ -278,7 +278,7 @@
                         _constraintHeaderHeight.constant = 110;
                         [UIView animateWithDuration:.3f animations:^{
                             //>1
-                            [_ivActiveCard setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://113.57.133.83:1982/active/upload/shop/%@",utocard.b_cordimg]] placeholderImage:nil];
+                            [_ivActiveCard setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@active/upload/shop/%@",BASEURL,utocard.b_cordimg]] placeholderImage:nil];
                             //>2
                             _lblActiveCardTitle.text = utocard.b_jname;
                             //>3
@@ -374,7 +374,7 @@
         
         _selectedCard = _UtoCards[indexPath.row];
         
-        [TDHttpService updateUserinfor:_selectedCard.u_card uPrefix:_selectedCard.b_prefilx uId:[NSString stringWithFormat:@"%d",[self.userinfor.u_id intValue]] completionBlock:^(id responseObject) {
+        [TDHttpService updateUserinfor:_selectedCard.u_card uPrefix:_selectedCard.b_prefilx userToken:SharedToken completionBlock:^(id responseObject) {
             if ([[responseObject objectForKey:@"State"] integerValue] == 0) {
                 
                 UIView *header = [self mainHeader];
@@ -384,7 +384,7 @@
                 
                 [UIView animateWithDuration:.2f animations:^{
                     //>1
-                    [_ivActiveCard setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://113.57.133.83:1982/active/upload/shop/%@",_selectedCard.b_cordimg]] placeholderImage:nil];
+                    [_ivActiveCard setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@active/upload/shop/%@", BASEURL,_selectedCard.b_cordimg]] placeholderImage:nil];
                     //>2
                     _lblActiveCardTitle.text = _selectedCard.b_jname;
                     //>3
@@ -502,7 +502,7 @@
 
 -(void)resetAction:(id)sender {
 
-    [TDHttpService updateUserinfor:@"0" uPrefix:@"0" uId:[NSString stringWithFormat:@"%d",[self.userinfor.u_id intValue]] completionBlock:^(id responseObject) {
+    [TDHttpService updateUserinfor:@"0" uPrefix:@"0" userToken:SharedToken completionBlock:^(id responseObject) {
         if ([[responseObject objectForKey:@"State"] integerValue] == 0) {
             _selectedCard = nil;
             _constraintHeaderHeight.constant = 0;

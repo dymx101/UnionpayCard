@@ -20,7 +20,7 @@
     
     self = [super init];
     if(self) {
-        self.prefix = @"Show/";
+        self.prefix = @"apps_android.php?url=";
         self.method = @"GET";
     }
     return self;
@@ -37,9 +37,6 @@
 
 - (NSString *)realPath:(NSMutableDictionary *) aDictionary withPrefix:(NSString *) prefix{
     NSString * realString = [NSString stringWithFormat:@"%@%@",prefix,[TDJsonToDictionary jsonStringFromDictionary:aDictionary]];
-    //去掉换行
-    realString = [realString stringByReplacingOccurrencesOfString: @"\r" withString:@""];
-    realString = [realString stringByReplacingOccurrencesOfString: @"\n" withString:@""];
     return [realString stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
 }
 

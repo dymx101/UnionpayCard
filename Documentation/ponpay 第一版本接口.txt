@@ -1,0 +1,178 @@
+
+1.查询用户注册手机是否存在
+加密主Key:1126
+key 的生成规则，比如手机号码  13397186156  就是取手机的最后4位  6+1 ＝ 7 1+1 ＝ 2 5＋2 ＝ 7 6+6 ＝ 12 就是 C (10-C 11-C 12-C 类推)  所以key 就是 727C 传入参数  
+ http://113.57.133.83:1982/apps_android.php?url={"method":"checkiphoneUserinfor","u_iphone":"13006147142","key":"xxxxx"}
+
+方法名: checkiphoneUserinfor
+参数: u_iphone 手机号码  key 加密key
+
+返回值:
+成 功：{"0"}
+失 败：｛"1"｝
+
+2.校验验证码
+http://113.57.133.83:1982/apps_android.php?url={"method":"checkphonemassage","u_iphone":"13006147142","Code":"111111"}
+
+方法名: checkphonemassage
+参数: u_iphone 手机号码 Code 短信验证码
+
+返回值:
+成 功：{"0"}
+失 败：｛"1"｝
+
+3.注册接口
+http://113.57.133.83:1982/apps_android.php?url={"method":"resaveUserinfor","u_realname":"宋玮","u_sex":"1","u_cbcid":"420107198208053714","u_emil":"songwei8283@qq.com","u_name":"songwei8285","u_log_password":"123456","u_v_id":"1","u_iphone":"13006147142"}
+
+方法名: resaveUserinfor
+参数: u_realname,真实姓名 u_sex:性别(0,1) u_cbcid,省份证号 u_emil 邮箱 u_name 用户名 u_log_password 密码 u_v_id 用户vip等级 注册默认1 u_iphone 手机
+
+返回值:
+成 功：{"State":"0"}
+失败：｛" State":"error"｝ 
+用户名重复：｛" State":"2"｝ 
+手机重复：｛" State":"3"｝
+邮箱重复：｛" State":"4"｝
+同一身份证号码不能重复注册3个账号：｛" State":"5"｝
+
+4.登陆
+http://113.57.133.83:1982/apps_android.php?url={"method":"LoginUserinfor","u_logname":"songwei","u_log_password":"123456"}
+
+方法名称: LoginUserinfor
+参数: u_logname 登录用户名 u_log_password 密码
+
+返回结果：
+	成 功：{"userToken":"4f525238-88bf-42e4-b32d-96b1d914c820"} (token需要客户端保存，作为用户权限唯一的令牌,在需要获取用户权限的接口调用中必须传给服务器接口)
+	失败：
+	｛"State", "3"｝禁止登陆，联系管理员
+	｛"State", "4"｝用户以挂失
+
+5.获取用户基本信息
+http://113.57.133.83:1982/apps_android.php?url={"method":"ShowUserinfor","userToken":"693c077e-5ed2-4d37-9116-6dfac8d84427"}
+
+方法名称: ShowUserinfor
+参数: userToken 用户令牌
+
+成 功：
+失败：
+｛" State":"1"｝
+
+6.显示用户卡片
+参数筛选条件:商户名称，卡号，卡状态，余额排序（程序数组排序）
+全部数据:
+http://113.57.133.83:1982/apps_android.php?url={"method":"ShowUtocard","userToken":"693c077e-5ed2-4d37-9116-6dfac8d84427"}
+
+卡号筛选:
+http://113.57.133.83:1982/apps_android.php?url={"method":"ShowUtocard","userToken":"693c077e-5ed2-4d37-9116-6dfac8d84427"}
+
+方法名称: ShowUtocard
+可选筛选参数: "u_card":"AA00000000000001" 卡号筛选 "card_state":0 卡号状态筛选(是否冻结0,1) "b_jname":"荆楚甲鱼" 商户名称筛选
+
+返回值:
+成 功： 
+{"showtable":[{"u_t_cid":3,"userinfor":16,"username":"宋伟","uiphone":"13006147142","u_card":"AA00000000000001","b_prefilx":"AA000000","b_jname":"荆楚甲鱼","b_cordimg":"2.jpg","card_state":0,"card_balance":"691.26","b_c_name":"武汉市","@datatype":"java.util.UtocardVO"},{"u_t_cid":4,"userinfor":16,"username":"宋伟","uiphone":"13006147142","u_card":"AA00000100000001","b_prefilx":"AA000001","b_jname":"武汉银讯","b_cordimg":"1.jpg","card_state":0,"card_balance":"0.00","b_c_name":"武汉市","@datatype":"java.util.UtocardVO"}]}
+
+7.选择消费卡
+http://113.57.133.83:1982/apps_android.php?url={"method":"updateUserinfor","userToken":"693c077e-5ed2-4d37-9116-6dfac8d84427","u_prefix":"String","u_pre_num":"1"}
+方法名称: updateUserinfor
+参数：userToken 用户令牌 u_prefix 消费卡卡柄 u_pre_num 卡号
+返回结果：
+  成功：{" State":"0"}
+  失败：{" State":"1"}
+
+8.消费记录
+
+http://113.57.133.83:1982/apps_android.php?url={"method":"ShowConsumption","pre_r_id":"1","u_iphone":"1300","card":"aa300","frist":"0","pageNum":"0","userToken":"693c077e-5ed2-4d37-9116-6dfac8d84427","con_state":"0","con_nor":"12","con_pos":"532","b_no":"d2445","scon_amount":"11.00","mcon_amount":"15.00","scon_tmd":"2014-1-2","mcon_tmd":"2014-2-4"}
+
+方法名称: ShowConsumption
+可选筛选参数 商户名称，消费时间（区间，范围），卡号  [注意分页参数 frist, pageNum 如果不用分页全部传0,0]
+返回结果：
+  失败：{" State”:”0”}
+  成功: json 串
+
+9.充值记录
+查找条件:商户名称，充值时间（区间，范围），卡号，充值方式，结算状态
+http://113.57.133.83:1982/apps_android.php?url={"method":"ShowPreRecords","b_id":"1","u_iphone":"1300","card":"aa300","pre_nor":"AA1234","samount":"200","mamount":"300","spre_r_tmd":"2014-1-1","mpre_r_tmd":"2014-2-5","frist":"0","pageNum":"0","userToken":"693c077e-5ed2-4d37-9116-6dfac8d84427","acc_r_tmd":"2014-02-02","u_id":"11","acc_state":"0"}
+
+方法名称：ShowPreRecords
+可选筛选参数 商户名称，消费时间（区间，范围），卡号  [注意分页参数 frist, pageNum 如果不用分页全部传0,0]
+返回结果：
+  失败：{" State”:”0”}
+  成功: json 串
+
+10.修改登陆和交易密码
+http://113.57.133.83:1982/apps_android.php?url={"method":"ResetUPwd","userToken":"693c077e-5ed2-4d37-9116-6dfac8d84427","u_tran_password":"654321","newu_tran_password":"654321"}
+
+方法名称: ResetUPwd 
+参数: u_tran_password 交易密码
+
+ 成 功：{"State":"0"} 
+ 失败：｛" State":"error"｝ 原始交易密码错误：｛" State":"1"｝
+
+
+访问接口：
+http://113.57.133.83:1982/apps_android.php?url={"method":"ResetUPwd","userToken","693c077e-5ed2-4d37-9116-6dfac8d84427","u_log_password":"654321","newu_log_password":"654321"}
+
+方法名称: ResetUPwd 
+参数: u_log_password 登录密码
+
+ 成 功：{"State":"0"} 
+ 失败：｛" State":"error"｝ 原始登录密码错误：｛" State":"1"｝
+
+
+11.挂失
+http://113.57.133.83:1982/apps_android.php?url={"method":"updateloss","userToken":"693c077e-5ed2-4d37-9116-6dfac8d84427","u_realname":"宋玮","u_loss_state":"1","u_cbcid":"420107198208053713","u_loss_datetime":""}
+
+方法名称:	updateloss
+参数：userToken 用户令牌 u_realname 用户名 u_loss_state 挂失状态 u_cbcid 省份证号 u_loss_datetime 填”” 空串
+成 功：{"State":"0"} 
+失败或填写信息有误：｛" State":"error"｝验证信息不正确：｛"State":"1"｝
+
+12.一级分类
+http://113.57.133.83:1982/apps_android.php?url={"method":"showBtype"}
+
+方法名称: showBtype
+参数:空 (二级分类这次需求不提供)
+
+13.统计用户是否有这商户的预付费卡
+http://113.57.133.83:1982/apps_android.php?url={"method":"countcard","b_id":"1","userToken":"693c077e-5ed2-4d37-9116-6dfac8d84427"}
+
+方法名称: countcard
+参数: b_id 商户id userToken 用户令牌
+
+返回结果：
+成 功：{"State":"1"}  有一张卡   {"State":"0"} 没有该商户卡
+失败：｛" State":"error"｝
+开发人员：宋玮 ，其它说明：因为要返回POS的个数，因此在ResponseJSONController填 加了count方法
+
+14.用户注册新卡
+http://113.57.133.83:1982/apps_android.php?url={"method":"Regcard","b_id":"1","userToken":"693c077e-5ed2-4d37-9116-6dfac8d84427"}
+
+方法名称: Regcard
+参数：b_id 需要注册卡的商户id userToken 用户令牌
+返回结果：
+成 功： {"State":"0"} 注册成功 {"State":"1"}  有一张卡  
+失败：｛" State":"error"｝
+开发人员：宋玮 ，其它说明：因为要返回POS的个数。
+
+15.查询商户列表
+查询条件：一级分类\二级分类\省\市\区\热门分类\附近（地图）\商圈\商户名称
+http://113.57.133.83:1982/apps_android.php?url={"method":"ShowBinfor","b_username":"String","b_no":"String","b_jname":"b_jname","b_prefix":"b_prefix","b_cordnum":"b_cordnum","b_id":"1","b_type":"1","b_2type":"1","b_htype":"1","b_province":"1","b_city":"1","b_district":"1","b_cbd":"1","u_vip":"1","b_crcle":"1","b_stat":"1","b_h_state":"1","b_t_state":"1","frist":"0","pageNum":"0"}
+
+方法名称: ShowBinfor
+筛选查询参数: 这里参数比较多就不一一列举了，具体线上沟通
+
+返回结果：
+成功：{"showtable":[{"b_id":1,"b_username":"songwei","b_password":null,"b_loginphone":"13006147142","b_msgyzm":"aaaaaa","b_msgdatetime":"2014-06-01 00:00:00.0","b_name":"sw","b_jname":"s","b_cordimg":"ds","b_cordnum":"1","btype":"1","b2type":"2","bhtype":"2","bprovince":"1","bcity":"2","bdistrict":"2","bcbd":"2","bcrcle":"3","b_coordinate":"2","b_contacts":"12","b_stat":0,"b_h_state":null,"b_t_state":null,"b_sort":null,"b_details":null,"b_fraction":null,"b_vip":null,"b_z":null,"b_in":null,"b_c":null,"b_recharge":null,"b_prefix":null,"b_rate":null,"b_liq":1,"b_regdate":null,"b_ad":null,"b_img":null,"b_logo":null,"b_back":null,"b_agreement":null,"b_no":null,"b_man":null,"cord_num":null,"b_m_phone":null,"b_rechargem":null,"b_consumption":null,"b_re_num":null,"b_con_num":null}]}
+失败：{" State":"1"}	
+
+
+16.商户总数
+http://113.57.133.83:1982/apps_android.php?url={"method":"countbinfor","b_username":"String","b_no":"String","b_jname":"b_jname","b_prefix":"b_prefix","b_cordnum":"b_cordnum","b_id":"1","b_type":"1","b_2type":"1","b_htype":"1","b_province":"1","b_city":"1","b_district":"1","b_cbd":"1","u_vip":"1","b_crcle":"1","b_stat":"1","b_h_state":"1","b_t_state":"1"}
+
+方法名称：countbinfor
+筛选查询参数:这里参数比较多就不一一列举了，具体线上沟通
+
+成 功：{"State":"10"} 
+失败：｛" State":"error"｝
+开发人员：宋玮 ，其它说明：因为要返回个数，因此在ResponseJSONController填 加了count方法

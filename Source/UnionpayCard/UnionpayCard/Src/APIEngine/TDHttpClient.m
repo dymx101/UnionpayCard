@@ -12,7 +12,7 @@
 //http://localhost:8000/yscardII/json/Show/{"method":"showBtype"}
 //static NSString *const BASEURL = @"http://192.168.1.101:8000/yscardII/json/";//@"http://localhost:8000/yscardII/json/";
 
-static NSString *const BASEURL = @"http://113.57.133.84:8081/yscardII/json/"; // 外网地址
+//static NSString *const BASEURL = @"http://113.57.133.83:1982/"; // 外网地址
 
 @implementation TDHttpClient
 

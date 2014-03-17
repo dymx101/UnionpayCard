@@ -19,7 +19,7 @@
 /**
  *  功能:根据tOken 查询用户
  */
-+ (void)ShowcrrutUser:(NSString *) userToken completionBlock:(TDCompletionBlock)aCompletionBlock;
++ (void)ShowUserinfor:(NSString *) userToken completionBlock:(TDCompletionBlock)aCompletionBlock;
 
 /**
  *  功能:商户一级类别
@@ -29,20 +29,20 @@
 /**
  *  功能：展示用户卡片
  */
-+ (void)ShowUtocard:(NSString *) userId completionBlock:(TDCompletionBlock)aCompletionBlock;
++ (void)ShowUtocard:(NSString *) userToken completionBlock:(TDCompletionBlock)aCompletionBlock;
 
 /**
  *  功能:选卡后更新用户信息
  */
-+ (void)updateUserinfor:(NSString *) u_pre_num uPrefix:(NSString *) u_prefix uId:(NSString *)u_id completionBlock:(TDCompletionBlock)aCompletionBlock;
++ (void)updateUserinfor:(NSString *) u_pre_num uPrefix:(NSString *) u_prefix userToken:(NSString *)userToken completionBlock:(TDCompletionBlock)aCompletionBlock;
 
 /**
  *  功能:消费记录
  */
-+ (void)ShowConsumption:(NSString * ) u_id completionBlock:(TDCompletionBlock)aCompletionBlock;
++ (void)ShowConsumption:(NSString * ) userToken completionBlock:(TDCompletionBlock)aCompletionBlock;
 
 /**
  *  功能：充值记录
  */
-+ (void)ShowPreRecords:(NSString * ) u_id completionBlock:(TDCompletionBlock)aCompletionBlock;
++ (void)ShowPreRecords:(NSString * ) userToken completionBlock:(TDCompletionBlock)aCompletionBlock;
 @end

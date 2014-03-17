@@ -179,7 +179,7 @@
     [TDHttpService LoginUserinfor:_tfUserName.text loginPass:_tfPwd.text completionBlock:^(id responseObject) {
         if (responseObject != nil && [responseObject isKindOfClass:[NSDictionary class]]) {
             SharedToken = [responseObject objectForKey:@"userToken"];
-            [TDHttpService ShowcrrutUser:SharedToken completionBlock:^(id responseObject) {
+            [TDHttpService ShowUserinfor:SharedToken completionBlock:^(id responseObject) {
                 [HUD hide:YES];
                 if (responseObject != nil && [responseObject isKindOfClass:[NSArray class]]) {
                     SharedAppUser = [responseObject lastObject];
