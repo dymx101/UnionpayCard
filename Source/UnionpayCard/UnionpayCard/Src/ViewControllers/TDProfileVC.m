@@ -40,7 +40,11 @@
     [self layoutSubviews];
     
     [self installLogoToNavibar];
+    
+    [self observeNotification:OTS_NOTE_LOGIN_OK];
 }
+
+
 
 -(NSArray *)settingItems {
     NSMutableArray *items = [NSMutableArray array];
@@ -180,6 +184,8 @@
     [_btnRightArrow alignCenterYWithView:_viewLoggedIn predicate:nil];
     [_btnRightArrow alignTrailingEdgeWithView:_viewLoggedIn predicate:@"-30"];
     
+    [self postNotification:OTS_NOTE_LOGIN_OK];
+    
     return __headerView;
 }
 
@@ -223,4 +229,12 @@
     }
 }
 
+#pragma mark NSObject+BeeNotification
+
+- (void)handleNotification:(NSNotification *)notification
+{
+    if (SharedToken) {
+        [self getProfile:SharedToken];
+    }
+}
 @end

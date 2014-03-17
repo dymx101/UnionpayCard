@@ -184,6 +184,7 @@
                 if (responseObject != nil && [responseObject isKindOfClass:[NSArray class]]) {
                     SharedAppUser = [responseObject lastObject];
                     [weakSelf.delegate getProfile:SharedToken];
+                    [self postNotification:OTS_NOTE_LOGIN_OK];
                     [weakSelf dismissViewControllerAnimated:YES completion:nil];
                 } else {
                     ALERT_MSG(nil, @"用户登录异常");
