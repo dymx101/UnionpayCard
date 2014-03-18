@@ -137,4 +137,20 @@
     command.inPut = input;
     [self postCommand:command completionBlock:aCompletionBlock];
 }
+
+/**
+ *  功能：查询用户注册手机是否存在
+ */
++ (void)checkiphoneUserinfor: (NSString *) uPhone completionBlock:(TDCompletionBlock)aCompletionBlock {
+
+    NSString * key = [uPhone encod];
+    NSMutableDictionary * input = [NSMutableDictionary new];
+    [input setValue:[self interfaceNameFromSelector:_cmd] forKey:@"method"];
+    [input setValue:uPhone forKey:@"u_iphone"];
+    [input setValue:key forKey:@"key"];
+    TDHttpCommand * command = [TDHttpCommand new];
+    command.inPut = input;
+    [self postCommand:command completionBlock:aCompletionBlock];
+}
+
 @end

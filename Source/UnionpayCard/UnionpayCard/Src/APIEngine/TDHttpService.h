@@ -45,4 +45,9 @@
  *  功能：充值记录
  */
 + (void)ShowPreRecords:(NSString * ) userToken completionBlock:(TDCompletionBlock)aCompletionBlock;
+
+/**
+ *  功能：查询用户注册手机是否存在
+ */
++ (void)checkiphoneUserinfor: (NSString *) uPhone completionBlock:(TDCompletionBlock)aCompletionBlock;
 @end

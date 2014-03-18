@@ -31,6 +31,12 @@
     }];
     
     
+    [TDHttpService checkiphoneUserinfor:@"13397186156" completionBlock:^(id responseObject) {
+        NSLog(@">>> %@",responseObject);
+        
+    }];
+    
+    
 //    __block NSString * token = nil;
 //    __block Userinfor * user = nil;
 //    [TDHttpService LoginUserinfor:@"s@qq.com" loginPass:@"123456" completionBlock:^(id responseObject) {
