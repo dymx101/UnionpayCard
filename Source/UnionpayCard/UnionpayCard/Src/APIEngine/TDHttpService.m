@@ -7,6 +7,8 @@
 //
 
 #import "TDHttpService.h"
+#import "RegistInput.h"
+#import "BinforInput.h"
 
 @implementation TDHttpService
 
@@ -32,7 +34,7 @@
  *  功能:命令模式调用
  */
 + (void) postCommand :(TDHttpCommand *) command completionBlock:(TDCompletionBlock)aCompletionBlock {
-
+    
     [[TDHttpClient sharedClient] processCommand:command callback:^(NSURLSessionDataTask *task, id responseObject, NSError *anError) {
         if (anError==nil) {
             dispatch_async(dispatch_get_main_queue(), ^{
@@ -84,6 +86,7 @@
 
 /**
  *  功能：展示用户卡片
+ *  筛选条件:商户名称，卡号，卡状态，余额排序（由于这里涉及分表且预估数据量不大，做本地筛选）
  */
 + (void)ShowUtocard:(NSString *) userToken completionBlock:(TDCompletionBlock)aCompletionBlock {
     NSMutableDictionary * input = [NSMutableDictionary new];
@@ -142,12 +145,193 @@
  *  功能：查询用户注册手机是否存在
  */
 + (void)checkiphoneUserinfor: (NSString *) uPhone completionBlock:(TDCompletionBlock)aCompletionBlock {
-
+    
     NSString * key = [uPhone encod];
     NSMutableDictionary * input = [NSMutableDictionary new];
     [input setValue:[self interfaceNameFromSelector:_cmd] forKey:@"method"];
     [input setValue:uPhone forKey:@"u_iphone"];
     [input setValue:key forKey:@"key"];
+    TDHttpCommand * command = [TDHttpCommand new];
+    command.inPut = input;
+    [self postCommand:command completionBlock:aCompletionBlock];
+}
+
+/**
+ *  功能：校验验证码
+ */
++ (void)checkphonemassage: (NSString *) uPhone Code:(NSString *) uCode completionBlock:(TDCompletionBlock)aCompletionBlock {
+    NSMutableDictionary * input = [NSMutableDictionary new];
+    [input setValue:[self interfaceNameFromSelector:_cmd] forKey:@"method"];
+    [input setValue:uPhone forKey:@"u_iphone"];
+    [input setValue:uCode forKey:@"Code"];
+    TDHttpCommand * command = [TDHttpCommand new];
+    command.inPut = input;
+    [self postCommand:command completionBlock:aCompletionBlock];
+}
+
+/**
+ *  功能: 注册
+ */
++ (void)resaveUserinfor:(RegistInput *) registinput completionBlock:(TDCompletionBlock)aCompletionBlock {
+    NSMutableDictionary * input = [NSMutableDictionary new];
+    [input setValue:[self interfaceNameFromSelector:_cmd] forKey:@"method"];
+    [input setValue:registinput.u_realname forKey:@"u_realname"];
+    [input setValue:registinput.u_sex forKey:@"u_sex"];
+    [input setValue:registinput.u_cbcid forKey:@"u_cbcid"];
+    [input setValue:registinput.u_emil forKey:@"u_emil"];
+    [input setValue:registinput.u_name forKey:@"u_name"];
+    [input setValue:registinput.u_log_password forKey:@"u_log_password"];
+    [input setValue:registinput.u_iphone forKey:@"u_iphone"];
+    TDHttpCommand * command = [TDHttpCommand new];
+    command.inPut = input;
+    [self postCommand:command completionBlock:aCompletionBlock];
+}
+
+/**
+ *  功能:修改登陆和交易密码
+ */
++ (void)ResetUPwd:(NSString *) userToken uTranpassword:(NSString *) utranpassword newuTranpassword:(NSString *) newutranpassword completionBlock:(TDCompletionBlock)aCompletionBlock {
+    NSMutableDictionary * input = [NSMutableDictionary new];
+    [input setValue:[self interfaceNameFromSelector:_cmd] forKey:@"method"];
+    [input setValue:utranpassword forKey:@"u_tran_password"];
+    [input setValue:newutranpassword forKey:@"newu_tran_password"];
+    TDHttpCommand * command = [TDHttpCommand new];
+    command.inPut = input;
+    [self postCommand:command completionBlock:aCompletionBlock];
+}
+
++ (void)ResetUPwd:(NSString *) userToken uLogpassword:(NSString *) ulogpassword newuLogpassword:(NSString *) newulogpassword completionBlock:(TDCompletionBlock)aCompletionBlock {
+    NSMutableDictionary * input = [NSMutableDictionary new];
+    [input setValue:[self interfaceNameFromSelector:_cmd] forKey:@"method"];
+    [input setValue:ulogpassword forKey:@"u_log_password"];
+    [input setValue:newulogpassword forKey:@"newu_log_password"];
+    TDHttpCommand * command = [TDHttpCommand new];
+    command.inPut = input;
+    [self postCommand:command completionBlock:aCompletionBlock];
+}
+
+/**
+ *  功能:挂失
+ */
++ (void)updateloss:(NSString *) userToken uRealname:(NSString *)urealname uLossstate:(NSString *) ulossstate uCbcid:(NSString *) ucbcid completionBlock:(TDCompletionBlock)aCompletionBlock {
+    NSMutableDictionary * input = [NSMutableDictionary new];
+    [input setValue:[self interfaceNameFromSelector:_cmd] forKey:@"method"];
+    [input setValue:userToken forKey:@"userToken"];
+    [input setValue:urealname forKey:@"u_realname"];
+    [input setValue:ulossstate forKey:@"u_loss_state"];
+    [input setValue:ucbcid forKey:@"u_cbcid"];
+    [input setValue:@"" forKey:@"u_loss_datetime"]; //这里需要传空串
+    TDHttpCommand * command = [TDHttpCommand new];
+    command.inPut = input;
+    [self postCommand:command completionBlock:aCompletionBlock];
+}
+
+/**
+ *  功能:统计用户是否有这商户的预付费卡
+ */
++ (void)countcard:(NSString *) userToken bId:(NSString *)bid completionBlock:(TDCompletionBlock) aCompletionBlock {
+    NSMutableDictionary * input = [NSMutableDictionary new];
+    [input setValue:[self interfaceNameFromSelector:_cmd] forKey:@"method"];
+    [input setValue:userToken forKey:@"userToken"];
+    [input setValue:bid forKey:@"b_id"];
+    TDHttpCommand * command = [TDHttpCommand new];
+    command.inPut = input;
+    [self postCommand:command completionBlock:aCompletionBlock];
+}
+
+/**
+ *  功能:用户注册新卡
+ */
++ (void)Regcard:(NSString *) userToken bId:(NSString *)bid completionBlock:(TDCompletionBlock) aCompletionBlock {
+    NSMutableDictionary * input = [NSMutableDictionary new];
+    [input setValue:[self interfaceNameFromSelector:_cmd] forKey:@"method"];
+    [input setValue:userToken forKey:@"userToken"];
+    [input setValue:bid forKey:@"b_id"];
+    TDHttpCommand * command = [TDHttpCommand new];
+    command.inPut = input;
+    [self postCommand:command completionBlock:aCompletionBlock];
+}
+
+/**
+ *  功能:查询商户列表
+ */
++ (void)ShowBinfor:(BinforInput *)binforinput completionBlock:(TDCompletionBlock)aCompletionBlock {
+    
+    NSMutableDictionary * input = [NSMutableDictionary new];
+    [input setValue:[self interfaceNameFromSelector:_cmd] forKey:@"method"];
+    
+    if (binforinput.b_name != nil) [input setValue:binforinput.b_name forKeyPath:@"b_name"];
+    
+    if (binforinput.b_no != nil) [input setValue:binforinput.b_no forKeyPath:@"b_no"];
+    
+    if (binforinput.b_jname != nil) [input setValue:binforinput.b_jname forKeyPath:@"b_jname"];
+    
+    if (binforinput.b_type != nil) [input setValue:binforinput.b_type forKeyPath:@"b_type"];
+    
+    if (binforinput.b_2type != nil) [input setValue:binforinput.b_2type forKeyPath:@"b_2type"];
+    
+    if (binforinput.b_htype != nil) [input setValue:binforinput.b_htype forKeyPath:@"b_htype"];
+    
+    if (binforinput.b_province != nil) [input setValue:binforinput.b_province forKeyPath:@"b_province"];
+    
+    if (binforinput.b_city != nil) [input setValue:binforinput.b_city forKeyPath:@"b_city"];
+    
+    if (binforinput.b_district != nil) [input setValue:binforinput.b_city forKeyPath:@"b_district"];
+    
+    if (binforinput.b_cbd != nil) [input setValue:binforinput.b_cbd forKeyPath:@"b_cbd"];
+    
+    if (binforinput.b_crcle != nil) [input setValue:binforinput.b_crcle forKeyPath:@"b_crcle"];
+    
+    if (binforinput.b_sort != nil) [input setValue:binforinput.b_sort forKeyPath:@"b_sort"];
+    
+    if (binforinput.b_t_state != nil) [input setValue:binforinput.b_t_state forKeyPath:@"b_t_state"];
+    
+    binforinput.frist != nil?[input setValue:binforinput.frist forKeyPath:@"frist"]:[input setValue:@"0" forKeyPath:@"frist"];
+    
+    binforinput.pageNum != nil?[input setValue:binforinput.pageNum forKeyPath:@"pageNum"]:[input setValue:@"0" forKeyPath:@"pageNum"];
+    
+    TDHttpCommand * command = [TDHttpCommand new];
+    command.inPut = input;
+    [self postCommand:command completionBlock:aCompletionBlock];
+}
+
+/**
+ *  功能:商户总数
+ */
++ (void)countbinfor:(BinforInput *)binforinput completionBlock:(TDCompletionBlock)aCompletionBlock {
+    NSMutableDictionary * input = [NSMutableDictionary new];
+    [input setValue:[self interfaceNameFromSelector:_cmd] forKey:@"method"];
+    
+    if (binforinput.b_name != nil) [input setValue:binforinput.b_name forKeyPath:@"b_name"];
+    
+    if (binforinput.b_no != nil) [input setValue:binforinput.b_no forKeyPath:@"b_no"];
+    
+    if (binforinput.b_jname != nil) [input setValue:binforinput.b_jname forKeyPath:@"b_jname"];
+    
+    if (binforinput.b_type != nil) [input setValue:binforinput.b_type forKeyPath:@"b_type"];
+    
+    if (binforinput.b_2type != nil) [input setValue:binforinput.b_2type forKeyPath:@"b_2type"];
+    
+    if (binforinput.b_htype != nil) [input setValue:binforinput.b_htype forKeyPath:@"b_htype"];
+    
+    if (binforinput.b_province != nil) [input setValue:binforinput.b_province forKeyPath:@"b_province"];
+    
+    if (binforinput.b_city != nil) [input setValue:binforinput.b_city forKeyPath:@"b_city"];
+    
+    if (binforinput.b_district != nil) [input setValue:binforinput.b_city forKeyPath:@"b_district"];
+    
+    if (binforinput.b_cbd != nil) [input setValue:binforinput.b_cbd forKeyPath:@"b_cbd"];
+    
+    if (binforinput.b_crcle != nil) [input setValue:binforinput.b_crcle forKeyPath:@"b_crcle"];
+    
+    if (binforinput.b_sort != nil) [input setValue:binforinput.b_sort forKeyPath:@"b_sort"];
+    
+    if (binforinput.b_t_state != nil) [input setValue:binforinput.b_t_state forKeyPath:@"b_t_state"];
+    
+    binforinput.frist != nil?[input setValue:binforinput.frist forKeyPath:@"frist"]:[input setValue:@"0" forKeyPath:@"frist"];
+    
+    binforinput.pageNum != nil?[input setValue:binforinput.pageNum forKeyPath:@"pageNum"]:[input setValue:@"0" forKeyPath:@"pageNum"];
+    
     TDHttpCommand * command = [TDHttpCommand new];
     command.inPut = input;
     [self postCommand:command completionBlock:aCompletionBlock];

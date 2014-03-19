@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		4C0F133B18C630E50003ED72 /* TDHttpService.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C0F133A18C630E50003ED72 /* TDHttpService.m */; };
+		4C236B6C18D9879C00DF609E /* BinforInput.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C236B6B18D9879C00DF609E /* BinforInput.m */; };
+		4C2DF84318D88E9000ED3109 /* RegistInput.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C2DF84218D88E9000ED3109 /* RegistInput.m */; };
 		4C98AB1B18B7E13C007FAF12 /* TDJsonToDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C98AB1A18B7E13C007FAF12 /* TDJsonToDictionary.m */; };
 		4C98AB2718B9196E007FAF12 /* Btype.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C98AB2618B9196E007FAF12 /* Btype.m */; };
 		4C98ABE918B91E01007FAF12 /* NSArray+safe.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C98AB9F18B91E01007FAF12 /* NSArray+safe.m */; };
@@ -892,6 +894,10 @@
 		1A21F1F75D364083A890944A /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		4C0F133918C630E50003ED72 /* TDHttpService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TDHttpService.h; sourceTree = "<group>"; };
 		4C0F133A18C630E50003ED72 /* TDHttpService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TDHttpService.m; sourceTree = "<group>"; };
+		4C236B6A18D9879C00DF609E /* BinforInput.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BinforInput.h; sourceTree = "<group>"; };
+		4C236B6B18D9879C00DF609E /* BinforInput.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BinforInput.m; sourceTree = "<group>"; };
+		4C2DF84118D88E9000ED3109 /* RegistInput.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegistInput.h; sourceTree = "<group>"; };
+		4C2DF84218D88E9000ED3109 /* RegistInput.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegistInput.m; sourceTree = "<group>"; };
 		4C98AB1918B7E13C007FAF12 /* TDJsonToDictionary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TDJsonToDictionary.h; sourceTree = "<group>"; };
 		4C98AB1A18B7E13C007FAF12 /* TDJsonToDictionary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TDJsonToDictionary.m; sourceTree = "<group>"; };
 		4C98AB2518B9196E007FAF12 /* Btype.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Btype.h; sourceTree = "<group>"; };
@@ -1877,6 +1883,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4C2DF84018D88E3A00ED3109 /* Input */ = {
+			isa = PBXGroup;
+			children = (
+				4C2DF84118D88E9000ED3109 /* RegistInput.h */,
+				4C2DF84218D88E9000ED3109 /* RegistInput.m */,
+				4C236B6A18D9879C00DF609E /* BinforInput.h */,
+				4C236B6B18D9879C00DF609E /* BinforInput.m */,
+			);
+			name = Input;
+			sourceTree = "<group>";
+		};
 		4C98AB1C18B8EBE3007FAF12 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
@@ -1888,6 +1905,7 @@
 		4C98AB1D18B8EBE3007FAF12 /* BusinessModels */ = {
 			isa = PBXGroup;
 			children = (
+				4C2DF84018D88E3A00ED3109 /* Input */,
 				4C98AB1E18B8EBE3007FAF12 /* Parser */,
 				4C98AB1F18B8EBE3007FAF12 /* VO */,
 				4CF30A5118D34A5D002F083E /* TDGlobalValue.h */,
@@ -4010,6 +4028,8 @@
 				4CB12C5A18BBC5F800F23A76 /* Bcity.m in Sources */,
 				4CB12C9618BBCB4000F23A76 /* Ynbinfor.m in Sources */,
 				EAC9797118C1883B00927CEE /* TDCategoryResource.m in Sources */,
+				4C236B6C18D9879C00DF609E /* BinforInput.m in Sources */,
+				4C2DF84318D88E9000ED3109 /* RegistInput.m in Sources */,
 				EA0801A418D428DC00D0E805 /* TDRegisterNoAccountVC.m in Sources */,
 				4CA68EC018B520EC00D02209 /* TDHttpCommand.m in Sources */,
 				4C98ABF018B91E01007FAF12 /* NSNumber+otsCopy.m in Sources */,
