@@ -179,6 +179,11 @@
     [TDHttpService LoginUserinfor:_tfUserName.text loginPass:_tfPwd.text completionBlock:^(id responseObject) {
         if (responseObject != nil && [responseObject isKindOfClass:[NSDictionary class]]) {
             SharedToken = [responseObject objectForKey:@"userToken"];
+            if (!SharedToken) {
+                [HUD hide:YES];
+                ALERT_MSG(nil, @"用户账号密码不正确");
+                return;
+            }
             [TDHttpService ShowUserinfor:SharedToken completionBlock:^(id responseObject) {
                 [HUD hide:YES];
                 if (responseObject != nil && [responseObject isKindOfClass:[NSArray class]]) {
@@ -187,7 +192,7 @@
                     [self postNotification:OTS_NOTE_LOGIN_OK];
                     [weakSelf dismissViewControllerAnimated:YES completion:nil];
                 } else {
-                    ALERT_MSG(nil, @"用户登录异常");
+                    ALERT_MSG(nil, @"用户账号密码不正确");
                 }
             }];
         }

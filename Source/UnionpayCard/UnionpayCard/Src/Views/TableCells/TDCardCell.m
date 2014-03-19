@@ -111,7 +111,7 @@
 - (NSCache *)UpdateCardInfo:(UtocardVO *) Utocard addCache:(NSCache *) __cache {
     //1
        __weak UIImageView * weakivphone = _ivPhoto;
-    [_ivPhoto setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://113.57.133.83:1982/active/upload/shop/%@",Utocard.b_cordimg]] placeholderImage:nil completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType) {
+    [_ivPhoto setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@active/upload/shop/%@",BASEURL,Utocard.b_cordimg]] placeholderImage:nil completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType) {
         [__cache setObject:weakivphone.image forKey:Utocard.b_cordimg];
     }];
 

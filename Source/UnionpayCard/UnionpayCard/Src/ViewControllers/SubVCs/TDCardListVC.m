@@ -266,15 +266,15 @@
         self.userinfor = SharedAppUser;
         
         [TDHttpService ShowUtocard:SharedToken completionBlock:^(id responseObject) {
+            [HUD hide:YES];
             if (responseObject != nil && [responseObject isKindOfClass:[NSArray class]]) {
-                [HUD hide:YES];
                 
                 weakSelf.UtoCards= responseObject;
                 [weakSelf.mainTv reloadData];
                 
-                /********************************初始化选中的卡******************************/
+                /********************************初始化选中的卡**************************************************************/
                 for (UtocardVO * utocard in weakSelf.UtoCards) {
-                    if ([[self.userinfor.u_pre_num stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]] isEqualToString:[[utocard u_card] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]]]) {
+                    if (![self.userinfor.u_pre_num isKindOfClass:[NSNull class]] && [[self.userinfor.u_pre_num stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]] isEqualToString:[[utocard u_card] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]]]) {
                         _constraintHeaderHeight.constant = 110;
                         [UIView animateWithDuration:.3f animations:^{
                             //>1
@@ -290,7 +290,7 @@
                         }];
                     }
                 }
-                if ([[self.userinfor.u_pre_num stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]] isEqualToString:[NSString stringWithFormat:@"%d",0]]) {
+                if ([self.userinfor.u_pre_num isKindOfClass:[NSNull class]] || [[self.userinfor.u_pre_num stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]] isEqualToString:[NSString stringWithFormat:@"%d",0]]) {
                     [self resetAction:nil];
                 }
             }
@@ -421,7 +421,7 @@
         [_ivActiveCard applyEffectRoundRectSilverBorder];
         [_header addSubview:_ivActiveCard];
         
-        [_ivActiveCard setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://113.57.133.83:1982/active/upload/shop/%@",_selectedCard.b_cordimg]] placeholderImage:nil];
+        [_ivActiveCard setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@active/upload/shop/%@",BASEURL,_selectedCard.b_cordimg]] placeholderImage:nil];
         
         [_ivActiveCard constrainWidth:@"125" height:@"85"];
         [_ivActiveCard alignCenterYWithView:_header predicate:nil];
