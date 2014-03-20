@@ -339,4 +339,17 @@
     [self postCommand:command completionBlock:aCompletionBlock];
 }
 
+
+/**
+ *  功能：退出登录
+ */
++ (void)exitTOKEN:(NSString *) userToken completionBlock:(TDCompletionBlock)aCompletionBlock {
+    NSMutableDictionary * input = [NSMutableDictionary new];
+    [input setValue:[self interfaceNameFromSelector:_cmd] forKey:@"method"];
+    [input setValue:userToken forKey:@"userToken"];
+    TDHttpCommand * command = [TDHttpCommand new];
+    command.inPut = input;
+    [self postCommand:command completionBlock:aCompletionBlock];
+}
+
 @end

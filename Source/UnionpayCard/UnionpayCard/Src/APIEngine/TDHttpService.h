@@ -95,4 +95,9 @@
  */
 + (void)countbinfor:(BinforInput *)binforinput completionBlock:(TDCompletionBlock)aCompletionBlock;
 
+/**
+ *  功能:18.退出登录
+ */
++ (void)exitTOKEN:(NSString *) userToken completionBlock:(TDCompletionBlock)aCompletionBlock;
+
 @end
