@@ -119,17 +119,23 @@
         return;
     }
     
+    __weak TDRegisterStep2VC * weakSelf = self;
+    MBProgressHUD * HUD = [[MBProgressHUD alloc] initWithView:self.view];
+    [self.view addSubview:HUD];
+    [HUD show:YES];
+    
     [TDHttpService checkphonemassage:_phoneNUM Code:_tfInput.text completionBlock:^(id responseObject) {
-        
+        [HUD hide:YES];
         if ([[responseObject objectForKey:@"State"] integerValue] == 0) {
             
             TDRegisterStep3VC *vc = [TDRegisterStep3VC new];
             vc.phoneNUM = _phoneNUM;
             vc.phoneCode = _tfInput.text;
             
-            [self.navigationController pushViewController:vc animated:YES];
+            [weakSelf.navigationController pushViewController:vc animated:YES];
         } else {
-            ALERT_MSG(nil, @"验证失败");
+            ALERT_MSG(nil, @"验证码过期");
+            _tfInput.text = @"";
         }
         
         

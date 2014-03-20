@@ -179,9 +179,11 @@
     [input setValue:registinput.u_sex forKey:@"u_sex"];
     [input setValue:registinput.u_cbcid forKey:@"u_cbcid"];
     [input setValue:registinput.u_emil forKey:@"u_emil"];
-    [input setValue:registinput.u_name forKey:@"u_name"];
+    [input setValue:registinput.u_emil forKey:@"u_name"];
     [input setValue:registinput.u_log_password forKey:@"u_log_password"];
     [input setValue:registinput.u_iphone forKey:@"u_iphone"];
+    [input setValue:registinput.u_v_id forKey:@"u_v_id"];
+    [input setValue:registinput.u_code forKey:@"Code"];
     TDHttpCommand * command = [TDHttpCommand new];
     command.inPut = input;
     [self postCommand:command completionBlock:aCompletionBlock];

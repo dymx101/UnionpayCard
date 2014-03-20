@@ -18,4 +18,5 @@
 @property (nonatomic ,strong)NSString * u_log_password;
 @property (nonatomic ,strong)NSString * u_v_id;
 @property (nonatomic ,strong)NSString * u_iphone;
+@property (nonatomic ,strong)NSString * u_code;
 @end

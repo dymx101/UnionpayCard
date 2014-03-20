@@ -30,11 +30,11 @@
         }
     }];
     
-    
-    [TDHttpService checkiphoneUserinfor:@"13397186156" completionBlock:^(id responseObject) {
-        NSLog(@">>> %@",responseObject);
-        
-    }];
+//    
+//    [TDHttpService checkiphoneUserinfor:@"13397186156" completionBlock:^(id responseObject) {
+//        NSLog(@">>> %@",responseObject);
+//        
+//    }];
     
     
 //    __block NSString * token = nil;
