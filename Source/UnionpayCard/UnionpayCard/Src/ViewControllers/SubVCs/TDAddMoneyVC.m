@@ -87,7 +87,7 @@
 
 #pragma mark -
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    int numberofrows = 0;
+    NSUInteger numberofrows = 0;
     if (_showAddMoneyRecord) {
         numberofrows = [self.PreRecords count];
     }
@@ -124,7 +124,7 @@
     return cell;
 }
 
--(float)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     return [TDRecordCell HEIGHT];
 }
 
@@ -190,7 +190,7 @@
     return header;
 }
 
--(float)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
+-(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
     return 50;
 }
 

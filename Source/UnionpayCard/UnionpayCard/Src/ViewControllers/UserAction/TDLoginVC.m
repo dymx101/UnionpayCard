@@ -101,8 +101,9 @@
     _tfPwd.placeholder = @"密码";
     _tfPwd.font = [TDFontLibrary sharedInstance].fontNormal;
     _tfPwd.clearButtonMode = UITextFieldViewModeWhileEditing;
+    _tfPwd.secureTextEntry = YES;
     [_loginInputView addSubview:_tfPwd];
-    _tfPwd.text = @"123456";
+    _tfPwd.text = @"sw198285";
     
     _btnLogin = [UIButton new];
     [_btnLogin setBackgroundImage:[TDImageLibrary sharedInstance].btnBgGreen forState:UIControlStateNormal];
