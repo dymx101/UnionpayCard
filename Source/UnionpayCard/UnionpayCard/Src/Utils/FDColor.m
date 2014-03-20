@@ -41,6 +41,7 @@ DEF_SINGLETON(FDColor)
         _clear = [UIColor clearColor];
         
         _silver = [UIColor colorWithHexString:@"EFEFEF"];
+        _silverLight = [UIColor colorWithHexString:@"F4F4F4"];
         _silverDark = UIColorFromRGB(0xDDDDDD);
         
         _darkGray = UIColorFromRGB(0x333333);

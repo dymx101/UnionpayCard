@@ -20,6 +20,7 @@ DEF_SINGLETON(TDFontLibrary)
     _fontLargeBold = [UIFont boldSystemFontOfSize:17.f];
     
     _fontNormal = [UIFont systemFontOfSize:13.f];
+    _fontNormalBold = [UIFont boldSystemFontOfSize:13.f];
     _fontSmall = [UIFont systemFontOfSize:11.f];
     
     _fontTitle = [UIFont systemFontOfSize:FONT_SIZE_TITLE];
