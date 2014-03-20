@@ -46,6 +46,8 @@
     [self installLogoToNavibar];
     
     [self observeNotification:OTS_NOTE_LOGIN_OK];
+    
+    [self viewAccountAction:nil];
 }
 
 

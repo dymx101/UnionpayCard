@@ -53,7 +53,7 @@
 
 
 #pragma mark -
--(int)numberOfSectionsInTableView:(UITableView *)tableView {
+-(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return [self settingItems].count;
 }
 
@@ -69,8 +69,8 @@
         cell = [TDSettingCell new];//[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIDStr];
     }
     
-    int section = indexPath.section;
-    int row = indexPath.row;
+    NSInteger section = indexPath.section;
+    NSInteger row = indexPath.row;
     ETDCellStyle cellStyle = [TDUtil cellStyleWithIndexPath:indexPath tableView:tableView tableViewDataSource:self];
     [cell setStyle:cellStyle];
     cell.lblTitle.text = [self settingItems][section][row];
@@ -78,7 +78,7 @@
     return cell;
 }
 
--(float)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     return [TDSettingCell HEIGHT];
 }
 
@@ -86,7 +86,7 @@
     return [UIView new];
 }
 
--(float)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
+-(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
     return 20.f;
 }
 
