@@ -63,7 +63,7 @@
     _tfInput.placeholder = @"输入短信中的验证码";
     _tfInput.font = [TDFontLibrary sharedInstance].fontNormal;
     _tfInput.clearButtonMode = UITextFieldViewModeWhileEditing;
-    _tfInput.keyboardType = UIKeyboardTypePhonePad;
+    _tfInput.keyboardType = UIKeyboardTypeDefault;
     [self.view addSubview:_tfInput];
     
     _btnGetCode = [UIButton new];
