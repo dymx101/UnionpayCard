@@ -8,6 +8,7 @@
 
 #import "TDRegisterStep3VC.h"
 #import "GNTextFieldCell.h"
+#import "RegistInput.h"
 
 #define STR_CELL_ID     @"STR_CELL_ID"
 
@@ -128,7 +129,17 @@ typedef enum {
 
 #pragma mark - actions
 -(void)submit:(id)sender {
-    [self.presentingViewController dismissViewControllerAnimated:YES completion:nil];
+    RegistInput * input = [RegistInput new];
+    
+    [TDHttpService resaveUserinfor:input completionBlock:^(id responseObject) {
+
+        if ([[responseObject objectForKey:@"State"] integerValue] == 0) {
+            
+            [self.presentingViewController dismissViewControllerAnimated:YES completion:nil];
+        }
+
+    }];
+
 }
 
 -(void)hideKeyboardAction:(id)sender {

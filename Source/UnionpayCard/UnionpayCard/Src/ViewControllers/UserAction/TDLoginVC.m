@@ -154,9 +154,9 @@
     
     [_btnLogin constrainWidthToView:_loginInputView predicate:nil];
     [_btnLogin alignLeadingEdgeWithView:_loginInputView predicate:nil];
-    [_btnLogin constrainTopSpaceToView:_loginInputView predicate:@"20"];
+    [_btnLogin constrainTopSpaceToView:_loginInputView predicate:@"30"];
     
-    [_btnRegister alignTrailingEdgeWithView:_btnLogin predicate:@"-15"];
+    [_btnRegister alignLeadingEdgeWithView:_btnLogin predicate:@"10"];
     [_btnRegister constrainTopSpaceToView:_btnLogin predicate:@"10"];
     
     [_btnRegisterNoAccount alignTrailingEdgeWithView:_btnLogin predicate:@"-15"];
@@ -171,12 +171,11 @@
 }
 
 -(void)loginAction:(id)sender {
+    
     __weak TDLoginVC * weakSelf = self;
     MBProgressHUD * HUD = [[MBProgressHUD alloc] initWithView:self.view];
     [self.view addSubview:HUD];
-    
     [HUD show:YES];
-    
     [TDHttpService LoginUserinfor:_tfUserName.text loginPass:_tfPwd.text completionBlock:^(id responseObject) {
         if (responseObject != nil && [responseObject isKindOfClass:[NSDictionary class]]) {
             SharedToken = [responseObject objectForKey:@"userToken"];

@@ -10,4 +10,6 @@
 
 @interface TDRegisterStep3VC : TDBaseVC
 
+@property(nonatomic,strong) NSString * phoneNUM;
+@property(nonatomic,strong) NSString * phoneCode;
 @end

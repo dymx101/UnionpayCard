@@ -49,7 +49,10 @@
     _lblCodeTip = [UILabel new];
     _lblCodeTip.font = [TDFontLibrary sharedInstance].fontNormal;
     _lblCodeTip.textColor = [FDColor sharedInstance].gray;
-    _lblCodeTip.text = @"验证码短信已发送到152****8888";
+    
+    NSMutableString * maskphone = [NSMutableString stringWithString:_phoneNUM];
+    [maskphone replaceCharactersInRange:NSMakeRange(3,4) withString:@"****"];
+    _lblCodeTip.text = [NSString stringWithFormat:@"验证码短信已发送到%@",maskphone];
     [self.view addSubview:_lblCodeTip];
     
     _ivBgInput = [UIImageView new];
@@ -91,13 +94,47 @@
 
 #pragma mark - actions
 -(void)requestCodeAgainAction:(id)sender {
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"重新发送验证码成功，请查收" message:nil delegate:nil cancelButtonTitle:@"确定" otherButtonTitles: nil];
-    [alert show];
+    
+    MBProgressHUD * HUD = [[MBProgressHUD alloc] initWithView:self.view];
+    [self.view addSubview:HUD];
+    [HUD show:YES];
+    
+    [TDHttpService checkiphoneUserinfor:_phoneNUM completionBlock:^(id responseObject) {
+        [HUD hide:YES];
+        if ([[responseObject objectForKey:@"State"] integerValue] == 0) {
+            ALERT_MSG(nil, @"重新发送验证码成功，请查收");
+        }
+    }];
+    
+    //    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"重新发送验证码成功，请查收" message:nil delegate:nil cancelButtonTitle:@"确定" otherButtonTitles: nil];
+    //    [alert show];
+    
+    
 }
 
 -(void)submitCodeAction:(id)sender {
-    TDRegisterStep3VC *vc = [TDRegisterStep3VC new];
-    [self.navigationController pushViewController:vc animated:YES];
+    
+    if (_tfInput.text.length < 6 ) {
+        ALERT_MSG(nil, @"您输入的验证码格式不正确");
+        return;
+    }
+    
+    [TDHttpService checkphonemassage:_phoneNUM Code:_tfInput.text completionBlock:^(id responseObject) {
+        
+        if ([[responseObject objectForKey:@"State"] integerValue] == 0) {
+            
+            TDRegisterStep3VC *vc = [TDRegisterStep3VC new];
+            vc.phoneNUM = _phoneNUM;
+            vc.phoneCode = _tfInput.text;
+            
+            [self.navigationController pushViewController:vc animated:YES];
+        } else {
+            ALERT_MSG(nil, @"验证失败");
+        }
+        
+        
+    }];
+    
 }
 
 @end
