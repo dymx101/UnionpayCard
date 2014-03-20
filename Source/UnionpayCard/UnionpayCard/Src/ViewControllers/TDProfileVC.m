@@ -12,6 +12,10 @@
 #import "TDMyAccountVC.h"
 #import "TDSettingCell.h"
 
+#import "TDChangePwdVC.h"
+#import "TDChangeTradePwdVC.h"
+#import "TDReportLossVC.h"
+
 @interface TDProfileVC () <UITableViewDelegate, UITableViewDataSource,TDLoginVCDelegate> {
     UITableView             *_tv;
     UIView                  *_viewNotLoggedIn;
@@ -70,7 +74,7 @@
 }
 
 #pragma mark -
--(int)numberOfSectionsInTableView:(UITableView *)tableView {
+-(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return [self settingItems].count;
 }
 
@@ -87,13 +91,34 @@
         cell = [TDSettingCell new];//[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIDStr];
     }
     
-    int section = indexPath.section;
-    int row = indexPath.row;
+    NSInteger section = indexPath.section;
+    NSInteger row = indexPath.row;
     ETDCellStyle cellStyle = [TDUtil cellStyleWithIndexPath:indexPath tableView:tableView tableViewDataSource:self];
     [cell setStyle:cellStyle];
     cell.lblTitle.text = [self settingItems][section][row];
     
     return cell;
+}
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    NSInteger section = indexPath.section;
+    NSInteger row = indexPath.row;
+    
+    if (section == 0) {
+        
+    } else if (section == 1) {
+        if (row == 0) {
+            TDChangePwdVC *vc = [TDChangePwdVC new];
+            [self.navigationController pushViewController:vc animated:YES];
+        } else if (row == 1) {
+            TDChangeTradePwdVC *vc = [TDChangeTradePwdVC new];
+            [self.navigationController pushViewController:vc animated:YES];
+        } else if (row == 2) {
+            TDReportLossVC *vc = [TDReportLossVC new];
+            [self.navigationController pushViewController:vc animated:YES];
+        }
+    }
 }
 
 -(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
@@ -189,7 +214,7 @@
     return __headerView;
 }
 
--(float)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
+-(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
     if (section != 0) {
         return 20;
     }

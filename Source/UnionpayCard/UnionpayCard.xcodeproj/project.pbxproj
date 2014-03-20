@@ -70,6 +70,9 @@
 		EA098BD218B9B1E40034E0CF /* tableCellRoundBg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EA098BCE18B9B1E40034E0CF /* tableCellRoundBg@2x.png */; };
 		EA098BD318B9B1E40034E0CF /* tableCellTopBg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EA098BCF18B9B1E40034E0CF /* tableCellTopBg@2x.png */; };
 		EA098BD818B9B4450034E0CF /* TDSettingCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EA098BD718B9B4450034E0CF /* TDSettingCell.m */; };
+		EA500FB618DABCEF00F1291C /* TDChangePwdVC.m in Sources */ = {isa = PBXBuildFile; fileRef = EA500FB518DABCEF00F1291C /* TDChangePwdVC.m */; };
+		EA500FB918DABD0C00F1291C /* TDChangeTradePwdVC.m in Sources */ = {isa = PBXBuildFile; fileRef = EA500FB818DABD0C00F1291C /* TDChangeTradePwdVC.m */; };
+		EA500FBC18DABD2700F1291C /* TDReportLossVC.m in Sources */ = {isa = PBXBuildFile; fileRef = EA500FBB18DABD2700F1291C /* TDReportLossVC.m */; };
 		EA58BEE418C1C75200E36E7E /* TDCategoryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EA58BEE318C1C75200E36E7E /* TDCategoryCell.m */; };
 		EA901B0618B6491700B1E20F /* TDUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = EA901B0518B6491700B1E20F /* TDUtil.m */; };
 		EAC428C018C3132C004F3941 /* tile_add_money@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EAC428B818C3132C004F3941 /* tile_add_money@2x.png */; };
@@ -1012,6 +1015,12 @@
 		EA098BCF18B9B1E40034E0CF /* tableCellTopBg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tableCellTopBg@2x.png"; sourceTree = "<group>"; };
 		EA098BD618B9B4450034E0CF /* TDSettingCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TDSettingCell.h; sourceTree = "<group>"; };
 		EA098BD718B9B4450034E0CF /* TDSettingCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TDSettingCell.m; sourceTree = "<group>"; };
+		EA500FB418DABCEF00F1291C /* TDChangePwdVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TDChangePwdVC.h; sourceTree = "<group>"; };
+		EA500FB518DABCEF00F1291C /* TDChangePwdVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TDChangePwdVC.m; sourceTree = "<group>"; };
+		EA500FB718DABD0C00F1291C /* TDChangeTradePwdVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TDChangeTradePwdVC.h; sourceTree = "<group>"; };
+		EA500FB818DABD0C00F1291C /* TDChangeTradePwdVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TDChangeTradePwdVC.m; sourceTree = "<group>"; };
+		EA500FBA18DABD2700F1291C /* TDReportLossVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TDReportLossVC.h; sourceTree = "<group>"; };
+		EA500FBB18DABD2700F1291C /* TDReportLossVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TDReportLossVC.m; sourceTree = "<group>"; };
 		EA58BEE218C1C75200E36E7E /* TDCategoryCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TDCategoryCell.h; sourceTree = "<group>"; };
 		EA58BEE318C1C75200E36E7E /* TDCategoryCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TDCategoryCell.m; sourceTree = "<group>"; };
 		EA901B0418B6491700B1E20F /* TDUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TDUtil.h; sourceTree = "<group>"; };
@@ -2023,6 +2032,12 @@
 				EA0801A718D428FC00D0E805 /* TDRegisterStep2VC.m */,
 				EAD58FC418D43F220081B5A7 /* TDRegisterStep3VC.h */,
 				EAD58FC518D43F220081B5A7 /* TDRegisterStep3VC.m */,
+				EA500FB418DABCEF00F1291C /* TDChangePwdVC.h */,
+				EA500FB518DABCEF00F1291C /* TDChangePwdVC.m */,
+				EA500FB718DABD0C00F1291C /* TDChangeTradePwdVC.h */,
+				EA500FB818DABD0C00F1291C /* TDChangeTradePwdVC.m */,
+				EA500FBA18DABD2700F1291C /* TDReportLossVC.h */,
+				EA500FBB18DABD2700F1291C /* TDReportLossVC.m */,
 			);
 			path = UserAction;
 			sourceTree = "<group>";
@@ -3975,6 +3990,7 @@
 				4C98AC1518B9246F007FAF12 /* NSObject+JsonToVO.m in Sources */,
 				4CB12C5518BBC56400F23A76 /* Bcbd.m in Sources */,
 				EAD1249B18B604B600C6C145 /* FDColor.m in Sources */,
+				EA500FBC18DABD2700F1291C /* TDReportLossVC.m in Sources */,
 				4C98AB2718B9196E007FAF12 /* Btype.m in Sources */,
 				EACBE41018BF15C100F2E9CF /* TDMailVC.m in Sources */,
 				EAD1249618B5F33300C6C145 /* FDDefine.m in Sources */,
@@ -4001,6 +4017,7 @@
 				4C98ABEF18B91E01007FAF12 /* NSMutableString+safe.m in Sources */,
 				4C98AB1B18B7E13C007FAF12 /* TDJsonToDictionary.m in Sources */,
 				4CB12C6018BBC66A00F23A76 /* Bdistrict.m in Sources */,
+				EA500FB918DABD0C00F1291C /* TDChangeTradePwdVC.m in Sources */,
 				4C98AC0118B91E01007FAF12 /* UILabel+Attribute.m in Sources */,
 				EACD0D3318B3A243009109CB /* TDSettingsVC.m in Sources */,
 				EA0801A818D428FC00D0E805 /* TDRegisterStep2VC.m in Sources */,
@@ -4032,6 +4049,7 @@
 				4C2DF84318D88E9000ED3109 /* RegistInput.m in Sources */,
 				EA0801A418D428DC00D0E805 /* TDRegisterNoAccountVC.m in Sources */,
 				4CA68EC018B520EC00D02209 /* TDHttpCommand.m in Sources */,
+				EA500FB618DABCEF00F1291C /* TDChangePwdVC.m in Sources */,
 				4C98ABF018B91E01007FAF12 /* NSNumber+otsCopy.m in Sources */,
 				EACD0D3018B3A216009109CB /* TDProfileVC.m in Sources */,
 				4CB12C6F18BBC80600F23A76 /* Card.m in Sources */,
