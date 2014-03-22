@@ -195,6 +195,7 @@
 + (void)ResetUPwd:(NSString *) userToken uTranpassword:(NSString *) utranpassword newuTranpassword:(NSString *) newutranpassword completionBlock:(TDCompletionBlock)aCompletionBlock {
     NSMutableDictionary * input = [NSMutableDictionary new];
     [input setValue:[self interfaceNameFromSelector:_cmd] forKey:@"method"];
+    [input setValue:userToken forKey:@"userToken"];
     [input setValue:utranpassword forKey:@"u_tran_password"];
     [input setValue:newutranpassword forKey:@"newu_tran_password"];
     TDHttpCommand * command = [TDHttpCommand new];
@@ -205,6 +206,7 @@
 + (void)ResetUPwd:(NSString *) userToken uLogpassword:(NSString *) ulogpassword newuLogpassword:(NSString *) newulogpassword completionBlock:(TDCompletionBlock)aCompletionBlock {
     NSMutableDictionary * input = [NSMutableDictionary new];
     [input setValue:[self interfaceNameFromSelector:_cmd] forKey:@"method"];
+    [input setValue:userToken forKey:@"userToken"];
     [input setValue:ulogpassword forKey:@"u_log_password"];
     [input setValue:newulogpassword forKey:@"newu_log_password"];
     TDHttpCommand * command = [TDHttpCommand new];

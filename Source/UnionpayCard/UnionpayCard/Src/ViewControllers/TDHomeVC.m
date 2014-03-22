@@ -163,7 +163,7 @@ typedef enum {
             if (SharedAppUser) {
                 [self naviToVC:[TDCardListVC class]];
             } else {
-                /** go to login*/
+                /** gotologin */
                 TDLoginVC *vc = [TDLoginVC new];
                 UINavigationController *nc = [[UINavigationController alloc] initWithRootViewController:vc];
                 [self presentViewController:nc animated:YES completion:nil];
@@ -179,7 +179,7 @@ typedef enum {
             if (SharedAppUser) {
                 [self naviToVC:[TDAddMoneyVC class]];
             } else {
-                /** go to login*/
+                /** gotologin */
                 TDLoginVC *vc = [TDLoginVC new];
                 UINavigationController *nc = [[UINavigationController alloc] initWithRootViewController:vc];
                 [self presentViewController:nc animated:YES completion:nil];

@@ -109,14 +109,35 @@
         
     } else if (section == 1) {
         if (row == 0) {
-            TDChangePwdVC *vc = [TDChangePwdVC new];
-            [self.navigationController pushViewController:vc animated:YES];
+            if (SharedAppUser) {
+                TDChangePwdVC *vc = [TDChangePwdVC new];
+                [self.navigationController pushViewController:vc animated:YES];
+            } else {
+                /** gotologin */
+                TDLoginVC *vc = [TDLoginVC new];
+                UINavigationController *nc = [[UINavigationController alloc] initWithRootViewController:vc];
+                [self presentViewController:nc animated:YES completion:nil];
+            }
         } else if (row == 1) {
-            TDChangeTradePwdVC *vc = [TDChangeTradePwdVC new];
-            [self.navigationController pushViewController:vc animated:YES];
+            if (SharedAppUser) {
+                TDChangeTradePwdVC *vc = [TDChangeTradePwdVC new];
+                [self.navigationController pushViewController:vc animated:YES];
+            } else {
+                /** gotologin */
+                TDLoginVC *vc = [TDLoginVC new];
+                UINavigationController *nc = [[UINavigationController alloc] initWithRootViewController:vc];
+                [self presentViewController:nc animated:YES completion:nil];
+            }
         } else if (row == 2) {
-            TDReportLossVC *vc = [TDReportLossVC new];
-            [self.navigationController pushViewController:vc animated:YES];
+            if (SharedAppUser) {
+                TDReportLossVC *vc = [TDReportLossVC new];
+                [self.navigationController pushViewController:vc animated:YES];
+            } else {
+                /** gotologin */
+                TDLoginVC *vc = [TDLoginVC new];
+                UINavigationController *nc = [[UINavigationController alloc] initWithRootViewController:vc];
+                [self presentViewController:nc animated:YES completion:nil];
+            }
         }
     }
 }

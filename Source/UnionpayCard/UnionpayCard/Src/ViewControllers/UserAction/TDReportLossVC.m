@@ -57,7 +57,7 @@
     //
     _btnGetCode = [UIButton new];
     [_btnGetCode setBackgroundImage:[TDImageLibrary sharedInstance].btnBgGreen forState:UIControlStateNormal];
-    [_btnGetCode setTitle:@"修改交易密码" forState:UIControlStateNormal];
+    [_btnGetCode setTitle:@"挂失" forState:UIControlStateNormal];
     _btnGetCode.titleLabel.font = [TDFontLibrary sharedInstance].fontTitleBold;
     [_btnGetCode addTarget:self action:@selector(changePwdAction:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:_btnGetCode];
@@ -83,7 +83,30 @@
 
 #pragma mark - actions
 -(void)changePwdAction:(id)sender {
-    [self.navigationController popViewControllerAnimated:YES];
+    
+    if (![TDUtil validateUserName:_tfInputOld.text]) {
+        ALERT_MSG(nil, @"输入用户名称不正确");
+        return;
+    }
+    
+    if (![TDUtil validateIDCardNumber:_tfInputNew.text]) {
+        ALERT_MSG(nil, @"身份证格式不正确");
+        return;
+    }
+    
+    __weak TDReportLossVC * weakSelf = self;
+    MBProgressHUD * HUD = [[MBProgressHUD alloc] initWithView:self.view];
+    [self.view addSubview:HUD];
+    [HUD show:YES];
+    
+    [TDHttpService updateloss:SharedToken uRealname:_tfInputOld.text uLossstate:@"1" uCbcid:_tfInputNew.text completionBlock:^(id responseObject) {
+        [HUD hide:YES];
+        if ([[responseObject objectForKey:@"State"] integerValue] == 0) {
+            [weakSelf.navigationController popViewControllerAnimated:YES];
+        } else {
+            ALERT_MSG(nil, @"验证信息不正确！");
+        }
+    }];
 }
 
 @end

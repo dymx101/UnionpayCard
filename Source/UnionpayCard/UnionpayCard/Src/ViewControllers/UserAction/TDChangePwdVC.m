@@ -76,7 +76,7 @@
     //
     _btnGetCode = [UIButton new];
     [_btnGetCode setBackgroundImage:[TDImageLibrary sharedInstance].btnBgGreen forState:UIControlStateNormal];
-    [_btnGetCode setTitle:@"修改登录密码" forState:UIControlStateNormal];
+    [_btnGetCode setTitle:@"修改密码" forState:UIControlStateNormal];
     _btnGetCode.titleLabel.font = [TDFontLibrary sharedInstance].fontTitleBold;
     [_btnGetCode addTarget:self action:@selector(changePwdAction:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:_btnGetCode];
@@ -106,9 +106,43 @@
     [_btnGetCode constrainTopSpaceToView:_ivBgInputNewAgain predicate:@"15"];
 }
 
+
 #pragma mark - actions
 -(void)changePwdAction:(id)sender {
-    [self.navigationController popViewControllerAnimated:YES];
+    
+    if (![TDUtil validatePassword:[_tfInputOld text]]) {
+        ALERT_MSG(nil, @"输入为空或格式不正确");
+        return;
+    }
+    
+    if (![TDUtil validatePassword:[_tfInputNew text]]) {
+        ALERT_MSG(nil, @"输入为空或格式不正确");
+        return;
+    }
+    
+    if (![TDUtil validatePassword:[_tfInputNewAgain text]]) {
+        ALERT_MSG(nil, @"输入为空或格式不正确");
+        return;
+    }
+    
+    if (![_tfInputNew.text isEqualToString:_tfInputNewAgain.text]) {
+        ALERT_MSG(nil, @"您两次输入的密码不一致");
+        return;
+    }
+    
+    __weak TDChangePwdVC * weakSelf = self;
+    MBProgressHUD * HUD = [[MBProgressHUD alloc] initWithView:self.view];
+    [self.view addSubview:HUD];
+    [HUD show:YES];
+    
+    [TDHttpService ResetUPwd:SharedToken uLogpassword:_tfInputOld.text newuLogpassword:_tfInputNew.text completionBlock:^(id responseObject) {
+        [HUD hide:YES];
+        if ([[responseObject objectForKey:@"State"] integerValue] == 0) {
+            [weakSelf.navigationController popViewControllerAnimated:YES];
+        } else {
+            ALERT_MSG(nil, @"原始密码错误！");
+        }
+    }];
 }
 
 @end
