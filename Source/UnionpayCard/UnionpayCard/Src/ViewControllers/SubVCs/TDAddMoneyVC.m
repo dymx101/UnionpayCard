@@ -82,6 +82,7 @@
     _tv.showsVerticalScrollIndicator = NO;
     [self.view addSubview:_tv];
     
+    
     _segmentControl = [[UISegmentedControl alloc] initWithItems:@[@"充值记录", @"消费记录"]];
     _segmentControl.selectedSegmentIndex = 0;
     _segmentControl.tintColor = [FDColor sharedInstance].white;
@@ -148,6 +149,8 @@
 
 -(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
     
+    return nil;
+    
     if (header == nil) {
         header = [UIView new];
         header.backgroundColor = [UIColor blackColor];
@@ -209,7 +212,7 @@
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
-    return 50;
+    return 0;
 }
 
 #pragma mark -
