@@ -95,7 +95,7 @@
     _tfUserName.font = [TDFontLibrary sharedInstance].fontNormal;
     _tfUserName.clearButtonMode = UITextFieldViewModeWhileEditing;
     [_loginInputView addSubview:_tfUserName];
-    _tfUserName.text = @"songwei";
+    _tfUserName.text = @"13397186156";
     
     _tfPwd = [UITextField new];
     _tfPwd.placeholder = @"密码";
@@ -103,7 +103,7 @@
     _tfPwd.clearButtonMode = UITextFieldViewModeWhileEditing;
     _tfPwd.secureTextEntry = YES;
     [_loginInputView addSubview:_tfPwd];
-    _tfPwd.text = @"sw198285";
+    _tfPwd.text = @"123456";
     
     _btnLogin = [UIButton new];
     [_btnLogin setBackgroundImage:[TDImageLibrary sharedInstance].btnBgGreen forState:UIControlStateNormal];

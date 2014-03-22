@@ -45,6 +45,7 @@ _alert.transform=CGAffineTransformMakeTranslation(0,80); \
 #import <FLKAutoLayout/UIView+FLKAutoLayout.h>
 #import <SVPullToRefresh/SVPullToRefresh.h>
 #import <SDWebImage/UIImageView+WebCache.h>
+#import <PPiFlatSegmentedControl/PPiFlatSegmentedControl.h>
 
 #import "FDDefine.h"                // defines
 #import "NSObject+BeeNotification.h"

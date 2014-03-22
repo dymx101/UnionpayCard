@@ -197,7 +197,7 @@
     // search bar
     _searchBar = [UISearchBar new];
     _searchBar.tintColor = [FDColor sharedInstance].caribbeanGreen;
-    _searchBar.showsCancelButton = YES;
+    _searchBar.showsCancelButton = NO;
     _searchBar.delegate = self;
     if([TDUtil isIOS7]) {
         _searchBar.searchBarStyle = UISearchBarStyleMinimal;

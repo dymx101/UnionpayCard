@@ -21,6 +21,8 @@
     
     BOOL            _showAddMoneyRecord;
     UIView          *header;
+    
+    UISegmentedControl     *_segmentControl;
 }
 
 @property (nonatomic, strong) Userinfor * userinfor;
@@ -79,10 +81,26 @@
     _tv.separatorStyle = UITableViewCellSeparatorStyleNone;
     _tv.showsVerticalScrollIndicator = NO;
     [self.view addSubview:_tv];
+    
+    _segmentControl = [[UISegmentedControl alloc] initWithItems:@[@"充值记录", @"消费记录"]];
+    _segmentControl.selectedSegmentIndex = 0;
+    _segmentControl.tintColor = [FDColor sharedInstance].white;
+    [_segmentControl addTarget:self action:@selector(segChanged:) forControlEvents:UIControlEventValueChanged];
+    self.navigationItem.titleView = _segmentControl;
 }
 
 -(void)layoutViews {
     [_tv alignToView:self.view];
+}
+
+#pragma mark - segment control
+-(void)segChanged:(UISegmentedControl *)aControl {
+    NSUInteger selectedIndex = aControl.selectedSegmentIndex;
+    if (selectedIndex == 0) {
+        [self addMoneyRecordAction:nil];
+    } else {
+        [self useMoneyRecordAction:nil];
+    }
 }
 
 #pragma mark -
