@@ -24,6 +24,11 @@
     UISegmentedControl     *_segmentSearch;
     
     UISearchBar             *_searchBar;
+    
+    UILabel                 *_lblStartTime;
+    UIButton                *_btnStartTime;
+    UIDatePicker            *_pickerStartTime;
+    NSDate                  *_startDate;
 }
 
 @property (nonatomic, strong) Userinfor * userinfor;
@@ -89,10 +94,30 @@
     _segmentPageSwitch.tintColor = [FDColor sharedInstance].white;
     [_segmentPageSwitch addTarget:self action:@selector(segPageChanged:) forControlEvents:UIControlEventValueChanged];
     self.navigationItem.titleView = _segmentPageSwitch;
+    
+    _pickerStartTime = [UIDatePicker new];
+    _pickerStartTime.datePickerMode = UIDatePickerModeDate;
+    [_pickerStartTime addTarget:self action:@selector(startTimePicked:) forControlEvents:UIControlEventValueChanged];
+    _pickerStartTime.locale = [[NSLocale alloc] initWithLocaleIdentifier:@"zh_CN"];
+    [self.view addSubview:_pickerStartTime];
 }
 
 -(void)layoutViews {
     [_tv alignToView:self.view];
+    
+    [_pickerStartTime constrainHeight:@"100"];
+    [_pickerStartTime alignBottomEdgeWithView:self.view predicate:@"0"];
+    [_pickerStartTime alignLeading:@"0" trailing:@"0" toView:self.view];
+}
+
+#pragma mark - date picker
+-(void)startTimePicked:(UIDatePicker *)aPicker {
+    _startDate = aPicker.date;
+    DLog(@"start time: %@", _startDate);
+    NSDateFormatter *formatter = [NSDateFormatter new];
+    [formatter setDateFormat:@"yyyy年MM月dd日"];
+    NSString *dateStr = [formatter stringFromDate:_startDate];
+    [_btnStartTime setTitle:dateStr forState:UIControlStateNormal];
 }
 
 #pragma mark - segment control
@@ -181,6 +206,25 @@
         [bgView addSubview:_searchBar];
         [_searchBar alignCenterYWithView:_segmentSearch predicate:nil];
         [_searchBar alignLeading:@"100" trailing:@"-20" toView:bgView];
+        
+        //
+        _lblStartTime = [UILabel new];
+        _lblStartTime.font = [TDFontLibrary sharedInstance].fontNormal;
+        _lblStartTime.text = @"开始时间: ";
+        [bgView addSubview:_lblStartTime];
+        [_lblStartTime alignLeadingEdgeWithView:_segmentSearch predicate:nil];
+        [_lblStartTime constrainTopSpaceToView:_segmentSearch predicate:@"10"];
+        
+        _btnStartTime = [UIButton new];
+        _btnStartTime.titleLabel.font = [TDFontLibrary sharedInstance].fontNormal;
+        [_btnStartTime setTitle:@"2014年1月" forState:UIControlStateNormal];
+        [_btnStartTime setTitleColor:[FDColor sharedInstance].themeBlue forState:UIControlStateNormal];
+        [bgView addSubview:_btnStartTime];
+        [_btnStartTime alignCenterYWithView:_lblStartTime predicate:nil];
+        [_btnStartTime constrainLeadingSpaceToView:_lblStartTime predicate:@"5"];
+        
+        //
+        
     }
     
     return header;
