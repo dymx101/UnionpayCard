@@ -56,7 +56,7 @@
     [self.view addSubview:_lblCodeTip];
     
     _ivBgInput = [UIImageView new];
-    _ivBgInput.image = [TDImageLibrary sharedInstance].blank;
+    _ivBgInput.image = [TDImageLibrary sharedInstance].boxBGInput;
     [self.view addSubview:_ivBgInput];
     
     _tfInput = [UITextField new];

@@ -31,4 +31,6 @@ AS_SINGLETON(TDImageLibrary)
 @property (nonatomic, strong) UIImage *boxChecked;
 @property (nonatomic, strong) UIImage *boxUnchecked;
 
+@property (nonatomic, strong) UIImage *boxBGInput;
+
 @end

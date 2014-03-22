@@ -36,7 +36,7 @@
 
 -(void)createViews {
     _ivBgInputOld = [UIImageView new];
-    _ivBgInputOld.image = [TDImageLibrary sharedInstance].blank;
+    _ivBgInputOld.image = [TDImageLibrary sharedInstance].boxBGInput;
     [self.view addSubview:_ivBgInputOld];
     
     _tfInputOld = [UITextField new];
@@ -49,7 +49,7 @@
     
     //
     _ivBgInputNew = [UIImageView new];
-    _ivBgInputNew.image = [TDImageLibrary sharedInstance].blank;
+    _ivBgInputNew.image = [TDImageLibrary sharedInstance].boxBGInput;
     [self.view addSubview:_ivBgInputNew];
     
     _tfInputNew = [UITextField new];
@@ -62,7 +62,7 @@
     
     //
     _ivBgInputNewAgain = [UIImageView new];
-    _ivBgInputNewAgain.image = [TDImageLibrary sharedInstance].blank;
+    _ivBgInputNewAgain.image = [TDImageLibrary sharedInstance].boxBGInput;
     [self.view addSubview:_ivBgInputNewAgain];
     
     _tfInputNewAgain = [UITextField new];

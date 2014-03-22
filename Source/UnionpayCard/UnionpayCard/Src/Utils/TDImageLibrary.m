@@ -41,6 +41,8 @@ DEF_SINGLETON(TDImageLibrary)
     
     _boxChecked = [UIImage imageNamed:@"icon_orderReview_checked"];
     _boxUnchecked = [UIImage imageNamed:@"icon_orderReview_unchecked"];
+    
+    _boxBGInput  = [[UIImage imageNamed:@"ump_bg_input_default"] resizableImageWithCapInsets:UIEdgeInsetsMake(5, 5, 5, 5)];
 }
 
 @end
