@@ -14,15 +14,16 @@
 #import "PreRecords.h"
 #import "TDLoginVC.h"
 
-@interface TDAddMoneyVC () <UITableViewDelegate, UITableViewDataSource> {
+@interface TDAddMoneyVC () <UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate> {
     UITableView     *_tv;
-    UIButton        *_btnAddMoneyRec;
-    UIButton        *_btnUseMoneyRec;
     
     BOOL            _showAddMoneyRecord;
     UIView          *header;
     
-    UISegmentedControl     *_segmentControl;
+    UISegmentedControl     *_segmentPageSwitch;
+    UISegmentedControl     *_segmentSearch;
+    
+    UISearchBar             *_searchBar;
 }
 
 @property (nonatomic, strong) Userinfor * userinfor;
@@ -83,11 +84,11 @@
     [self.view addSubview:_tv];
     
     
-    _segmentControl = [[UISegmentedControl alloc] initWithItems:@[@"充值记录", @"消费记录"]];
-    _segmentControl.selectedSegmentIndex = 0;
-    _segmentControl.tintColor = [FDColor sharedInstance].white;
-    [_segmentControl addTarget:self action:@selector(segChanged:) forControlEvents:UIControlEventValueChanged];
-    self.navigationItem.titleView = _segmentControl;
+    _segmentPageSwitch = [[UISegmentedControl alloc] initWithItems:@[@"充值记录", @"消费记录"]];
+    _segmentPageSwitch.selectedSegmentIndex = 0;
+    _segmentPageSwitch.tintColor = [FDColor sharedInstance].white;
+    [_segmentPageSwitch addTarget:self action:@selector(segPageChanged:) forControlEvents:UIControlEventValueChanged];
+    self.navigationItem.titleView = _segmentPageSwitch;
 }
 
 -(void)layoutViews {
@@ -95,13 +96,17 @@
 }
 
 #pragma mark - segment control
--(void)segChanged:(UISegmentedControl *)aControl {
+-(void)segPageChanged:(UISegmentedControl *)aControl {
     NSUInteger selectedIndex = aControl.selectedSegmentIndex;
     if (selectedIndex == 0) {
         [self addMoneyRecordAction:nil];
     } else {
         [self useMoneyRecordAction:nil];
     }
+}
+
+-(void)segSearchChanged:(UISegmentedControl *)aControl {
+    
 }
 
 #pragma mark -
@@ -149,8 +154,6 @@
 
 -(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
     
-    return nil;
-    
     if (header == nil) {
         header = [UIView new];
         header.backgroundColor = [UIColor blackColor];
@@ -162,74 +165,47 @@
         [bgView alignToView:header];
         
         //
-        _btnAddMoneyRec = [UIButton new];
-        [_btnAddMoneyRec setTitle:@"充值记录" forState:UIControlStateNormal];
-        [_btnAddMoneyRec setTitleColor:[FDColor sharedInstance].themeBlue forState:UIControlStateHighlighted];
-        [_btnAddMoneyRec setTitleColor:[FDColor sharedInstance].gray forState:UIControlStateNormal];
-        [_btnAddMoneyRec setTitleColor:[FDColor sharedInstance].black forState:UIControlStateSelected];
-        _btnAddMoneyRec.titleLabel.font = [TDFontLibrary sharedInstance].fontTitleBold;
-        
-        //UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(addMoneyRecordAction:)];
-        //[_btnAddMoneyRec addGestureRecognizer:tap];
-        [_btnAddMoneyRec addTarget:self action:@selector(addMoneyRecordAction:) forControlEvents:UIControlEventTouchUpInside];
-        
-        [bgView addSubview:_btnAddMoneyRec];
-        [_btnAddMoneyRec alignLeadingEdgeWithView:bgView predicate:@"0"];
-        [_btnAddMoneyRec constrainHeightToView:bgView predicate:nil];
-        [_btnAddMoneyRec alignCenterYWithView:bgView predicate:nil];
-        [_btnAddMoneyRec constrainWidthToView:bgView predicate:@"*.5"];
-        _btnAddMoneyRec.selected = _showAddMoneyRecord;
+        _segmentSearch = [[UISegmentedControl alloc] initWithItems:@[@"名称", @"卡号"]];
+        _segmentSearch.selectedSegmentIndex = 0;
+        //_segmentSearch.tintColor = [FDColor sharedInstance].themeBlue;
+        [_segmentSearch addTarget:self action:@selector(segSearchChanged:) forControlEvents:UIControlEventValueChanged];
+        [bgView addSubview:_segmentSearch];
+        [_segmentSearch alignTop:@"5" leading:@"10" toView:bgView];
         
         //
-        UIView *_vertDevideLine = [UIView new];
-        _vertDevideLine.backgroundColor = [FDColor sharedInstance].silverDark;
-        [bgView addSubview:_vertDevideLine];
-        [_vertDevideLine constrainWidth:@"1"];
-        [_vertDevideLine alignCenterXWithView:bgView predicate:nil];
-        [_vertDevideLine alignTop:@"10" bottom:@"-10" toView:bgView];
-        
-        //
-        _btnUseMoneyRec = [UIButton new];
-        [_btnUseMoneyRec setTitle:@"消费记录" forState:UIControlStateNormal];
-        [_btnUseMoneyRec setTitleColor:[FDColor sharedInstance].themeBlue forState:UIControlStateHighlighted];
-        _btnUseMoneyRec.titleLabel.font = [TDFontLibrary sharedInstance].fontTitleBold;
-        
-        // crash bug  is not this responds To
-        //tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(useMoneyRecordAction:)];
-        //[_btnUseMoneyRec addGestureRecognizer:tap];
-        [_btnUseMoneyRec addTarget:self action:@selector(useMoneyRecordAction:) forControlEvents:UIControlEventTouchUpInside];
-        
-        [_btnUseMoneyRec setTitleColor:[FDColor sharedInstance].gray forState:UIControlStateNormal];
-        [_btnUseMoneyRec setTitleColor:[FDColor sharedInstance].black forState:UIControlStateSelected];
-        [bgView addSubview:_btnUseMoneyRec];
-        [_btnUseMoneyRec alignTrailingEdgeWithView:bgView predicate:@"0"];
-        [_btnUseMoneyRec constrainHeightToView:bgView predicate:nil];
-        [_btnUseMoneyRec alignCenterYWithView:bgView predicate:nil];
-        [_btnUseMoneyRec constrainWidthToView:bgView predicate:@"*.5"];
+        _searchBar = [UISearchBar new];
+        _searchBar.delegate = self;
+        if([TDUtil isIOS7]) {
+            _searchBar.searchBarStyle = UISearchBarStyleMinimal;
+        }
+        [bgView addSubview:_searchBar];
+        [_searchBar alignCenterYWithView:_segmentSearch predicate:nil];
+        [_searchBar alignLeading:@"100" trailing:@"-20" toView:bgView];
     }
     
     return header;
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
-    return 0;
+    return 80;
 }
 
 #pragma mark -
 -(void)addMoneyRecordAction:(id)sender {
     _showAddMoneyRecord = YES;
-    _btnAddMoneyRec.selected = _showAddMoneyRecord;
-    _btnUseMoneyRec.selected = !_showAddMoneyRecord;
     
     [_tv reloadData];
 }
 
 -(void)useMoneyRecordAction:(id)sender {
     _showAddMoneyRecord = NO;
-    _btnAddMoneyRec.selected = _showAddMoneyRecord;
-    _btnUseMoneyRec.selected = !_showAddMoneyRecord;
     
     [_tv reloadData];
+}
+
+#pragma mark - search bar delegate
+- (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar {
+    
 }
 
 @end
