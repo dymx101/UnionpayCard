@@ -22,6 +22,7 @@
     
     UISegmentedControl     *_segmentPageSwitch;
     UISegmentedControl     *_segmentSearch;
+    BOOL                    _isSearchByName;
     
     UISearchBar             *_searchBar;
     
@@ -41,6 +42,10 @@
     UIButton                *_btnPickerCancel;
     
     NSLayoutConstraint      *_constraintPickerSpaceFromBottom;
+    
+    UILabel                 *_lblRechargeType;
+    UIButton                *_btnRechargeByPos;
+    UIButton                *_btnRechargeOnline;
 }
 
 @property (nonatomic, strong) Userinfor * userinfor;
@@ -169,7 +174,7 @@
 }
 
 -(void)segSearchChanged:(UISegmentedControl *)aControl {
-    
+    _isSearchByName = (aControl.selectedSegmentIndex == 0);
 }
 
 #pragma mark -
@@ -230,6 +235,7 @@
         //
         _segmentSearch = [[UISegmentedControl alloc] initWithItems:@[@"名称", @"卡号"]];
         _segmentSearch.selectedSegmentIndex = 0;
+        _isSearchByName = YES;
         //_segmentSearch.tintColor = [FDColor sharedInstance].themeBlue;
         [_segmentSearch addTarget:self action:@selector(segSearchChanged:) forControlEvents:UIControlEventValueChanged];
         [bgView addSubview:_segmentSearch];
@@ -264,15 +270,60 @@
         [_btnStartTime alignCenterYWithView:_lblStartTime predicate:nil];
         [_btnStartTime constrainLeadingSpaceToView:_lblStartTime predicate:@"5"];
         
-        //
         
+        //
+        _lblEndTime = [UIButton new];
+        _lblEndTime.titleLabel.font = [TDFontLibrary sharedInstance].fontNormal;
+        [_lblEndTime setTitleColor:[FDColor sharedInstance].black forState:UIControlStateNormal];
+        [_lblEndTime setTitle:@"结束时间: " forState:UIControlStateNormal];
+        [_lblEndTime addTarget:self action:@selector(pickEndTime:) forControlEvents:UIControlEventTouchUpInside];
+        [bgView addSubview:_lblEndTime];
+        [_lblEndTime constrainTopSpaceToView:_lblStartTime predicate:@"3"];
+        [_lblEndTime alignLeadingEdgeWithView:_lblStartTime predicate:nil];
+        
+        _btnEndTime = [UIButton new];
+        _btnEndTime.titleLabel.font = [TDFontLibrary sharedInstance].fontNormal;
+        [_btnEndTime setTitle:@"" forState:UIControlStateNormal];
+        [_btnEndTime setTitleColor:[FDColor sharedInstance].themeBlue forState:UIControlStateNormal];
+        [_btnEndTime addTarget:self action:@selector(pickEndTime:) forControlEvents:UIControlEventTouchUpInside];
+        [bgView addSubview:_btnEndTime];
+        [_btnEndTime alignCenterYWithView:_lblEndTime predicate:nil];
+        [_btnEndTime constrainLeadingSpaceToView:_lblEndTime predicate:@"5"];
+        
+        //
+        _lblRechargeType = [UILabel new];
+        _lblRechargeType.font = [TDFontLibrary sharedInstance].fontNormal;
+        _lblRechargeType.text = @"充值方式:";
+        [bgView addSubview:_lblRechargeType];
+        [_lblRechargeType constrainTopSpaceToView:_lblEndTime predicate:@"8"];
+        [_lblRechargeType alignLeadingEdgeWithView:_lblEndTime predicate:nil];
+        
+        _btnRechargeByPos = [TDUtil checkBoxWithTitle:@"POS充值" target:self action:@selector(rechargeTypeChanged:)];
+        _btnRechargeByPos.selected = YES;
+        [bgView addSubview:_btnRechargeByPos];
+        [_btnRechargeByPos alignCenterYWithView:_lblRechargeType predicate:nil];
+        [_btnRechargeByPos constrainLeadingSpaceToView:_lblRechargeType predicate:@"20"];
+        [_btnRechargeByPos constrainWidth:@"100"];
+        
+        _btnRechargeOnline = [TDUtil checkBoxWithTitle:@"在线充值" target:self action:@selector(rechargeTypeChanged:)];
+        [bgView addSubview:_btnRechargeOnline];
+        _btnRechargeOnline.tag = 1;
+        [_btnRechargeOnline alignCenterYWithView:_btnRechargeByPos predicate:nil];
+        [_btnRechargeOnline constrainLeadingSpaceToView:_btnRechargeByPos predicate:@"5"];
+        [_btnRechargeOnline constrainWidth:@"100"];
     }
     
     return header;
 }
 
+-(void)rechargeTypeChanged:(UIView *)sender {
+    BOOL rechargeOnline = sender.tag;
+    _btnRechargeByPos.selected = !rechargeOnline;
+    _btnRechargeOnline.selected = rechargeOnline;
+}
+
 -(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
-    return 80;
+    return 140;
 }
 
 #pragma mark - action
@@ -290,6 +341,15 @@
 
 -(void)pickStartTime:(id)sender {
     _isPickingStartTime = YES;
+    
+    _constraintPickerSpaceFromBottom.constant = 0;
+    [UIView animateWithDuration:.3f animations:^{
+        [self.view layoutIfNeeded];
+    }];
+}
+
+-(void)pickEndTime:(id)sender {
+    _isPickingStartTime = NO;
     
     _constraintPickerSpaceFromBottom.constant = 0;
     [UIView animateWithDuration:.3f animations:^{
