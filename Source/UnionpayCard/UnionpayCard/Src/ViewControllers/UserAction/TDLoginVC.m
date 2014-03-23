@@ -95,7 +95,7 @@
     _tfUserName.font = [TDFontLibrary sharedInstance].fontNormal;
     _tfUserName.clearButtonMode = UITextFieldViewModeWhileEditing;
     [_loginInputView addSubview:_tfUserName];
-    _tfUserName.text = @"13397186156";
+    _tfUserName.text = @"18607190699";
     
     _tfPwd = [UITextField new];
     _tfPwd.placeholder = @"密码";
