@@ -25,10 +25,22 @@
     
     UISearchBar             *_searchBar;
     
-    UILabel                 *_lblStartTime;
+    UIButton                *_lblStartTime;
     UIButton                *_btnStartTime;
-    UIDatePicker            *_pickerStartTime;
     NSDate                  *_startDate;
+    
+    UIButton                *_lblEndTime;
+    UIButton                *_btnEndTime;
+    NSDate                  *_endDate;
+    
+    BOOL                    _isPickingStartTime;
+    
+    UIView                  *_pickerHolder;
+    UIDatePicker            *_pickerTime;
+    UIButton                *_btnPickerOK;
+    UIButton                *_btnPickerCancel;
+    
+    NSLayoutConstraint      *_constraintPickerSpaceFromBottom;
 }
 
 @property (nonatomic, strong) Userinfor * userinfor;
@@ -95,29 +107,55 @@
     [_segmentPageSwitch addTarget:self action:@selector(segPageChanged:) forControlEvents:UIControlEventValueChanged];
     self.navigationItem.titleView = _segmentPageSwitch;
     
-    _pickerStartTime = [UIDatePicker new];
-    _pickerStartTime.datePickerMode = UIDatePickerModeDate;
-    [_pickerStartTime addTarget:self action:@selector(startTimePicked:) forControlEvents:UIControlEventValueChanged];
-    _pickerStartTime.locale = [[NSLocale alloc] initWithLocaleIdentifier:@"zh_CN"];
-    [self.view addSubview:_pickerStartTime];
+    _pickerHolder = [UIView new];
+    _pickerHolder.backgroundColor = [FDColor sharedInstance].silver;
+    [self.view addSubview:_pickerHolder];
+    
+    _btnPickerOK = [UIButton new];
+    [_btnPickerOK setTitle:@"确定" forState:UIControlStateNormal];
+    _btnPickerOK.titleLabel.font = [TDFontLibrary sharedInstance].fontNormal;
+    [_btnPickerOK addTarget:self action:@selector(pickOKAction:) forControlEvents:UIControlEventTouchUpInside];
+    [_btnPickerOK setTitleColor:[FDColor sharedInstance].themeBlue forState:UIControlStateNormal];
+    [_pickerHolder addSubview:_btnPickerOK];
+    
+    _btnPickerCancel = [UIButton new];
+    [_btnPickerCancel setTitle:@"取消" forState:UIControlStateNormal];
+    [_btnPickerCancel addTarget:self action:@selector(pickCancelAction:) forControlEvents:UIControlEventTouchUpInside];
+    _btnPickerCancel.titleLabel.font = [TDFontLibrary sharedInstance].fontNormal;
+    [_btnPickerCancel setTitleColor:[FDColor sharedInstance].themeBlue forState:UIControlStateNormal];
+    [_pickerHolder addSubview:_btnPickerCancel];
+    
+    _pickerTime = [UIDatePicker new];
+    _pickerTime.datePickerMode = UIDatePickerModeDate;
+    [_pickerTime addTarget:self action:@selector(timePickChanged:) forControlEvents:UIControlEventValueChanged];
+    _pickerTime.locale = [[NSLocale alloc] initWithLocaleIdentifier:@"zh_CN"];
+    [_pickerHolder addSubview:_pickerTime];
 }
 
+#define PICKER_HEIGHT       (140)
 -(void)layoutViews {
     [_tv alignToView:self.view];
     
-    [_pickerStartTime constrainHeight:@"100"];
-    [_pickerStartTime alignBottomEdgeWithView:self.view predicate:@"0"];
-    [_pickerStartTime alignLeading:@"0" trailing:@"0" toView:self.view];
+
+    [_pickerHolder constrainHeight:@(PICKER_HEIGHT).stringValue];
+    _constraintPickerSpaceFromBottom = [_pickerHolder alignBottomEdgeWithView:self.view predicate:@(PICKER_HEIGHT).stringValue].firstObject;
+    [_pickerHolder alignLeading:@"0" trailing:@"0" toView:self.view];
+    
+    
+    [_btnPickerOK alignTrailingEdgeWithView:_pickerHolder predicate:@"-10"];
+    [_btnPickerOK alignTopEdgeWithView:_pickerHolder predicate:@"5"];
+    
+    [_btnPickerCancel alignLeadingEdgeWithView:_pickerHolder predicate:@"10"];
+    [_btnPickerCancel alignTopEdgeWithView:_pickerHolder predicate:@"5"];
+    
+    [_pickerTime constrainHeight:@"100"];
+    [_pickerTime alignBottomEdgeWithView:_pickerHolder predicate:@"0"];
+    [_pickerTime alignLeading:@"0" trailing:@"0" toView:_pickerHolder];
 }
 
 #pragma mark - date picker
--(void)startTimePicked:(UIDatePicker *)aPicker {
-    _startDate = aPicker.date;
-    DLog(@"start time: %@", _startDate);
-    NSDateFormatter *formatter = [NSDateFormatter new];
-    [formatter setDateFormat:@"yyyy年MM月dd日"];
-    NSString *dateStr = [formatter stringFromDate:_startDate];
-    [_btnStartTime setTitle:dateStr forState:UIControlStateNormal];
+-(void)timePickChanged:(UIDatePicker *)aPicker {
+    
 }
 
 #pragma mark - segment control
@@ -208,17 +246,20 @@
         [_searchBar alignLeading:@"100" trailing:@"-20" toView:bgView];
         
         //
-        _lblStartTime = [UILabel new];
-        _lblStartTime.font = [TDFontLibrary sharedInstance].fontNormal;
-        _lblStartTime.text = @"开始时间: ";
+        _lblStartTime = [UIButton new];
+        _lblStartTime.titleLabel.font = [TDFontLibrary sharedInstance].fontNormal;
+        [_lblStartTime setTitleColor:[FDColor sharedInstance].black forState:UIControlStateNormal];
+        [_lblStartTime setTitle:@"开始时间: " forState:UIControlStateNormal];
+        [_lblStartTime addTarget:self action:@selector(pickStartTime:) forControlEvents:UIControlEventTouchUpInside];
         [bgView addSubview:_lblStartTime];
         [_lblStartTime alignLeadingEdgeWithView:_segmentSearch predicate:nil];
         [_lblStartTime constrainTopSpaceToView:_segmentSearch predicate:@"10"];
         
         _btnStartTime = [UIButton new];
         _btnStartTime.titleLabel.font = [TDFontLibrary sharedInstance].fontNormal;
-        [_btnStartTime setTitle:@"2014年1月" forState:UIControlStateNormal];
+        [_btnStartTime setTitle:@"" forState:UIControlStateNormal];
         [_btnStartTime setTitleColor:[FDColor sharedInstance].themeBlue forState:UIControlStateNormal];
+        [_btnStartTime addTarget:self action:@selector(pickStartTime:) forControlEvents:UIControlEventTouchUpInside];
         [bgView addSubview:_btnStartTime];
         [_btnStartTime alignCenterYWithView:_lblStartTime predicate:nil];
         [_btnStartTime constrainLeadingSpaceToView:_lblStartTime predicate:@"5"];
@@ -234,7 +275,7 @@
     return 80;
 }
 
-#pragma mark -
+#pragma mark - action
 -(void)addMoneyRecordAction:(id)sender {
     _showAddMoneyRecord = YES;
     
@@ -245,6 +286,49 @@
     _showAddMoneyRecord = NO;
     
     [_tv reloadData];
+}
+
+-(void)pickStartTime:(id)sender {
+    _isPickingStartTime = YES;
+    
+    _constraintPickerSpaceFromBottom.constant = 0;
+    [UIView animateWithDuration:.3f animations:^{
+        [self.view layoutIfNeeded];
+    }];
+}
+
+-(void)pickOKAction:(id)sender {
+    
+    if (_isPickingStartTime) {
+        _startDate = _pickerTime.date;
+    } else {
+        _endDate = _pickerTime.date;
+    }
+    
+    [self updateTimeTexts];
+    
+    _constraintPickerSpaceFromBottom.constant = PICKER_HEIGHT;
+    [UIView animateWithDuration:.3f animations:^{
+        [self.view layoutIfNeeded];
+    }];
+}
+
+-(void)updateTimeTexts {
+    
+    NSDateFormatter *formatter = [NSDateFormatter new];
+    [formatter setDateFormat:@"yyyy年MM月dd日"];
+    NSString *dateStr = [formatter stringFromDate:_startDate];
+    [_btnStartTime setTitle:dateStr forState:UIControlStateNormal];
+    
+    dateStr = [formatter stringFromDate:_endDate];
+    [_btnEndTime setTitle:dateStr forState:UIControlStateNormal];
+}
+
+-(void)pickCancelAction:(id)sender {
+    _constraintPickerSpaceFromBottom.constant = PICKER_HEIGHT;
+    [UIView animateWithDuration:.3f animations:^{
+        [self.view layoutIfNeeded];
+    }];
 }
 
 #pragma mark - search bar delegate
