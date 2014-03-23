@@ -127,12 +127,9 @@
     
     __weak TDCardListVC *weakSelf = self;
     [_mainTv addPullToRefreshWithActionHandler:^{
-        //
-//        [MBProgressHUD showHUDAddedTo:weakSelf.view animated:YES];
         double delayInSeconds = 2.0;
         dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delayInSeconds * NSEC_PER_SEC));
         dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
-//            [MBProgressHUD hideHUDForView:weakSelf.view animated:YES];
             [weakSelf sendRequest];
             [weakSelf.mainTv.pullToRefreshView stopAnimating];
         });
@@ -317,13 +314,10 @@
                     if (![self.userinfor.u_pre_num isKindOfClass:[NSNull class]] && [[self.userinfor.u_pre_num stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]] isEqualToString:[[utocard u_card] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]]]) {
                         _constraintHeaderHeight.constant = 110;
                         [UIView animateWithDuration:.3f animations:^{
-                            //>1
+                            
                             [_ivActiveCard setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@active/upload/shop/%@",BASEURL,utocard.b_cordimg]] placeholderImage:nil];
-                            //>2
                             _lblActiveCardTitle.text = utocard.b_jname;
-                            //>3
                             _lblActiveCardNumber.text = [NSString stringWithFormat:@"[卡号] %@",utocard.u_card];
-                            //>4
                             _lblActiveCardBalanceValue.text = [NSString stringWithFormat:@"%@",utocard.card_balance];
                             [self mainHeader].alpha = 1;
                             [self.view layoutIfNeeded];
@@ -420,20 +414,17 @@
         
         [TDHttpService updateUserinfor:_selectedCard.u_card uPrefix:_selectedCard.b_prefilx userToken:SharedToken completionBlock:^(id responseObject) {
             if ([[responseObject objectForKey:@"State"] integerValue] == 0) {
-                
+                SharedAppUser.u_pre_num = _selectedCard.u_card;
+                SharedAppUser.u_prefix = _selectedCard.b_prefilx;
                 UIView *header = [self mainHeader];
                 
                 _constraintHeaderHeight.constant = 110;
                 [header viewWithTag:2014].alpha = .7f;
                 
                 [UIView animateWithDuration:.2f animations:^{
-                    //>1
                     [_ivActiveCard setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@active/upload/shop/%@", BASEURL,_selectedCard.b_cordimg]] placeholderImage:nil];
-                    //>2
                     _lblActiveCardTitle.text = _selectedCard.b_jname;
-                    //>3
                     _lblActiveCardNumber.text = [NSString stringWithFormat:@"[卡号] %@",_selectedCard.u_card];
-                    //>4
                     _lblActiveCardBalanceValue.text = [NSString stringWithFormat:@"%@",_selectedCard.card_balance];
                     header.alpha = 1;
                     [header viewWithTag:2014].alpha = 0;
@@ -555,6 +546,8 @@
 
     [TDHttpService updateUserinfor:@"0" uPrefix:@"0" userToken:SharedToken completionBlock:^(id responseObject) {
         if ([[responseObject objectForKey:@"State"] integerValue] == 0) {
+            SharedAppUser.u_pre_num = @"0";
+            SharedAppUser.u_prefix = @"0";
             _selectedCard = nil;
             _constraintHeaderHeight.constant = 0;
             [UIView animateWithDuration:.3f animations:^{
