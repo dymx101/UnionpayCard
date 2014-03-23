@@ -19,6 +19,7 @@
     
     BOOL            _showAddMoneyRecord;
     UIView          *header;
+    BOOL            _isShowingSearchPanel;
     
     UISegmentedControl     *_segmentPageSwitch;
     UISegmentedControl     *_segmentSearch;
@@ -46,6 +47,10 @@
     UILabel                 *_lblRechargeType;
     UIButton                *_btnRechargeByPos;
     UIButton                *_btnRechargeOnline;
+    
+    UILabel                 *_lblBalanceStatus;
+    UIButton                *_btnBalanceNormal;
+    UIButton                *_btnBalanceFrozen;
 }
 
 @property (nonatomic, strong) Userinfor * userinfor;
@@ -63,6 +68,8 @@
     self.navigationItem.title = @"消费充值记录";
     
     _showAddMoneyRecord = YES;
+    
+    [self installSearchToNavibar];
     
     [self createViews];
     [self layoutViews];
@@ -311,6 +318,29 @@
         [_btnRechargeOnline alignCenterYWithView:_btnRechargeByPos predicate:nil];
         [_btnRechargeOnline constrainLeadingSpaceToView:_btnRechargeByPos predicate:@"5"];
         [_btnRechargeOnline constrainWidth:@"100"];
+        
+        
+        //
+        _lblBalanceStatus = [UILabel new];
+        _lblBalanceStatus.font = [TDFontLibrary sharedInstance].fontNormal;
+        _lblBalanceStatus.text = @"结算状态:";
+        [bgView addSubview:_lblBalanceStatus];
+        [_lblBalanceStatus constrainTopSpaceToView:_lblRechargeType predicate:@"8"];
+        [_lblBalanceStatus alignLeadingEdgeWithView:_lblRechargeType predicate:nil];
+        
+        _btnBalanceNormal = [TDUtil checkBoxWithTitle:@"正常" target:self action:@selector(balanceStatusChanged:)];
+        _btnBalanceNormal.selected = YES;
+        [bgView addSubview:_btnBalanceNormal];
+        [_btnBalanceNormal alignCenterYWithView:_lblBalanceStatus predicate:nil];
+        [_btnBalanceNormal constrainLeadingSpaceToView:_lblBalanceStatus predicate:@"20"];
+        [_btnBalanceNormal constrainWidth:@"100"];
+        
+        _btnBalanceFrozen = [TDUtil checkBoxWithTitle:@"冻结" target:self action:@selector(balanceStatusChanged:)];
+        [bgView addSubview:_btnBalanceFrozen];
+        _btnBalanceFrozen.tag = 1;
+        [_btnBalanceFrozen alignCenterYWithView:_btnBalanceNormal predicate:nil];
+        [_btnBalanceFrozen constrainLeadingSpaceToView:_btnBalanceNormal predicate:@"5"];
+        [_btnBalanceFrozen constrainWidth:@"100"];
     }
     
     return header;
@@ -322,8 +352,14 @@
     _btnRechargeOnline.selected = rechargeOnline;
 }
 
+-(void)balanceStatusChanged:(UIView *)sender {
+    BOOL balanceFrozen = sender.tag;
+    _btnBalanceNormal.selected = !balanceFrozen;
+    _btnBalanceFrozen.selected = balanceFrozen;
+}
+
 -(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
-    return 140;
+    return _isShowingSearchPanel ? 160 : 0;
 }
 
 #pragma mark - action
@@ -391,9 +427,20 @@
     }];
 }
 
+-(void)searchAction:(id)sender {
+    _isShowingSearchPanel = YES;
+    [_tv reloadData];
+}
+
 #pragma mark - search bar delegate
 - (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar {
     
+}
+
+#pragma mark - scroll view
+-(void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate {
+    _isShowingSearchPanel = NO;
+    [_tv reloadData];
 }
 
 @end
