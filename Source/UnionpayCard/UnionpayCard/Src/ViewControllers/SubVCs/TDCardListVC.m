@@ -20,12 +20,21 @@
 
 //#warning 重置按钮
 //#warning 下拉刷新
-#warning 定时刷新active card数据
+//#warning 定时刷新active card数据
 
 @interface TDCardListVC () <UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate> {
-    UIView              *_topBarShadowView;
-    UIView              *_topBarView;
+    UIView                          *_topBarShadowView;
+    UIView                          *_topBarView;
+    NSLayoutConstraint              *_constraintTopBarHeight;
+    
     UIView              *_topBarViewSearch;
+    
+    UISegmentedControl      *_segmentSearch;
+    BOOL                    _isSearchByName;
+    UISearchBar             *_searchBar;
+    UILabel                 *_lblCardStatus;
+    UIButton                *_btnCardStatusNormal;
+    UIButton                *_btnCardStatusFrozen;
     
     TDCateogryButton    *_btnCategory;
     UIView              *_vertDevideLine;
@@ -35,9 +44,7 @@
     UITableView         *_cateTv;
     NSLayoutConstraint  *_constraintCateTvHeight;
     float               _cateTvHeight;
-    int                 _cateTVSelectedIndex;
-    
-    UISearchBar         *_searchBar;
+    NSInteger           _cateTVSelectedIndex;
     
     UITableView         *_mainTv;
     UIView              *_header;
@@ -161,6 +168,46 @@
     [self.view addSubview:_topBarViewSearch];
     _topBarViewSearch.hidden = YES;
     
+    _segmentSearch = [[UISegmentedControl alloc] initWithItems:@[@"名称", @"卡号"]];
+    _segmentSearch.selectedSegmentIndex = 0;
+    _isSearchByName = YES;
+    //_segmentSearch.tintColor = [FDColor sharedInstance].themeBlue;
+    [_segmentSearch addTarget:self action:@selector(segSearchChanged:) forControlEvents:UIControlEventValueChanged];
+    [_topBarViewSearch addSubview:_segmentSearch];
+    [_segmentSearch alignTop:@"5" leading:@"10" toView:_topBarViewSearch];
+    
+    _searchBar = [UISearchBar new];
+    _searchBar.delegate = self;
+    if([TDUtil isIOS7]) {
+        _searchBar.searchBarStyle = UISearchBarStyleMinimal;
+    }
+    [_topBarViewSearch addSubview:_searchBar];
+    [_searchBar alignCenterYWithView:_segmentSearch predicate:nil];
+    [_searchBar alignLeading:@"100" trailing:@"-20" toView:_topBarViewSearch];
+    
+    //
+    //
+    _lblCardStatus = [UILabel new];
+    _lblCardStatus.font = [TDFontLibrary sharedInstance].fontNormal;
+    _lblCardStatus.text = @"卡片状态:";
+    [_topBarViewSearch addSubview:_lblCardStatus];
+    [_lblCardStatus constrainTopSpaceToView:_segmentSearch predicate:@"15"];
+    [_lblCardStatus alignLeadingEdgeWithView:_segmentSearch predicate:nil];
+    
+    _btnCardStatusNormal = [TDUtil checkBoxWithTitle:@"正常" target:self action:@selector(rechargeTypeChanged:)];
+    _btnCardStatusNormal.selected = YES;
+    [_topBarViewSearch addSubview:_btnCardStatusNormal];
+    [_btnCardStatusNormal alignCenterYWithView:_lblCardStatus predicate:nil];
+    [_btnCardStatusNormal constrainLeadingSpaceToView:_lblCardStatus predicate:@"20"];
+    [_btnCardStatusNormal constrainWidth:@"100"];
+    
+    _btnCardStatusFrozen = [TDUtil checkBoxWithTitle:@"冻结" target:self action:@selector(rechargeTypeChanged:)];
+    [_topBarViewSearch addSubview:_btnCardStatusFrozen];
+    _btnCardStatusFrozen.tag = 1;
+    [_btnCardStatusFrozen alignCenterYWithView:_btnCardStatusNormal predicate:nil];
+    [_btnCardStatusFrozen constrainLeadingSpaceToView:_btnCardStatusNormal predicate:@"5"];
+    [_btnCardStatusFrozen constrainWidth:@"100"];
+    
     //
     _btnCategory = [TDCateogryButton new];
     _btnCategory.backgroundColor = [FDColor sharedInstance].silver;
@@ -194,24 +241,19 @@
     _cateTv.separatorStyle = UITableViewCellSeparatorStyleNone;
     [_viewMask addSubview:_cateTv];
     
-    // search bar
-    _searchBar = [UISearchBar new];
-    _searchBar.tintColor = [FDColor sharedInstance].caribbeanGreen;
-    _searchBar.showsCancelButton = NO;
-    _searchBar.delegate = self;
-    if([TDUtil isIOS7]) {
-        _searchBar.searchBarStyle = UISearchBarStyleMinimal;
-    }
-    [_topBarViewSearch addSubview:_searchBar];
+    // search view
     
     
     _viewMask.alpha = 0;
 }
 
+#define TOP_BAR_HEIGHT          (40)
+#define TOP_BAR_HEIGHT_SEARCH   (80)
+
 -(void)layoutViews {
     
     [_topBarShadowView constrainWidthToView:self.view predicate:nil];
-    [_topBarShadowView constrainHeight:@"40"];
+    _constraintTopBarHeight = [_topBarShadowView constrainHeight:@(TOP_BAR_HEIGHT).stringValue].firstObject;
     [_topBarShadowView alignTopEdgeWithView:self.view predicate:nil];
     [_topBarShadowView alignCenterXWithView:self.view predicate:nil];
     
@@ -248,8 +290,6 @@
     [_cateTv alignTop:@"40" leading:@"1" toView:_viewMask];
     [_cateTv constrainWidth:@"150"];
     _constraintCateTvHeight = [_cateTv constrainHeight:@(_cateTvHeight).stringValue].firstObject;
-    
-    [_searchBar alignToView:_topBarViewSearch];
 }
 
 - (void) sendRequest {
@@ -298,7 +338,7 @@
     }
 }
 
-#pragma mark -
+#pragma mark - actions
 -(void)categoryTapAction:(id)sender {
     [UIView animateWithDuration:.2f animations:^{
         _viewMask.alpha =  (_viewMask.alpha ? 0 : 1) ;
@@ -312,8 +352,12 @@
     }];
 }
 
+-(void)segSearchChanged:(UISegmentedControl *)aControl {
+    _isSearchByName = (aControl.selectedSegmentIndex == 0);
+}
+
 #pragma mark - table view
--(int)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     if (tableView == _cateTv) {
         return [TDCategoryResource alltypes].count;
     } else {
@@ -352,7 +396,7 @@
     return nil;
 }
 
--(float)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     if (tableView == _cateTv) {
         return [TDCategoryCell HEIGHT];
     } else if (tableView == _mainTv) {
@@ -490,14 +534,21 @@
 }
 
 #pragma mark - search bar
--(void)searchBarCancelButtonClicked:(UISearchBar *)searchBar {
-    searchBar.text = nil;
-    [searchBar resignFirstResponder];
-    _topBarViewSearch.hidden = YES;
-}
 
 -(void)searchAction:(id)sender {
-    _topBarViewSearch.hidden = NO;
+    _topBarViewSearch.hidden = !_topBarViewSearch.hidden;
+    [_searchBar resignFirstResponder];
+    
+    _constraintTopBarHeight.constant = (_topBarViewSearch.hidden) ? TOP_BAR_HEIGHT : TOP_BAR_HEIGHT_SEARCH;
+    [UIView animateWithDuration:.3f animations:^{
+        [self.view layoutIfNeeded];
+    }];
+}
+
+-(void)rechargeTypeChanged:(UIView *)sender {
+    BOOL rechargeOnline = sender.tag;
+    _btnCardStatusNormal.selected = !rechargeOnline;
+    _btnCardStatusFrozen.selected = rechargeOnline;
 }
 
 -(void)resetAction:(id)sender {
