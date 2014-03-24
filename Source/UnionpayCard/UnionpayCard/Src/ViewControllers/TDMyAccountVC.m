@@ -43,6 +43,9 @@
     UIView      *_line2;
     
     UILabel     *_lblCurrentCardNumber;
+    
+    UIButton    *_loginOutBTn;
+    
 }
 
 @end
@@ -178,6 +181,13 @@
     _lblCurrentCardNumber.textColor = [FDColor sharedInstance].themeBlue;
     _lblCurrentCardNumber.text = @"当前卡号:  00123456789X";
     [_containerView addSubview:_lblCurrentCardNumber];
+    
+    _loginOutBTn = [UIButton new];
+    [_loginOutBTn setBackgroundImage:[TDImageLibrary sharedInstance].btnBgGreen forState:UIControlStateNormal];
+    [_loginOutBTn setTitle:@"退出登录" forState:UIControlStateNormal];
+    _loginOutBTn.titleLabel.font = [TDFontLibrary sharedInstance].fontTitleBold;
+    [_loginOutBTn addTarget:self action:@selector(loginOutAction:) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:_loginOutBTn];
 }
 
 -(void)setupViews {
@@ -261,10 +271,33 @@
     //// section 3
     [_lblCurrentCardNumber constrainTopSpaceToView:_line2 predicate:@"20"];
     [_lblCurrentCardNumber alignLeadingEdgeWithView:_lblStatusReportLoss predicate:nil];
+    
+    [_loginOutBTn constrainWidthToView:_lblCurrentCardNumber predicate:nil];
+    [_loginOutBTn alignCenterXWithView:self.view predicate:nil];
+    [_loginOutBTn constrainTopSpaceToView:_lblCurrentCardNumber predicate:@"15"];
 }
 
 #pragma mark - actions
 -(void)dummyAction:(id)sender {
+    
+}
+
+-(void)loginOutAction:(id)sender {
+    __weak TDMyAccountVC * weakSelf = self;
+    MBProgressHUD * HUD = [[MBProgressHUD alloc] initWithView:self.view];
+    [self.view addSubview:HUD];
+    [HUD show:YES];
+    
+    [TDHttpService exitTOKEN:SharedToken completionBlock:^(id responseObject) {
+        
+        if ([[responseObject objectForKey:@"State"] integerValue] == 0) {
+            SharedAppUser = nil;
+            [self postNotification:OTS_NOTE_LOGIN_OK];
+            [weakSelf.navigationController popViewControllerAnimated:YES];
+        } else {
+            ALERT_MSG(nil, @"退出失败 !");
+        }
+    }];
     
 }
 

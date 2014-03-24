@@ -268,6 +268,10 @@
         _lblUserName.text = [__mUser u_name];
         _lblBalance.text = [NSString stringWithFormat:@"账户余额: ￥%0.0f",[__mUser.u_rec_money doubleValue]];
     } else {
+        BOOL loginOK = NO;
+        _viewLoggedIn.hidden = !loginOK;
+        _viewNotLoggedIn.hidden = loginOK;
+        
         TDLoginVC *vc = [TDLoginVC new];
         vc.delegate = self;
         UINavigationController *nc = [[UINavigationController alloc] initWithRootViewController:vc];

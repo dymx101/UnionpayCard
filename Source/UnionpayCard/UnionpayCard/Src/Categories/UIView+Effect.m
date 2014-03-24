@@ -29,10 +29,10 @@
 
 -(void)applyEffectRoundRectShadow
 {
-    self.layer.cornerRadius = 8;
+    self.layer.cornerRadius = 2;
     self.layer.shadowColor = [FDColor sharedInstance].darkGray.CGColor;
     self.layer.shadowOffset = CGSizeMake(2, 2);
-    self.layer.shadowRadius = 4;
+    self.layer.shadowRadius = 1;
     self.layer.shadowOpacity = .1f;
     self.layer.masksToBounds = NO;
 }
