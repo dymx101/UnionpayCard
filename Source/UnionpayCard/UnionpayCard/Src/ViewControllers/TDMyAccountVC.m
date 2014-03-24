@@ -8,6 +8,7 @@
 
 #import "TDMyAccountVC.h"
 #import "UIView+Effect.h"
+#import "Userinfor.h"
 
 @interface TDMyAccountVC () {
 
@@ -66,12 +67,12 @@
 -(void)initViews {
     _containerView = [UIView new];
     _containerView.backgroundColor = [FDColor sharedInstance].white;
-    [_containerView applyEffectRoundRectShadow];
+    [_containerView applyEffectDarkGrayBorder];
     [self.view addSubview:_containerView];
     
     _lblUserName = [UILabel new];
     _lblUserName.font = [TDFontLibrary sharedInstance].fontNormalBold;
-    _lblUserName.text = @"霍比特人";
+    _lblUserName.text = SharedAppUser.u_realname;
     [_containerView addSubview:_lblUserName];
     
     _ivVip = [UIImageView new];
@@ -85,31 +86,32 @@
     _lblBalance = [UILabel new];
     _lblBalance.font = [TDFontLibrary sharedInstance].fontNormal;
     _lblBalance.textColor = [FDColor sharedInstance].gray;
-    _lblBalance.text = @"积分: 3690";
+    _lblBalance.text = [NSString stringWithFormat:@"积分: %@",SharedAppUser.u_integral];
+    
     [_containerView addSubview:_lblBalance];
     
     _lblConsumeTimes = [UILabel new];
     _lblConsumeTimes.font = [TDFontLibrary sharedInstance].fontNormal;
     _lblConsumeTimes.textColor = [FDColor sharedInstance].gray;
-    _lblConsumeTimes.text = @"消费次数: 15";
+    _lblConsumeTimes.text = [NSString stringWithFormat:@"消费次数: %@",SharedAppUser.u_tran_num];
     [_containerView addSubview:_lblConsumeTimes];
     
     _lblConsumeTotal = [UILabel new];
     _lblConsumeTotal.font = [TDFontLibrary sharedInstance].fontNormal;
     _lblConsumeTotal.textColor = [FDColor sharedInstance].gray;
-    _lblConsumeTotal.text = @"消费金额: ￥3690.00";
+    _lblConsumeTotal.text = [NSString stringWithFormat:@"消费金额: ￥%@",SharedAppUser.u_tran_money];
     [_containerView addSubview:_lblConsumeTotal];
     
     _lblRechargeTimes = [UILabel new];
     _lblRechargeTimes.font = [TDFontLibrary sharedInstance].fontNormal;
     _lblRechargeTimes.textColor = [FDColor sharedInstance].gray;
-    _lblRechargeTimes.text = @"充值次数: 5";
+    _lblRechargeTimes.text = [NSString stringWithFormat:@"充值次数: %@",SharedAppUser.u_rec_num];
     [_containerView addSubview:_lblRechargeTimes];
     
     _lblRechargeTotal = [UILabel new];
     _lblRechargeTotal.font = [TDFontLibrary sharedInstance].fontNormal;
     _lblRechargeTotal.textColor = [FDColor sharedInstance].gray;
-    _lblRechargeTotal.text = @"充值金额: 4000";
+    _lblRechargeTotal.text = [NSString stringWithFormat:@"充值金额: ￥%@",SharedAppUser.u_rec_money];
     [_containerView addSubview:_lblRechargeTotal];
     
     _line1 = [UIView new];
@@ -136,36 +138,37 @@
     _lblStatusReportLoss.text = @"挂失状态:";
     [_containerView addSubview:_lblStatusReportLoss];
     
+    
     //
     _btnStatusLoginNomal = [TDUtil checkBoxWithTitle:@"正常" target:self action:@selector(dummyAction:)];
-    _btnStatusLoginNomal.selected = YES;
+    _btnStatusLoginNomal.selected = ![SharedAppUser.u_log_state intValue];
     _btnStatusLoginNomal.userInteractionEnabled = NO;
     [_containerView addSubview:_btnStatusLoginNomal];
     
     _btnStatusLoginLocked = [TDUtil checkBoxWithTitle:@"锁定" target:self action:@selector(dummyAction:)];
-    _btnStatusLoginLocked.selected = NO;
+    _btnStatusLoginLocked.selected = [SharedAppUser.u_log_state intValue];
     _btnStatusLoginLocked.userInteractionEnabled = NO;
     [_containerView addSubview:_btnStatusLoginLocked];
     
     //
     _btnStatusTradeNomal = [TDUtil checkBoxWithTitle:@"正常" target:self action:@selector(dummyAction:)];
-    _btnStatusTradeNomal.selected = YES;
+    _btnStatusTradeNomal.selected = ![SharedAppUser.u_tran_state intValue];
     _btnStatusTradeNomal.userInteractionEnabled = NO;
     [_containerView addSubview:_btnStatusTradeNomal];
     
     _btnStatusTradeLocked = [TDUtil checkBoxWithTitle:@"锁定" target:self action:@selector(dummyAction:)];
-    _btnStatusTradeLocked.selected = NO;
+    _btnStatusTradeLocked.selected = [SharedAppUser.u_tran_state intValue];
     _btnStatusTradeLocked.userInteractionEnabled = NO;
     [_containerView addSubview:_btnStatusTradeLocked];
     
     //
     _btnStatusLossNomal = [TDUtil checkBoxWithTitle:@"正常" target:self action:@selector(dummyAction:)];
-    _btnStatusLossNomal.selected = NO;
+    _btnStatusLossNomal.selected = ![SharedAppUser.u_loss_state intValue];
     _btnStatusLossNomal.userInteractionEnabled = NO;
     [_containerView addSubview:_btnStatusLossNomal];
     
     _btnStatusLossLocked = [TDUtil checkBoxWithTitle:@"锁定" target:self action:@selector(dummyAction:)];
-    _btnStatusLossLocked.selected = YES;
+    _btnStatusLossLocked.selected = [SharedAppUser.u_loss_state intValue];
     _btnStatusLossLocked.userInteractionEnabled = NO;
     [_containerView addSubview:_btnStatusLossLocked];
     
@@ -179,7 +182,7 @@
     _lblCurrentCardNumber = [UILabel new];
     _lblCurrentCardNumber.font = [TDFontLibrary sharedInstance].fontNormal;
     _lblCurrentCardNumber.textColor = [FDColor sharedInstance].themeBlue;
-    _lblCurrentCardNumber.text = @"当前卡号:  00123456789X";
+    _lblCurrentCardNumber.text = [NSString stringWithFormat:@"当前使用卡号: %@",SharedAppUser.u_pre_num];
     [_containerView addSubview:_lblCurrentCardNumber];
     
     _loginOutBTn = [UIButton new];

@@ -15,6 +15,7 @@
 #import "TDChangePwdVC.h"
 #import "TDChangeTradePwdVC.h"
 #import "TDReportLossVC.h"
+#import "TDAddMoneyVC.h"
 
 @interface TDProfileVC () <UITableViewDelegate, UITableViewDataSource,TDLoginVCDelegate> {
     UITableView             *_tv;
@@ -106,7 +107,15 @@
     NSInteger row = indexPath.row;
     
     if (section == 0) {
-        
+        if (SharedAppUser) {
+            TDAddMoneyVC *vc = [TDAddMoneyVC new];
+            [self.navigationController pushViewController:vc animated:YES];
+        } else {
+            /** gotologin */
+            TDLoginVC *vc = [TDLoginVC new];
+            UINavigationController *nc = [[UINavigationController alloc] initWithRootViewController:vc];
+            [self presentViewController:nc animated:YES completion:nil];
+        }
     } else if (section == 1) {
         if (row == 0) {
             if (SharedAppUser) {
@@ -266,7 +275,7 @@
         _viewLoggedIn.hidden = !loginOK;
          _viewNotLoggedIn.hidden = loginOK;
         _lblUserName.text = [__mUser u_name];
-        _lblBalance.text = [NSString stringWithFormat:@"账户余额: ￥%0.0f",[__mUser.u_rec_money doubleValue]];
+        _lblBalance.text = [NSString stringWithFormat:@"账户余额: ￥%0.0f",[__mUser.u_rec_money doubleValue]-[__mUser.u_tran_money doubleValue] > 0 ? [__mUser.u_rec_money doubleValue]-[__mUser.u_tran_money doubleValue] : 0.0];
     } else {
         BOOL loginOK = NO;
         _viewLoggedIn.hidden = !loginOK;

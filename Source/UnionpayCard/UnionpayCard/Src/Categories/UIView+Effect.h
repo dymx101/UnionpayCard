@@ -15,5 +15,6 @@
 -(void)applyEffectRoundRectShadow;
 -(void)applyEffectShadowAndBorder;
 -(void)applyEffectShadow;
+-(void)applyEffectDarkGrayBorder;
 
 @end
