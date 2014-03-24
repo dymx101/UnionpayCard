@@ -14,6 +14,8 @@
 #import "PreRecords.h"
 #import "TDLoginVC.h"
 
+#define kDummyString    @" "
+
 @interface TDAddMoneyVC () <UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate> {
     UITableView     *_tv;
     
@@ -251,6 +253,7 @@
         //
         _searchBar = [UISearchBar new];
         _searchBar.delegate = self;
+        _searchBar.text = kDummyString;
         if([TDUtil isIOS7]) {
             _searchBar.searchBarStyle = UISearchBarStyleMinimal;
         }
@@ -266,16 +269,19 @@
         [_lblStartTime addTarget:self action:@selector(pickStartTime:) forControlEvents:UIControlEventTouchUpInside];
         [bgView addSubview:_lblStartTime];
         [_lblStartTime alignLeadingEdgeWithView:_segmentSearch predicate:nil];
-        [_lblStartTime constrainTopSpaceToView:_segmentSearch predicate:@"10"];
+        [_lblStartTime constrainTopSpaceToView:_segmentSearch predicate:@"15"];
         
         _btnStartTime = [UIButton new];
         _btnStartTime.titleLabel.font = [TDFontLibrary sharedInstance].fontNormal;
         [_btnStartTime setTitle:@"" forState:UIControlStateNormal];
         [_btnStartTime setTitleColor:[FDColor sharedInstance].themeBlue forState:UIControlStateNormal];
         [_btnStartTime addTarget:self action:@selector(pickStartTime:) forControlEvents:UIControlEventTouchUpInside];
+        _btnStartTime.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
+        _btnStartTime.titleEdgeInsets = UIEdgeInsetsMake(0, 5, 0, 0);
         [bgView addSubview:_btnStartTime];
         [_btnStartTime alignCenterYWithView:_lblStartTime predicate:nil];
         [_btnStartTime constrainLeadingSpaceToView:_lblStartTime predicate:@"5"];
+        [_btnStartTime constrainWidth:@"200"];
         
         
         //
@@ -285,7 +291,7 @@
         [_lblEndTime setTitle:@"结束时间: " forState:UIControlStateNormal];
         [_lblEndTime addTarget:self action:@selector(pickEndTime:) forControlEvents:UIControlEventTouchUpInside];
         [bgView addSubview:_lblEndTime];
-        [_lblEndTime constrainTopSpaceToView:_lblStartTime predicate:@"3"];
+        [_lblEndTime constrainTopSpaceToView:_lblStartTime predicate:@"10"];
         [_lblEndTime alignLeadingEdgeWithView:_lblStartTime predicate:nil];
         
         _btnEndTime = [UIButton new];
@@ -293,16 +299,19 @@
         [_btnEndTime setTitle:@"" forState:UIControlStateNormal];
         [_btnEndTime setTitleColor:[FDColor sharedInstance].themeBlue forState:UIControlStateNormal];
         [_btnEndTime addTarget:self action:@selector(pickEndTime:) forControlEvents:UIControlEventTouchUpInside];
+        _btnEndTime.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
+        _btnEndTime.titleEdgeInsets = UIEdgeInsetsMake(0, 5, 0, 0);
         [bgView addSubview:_btnEndTime];
         [_btnEndTime alignCenterYWithView:_lblEndTime predicate:nil];
         [_btnEndTime constrainLeadingSpaceToView:_lblEndTime predicate:@"5"];
+        [_btnEndTime constrainWidth:@"200"];
         
         //
         _lblRechargeType = [UILabel new];
         _lblRechargeType.font = [TDFontLibrary sharedInstance].fontNormal;
         _lblRechargeType.text = @"充值方式:";
         [bgView addSubview:_lblRechargeType];
-        [_lblRechargeType constrainTopSpaceToView:_lblEndTime predicate:@"8"];
+        [_lblRechargeType constrainTopSpaceToView:_lblEndTime predicate:@"15"];
         [_lblRechargeType alignLeadingEdgeWithView:_lblEndTime predicate:nil];
         
         _btnRechargeByPos = [TDUtil checkBoxWithTitle:@"POS充值" target:self action:@selector(rechargeTypeChanged:)];
@@ -359,7 +368,7 @@
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
-    return _isShowingSearchPanel ? 160 : 0;
+    return _isShowingSearchPanel ? 180 : 0;
 }
 
 #pragma mark - action
@@ -376,21 +385,36 @@
 }
 
 -(void)pickStartTime:(id)sender {
+    [_searchBar resignFirstResponder];
     _isPickingStartTime = YES;
     
-    _constraintPickerSpaceFromBottom.constant = 0;
-    [UIView animateWithDuration:.3f animations:^{
-        [self.view layoutIfNeeded];
-    }];
+    [self animateUpPicker];
+}
+
+-(void)animateUpPicker {
+    if (_constraintPickerSpaceFromBottom.constant == 0) {
+        _constraintPickerSpaceFromBottom.constant = PICKER_HEIGHT;
+        [UIView animateWithDuration:.3f animations:^{
+            [self.view layoutIfNeeded];
+        } completion:^(BOOL finished) {
+            _constraintPickerSpaceFromBottom.constant = 0;
+            [UIView animateWithDuration:.3f animations:^{
+                [self.view layoutIfNeeded];
+            }];
+        }];
+    } else {
+        _constraintPickerSpaceFromBottom.constant = 0;
+        [UIView animateWithDuration:.3f animations:^{
+            [self.view layoutIfNeeded];
+        }];
+    }
 }
 
 -(void)pickEndTime:(id)sender {
+    [_searchBar resignFirstResponder];
     _isPickingStartTime = NO;
     
-    _constraintPickerSpaceFromBottom.constant = 0;
-    [UIView animateWithDuration:.3f animations:^{
-        [self.view layoutIfNeeded];
-    }];
+    [self animateUpPicker];
 }
 
 -(void)pickOKAction:(id)sender {
@@ -428,19 +452,45 @@
 }
 
 -(void)searchAction:(id)sender {
-    _isShowingSearchPanel = YES;
-    [_tv reloadData];
+    _isShowingSearchPanel = !_isShowingSearchPanel;
+    [_tv reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationAutomatic];
 }
 
 #pragma mark - search bar delegate
-- (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar {
+-(void)searchBarTextDidBeginEditing:(UISearchBar *)searchBar {
+    if (searchBar.text.length < 1) {
+        searchBar.text = kDummyString;
+    }
+}
+
+- (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText
+{
+    if (searchText.length < 1) {
+        searchBar.text = kDummyString;
+    }
+}
+
+- (BOOL)searchBar:(UISearchBar *)searchBar shouldChangeTextInRange:(NSRange)range     replacementText:(NSString *)text
+{
+    BOOL isPreviousTextDummyString = [searchBar.text isEqualToString:kDummyString];
+    BOOL isNewTextDummyString = [text isEqualToString:kDummyString];
+    if (isPreviousTextDummyString && !isNewTextDummyString && text.length > 0) {
+        searchBar.text = @"";
+    }
     
+    return YES;
+}
+
+- (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar {
+    [searchBar resignFirstResponder];
+    DLog(@"keyword: %@", searchBar.text);
 }
 
 #pragma mark - scroll view
 -(void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate {
     _isShowingSearchPanel = NO;
-    [_tv reloadData];
+
+    [_tv reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationAutomatic];
 }
 
 @end

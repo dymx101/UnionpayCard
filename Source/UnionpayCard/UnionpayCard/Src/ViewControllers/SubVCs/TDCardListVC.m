@@ -22,6 +22,8 @@
 //#warning 下拉刷新
 //#warning 定时刷新active card数据
 
+#define kDummyString    @" "
+
 @interface TDCardListVC () <UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate> {
     UIView                          *_topBarShadowView;
     UIView                          *_topBarView;
@@ -175,6 +177,7 @@
     
     _searchBar = [UISearchBar new];
     _searchBar.delegate = self;
+    _searchBar.text = kDummyString;
     if([TDUtil isIOS7]) {
         _searchBar.searchBarStyle = UISearchBarStyleMinimal;
     }
@@ -525,6 +528,34 @@
 }
 
 #pragma mark - search bar
+-(void)searchBarTextDidBeginEditing:(UISearchBar *)searchBar {
+    if (searchBar.text.length < 1) {
+        searchBar.text = kDummyString;
+    }
+}
+
+- (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText
+{
+    if (searchText.length < 1) {
+        searchBar.text = kDummyString;
+    }
+}
+
+- (BOOL)searchBar:(UISearchBar *)searchBar shouldChangeTextInRange:(NSRange)range     replacementText:(NSString *)text
+{
+    BOOL isPreviousTextDummyString = [searchBar.text isEqualToString:kDummyString];
+    BOOL isNewTextDummyString = [text isEqualToString:kDummyString];
+    if (isPreviousTextDummyString && !isNewTextDummyString && text.length > 0) {
+        searchBar.text = @"";
+    }
+    
+    return YES;
+}
+
+-(void)searchBarSearchButtonClicked:(UISearchBar *)searchBar {
+    [searchBar resignFirstResponder];
+    DLog(@"keyword: %@", searchBar.text);
+}
 
 -(void)searchAction:(id)sender {
     _topBarViewSearch.hidden = !_topBarViewSearch.hidden;
