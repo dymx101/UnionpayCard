@@ -148,7 +148,6 @@
         double delayInSeconds = 2.0;
         dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delayInSeconds * NSEC_PER_SEC));
         dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
-            weakSelf.testDataCount = weakSelf.testDataCount + 10;
             [weakSelf sendRequest];
             [weakSelf.mainTv.infiniteScrollingView stopAnimating];
         });
@@ -557,6 +556,9 @@
 
 -(void)searchBarSearchButtonClicked:(UISearchBar *)searchBar {
     [searchBar resignFirstResponder];
+    DLog(@"_isSearchByName %d",_isSearchByName);
+    DLog(@"_btnCardStatusNormal select %d",_btnCardStatusNormal.selected);
+    
     DLog(@"keyword: %@", searchBar.text);
 }
 
