@@ -101,7 +101,9 @@
         [_consumptioninput setValue:SharedToken forKeyPath:@"userToken"];
         
         [TDHttpService ShowConsumption:_consumptioninput completionBlock:^(id responseObject) {
-            [HUD hide:YES];
+            if (responseObject == nil) {
+                [HUD hide:YES];
+            }
             if (responseObject!=nil && [responseObject isKindOfClass:[NSArray class]]) {
                 weakSelf.Consumptions = responseObject;
                 [TDHttpService ShowPreRecords:_recordinput completionBlock:^(id responseObject) {
