@@ -17,6 +17,7 @@
 #import "UtocardVO.h"
 #import "Userinfor.h"
 #import "TDLoginVC.h"
+#import "UtocardInput.h"
 
 //#warning 重置按钮
 //#warning 下拉刷新
@@ -60,6 +61,7 @@
     
     UtocardVO             *_selectedCard;
     Btype               *_TDCategoryResource;
+    UtocardInput        *_utocardinput;
     
 }
 @property (nonatomic, strong)     UITableView         *mainTv;
@@ -82,6 +84,7 @@
     [super viewDidLoad];
     //self.view.backgroundColor = [FDColor sharedInstance].red;
     self.navigationItem.title = @"卡片管理";
+    _utocardinput =  [UtocardInput new];
     [self installSearchToNavibar];
     
     _cateTvHeight = 380;
@@ -304,8 +307,8 @@
         self.u_pre_num = SharedAppUser.u_pre_num;
         self.u_prefix = SharedAppUser.u_prefix;
         self.userinfor = SharedAppUser;
-        
-        [TDHttpService ShowUtocard:SharedToken completionBlock:^(id responseObject) {
+        [_utocardinput setValue:SharedToken forKeyPath:@"userToken"];
+        [TDHttpService ShowUtocard:_utocardinput completionBlock:^(id responseObject) {
             [HUD hide:YES];
             if (responseObject != nil && [responseObject isKindOfClass:[NSArray class]]) {
                 

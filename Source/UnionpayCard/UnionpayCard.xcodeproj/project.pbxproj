@@ -28,6 +28,9 @@
 		4C98AC1518B9246F007FAF12 /* NSObject+JsonToVO.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C98AC1418B9246F007FAF12 /* NSObject+JsonToVO.m */; };
 		4C98AC1B18B92BF4007FAF12 /* TDJsonParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C98AC1A18B92BF4007FAF12 /* TDJsonParser.m */; };
 		4C98AC1E18B9345B007FAF12 /* Post.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C98AC1D18B9345B007FAF12 /* Post.m */; };
+		4CA1AB8B18E1A6D2005F74A5 /* RecordInput.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CA1AB8A18E1A6D2005F74A5 /* RecordInput.m */; };
+		4CA1AB8E18E1A9D5005F74A5 /* ConsumptionInput.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CA1AB8D18E1A9D5005F74A5 /* ConsumptionInput.m */; };
+		4CA1AB9118E1AC10005F74A5 /* UtocardInput.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CA1AB9018E1AC10005F74A5 /* UtocardInput.m */; };
 		4CA68EBD18B5122400D02209 /* TDHttpClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CA68EBC18B5122400D02209 /* TDHttpClient.m */; };
 		4CA68EC018B520EC00D02209 /* TDHttpCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CA68EBF18B520EC00D02209 /* TDHttpCommand.m */; };
 		4CA68F0118B5BCA900D02209 /* TDAPIEngineTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CA68F0018B5BCA900D02209 /* TDAPIEngineTest.m */; };
@@ -937,6 +940,12 @@
 		4C98AC1A18B92BF4007FAF12 /* TDJsonParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TDJsonParser.m; sourceTree = "<group>"; };
 		4C98AC1C18B9345B007FAF12 /* Post.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Post.h; sourceTree = "<group>"; };
 		4C98AC1D18B9345B007FAF12 /* Post.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Post.m; sourceTree = "<group>"; };
+		4CA1AB8918E1A6D2005F74A5 /* RecordInput.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecordInput.h; sourceTree = "<group>"; };
+		4CA1AB8A18E1A6D2005F74A5 /* RecordInput.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecordInput.m; sourceTree = "<group>"; };
+		4CA1AB8C18E1A9D5005F74A5 /* ConsumptionInput.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConsumptionInput.h; sourceTree = "<group>"; };
+		4CA1AB8D18E1A9D5005F74A5 /* ConsumptionInput.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConsumptionInput.m; sourceTree = "<group>"; };
+		4CA1AB8F18E1AC10005F74A5 /* UtocardInput.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UtocardInput.h; sourceTree = "<group>"; };
+		4CA1AB9018E1AC10005F74A5 /* UtocardInput.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UtocardInput.m; sourceTree = "<group>"; };
 		4CA68EBB18B5122400D02209 /* TDHttpClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TDHttpClient.h; sourceTree = "<group>"; };
 		4CA68EBC18B5122400D02209 /* TDHttpClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TDHttpClient.m; sourceTree = "<group>"; };
 		4CA68EBE18B520EC00D02209 /* TDHttpCommand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TDHttpCommand.h; sourceTree = "<group>"; };
@@ -1899,6 +1908,12 @@
 				4C2DF84218D88E9000ED3109 /* RegistInput.m */,
 				4C236B6A18D9879C00DF609E /* BinforInput.h */,
 				4C236B6B18D9879C00DF609E /* BinforInput.m */,
+				4CA1AB8918E1A6D2005F74A5 /* RecordInput.h */,
+				4CA1AB8A18E1A6D2005F74A5 /* RecordInput.m */,
+				4CA1AB8C18E1A9D5005F74A5 /* ConsumptionInput.h */,
+				4CA1AB8D18E1A9D5005F74A5 /* ConsumptionInput.m */,
+				4CA1AB8F18E1AC10005F74A5 /* UtocardInput.h */,
+				4CA1AB9018E1AC10005F74A5 /* UtocardInput.m */,
 			);
 			name = Input;
 			sourceTree = "<group>";
@@ -4000,12 +4015,14 @@
 				EACC146C18B36EE900DD27B0 /* main.m in Sources */,
 				4CB12C7518BBC88A00F23A76 /* IntegChange.m in Sources */,
 				EAD37F9018C34019003188D4 /* TDMyAccountVC.m in Sources */,
+				4CA1AB8B18E1A6D2005F74A5 /* RecordInput.m in Sources */,
 				4C98ABEC18B91E01007FAF12 /* NSDictionary+safe.m in Sources */,
 				4CB12C5D18BBC63D00F23A76 /* Bcrcle.m in Sources */,
 				4CA68F0118B5BCA900D02209 /* TDAPIEngineTest.m in Sources */,
 				4CF30A5318D34A5D002F083E /* TDGlobalValue.m in Sources */,
 				4CB12C9318BBCB0F00F23A76 /* Uvip.m in Sources */,
 				EACBE40A18BF155A00F2E9CF /* TDCreditVC.m in Sources */,
+				4CA1AB8E18E1A9D5005F74A5 /* ConsumptionInput.m in Sources */,
 				4CB12C4C18BBC42A00F23A76 /* Adver.m in Sources */,
 				4CB12C7E18BBC93500F23A76 /* Message.m in Sources */,
 				4CB12C8A18BBCA2600F23A76 /* Userinfor.m in Sources */,
@@ -4055,6 +4072,7 @@
 				4CB12C6F18BBC80600F23A76 /* Card.m in Sources */,
 				4CB12C5218BBC51F00F23A76 /* B2type.m in Sources */,
 				EACD0D2A18B3A166009109CB /* TDHomeVC.m in Sources */,
+				4CA1AB9118E1AC10005F74A5 /* UtocardInput.m in Sources */,
 				EACDA60C18C2AFEE005BDC7E /* TDCardCell.m in Sources */,
 				EACBE40D18BF15A400F2E9CF /* TDConsumeVC.m in Sources */,
 				EAD1249318B5F30200C6C145 /* TDImageLibrary.m in Sources */,

@@ -13,6 +13,8 @@
 #import "Consumption.h"
 #import "PreRecords.h"
 #import "TDLoginVC.h"
+#import "RecordInput.h"
+#import "ConsumptionInput.h"
 
 #define kDummyString    @" "
 
@@ -53,6 +55,9 @@
     UILabel                 *_lblBalanceStatus;
     UIButton                *_btnBalanceNormal;
     UIButton                *_btnBalanceFrozen;
+    
+    RecordInput             *_recordinput;
+    ConsumptionInput        *_consumptioninput;
 }
 
 @property (nonatomic, strong) Userinfor * userinfor;
@@ -68,6 +73,9 @@
 {
     [super viewDidLoad];
     self.navigationItem.title = @"消费充值记录";
+    
+    _recordinput = [RecordInput new];
+    _consumptioninput = [ConsumptionInput new];
     
     _showAddMoneyRecord = YES;
     
@@ -89,12 +97,14 @@
         MBProgressHUD * HUD = [[MBProgressHUD alloc] initWithView:self.view];
         [self.view addSubview:HUD];
         [HUD show:YES];
+        [_recordinput setValue:SharedToken forKeyPath:@"userToken"];
+        [_consumptioninput setValue:SharedToken forKeyPath:@"userToken"];
         
-        [TDHttpService ShowConsumption:SharedToken completionBlock:^(id responseObject) {
+        [TDHttpService ShowConsumption:_consumptioninput completionBlock:^(id responseObject) {
             [HUD hide:YES];
             if (responseObject!=nil && [responseObject isKindOfClass:[NSArray class]]) {
                 weakSelf.Consumptions = responseObject;
-                [TDHttpService ShowPreRecords:SharedToken completionBlock:^(id responseObject) {
+                [TDHttpService ShowPreRecords:_recordinput completionBlock:^(id responseObject) {
                     [HUD hide:YES];
                     if (responseObject != nil && [responseObject isKindOfClass:[NSArray class]]) {
                         weakSelf.PreRecords = responseObject;
@@ -483,6 +493,7 @@
 
 - (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar {
     [searchBar resignFirstResponder];
+    DLog(@">>> %d",_isSearchByName);
     DLog(@"keyword: %@", searchBar.text);
 }
 

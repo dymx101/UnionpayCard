@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@class RegistInput,BinforInput;
+@class RegistInput,BinforInput,RecordInput,ConsumptionInput,UtocardInput;
 @interface TDHttpService : NSObject
 
 /**
@@ -30,7 +30,7 @@
 /**
  *  功能:4.展示用户卡片
  */
-+ (void)ShowUtocard:(NSString *) userToken completionBlock:(TDCompletionBlock)aCompletionBlock;
++ (void)ShowUtocard:(UtocardInput *) utocardinput completionBlock:(TDCompletionBlock)aCompletionBlock;
 
 /**
  *  功能:5.选卡后更新用户信息
@@ -40,12 +40,12 @@
 /**
  *  功能:6.消费记录
  */
-+ (void)ShowConsumption:(NSString * ) userToken completionBlock:(TDCompletionBlock)aCompletionBlock;
++ (void)ShowConsumption:(ConsumptionInput *) consumptioninput completionBlock:(TDCompletionBlock)aCompletionBlock;
 
 /**
  *  功能:7.充值记录
  */
-+ (void)ShowPreRecords:(NSString * ) userToken completionBlock:(TDCompletionBlock)aCompletionBlock;
++ (void)ShowPreRecords:(RecordInput *) recordinput completionBlock:(TDCompletionBlock)aCompletionBlock;
 
 /**
  *  功能:8.查询用户注册手机是否存在

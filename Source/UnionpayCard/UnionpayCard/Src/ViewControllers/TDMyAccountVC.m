@@ -275,9 +275,9 @@
     [_lblCurrentCardNumber constrainTopSpaceToView:_line2 predicate:@"20"];
     [_lblCurrentCardNumber alignLeadingEdgeWithView:_lblStatusReportLoss predicate:nil];
     
-    [_loginOutBTn constrainWidthToView:_lblCurrentCardNumber predicate:nil];
+    [_loginOutBTn constrainWidth:@"260"];
     [_loginOutBTn alignCenterXWithView:self.view predicate:nil];
-    [_loginOutBTn constrainTopSpaceToView:_lblCurrentCardNumber predicate:@"15"];
+    [_loginOutBTn constrainTopSpaceToView:_lblCurrentCardNumber predicate:@"74"];
 }
 
 #pragma mark - actions
