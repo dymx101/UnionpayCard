@@ -569,9 +569,11 @@
     
     if (searchtext != nil) {
         if (_isSearchByName) {
+            _utocardinput.u_card  = @"";
             _utocardinput.b_jname = searchtext;
         } else {
-            _utocardinput.u_card = searchtext;
+            _utocardinput.b_jname = @"";
+            _utocardinput.u_card  = searchtext;
         }
     }
 

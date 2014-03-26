@@ -86,7 +86,7 @@
     [self layoutViews];
     
     [self sendRequest];
-
+    
     if(_pSwitch == 0)
         _showAddMoneyRecord = YES;
     else if(_pSwitch == 1)
@@ -109,6 +109,17 @@
         [TDHttpService ShowConsumption:_consumptioninput completionBlock:^(id responseObject) {
             if (responseObject == nil) {
                 [HUD hide:YES];
+                weakSelf.Consumptions = @[];
+                [TDHttpService ShowPreRecords:_recordinput completionBlock:^(id responseObject) {
+                    [HUD hide:YES];
+                    if (responseObject != nil && [responseObject isKindOfClass:[NSArray class]]) {
+                        weakSelf.PreRecords = responseObject;
+                    }
+                    else {
+                        weakSelf.PreRecords = @[];
+                    }
+                    [self->_tv reloadData];
+                }];
             }
             if (responseObject!=nil && [responseObject isKindOfClass:[NSArray class]]) {
                 weakSelf.Consumptions = responseObject;
@@ -116,10 +127,14 @@
                     [HUD hide:YES];
                     if (responseObject != nil && [responseObject isKindOfClass:[NSArray class]]) {
                         weakSelf.PreRecords = responseObject;
-                        [self->_tv reloadData];
                     }
+                    else {
+                        weakSelf.PreRecords = @[];
+                    }
+                    [self->_tv reloadData];
                 }];
             }
+            
         }];
     }
 }
@@ -168,7 +183,7 @@
 -(void)layoutViews {
     [_tv alignToView:self.view];
     
-
+    
     [_pickerHolder constrainHeight:@(PICKER_HEIGHT).stringValue];
     _constraintPickerSpaceFromBottom = [_pickerHolder alignBottomEdgeWithView:self.view predicate:@(PICKER_HEIGHT).stringValue].firstObject;
     [_pickerHolder alignLeading:@"0" trailing:@"0" toView:self.view];
@@ -377,12 +392,14 @@
     BOOL rechargeOnline = sender.tag;
     _btnRechargeByPos.selected = !rechargeOnline;
     _btnRechargeOnline.selected = rechargeOnline;
+    [self search:nil];
 }
 
 -(void)balanceStatusChanged:(UIView *)sender {
     BOOL balanceFrozen = sender.tag;
     _btnBalanceNormal.selected = !balanceFrozen;
     _btnBalanceFrozen.selected = balanceFrozen;
+    [self search:nil];
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
@@ -445,6 +462,10 @@
     
     [self updateTimeTexts];
     
+    if (_endDate) {
+        [self search:nil];
+    }
+    
     _constraintPickerSpaceFromBottom.constant = PICKER_HEIGHT;
     [UIView animateWithDuration:.3f animations:^{
         [self.view layoutIfNeeded];
@@ -501,14 +522,89 @@
 
 - (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar {
     [searchBar resignFirstResponder];
-    DLog(@">>> %d",_isSearchByName);
-    DLog(@"keyword: %@", searchBar.text);
+    //    DLog(@">>> _isSearchByName %d",_isSearchByName);
+    //    DLog(@">>> _pSwitch %d",_pSwitch);
+    //    DLog(@">>> _btnRechargeByPos %d",_btnRechargeByPos.selected);
+    //    DLog(@">>> _btnBalanceNormal %d",_btnBalanceNormal.selected);
+    //    DLog(@">>> _startDate %@",_startDate);
+    //    DLog(@">>> _endDate %@",_endDate);
+    //    DLog(@"keyword: %@", searchBar.text);
+    
+    [self search:searchBar.text];
+}
+
+
+-(void) search : (NSString *) searchtext {
+    
+    if ( _segmentPageSwitch.selectedSegmentIndex == 0) {  //充值记录
+        
+        if (searchtext != nil) {
+            if (_isSearchByName) {
+                _recordinput.card = @"";
+                _recordinput.b_jname = searchtext;
+            } else {
+                _recordinput.b_jname = @"";
+                _recordinput.card = searchtext;
+            }
+        }
+        
+        if (_btnRechargeByPos.selected) {
+            _recordinput.pre_type_id = @"1";
+        } else {
+            _recordinput.pre_type_id = @"0";
+        }
+        
+        if (_btnBalanceNormal.selected) {
+            _recordinput.acc_state = @"0";
+        } else {
+            _recordinput.acc_state = @"1";
+        }
+        
+        NSDateFormatter *formatter = [NSDateFormatter new];
+        [formatter setDateFormat:@"yyyy-MM-dd"];
+        NSString *_startStr = [formatter stringFromDate:_startDate];
+        NSString *_endStr   = [formatter stringFromDate:_endDate];
+        
+        _recordinput.spre_r_tmd = _startStr;
+        _recordinput.mpre_r_tmd = _endStr;
+    } else {  //消费记录
+        
+        if (_isSearchByName) {
+            _consumptioninput.card = @"";
+            _consumptioninput.b_jname = searchtext;
+        } else {
+            _consumptioninput.b_jname = @"";
+            _consumptioninput.card = searchtext;
+        }
+        
+        //        if (_btnRechargeByPos.selected) {
+        //            _consumptioninput.pre_type_id = @"0";
+        //        } else {
+        //            _consumptioninput.pre_type_id = @"1";
+        //        }
+        
+        if (_btnBalanceNormal.selected) {
+            _consumptioninput.con_state = @"0";
+        } else {
+            _consumptioninput.con_state = @"1";
+        }
+        NSDateFormatter *formatter = [NSDateFormatter new];
+        [formatter setDateFormat:@"yyyy-MM-dd"];
+        NSString *_startStr = [formatter stringFromDate:_startDate];
+        NSString *_endStr   = [formatter stringFromDate:_endDate];
+        
+        _consumptioninput.scon_tmd = _startStr;
+        _consumptioninput.mcon_tmd = _endStr;
+    }
+    
+    
+    [self sendRequest];
 }
 
 #pragma mark - scroll view
 -(void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate {
     _isShowingSearchPanel = NO;
-
+    
     [_tv reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationAutomatic];
 }
 
