@@ -332,6 +332,11 @@
                 if ([self.userinfor.u_pre_num isKindOfClass:[NSNull class]] || [[self.userinfor.u_pre_num stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]] isEqualToString:[NSString stringWithFormat:@"%d",0]]) {
                     [self resetAction:nil];
                 }
+            } else {
+                weakSelf.UtoCards = @[];
+                [weakSelf.mainTv reloadData];
+                [self mainHeader].alpha = 0;
+                [self.view layoutIfNeeded];
             }
         }];
     }
@@ -555,11 +560,28 @@
 }
 
 -(void)searchBarSearchButtonClicked:(UISearchBar *)searchBar {
-    [searchBar resignFirstResponder];
-    DLog(@"_isSearchByName %d",_isSearchByName);
-    DLog(@"_btnCardStatusNormal select %d",_btnCardStatusNormal.selected);
     
-    DLog(@"keyword: %@", searchBar.text);
+    [searchBar resignFirstResponder];
+    [self search:searchBar.text];
+}
+
+-(void) search : (NSString *) searchtext {
+    
+    if (searchtext != nil) {
+        if (_isSearchByName) {
+            _utocardinput.b_jname = searchtext;
+        } else {
+            _utocardinput.u_card = searchtext;
+        }
+    }
+
+    if (_btnCardStatusNormal.selected) {
+        _utocardinput.card_state = @"0";
+    } else {
+        _utocardinput.card_state = @"1";
+    }
+    
+    [self sendRequest];
 }
 
 -(void)searchAction:(id)sender {
@@ -576,6 +598,7 @@
     BOOL rechargeOnline = sender.tag;
     _btnCardStatusNormal.selected = !rechargeOnline;
     _btnCardStatusFrozen.selected = rechargeOnline;
+    [self search:nil];
 }
 
 -(void)resetAction:(id)sender {

@@ -69,6 +69,7 @@
 @implementation TDAddMoneyVC
 
 
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -85,6 +86,11 @@
     [self layoutViews];
     
     [self sendRequest];
+
+    if(_pSwitch == 0)
+        _showAddMoneyRecord = YES;
+    else if(_pSwitch == 1)
+        _showAddMoneyRecord = NO;
     
     [_tv reloadData];
 }
@@ -128,7 +134,7 @@
     
     
     _segmentPageSwitch = [[UISegmentedControl alloc] initWithItems:@[@"充值记录", @"消费记录"]];
-    _segmentPageSwitch.selectedSegmentIndex = 0;
+    _segmentPageSwitch.selectedSegmentIndex = _pSwitch;
     _segmentPageSwitch.tintColor = [FDColor sharedInstance].white;
     [_segmentPageSwitch addTarget:self action:@selector(segPageChanged:) forControlEvents:UIControlEventValueChanged];
     self.navigationItem.titleView = _segmentPageSwitch;

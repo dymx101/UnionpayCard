@@ -106,9 +106,16 @@
     NSInteger section = indexPath.section;
     NSInteger row = indexPath.row;
     
+    TDAddMoneyVC *vc = [TDAddMoneyVC new];
+    
     if (section == 0) {
+        if (row == 0) {
+            vc.pSwitch = 0;
+        } else {
+            vc.pSwitch = 1;
+        }
+        
         if (SharedAppUser) {
-            TDAddMoneyVC *vc = [TDAddMoneyVC new];
             [self.navigationController pushViewController:vc animated:YES];
         } else {
             /** gotologin */

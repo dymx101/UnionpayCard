@@ -10,4 +10,5 @@
 
 @interface TDAddMoneyVC : TDBaseVC
 
+@property (nonatomic) int pSwitch;
 @end
