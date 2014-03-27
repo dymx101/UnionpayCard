@@ -145,10 +145,10 @@ typedef enum {
         return;
     }
     
-    if (![TDUtil validateIDCardNumber:[(UITextField *)[_dataSource[3] objectForKey:KEY_TEXTFIELD] text]]) {
-        ALERT_MSG(nil, @"身份证格式不正确");
-        return;
-    }
+//    if (![TDUtil validateIDCardNumber:[(UITextField *)[_dataSource[3] objectForKey:KEY_TEXTFIELD] text]]) {
+//        ALERT_MSG(nil, @"身份证格式不正确");
+//        return;
+//    }
     
     __block RegistInput * input = [RegistInput new];
     [input setU_log_password:[(UITextField *)[_dataSource[0] objectForKey:KEY_TEXTFIELD] text]];

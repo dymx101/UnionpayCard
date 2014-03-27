@@ -379,8 +379,6 @@
 		EACC188E18B36F9100DD27B0 /* cinema_line.png in Resources */ = {isa = PBXBuildFile; fileRef = EACC159A18B36F8700DD27B0 /* cinema_line.png */; };
 		EACC188F18B36F9100DD27B0 /* cinema_line@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EACC159B18B36F8700DD27B0 /* cinema_line@2x.png */; };
 		EACC189018B36F9100DD27B0 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EACC159C18B36F8700DD27B0 /* Default-568h@2x.png */; };
-		EACC189118B36F9100DD27B0 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = EACC159D18B36F8700DD27B0 /* Default.png */; };
-		EACC189218B36F9100DD27B0 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EACC159E18B36F8700DD27B0 /* Default@2x.png */; };
 		EACC189318B36F9100DD27B0 /* film@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EACC159F18B36F8700DD27B0 /* film@2x.png */; };
 		EACC189418B36F9100DD27B0 /* ic_canchoose.png in Resources */ = {isa = PBXBuildFile; fileRef = EACC15A018B36F8700DD27B0 /* ic_canchoose.png */; };
 		EACC189518B36F9100DD27B0 /* ic_canchoose_large.png in Resources */ = {isa = PBXBuildFile; fileRef = EACC15A118B36F8700DD27B0 /* ic_canchoose_large.png */; };
@@ -1358,8 +1356,6 @@
 		EACC159A18B36F8700DD27B0 /* cinema_line.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cinema_line.png; sourceTree = "<group>"; };
 		EACC159B18B36F8700DD27B0 /* cinema_line@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cinema_line@2x.png"; sourceTree = "<group>"; };
 		EACC159C18B36F8700DD27B0 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
-		EACC159D18B36F8700DD27B0 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
-		EACC159E18B36F8700DD27B0 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		EACC159F18B36F8700DD27B0 /* film@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "film@2x.png"; sourceTree = "<group>"; };
 		EACC15A018B36F8700DD27B0 /* ic_canchoose.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_canchoose.png; sourceTree = "<group>"; };
 		EACC15A118B36F8700DD27B0 /* ic_canchoose_large.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_canchoose_large.png; sourceTree = "<group>"; };
@@ -2499,8 +2495,6 @@
 				EACC159A18B36F8700DD27B0 /* cinema_line.png */,
 				EACC159B18B36F8700DD27B0 /* cinema_line@2x.png */,
 				EACC159C18B36F8700DD27B0 /* Default-568h@2x.png */,
-				EACC159D18B36F8700DD27B0 /* Default.png */,
-				EACC159E18B36F8700DD27B0 /* Default@2x.png */,
 				EACC159F18B36F8700DD27B0 /* film@2x.png */,
 				EACC15A018B36F8700DD27B0 /* ic_canchoose.png */,
 				EACC15A118B36F8700DD27B0 /* ic_canchoose_large.png */,
@@ -3784,7 +3778,6 @@
 				EACC186E18B36F9100DD27B0 /* btn_orange_highlighted.png in Resources */,
 				EACC196218B36F9100DD27B0 /* icon_merchant_route@2x.png in Resources */,
 				EACC188B18B36F9100DD27B0 /* cell_single_selected_highlighted@2x.png in Resources */,
-				EACC189118B36F9100DD27B0 /* Default.png in Resources */,
 				EACC17E818B36F9100DD27B0 /* bg_orderList_deletionView@2x.png in Resources */,
 				EACC1A7318B36F9200DD27B0 /* ump_check_on.png in Resources */,
 				EACC18BD18B36F9100DD27B0 /* icon_cate_normal_4.png in Resources */,
@@ -3938,7 +3931,6 @@
 				EACC19AE18B36F9100DD27B0 /* icon_order_review_separatorLine.png in Resources */,
 				EACC19A418B36F9100DD27B0 /* icon_myCoupon_movie.png in Resources */,
 				EACC18F518B36F9100DD27B0 /* icon_deal_timer@2x.png in Resources */,
-				EACC189218B36F9100DD27B0 /* Default@2x.png in Resources */,
 				EACC17EE18B36F9100DD27B0 /* bg_orderReview_nodeImage.png in Resources */,
 				EA098BD218B9B1E40034E0CF /* tableCellRoundBg@2x.png in Resources */,
 				EACC1A1718B36F9200DD27B0 /* input_textField_selected@2x.png in Resources */,
@@ -4202,14 +4194,14 @@
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD)";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Yiming Dong (Z45HDA65GT)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Yiming Dong (Z45HDA65GT)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Luosheng Peng (75BAGEK59M)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Luosheng Peng (75BAGEK59M)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "UnionpayCard/UnionpayCard-Prefix.pch";
 				INFOPLIST_FILE = "UnionpayCard/UnionpayCard-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "BC726CE8-66C7-4CCE-9178-1C4DF995BF76";
+				PROVISIONING_PROFILE = "D6714302-EF37-4075-BA88-4CA556C77841";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -4220,13 +4212,13 @@
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD)";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: YI MING DONG (K2QJU8A9HC)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Luosheng Peng (75BAGEK59M)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "UnionpayCard/UnionpayCard-Prefix.pch";
 				INFOPLIST_FILE = "UnionpayCard/UnionpayCard-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "A469AC76-D19B-44E5-99EA-A0EB727BB809";
+				PROVISIONING_PROFILE = "D6714302-EF37-4075-BA88-4CA556C77841";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
