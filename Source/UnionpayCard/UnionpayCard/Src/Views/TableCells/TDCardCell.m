@@ -18,6 +18,7 @@
     UILabel             *_lblCardNumber;
     UILabel             *_lblBalanceTitle;
     UILabel             *_lblBalanceValue;
+    UILabel             *_lbl;
 }
 
 @end
@@ -80,6 +81,12 @@
     _lblBalanceValue.textColor = [FDColor sharedInstance].darkGray;
     [self.contentView addSubview:_lblBalanceValue];
     
+    _lbl = [UILabel new];
+    _lbl.font = [TDFontLibrary sharedInstance].fontSmall;
+    _lbl.text = @"点中即可消费";
+    _lbl.textColor = [FDColor sharedInstance].cerulean;
+    [self.contentView addSubview:_lbl];
+    
     //
     UIView *bottomLine = [UIView new];
     bottomLine.backgroundColor = [FDColor sharedInstance].silver;
@@ -106,6 +113,9 @@
     
     [_lblBalanceValue alignTopEdgeWithView:_lblBalanceTitle predicate:nil];
     [_lblBalanceValue constrainLeadingSpaceToView:_lblBalanceTitle predicate:@"0"];
+    
+    [_lbl alignTopEdgeWithView:_lblBalanceValue predicate:nil];
+    [_lbl constrainLeadingSpaceToView:_lblBalanceValue predicate:@"5"];
 }
 
 - (NSCache *)UpdateCardInfo:(UtocardVO *) Utocard addCache:(NSCache *) __cache {

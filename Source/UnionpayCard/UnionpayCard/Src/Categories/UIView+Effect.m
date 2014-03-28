@@ -21,9 +21,10 @@
 
 -(void)applyEffectDarkGrayBorder
 {
+    self.layer.cornerRadius = 5;
     self.layer.borderColor = [FDColor sharedInstance].silverDark.CGColor;
     self.layer.borderWidth = 0.5;
-    self.layer.masksToBounds = NO;
+    self.layer.masksToBounds = YES;
 }
 
 -(void)applyEffectRoundRectSilverBorder

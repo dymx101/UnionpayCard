@@ -182,7 +182,12 @@
     _lblCurrentCardNumber = [UILabel new];
     _lblCurrentCardNumber.font = [TDFontLibrary sharedInstance].fontNormal;
     _lblCurrentCardNumber.textColor = [FDColor sharedInstance].themeBlue;
-    _lblCurrentCardNumber.text = [NSString stringWithFormat:@"当前使用卡号: %@",SharedAppUser.u_pre_num];
+    
+    if ([SharedAppUser.u_pre_num isKindOfClass:[NSNull class]] || [[SharedAppUser.u_pre_num stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]] isEqualToString:[NSString stringWithFormat:@"%d",0]]) {
+        _lblCurrentCardNumber.text = @"当前使用卡号: 暂无";
+    } else {
+        _lblCurrentCardNumber.text = [NSString stringWithFormat:@"当前使用卡号: %@",SharedAppUser.u_pre_num];
+    } 
     [_containerView addSubview:_lblCurrentCardNumber];
     
     _loginOutBTn = [UIButton new];
@@ -194,7 +199,7 @@
 }
 
 -(void)setupViews {
-    [_containerView alignTop:@"20" leading:@"20" bottom:@"-20" trailing:@"-20" toView:self.view];
+    [_containerView alignTop:@"5" leading:@"20" bottom:@"20" trailing:@"-20" toView:self.view];
     
     //
     [_lblUserName alignTop:@"15" leading:@"15" toView:_containerView];
@@ -277,7 +282,7 @@
     
     [_loginOutBTn constrainWidth:@"260"];
     [_loginOutBTn alignCenterXWithView:self.view predicate:nil];
-    [_loginOutBTn constrainTopSpaceToView:_lblCurrentCardNumber predicate:@"74"];
+    [_loginOutBTn constrainTopSpaceToView:_lblCurrentCardNumber predicate:@"10"];
 }
 
 #pragma mark - actions

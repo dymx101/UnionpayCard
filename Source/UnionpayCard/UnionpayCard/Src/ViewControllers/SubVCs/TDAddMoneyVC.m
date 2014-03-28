@@ -244,14 +244,14 @@
         cell.lblVendorName.text = preRecord.b_jname;
         cell.lblCardNumber.text = [NSString stringWithFormat:@"[卡号] %@",preRecord.card];
         cell.lblAmount.text = [NSString stringWithFormat:@"上账金额: ￥%@",preRecord.card_amount];
-        cell.lblFlowNumber.text = [NSString stringWithFormat:@"充值流水号: %@",preRecord.b_no];
+        cell.lblFlowNumber.text = [NSString stringWithFormat:@"充值流水号: %@",preRecord.pre_nor];
         cell.lblDataNumber.text = [NSString stringWithFormat:@"充值时间: %@",preRecord.pre_r_tmd];
     } else {
         Consumption * consumption =  self.Consumptions[indexPath.row];
         cell.lblVendorName.text = consumption.b_jname;
         cell.lblCardNumber.text = [NSString stringWithFormat:@"[卡号] %@",consumption.card];
         cell.lblAmount.text = [NSString stringWithFormat:@"上账金额: ￥%@",consumption.con_amount];
-        cell.lblFlowNumber.text =[NSString stringWithFormat:@"消费流水号: %@",consumption.b_no];
+        cell.lblFlowNumber.text =[NSString stringWithFormat:@"消费流水号: %@",consumption.con_nor];
         cell.lblDataNumber.text = [NSString stringWithFormat:@"消费时间: %@",consumption.con_tmd];
     }
     
