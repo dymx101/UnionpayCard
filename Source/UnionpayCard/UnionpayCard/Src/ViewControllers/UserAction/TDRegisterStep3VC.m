@@ -155,7 +155,7 @@ typedef enum {
     [input setU_emil:[(UITextField *)[_dataSource[1] objectForKey:KEY_TEXTFIELD] text]];
     [input setU_realname:[(UITextField *)[_dataSource[2] objectForKey:KEY_TEXTFIELD] text]];
     [input setU_cbcid:[(UITextField *)[_dataSource[3] objectForKey:KEY_TEXTFIELD] text]];
-    [input setU_sex:@"1"];
+    [input setU_sex:_btnMale.selected?@"1":@"0"];
     [input setU_iphone:_phoneNUM];
     [input setU_code:_phoneCode];
     __weak TDRegisterStep3VC * weakSelf = self;

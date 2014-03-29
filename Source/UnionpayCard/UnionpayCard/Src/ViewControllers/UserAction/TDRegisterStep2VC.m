@@ -119,6 +119,8 @@
         return;
     }
     
+    [_tfInput resignFirstResponder];
+    
     __weak TDRegisterStep2VC * weakSelf = self;
     MBProgressHUD * HUD = [[MBProgressHUD alloc] initWithView:self.view];
     [self.view addSubview:HUD];
