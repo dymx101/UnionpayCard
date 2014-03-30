@@ -302,41 +302,50 @@
         MBProgressHUD * HUD = [[MBProgressHUD alloc] initWithView:self.view];
         [self.view addSubview:HUD];
         [HUD show:YES];
-
-        self.u_pre_num = SharedAppUser.u_pre_num;
-        self.u_prefix = SharedAppUser.u_prefix;
-        self.userinfor = SharedAppUser;
-        [_utocardinput setValue:SharedToken forKeyPath:@"userToken"];
-        [TDHttpService ShowUtocard:_utocardinput completionBlock:^(id responseObject) {
-            [HUD hide:YES];
+        
+        [TDHttpService ShowUserinfor:SharedToken completionBlock:^(id responseObject) {
             if (responseObject != nil && [responseObject isKindOfClass:[NSArray class]]) {
+                SharedAppUser = [responseObject lastObject];
+                [self postNotification:OTS_NOTE_LOGIN_OK];
                 
-                weakSelf.UtoCards= responseObject;
-                [weakSelf.mainTv reloadData];
-                
-                /********************************初始化选中的卡**************************************************************/
-                for (UtocardVO * utocard in weakSelf.UtoCards) {
-                    if (![self.userinfor.u_pre_num isKindOfClass:[NSNull class]] && [[self.userinfor.u_pre_num stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]] isEqualToString:[[utocard u_card] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]]]) {
-                        _constraintHeaderHeight.constant = 110;
-                        [UIView animateWithDuration:.3f animations:^{
-                            
-                            [_ivActiveCard setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@active/upload/shop/%@",BASEURL,utocard.b_cordimg]] placeholderImage:nil];
-                            _lblActiveCardTitle.text = utocard.b_jname;
-                            _lblActiveCardNumber.text = [NSString stringWithFormat:@"[卡号] %@",utocard.u_card];
-                            _lblActiveCardBalanceValue.text = [NSString stringWithFormat:@"%@",utocard.card_balance];
-                            [self mainHeader].alpha = 1;
-                            [self.view layoutIfNeeded];
-                        }];
+                self.u_pre_num = SharedAppUser.u_pre_num;
+                self.u_prefix = SharedAppUser.u_prefix;
+                self.userinfor = SharedAppUser;
+                [_utocardinput setValue:SharedToken forKeyPath:@"userToken"];
+                [TDHttpService ShowUtocard:_utocardinput completionBlock:^(id responseObject) {
+                    [HUD hide:YES];
+                    if (responseObject != nil && [responseObject isKindOfClass:[NSArray class]]) {
+                        
+                        weakSelf.UtoCards= responseObject;
+                        [weakSelf.mainTv reloadData];
+                        
+                        /********************************初始化选中的卡**************************************************************/
+                        for (UtocardVO * utocard in weakSelf.UtoCards) {
+                            if (![self.userinfor.u_pre_num isKindOfClass:[NSNull class]] && [[self.userinfor.u_pre_num stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]] isEqualToString:[[utocard u_card] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]]]) {
+                                _constraintHeaderHeight.constant = 110;
+                                [UIView animateWithDuration:.3f animations:^{
+                                    
+                                    [_ivActiveCard setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@active/upload/shop/%@",BASEURL,utocard.b_cordimg]] placeholderImage:nil];
+                                    _lblActiveCardTitle.text = utocard.b_jname;
+                                    _lblActiveCardNumber.text = [NSString stringWithFormat:@"[卡号] %@",utocard.u_card];
+                                    _lblActiveCardBalanceValue.text = [NSString stringWithFormat:@"%@",utocard.card_balance];
+                                    [self mainHeader].alpha = 1;
+                                    [self.view layoutIfNeeded];
+                                }];
+                            }
+                        }
+                        if ([self.userinfor.u_pre_num isKindOfClass:[NSNull class]] || [[self.userinfor.u_pre_num stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]] isEqualToString:[NSString stringWithFormat:@"%d",0]]) {
+                            [self resetAction:nil];
+                        }
+                    } else {
+                        weakSelf.UtoCards = @[];
+                        [weakSelf.mainTv reloadData];
+                        [self mainHeader].alpha = 0;
+                        [self.view layoutIfNeeded];
                     }
-                }
-                if ([self.userinfor.u_pre_num isKindOfClass:[NSNull class]] || [[self.userinfor.u_pre_num stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]] isEqualToString:[NSString stringWithFormat:@"%d",0]]) {
-                    [self resetAction:nil];
-                }
+                }];
             } else {
-                weakSelf.UtoCards = @[];
-                [weakSelf.mainTv reloadData];
-                [self mainHeader].alpha = 0;
-                [self.view layoutIfNeeded];
+                [HUD hide:YES];
             }
         }];
     }
