@@ -169,7 +169,7 @@
     [self.view addSubview:_topBarViewSearch];
     _topBarViewSearch.hidden = YES;
     
-    _segmentSearch = [[UISegmentedControl alloc] initWithItems:@[@"名称", @"卡号"]];
+    _segmentSearch = [[UISegmentedControl alloc] initWithItems:@[@"商户", @"卡号"]];
     _segmentSearch.selectedSegmentIndex = 0;
     _isSearchByName = YES;
     //_segmentSearch.tintColor = [FDColor sharedInstance].themeBlue;
