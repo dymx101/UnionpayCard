@@ -39,6 +39,8 @@ _alert.transform=CGAffineTransformMakeTranslation(0,80); \
 #import <UIKit/UIKit.h>
 #import <Foundation/Foundation.h>
 
+#import "Header.h"
+#import "Toast+UIView.h"
 // pod libraries
 #import <EDColor/EDColor.h>
 #import <AFNetworking/AFNetworking.h>
