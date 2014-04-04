@@ -19,7 +19,7 @@
 #import "TDRegisterVC.h"
 #import "TDPhoneFeeVC.h"
 #import "TDLoginVC.h"
-
+#import "TDLogVendorsVCViewController.h"
 
 typedef enum {
     kVcRegister = 1000
@@ -134,6 +134,7 @@ typedef enum {
     [btnTile addTarget:self action:@selector(tileButtonAction:) forControlEvents:UIControlEventTouchUpInside];
     [_scrollView addSubview:btnTile];
     [_tileButtons addObject:btnTile];
+
 }
 
 -(UIButton *)tileButtonWithTitle:(NSString *)aTitle action:(SEL)anAction {
@@ -172,7 +173,8 @@ typedef enum {
             break;
             
         case kVcVendors:
-            [self naviToVC:[TDVendorsVC class]];
+                 [self naviToVC:[TDLogVendorsVCViewController class]];
+
             break;
             
         case kVcAddMoney:

@@ -147,7 +147,6 @@
     _tv.showsVerticalScrollIndicator = NO;
     [self.view addSubview:_tv];
     
-    
     _segmentPageSwitch = [[UISegmentedControl alloc] initWithItems:@[@"充值记录", @"消费记录"]];
     _segmentPageSwitch.selectedSegmentIndex = _pSwitch;
     _segmentPageSwitch.tintColor = [FDColor sharedInstance].white;
@@ -183,11 +182,9 @@
 -(void)layoutViews {
     [_tv alignToView:self.view];
     
-    
     [_pickerHolder constrainHeight:@(PICKER_HEIGHT).stringValue];
     _constraintPickerSpaceFromBottom = [_pickerHolder alignBottomEdgeWithView:self.view predicate:@(PICKER_HEIGHT).stringValue].firstObject;
     [_pickerHolder alignLeading:@"0" trailing:@"0" toView:self.view];
-    
     
     [_btnPickerOK alignTrailingEdgeWithView:_pickerHolder predicate:@"-10"];
     [_btnPickerOK alignTopEdgeWithView:_pickerHolder predicate:@"5"];
@@ -209,8 +206,20 @@
 -(void)segPageChanged:(UISegmentedControl *)aControl {
     NSUInteger selectedIndex = aControl.selectedSegmentIndex;
     if (selectedIndex == 0) {
+        _lblRechargeType.hidden = NO;
+        _btnRechargeByPos.hidden = NO;
+        _btnRechargeOnline.hidden = NO;
+        _lblBalanceStatus.hidden = NO;
+        _btnBalanceNormal.hidden = NO;
+        _btnBalanceFrozen.hidden = NO;
         [self addMoneyRecordAction:nil];
     } else {
+        _lblRechargeType.hidden = YES;
+        _btnRechargeByPos.hidden = YES;
+        _btnRechargeOnline.hidden = YES;
+        _lblBalanceStatus.hidden = YES;
+        _btnBalanceNormal.hidden = YES;
+        _btnBalanceFrozen.hidden = YES;
         [self useMoneyRecordAction:nil];
     }
 }
@@ -339,6 +348,7 @@
         [_btnEndTime constrainLeadingSpaceToView:_lblEndTime predicate:@"5"];
         [_btnEndTime constrainWidth:@"200"];
         
+        
         //
         _lblRechargeType = [UILabel new];
         _lblRechargeType.font = [TDFontLibrary sharedInstance].fontNormal;
@@ -403,7 +413,9 @@
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
-    return _isShowingSearchPanel ? 180 : 0;
+    int headHight = 180;
+    if(!_showAddMoneyRecord) headHight = 120;
+    return _isShowingSearchPanel ? headHight : 0;
 }
 
 #pragma mark - action

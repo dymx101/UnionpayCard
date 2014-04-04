@@ -8,6 +8,7 @@
 
 #import "TDBusinessDetailVC.h"
 #import "httpRequest.h"
+#import "TDJsonToDictionary.h"
 @interface TDBusinessDetailVC (){
     UIScrollView   * sv;
     UIScrollView   * imageSv;
@@ -15,6 +16,8 @@
     CGFloat  Y;
     NSMutableArray * imageDataArr;
 }
+@property (nonatomic,strong)IBOutlet  UILabel * numLab1;
+@property (nonatomic,strong)IBOutlet  UILabel * numLab5;
 @property (nonatomic,strong)IBOutlet  UILabel * labRemainSun;
 @property (nonatomic,strong)IBOutlet  UILabel * labRemainSunText;
 @property (nonatomic,strong)IBOutlet  UILabel * labFullDetail;;
@@ -28,7 +31,7 @@
 @property (nonatomic,strong)IBOutlet  UIView  * businessDetailView;
 @property (nonatomic,strong)IBOutlet  UIView  * fullCardView;
 @property (nonatomic,strong)IBOutlet  UIButton * applyBtn;
-
+-(IBAction)clickApplyBtn:(UIButton*)sender;
 @end
 
 @implementation TDBusinessDetailVC
@@ -45,6 +48,8 @@
 }
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
+    _numLab1.text = [NSString stringWithFormat:@"本卡请在<%@>指定地点现场充值。",_strBName];
+    _numLab5.text = [NSString stringWithFormat:@"该预付卡最终解释归<%@>所有。",_strBName];
     self.applyBtn.hidden = _isShowApplyBtn;
     _labTitle.text = _strTitle;
     _labDetail.text = _strDetail;
@@ -156,6 +161,27 @@
     line.backgroundColor = [UIColor colorWithRed:204.0/255.0 green:204.0/255.0 blue:204.0/255.0 alpha:1.0];
     return line;
 }
+-(IBAction)clickApplyBtn:(UIButton*)sender{
+    NSDictionary * strParamDic = @{@"method":@"Regcard",@"b_id":_strB_id,@"userToken":SharedToken};
+    NSString  * strParam = [NSString stringWithFormat:@"url=%@",[TDJsonToDictionary jsonStringFromDictionary:strParamDic]];
+    [httpRequest getDictionaryData:[NSString stringWithFormat:mainUrl,strParam] param:nil requestMethod:@"GET" encodeType:NSUTF8StringEncoding completionBlock:^(id responseObject) {
+        if(responseObject){
+            NSDictionary  * tempDic = (NSDictionary*)responseObject;
+            NSString  *strResult = [tempDic objectForKey:@"State"];
+            if([strResult isEqualToString:@"error"]){
+                [self.view makeToast:@"申请失败"];
+            }else if([strResult intValue] == 0){
+                [self.view makeToast:@"申请成功"];
+                _applyBtn.hidden = YES;
+            }else if([strResult intValue] == 1){
+                [self.view makeToast:@"已经申请了一张卡"];
+            }else{
+                [self.view makeToast:@"未知异常"];
+            }
+        }
+    }];
+
+}
 #pragma mark - httpRquest
 -(void)showBusinessImage{
 #if 0
@@ -185,13 +211,19 @@
     MBProgressHUD * hud = [[MBProgressHUD alloc]initWithView:self.view];
     [self.view addSubview:hud];
     [hud show:YES];
-    [httpRequest getImageData:[NSString stringWithFormat:imageUrl,_strImageName] completionBlock:^(id responseObject) {
-        if(responseObject){
-            imgView.image = [UIImage imageWithData:responseObject];
-        }
+    NSData  * imgData = [NSData dataWithContentsOfFile:[NSTemporaryDirectory() stringByAppendingPathComponent:_strImageName]];
+    if(imgData){
+        imgView.image = [UIImage imageWithData:imgData];
         [hud hide:YES];
-        [hud removeFromSuperview];
-    }];
+    }else{
+        [httpRequest getImageData:[NSString stringWithFormat:imageUrl,_strImageName] completionBlock:^(id responseObject) {
+            if(responseObject){
+                imgView.image = [UIImage imageWithData:responseObject];
+            }
+            [hud hide:YES];
+            [hud removeFromSuperview];
+        }];
+    }
 
 
 #endif

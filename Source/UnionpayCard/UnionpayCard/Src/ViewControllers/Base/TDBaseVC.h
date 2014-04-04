@@ -12,6 +12,7 @@
 
 -(void)installLogoToNavibar;
 -(void)installSearchToNavibar;
+
 -(void)installMapAndSearchToNavibar;
 -(void)installBackArrowToNavibar;
 

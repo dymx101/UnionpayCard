@@ -108,17 +108,16 @@
     _lblRechargeTimes.text = [NSString stringWithFormat:@"充值次数: %@",SharedAppUser.u_rec_num];
     [_containerView addSubview:_lblRechargeTimes];
     
-    if ([SharedAppUser.u_pre_num intValue] != 0) {
-        _lblRechargeTotal = [UILabel new];
-        _lblRechargeTotal.font = [TDFontLibrary sharedInstance].fontNormal;
-        _lblRechargeTotal.textColor = [FDColor sharedInstance].gray;
-        _lblRechargeTotal.text = [NSString stringWithFormat:@"充值金额: ￥%@",SharedAppUser.u_rec_money];
-        [_containerView addSubview:_lblRechargeTotal];
-    }
+    _lblRechargeTotal = [UILabel new];
+    _lblRechargeTotal.font = [TDFontLibrary sharedInstance].fontNormal;
+    _lblRechargeTotal.textColor = [FDColor sharedInstance].gray;
+    _lblRechargeTotal.text = [NSString stringWithFormat:@"充值金额: ￥%@",SharedAppUser.u_rec_money];
+    [_containerView addSubview:_lblRechargeTotal];
     
     _line1 = [UIView new];
     _line1.backgroundColor = [FDColor sharedInstance].silverDark;
     [_containerView addSubview:_line1];
+    
     
     /////// section 2
     _lblStatusLogin = [UILabel new];

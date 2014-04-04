@@ -95,7 +95,7 @@
     _tfUserName.font = [TDFontLibrary sharedInstance].fontNormal;
     _tfUserName.clearButtonMode = UITextFieldViewModeWhileEditing;
     [_loginInputView addSubview:_tfUserName];
-    _tfUserName.text = @"";
+    _tfUserName.text = @"13100615583";
     
     _tfPwd = [UITextField new];
     _tfPwd.placeholder = @"密码";
@@ -103,7 +103,7 @@
     _tfPwd.clearButtonMode = UITextFieldViewModeWhileEditing;
     _tfPwd.secureTextEntry = YES;
     [_loginInputView addSubview:_tfPwd];
-    _tfPwd.text = @"";
+    _tfPwd.text = @"windwhc";
     
     _btnLogin = [UIButton new];
     [_btnLogin setBackgroundImage:[TDImageLibrary sharedInstance].btnBgGreen forState:UIControlStateNormal];
@@ -171,7 +171,6 @@
 }
 
 -(void)loginAction:(id)sender {
-    
     __weak TDLoginVC * weakSelf = self;
     MBProgressHUD * HUD = [[MBProgressHUD alloc] initWithView:self.view];
     [self.view addSubview:HUD];

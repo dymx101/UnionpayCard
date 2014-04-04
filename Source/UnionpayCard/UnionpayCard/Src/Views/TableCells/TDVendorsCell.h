@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 @protocol TDVendorsCellDelegate<NSObject>
--(void)clickApply:(NSInteger)index;
+-(void)clickApply:(NSInteger)index cell:(UITableViewCell*)cell;
 @end
 
 @interface TDVendorsCell : UITableViewCell
@@ -25,4 +25,5 @@
 -(void)displayCell:(NSDictionary *)tempDic index:(NSInteger)tag;
 -(void)show;
 -(void)hide;
+-(void)hideAll;
 @end

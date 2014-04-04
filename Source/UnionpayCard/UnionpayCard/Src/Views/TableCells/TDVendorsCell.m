@@ -21,9 +21,9 @@
         self.imgView.layer.cornerRadius = 5.0;
         [self.contentView addSubview:self.imgView];
         
-        self.titleLab = [self createLabel:CGRectMake(124.0, 10.0, 85.0, 21.0) fontSize:17.0];
+        self.titleLab = [self createLabel:CGRectMake(124.0, 10.0, 150.0, 21.0) fontSize:17.0];
         self.titleLab.font = [UIFont boldSystemFontOfSize:17.0];
-        self.titleLab.text = @"皇家蛋糕店";
+        self.titleLab.text = @"";
         [self.contentView addSubview:self.titleLab];
         
         self.textLab = [self createLabel:CGRectMake(124.0, 29.0, 68.0, 21.0) fontSize:11.0];
@@ -32,7 +32,7 @@
         
         self.zCountLab = [self createLabel:CGRectMake(173.0, 29.0, 60.0, 21.0) fontSize:11.0];
         self.zCountLab.textColor = [UIColor redColor];
-        self.zCountLab.text = @"321";
+        self.zCountLab.text = @"";
         [self.contentView addSubview:self.zCountLab];
         
         self.zLab = [self createLabel:CGRectMake(173.0, 29.0, 17.0, 21.0) fontSize:11.0];
@@ -44,18 +44,18 @@
         [self.contentView addSubview:self.remainSumTextLab];
         
         self.remainSumLab = [self createLabel:CGRectMake(278.0, 29.0, 60.0, 21.0) fontSize:11.0];
-        self.remainSumLab.text = @"800.00";
+        self.remainSumLab.text = @"";
         self.remainSumLab.textColor = [UIColor redColor];
         [self.contentView addSubview:self.remainSumLab];
         
         self.detailLab = [self createLabel:CGRectMake(123.0, 42.0, 186.0, 34.0) fontSize:11.0];
         self.detailLab.numberOfLines = 0;
-        self.detailLab.text = @"张张张张张张张张张张张张张张张张张张张张张张张张张张张";
+        self.detailLab.text = @"";
         [self.contentView addSubview:self.detailLab];
         
         self.applyBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+        self.applyBtn.frame = CGRectMake(266.0, 10.0, 50.0, 25.0);
         [self.applyBtn setBackgroundImage:[UIImage imageNamed:@"apply"] forState:UIControlStateNormal];
-        self.applyBtn.frame = CGRectMake(266.0, 10.0, 50.0, 30.0);
         [self.applyBtn addTarget:self action:@selector(click:) forControlEvents:UIControlEventTouchUpInside];
         [self.contentView addSubview:self.applyBtn];
     }
@@ -67,7 +67,7 @@
     self.zCountLab.text = [NSString stringWithFormat:@"%@",[tempDic objectForKey:@"cord_num"]];
     CGSize  size = [self.zCountLab.text sizeWithFont:[UIFont systemFontOfSize:11.0]];
     CGRect  labFrame = self.zLab.frame;
-    labFrame.origin.x += size.width;
+    labFrame.origin.x = size.width + 173.0;
     self.zLab.frame = labFrame;
     NSString * strDetail = [NSString stringWithFormat:@"发卡总数:%@",[tempDic objectForKey:@"b_recharge"]];
     NSData  * imgData = [NSData dataWithContentsOfFile:[NSTemporaryDirectory() stringByAppendingPathComponent:[tempDic objectForKey:@"b_img"]]];
@@ -81,6 +81,20 @@
         }];
     }
     self.detailLab.text = strDetail;
+    self.remainSumLab.text = [tempDic objectForKey:@"b_ye"];
+    if(SharedToken == nil || [SharedToken isEqualToString:@""]){
+        [self hideAll];
+    }else{
+        NSString * strCardNum = [NSString stringWithFormat:@"%@",[tempDic objectForKey:@"b_U_sate"]];
+        if([strCardNum isEqualToString:@"error"]){
+            [self makeToast:@"获取卡状态数据失败"];
+        }else if([strCardNum intValue] == 1){
+            [self hide];
+        }else if([strCardNum intValue] == 0){
+            [self show];
+        }
+        
+    }
 }
 -(void)show{
     self.applyBtn.hidden = NO;
@@ -92,6 +106,11 @@
     self.remainSumLab.hidden = NO;
     self.remainSumTextLab.hidden = NO;
 }
+-(void)hideAll{
+    self.applyBtn.hidden = YES;
+    self.remainSumLab.hidden = YES;
+    self.remainSumTextLab.hidden = YES;
+}
 -(UILabel*)createLabel:(CGRect)frame fontSize:(CGFloat)size{
     UILabel  * label = [[UILabel alloc]initWithFrame:frame];
     label.backgroundColor = [UIColor clearColor];
@@ -99,8 +118,8 @@
     return label;
 }
 -(void)click:(UIButton*)btn{
-    if([_delegate respondsToSelector:@selector(clickApply:)]){
-        [_delegate clickApply:btn.tag];
+    if([_delegate respondsToSelector:@selector(clickApply:cell:)]){
+        [_delegate clickApply:btn.tag cell:self];
     }
 }
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated
