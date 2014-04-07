@@ -49,7 +49,7 @@ typedef enum {
     [_dataSource addObject:[NSMutableDictionary dictionaryWithObject:@"设置密码" forKey:KEY_PLACE_HOLDER]];
     [_dataSource addObject:[NSMutableDictionary dictionaryWithObject:@"设置邮箱" forKey:KEY_PLACE_HOLDER]];
     [_dataSource addObject:[NSMutableDictionary dictionaryWithObject:@"姓名" forKey:KEY_PLACE_HOLDER]];
-    [_dataSource addObject:[NSMutableDictionary dictionaryWithObject:@"省份证" forKey:KEY_PLACE_HOLDER]];
+    [_dataSource addObject:[NSMutableDictionary dictionaryWithObject:@"身份证" forKey:KEY_PLACE_HOLDER]];
     
     [self createViews];
     [self layoutViews];

@@ -11,6 +11,7 @@
 #import "TDRegisterVC.h"
 #import "TDRegisterNoAccountVC.h"
 #import "Btype.h"
+#import "GGUserDefault.h"
 
 @interface TDLoginVC ()<MBProgressHUDDelegate> {
     UIImageView     *_loginInputView;
@@ -25,6 +26,8 @@
     UIButton        *_btnLogin;
     UIButton        *_btnRegister;
     UIButton        *_btnRegisterNoAccount;
+    
+    UIButton        *_btnrememberME;
 }
 
 @end
@@ -95,7 +98,7 @@
     _tfUserName.font = [TDFontLibrary sharedInstance].fontNormal;
     _tfUserName.clearButtonMode = UITextFieldViewModeWhileEditing;
     [_loginInputView addSubview:_tfUserName];
-    _tfUserName.text = @"13100615583";
+//    _tfUserName.text = @"13100615583";
     
     _tfPwd = [UITextField new];
     _tfPwd.placeholder = @"密码";
@@ -103,7 +106,13 @@
     _tfPwd.clearButtonMode = UITextFieldViewModeWhileEditing;
     _tfPwd.secureTextEntry = YES;
     [_loginInputView addSubview:_tfPwd];
-    _tfPwd.text = @"windwhc";
+//    _tfPwd.text = @"windwhc";
+    
+    _btnrememberME = [TDUtil checkBoxWithTitle:@"记住我" target:self action:@selector(rememberMEStatusChanged:)];
+    [self.view addSubview:_btnrememberME];
+    _btnrememberME.selected = NO;
+    [_btnrememberME constrainWidth:@"100"];
+
     
     _btnLogin = [UIButton new];
     [_btnLogin setBackgroundImage:[TDImageLibrary sharedInstance].btnBgGreen forState:UIControlStateNormal];
@@ -152,9 +161,12 @@
     [_tfPwd constrainWidthToView:_loginInputView predicate:@"-50"];
     [_tfPwd alignCenterYWithView:_ivPwd predicate:nil];
     
+    [_btnrememberME alignLeadingEdgeWithView:_tfPwd predicate:@"-40"];
+    [_btnrememberME constrainTopSpaceToView:_tfPwd predicate:@"20"];
+    
     [_btnLogin constrainWidthToView:_loginInputView predicate:nil];
     [_btnLogin alignLeadingEdgeWithView:_loginInputView predicate:nil];
-    [_btnLogin constrainTopSpaceToView:_loginInputView predicate:@"30"];
+    [_btnLogin constrainTopSpaceToView:_loginInputView predicate:@"40"];
     
     [_btnRegister alignLeadingEdgeWithView:_btnLogin predicate:@"10"];
     [_btnRegister constrainTopSpaceToView:_btnLogin predicate:@"10"];
@@ -171,6 +183,11 @@
 }
 
 -(void)loginAction:(id)sender {
+    
+    if (![_tfUserName.text isEqual:@""] && ![_tfPwd.text isEqual:@""]) {
+        [GGUserDefault saveMyName:_tfUserName.text];
+        [GGUserDefault saveMyPhone:_tfPwd.text];
+    }
     __weak TDLoginVC * weakSelf = self;
     MBProgressHUD * HUD = [[MBProgressHUD alloc] initWithView:self.view];
     [self.view addSubview:HUD];
@@ -196,6 +213,20 @@
             }];
         }
     }];
+}
+
+-(void)rememberMEStatusChanged:(UIButton *)sender {
+    BOOL rememberME = sender.selected;
+    _btnrememberME.selected = !rememberME;
+    
+    if (_btnrememberME.selected) {
+        _tfUserName.text = [GGUserDefault myName];
+        _tfPwd.text = [GGUserDefault myPhone];
+    } else
+    {
+        _tfUserName.text = @"";
+        _tfPwd.text = @"";
+    }
 }
 
 -(void)registerNoAccountAction:(id)sender {

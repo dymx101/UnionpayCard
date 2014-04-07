@@ -27,6 +27,9 @@ dispatch_once( &once, ^{ __singleton__ = [[__class alloc] init]; } ); \
 return __singleton__; \
 }
 
+// 本地化
+#define OTSSTRING(_str)  NSLocalizedString((_str),(_str))
+
 //弹出框
 #define ALERT_MSG(title,msg)\
 {\

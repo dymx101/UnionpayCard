@@ -112,7 +112,7 @@
     _lblRechargeTotal.font = [TDFontLibrary sharedInstance].fontNormal;
     _lblRechargeTotal.textColor = [FDColor sharedInstance].gray;
     _lblRechargeTotal.text = [NSString stringWithFormat:@"充值金额: ￥%@",SharedAppUser.u_rec_money];
-    [_containerView addSubview:_lblRechargeTotal];
+//    [_containerView addSubview:_lblRechargeTotal];
     
     _line1 = [UIView new];
     _line1.backgroundColor = [FDColor sharedInstance].silverDark;

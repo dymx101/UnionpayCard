@@ -13,6 +13,7 @@
 #import "TDMerchantsVC.h"
 #import "TDProfileVC.h"
 #import "TDSettingsVC.h"
+#import "TDLogVendorsVCViewController.h"
 
 #import "TDAPIEngineTest.h"
 
@@ -26,7 +27,7 @@
     // create tab bar controller
     _tabbarController = [RDVTabBarController new];
     NSArray *viewControllers = @[[self ncWithVC:[TDHomeVC new]]
-                                 , [self ncWithVC:[TDMerchantsVC new]]
+                                 , [self ncWithVC:[TDLogVendorsVCViewController new]]
                                  , [self ncWithVC:[TDProfileVC new]]
                                  , [self ncWithVC:[TDSettingsVC new]]];
     _tabbarController.viewControllers = viewControllers;

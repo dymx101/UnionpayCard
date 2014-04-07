@@ -103,6 +103,7 @@ typedef enum {
     btnTile = [UIButton new];//[self tileButtonWithTitle:@"消费\n充值" action:nil];
     [btnTile setImage:[UIImage imageNamed:@"tile_credit"] forState:UIControlStateNormal];
     btnTile.tag = kVcCredit;//kVcAddMoney;
+    btnTile.hidden = YES;
     [btnTile addTarget:self action:@selector(tileButtonAction:) forControlEvents:UIControlEventTouchUpInside];
     [_scrollView addSubview:btnTile];
     [_tileButtons addObject:btnTile];
@@ -110,6 +111,7 @@ typedef enum {
     btnTile = [UIButton new];//[self tileButtonWithTitle:@"积分\n活动" action:nil];
     [btnTile setImage:[UIImage imageNamed:@"tile_mail"] forState:UIControlStateNormal];
     btnTile.tag = kVcMail;//kVcCredit;
+    btnTile.hidden = YES;
     [btnTile addTarget:self action:@selector(tileButtonAction:) forControlEvents:UIControlEventTouchUpInside];
     [_scrollView addSubview:btnTile];
     [_tileButtons addObject:btnTile];
@@ -117,6 +119,7 @@ typedef enum {
     btnTile = [UIButton new];//[self tileButtonWithTitle:@"消费\n预定" action:nil];
     [btnTile setImage:[UIImage imageNamed:@"tile_order"] forState:UIControlStateNormal];
     btnTile.tag = kVcConsume;
+    btnTile.hidden = YES;
     [btnTile addTarget:self action:@selector(tileButtonAction:) forControlEvents:UIControlEventTouchUpInside];
     [_scrollView addSubview:btnTile];
     [_tileButtons addObject:btnTile];
@@ -124,6 +127,7 @@ typedef enum {
     btnTile = [UIButton new];//[self tileButtonWithTitle:@"邮件\n管理" action:nil];
     [btnTile setImage:[UIImage imageNamed:@"tile_phone"] forState:UIControlStateNormal];
     btnTile.tag = kVcPhoneFee;
+    btnTile.hidden = YES;
     [btnTile addTarget:self action:@selector(tileButtonAction:) forControlEvents:UIControlEventTouchUpInside];
     [_scrollView addSubview:btnTile];
     [_tileButtons addObject:btnTile];
@@ -131,6 +135,7 @@ typedef enum {
     btnTile = [UIButton new];//[self tileButtonWithTitle:@"生活\n缴费" action:nil];
     [btnTile setImage:[UIImage imageNamed:@"tile_public"] forState:UIControlStateNormal];
     btnTile.tag = kVcLife;
+    btnTile.hidden = YES;
     [btnTile addTarget:self action:@selector(tileButtonAction:) forControlEvents:UIControlEventTouchUpInside];
     [_scrollView addSubview:btnTile];
     [_tileButtons addObject:btnTile];

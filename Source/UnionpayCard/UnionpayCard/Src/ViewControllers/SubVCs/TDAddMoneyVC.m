@@ -534,14 +534,6 @@
 
 - (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar {
     [searchBar resignFirstResponder];
-    //    DLog(@">>> _isSearchByName %d",_isSearchByName);
-    //    DLog(@">>> _pSwitch %d",_pSwitch);
-    //    DLog(@">>> _btnRechargeByPos %d",_btnRechargeByPos.selected);
-    //    DLog(@">>> _btnBalanceNormal %d",_btnBalanceNormal.selected);
-    //    DLog(@">>> _startDate %@",_startDate);
-    //    DLog(@">>> _endDate %@",_endDate);
-    //    DLog(@"keyword: %@", searchBar.text);
-    
     [self search:searchBar.text];
 }
 

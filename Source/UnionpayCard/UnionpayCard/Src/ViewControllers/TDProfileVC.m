@@ -24,6 +24,7 @@
     UIView                  *_viewLoggedIn;
     UILabel                 *_lblUserName;
     UIImageView             *_ivVip;
+    UILabel                 *_ivVipLAB;
     UILabel                 *_lblBalance;
     UILabel                 *_lblPoints;
     UIButton                *_btnRightArrow;
@@ -215,12 +216,24 @@
     [_lblUserName alignTop:@"25" leading:@"30" toView:_viewLoggedIn];
     
     //
+    /**
     _ivVip = [UIImageView new];
     _ivVip.image = [UIImage imageNamed:@"icon_mine_level2user"];
     [_viewLoggedIn addSubview:_ivVip];
     
     [_ivVip alignCenterYWithView:_lblUserName predicate:nil];
     [_ivVip constrainLeadingSpaceToView:_lblUserName predicate:@"8"];
+    **/
+    
+    
+    _ivVipLAB = [UILabel new];
+    _ivVipLAB.font = [TDFontLibrary sharedInstance].fontNormal;
+    _ivVipLAB.text = @"VIP";
+    _ivVipLAB.textColor = [FDColor sharedInstance].gray;
+    [_viewLoggedIn addSubview:_ivVipLAB];
+    [_ivVipLAB alignCenterYWithView:_lblUserName predicate:nil];
+    [_ivVipLAB constrainLeadingSpaceToView:_lblUserName predicate:@"8"];
+    
     
     //
     _lblBalance = [UILabel new];
@@ -282,7 +295,8 @@
         _viewLoggedIn.hidden = !loginOK;
          _viewNotLoggedIn.hidden = loginOK;
         _lblUserName.text = [__mUser u_name];
-        _lblBalance.text = [NSString stringWithFormat:@"账户余额: ￥%0.0f",[__mUser.u_rec_money doubleValue]-[__mUser.u_tran_money doubleValue] > 0 ? [__mUser.u_rec_money doubleValue]-[__mUser.u_tran_money doubleValue] : 0.0];
+        _ivVipLAB.text = [NSString stringWithFormat:@"VIP 等级: %d",[[__mUser uvip] intValue]];
+        _lblBalance.text = [NSString stringWithFormat:@"积分余额: ￥%0.0f",[__mUser.u_rec_money doubleValue]-[__mUser.u_tran_money doubleValue] > 0 ? [__mUser.u_rec_money doubleValue]-[__mUser.u_tran_money doubleValue] : 0.0];
     } else {
         BOOL loginOK = NO;
         _viewLoggedIn.hidden = !loginOK;

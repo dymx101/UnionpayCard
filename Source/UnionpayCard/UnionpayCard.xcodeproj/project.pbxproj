@@ -11,6 +11,10 @@
 		1816E1A018EED1A00014E74B /* TDVendorsVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1816E19E18EED1A00014E74B /* TDVendorsVC.xib */; };
 		4C0F133B18C630E50003ED72 /* TDHttpService.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C0F133A18C630E50003ED72 /* TDHttpService.m */; };
 		4C236B6C18D9879C00DF609E /* BinforInput.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C236B6B18D9879C00DF609E /* BinforInput.m */; };
+		4C2985EC18F255FB00EF301A /* set_add_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 4C2985EB18F255FB00EF301A /* set_add_icon.png */; };
+		4C2985F218F2616000EF301A /* OTSAlert.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C2985F118F2616000EF301A /* OTSAlert.m */; };
+		4C2985F518F2619B00EF301A /* OTSDataView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C2985F418F2619B00EF301A /* OTSDataView.m */; };
+		4C2985F818F279DA00EF301A /* GGUserDefault.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C2985F718F279DA00EF301A /* GGUserDefault.m */; };
 		4C2DF84318D88E9000ED3109 /* RegistInput.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C2DF84218D88E9000ED3109 /* RegistInput.m */; };
 		4C930F6918E1DCE400838BC3 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 4C930F6718E1DCE400838BC3 /* Default.png */; };
 		4C930F6A18E1DCE400838BC3 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4C930F6818E1DCE400838BC3 /* Default@2x.png */; };
@@ -916,6 +920,13 @@
 		4C0F133A18C630E50003ED72 /* TDHttpService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TDHttpService.m; sourceTree = "<group>"; };
 		4C236B6A18D9879C00DF609E /* BinforInput.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BinforInput.h; sourceTree = "<group>"; };
 		4C236B6B18D9879C00DF609E /* BinforInput.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BinforInput.m; sourceTree = "<group>"; };
+		4C2985EB18F255FB00EF301A /* set_add_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = set_add_icon.png; sourceTree = "<group>"; };
+		4C2985F018F2616000EF301A /* OTSAlert.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OTSAlert.h; sourceTree = "<group>"; };
+		4C2985F118F2616000EF301A /* OTSAlert.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OTSAlert.m; sourceTree = "<group>"; };
+		4C2985F318F2619B00EF301A /* OTSDataView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OTSDataView.h; sourceTree = "<group>"; };
+		4C2985F418F2619B00EF301A /* OTSDataView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OTSDataView.m; sourceTree = "<group>"; };
+		4C2985F618F279DA00EF301A /* GGUserDefault.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GGUserDefault.h; sourceTree = "<group>"; };
+		4C2985F718F279DA00EF301A /* GGUserDefault.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GGUserDefault.m; sourceTree = "<group>"; };
 		4C2DF84118D88E9000ED3109 /* RegistInput.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegistInput.h; sourceTree = "<group>"; };
 		4C2DF84218D88E9000ED3109 /* RegistInput.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegistInput.m; sourceTree = "<group>"; };
 		4C930F6718E1DCE400838BC3 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
@@ -3115,6 +3126,7 @@
 		EACD0D3418B3A51F009109CB /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				4C2985EB18F255FB00EF301A /* set_add_icon.png */,
 				EA098BCC18B9B1E40034E0CF /* tableCellBottomBg@2x.png */,
 				EA098BCD18B9B1E40034E0CF /* tableCellMiddleBg@2x.png */,
 				EA098BCE18B9B1E40034E0CF /* tableCellRoundBg@2x.png */,
@@ -3132,6 +3144,12 @@
 		EAD1249018B5F2E500C6C145 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				4C2985F618F279DA00EF301A /* GGUserDefault.h */,
+				4C2985F718F279DA00EF301A /* GGUserDefault.m */,
+				4C2985F318F2619B00EF301A /* OTSDataView.h */,
+				4C2985F418F2619B00EF301A /* OTSDataView.m */,
+				4C2985F018F2616000EF301A /* OTSAlert.h */,
+				4C2985F118F2616000EF301A /* OTSAlert.m */,
 				4C98AB1918B7E13C007FAF12 /* TDJsonToDictionary.h */,
 				4C98AB1A18B7E13C007FAF12 /* TDJsonToDictionary.m */,
 				EAD1249918B604B600C6C145 /* FDColor.h */,
@@ -3751,6 +3769,7 @@
 				EACC182B18B36F9100DD27B0 /* bt_login_highlighted@2x.png in Resources */,
 				EACC197E18B36F9100DD27B0 /* icon_mine_level6@2x.png in Resources */,
 				EACC197718B36F9100DD27B0 /* icon_mine_level2user@2x.png in Resources */,
+				4C2985EC18F255FB00EF301A /* set_add_icon.png in Resources */,
 				EACC189A18B36F9100DD27B0 /* ic_couple.png in Resources */,
 				EACC19D418B36F9100DD27B0 /* icon_redcircle@2x.png in Resources */,
 				EACC199B18B36F9100DD27B0 /* icon_movie_IMAX@2x.png in Resources */,
@@ -4087,6 +4106,7 @@
 				EACBE40A18BF155A00F2E9CF /* TDCreditVC.m in Sources */,
 				4CA1AB8E18E1A9D5005F74A5 /* ConsumptionInput.m in Sources */,
 				4CB12C4C18BBC42A00F23A76 /* Adver.m in Sources */,
+				4C2985F518F2619B00EF301A /* OTSDataView.m in Sources */,
 				4CB12C7E18BBC93500F23A76 /* Message.m in Sources */,
 				4CB12C8A18BBCA2600F23A76 /* Userinfor.m in Sources */,
 				4C98ABF618B91E01007FAF12 /* NSObject+swizzle.m in Sources */,
@@ -4097,6 +4117,7 @@
 				4C98ABEF18B91E01007FAF12 /* NSMutableString+safe.m in Sources */,
 				4C98AB1B18B7E13C007FAF12 /* TDJsonToDictionary.m in Sources */,
 				4CB12C6018BBC66A00F23A76 /* Bdistrict.m in Sources */,
+				4C2985F218F2616000EF301A /* OTSAlert.m in Sources */,
 				EA500FB918DABD0C00F1291C /* TDChangeTradePwdVC.m in Sources */,
 				4C98AC0118B91E01007FAF12 /* UILabel+Attribute.m in Sources */,
 				EACD0D3318B3A243009109CB /* TDSettingsVC.m in Sources */,
@@ -4146,6 +4167,7 @@
 				4CB12C6318BBC6A700F23A76 /* Bhdr.m in Sources */,
 				1816E19F18EED1A00014E74B /* TDVendorsVC.m in Sources */,
 				4C98ABF318B91E01007FAF12 /* NSObject+Coder.m in Sources */,
+				4C2985F818F279DA00EF301A /* GGUserDefault.m in Sources */,
 				4CB12C4F18BBC4C800F23A76 /* Announcement.m in Sources */,
 				EA08019B18D426A100D0E805 /* GNWebVC.m in Sources */,
 				4CB12C9018BBCADC00F23A76 /* Utoemil.m in Sources */,

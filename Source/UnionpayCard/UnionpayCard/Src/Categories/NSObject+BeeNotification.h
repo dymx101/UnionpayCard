@@ -91,3 +91,6 @@
 #define OTS_DEL_FLASH_BUY_REMAINED      @"OTS_DEL_FLASH_BUY_REMAINED " //删除闪购支付提醒
 
 #define OTS_MASK_REMOVED                @"OTS_MASK_REMOVED"//mask vc移除
+
+#define OTS_ALERT_ENSURE                @"OTS_ALERT_ENSURE" //警告框确定通知
+#define OTS_ALERT_CANCLE 				@"OTS_ALERT_CANCLE"//警告框取消通知
