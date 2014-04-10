@@ -16,6 +16,7 @@
     
     UILabel     *_lblUserName;
     UIImageView *_ivVip;
+    UILabel     *_ivVipLAB;
     
     UIView      *_line0;
     
@@ -72,13 +73,19 @@
     
     _lblUserName = [UILabel new];
     _lblUserName.font = [TDFontLibrary sharedInstance].fontNormalBold;
-    _lblUserName.text = SharedAppUser.u_realname;
+    _lblUserName.text = SharedAppUser.u_name;
     [_containerView addSubview:_lblUserName];
     
-    _ivVip = [UIImageView new];
-    _ivVip.image = [UIImage imageNamed:@"icon_mine_level2user"];
-    [_containerView addSubview:_ivVip];
+//    _ivVip = [UIImageView new];
+//    _ivVip.image = [UIImage imageNamed:@"icon_mine_level2user"];
+//    [_containerView addSubview:_ivVip];
     
+    _ivVipLAB = [UILabel new];
+    _ivVipLAB.font = [TDFontLibrary sharedInstance].fontNormal;
+    _ivVipLAB.text = [NSString stringWithFormat:@"vip等级: %d",[[SharedAppUser uvip] intValue]];
+    _ivVipLAB.textColor = [FDColor sharedInstance].gray;
+    [_containerView addSubview:_ivVipLAB];
+
     _line0 = [UIView new];
     _line0.backgroundColor = [FDColor sharedInstance].silverDark;
     [_containerView addSubview:_line0];
@@ -112,7 +119,8 @@
     _lblRechargeTotal.font = [TDFontLibrary sharedInstance].fontNormal;
     _lblRechargeTotal.textColor = [FDColor sharedInstance].gray;
     _lblRechargeTotal.text = [NSString stringWithFormat:@"充值金额: ￥%@",SharedAppUser.u_rec_money];
-//    [_containerView addSubview:_lblRechargeTotal];
+    [_containerView addSubview:_lblRechargeTotal];
+    _lblRechargeTotal.hidden = YES;
     
     _line1 = [UIView new];
     _line1.backgroundColor = [FDColor sharedInstance].silverDark;
@@ -205,8 +213,12 @@
     [_lblUserName alignTop:@"15" leading:@"15" toView:_containerView];
     
     //
-    [_ivVip alignCenterYWithView:_lblUserName predicate:nil];
-    [_ivVip constrainLeadingSpaceToView:_lblUserName predicate:@"8"];
+//    [_ivVip alignCenterYWithView:_lblUserName predicate:nil];
+//    [_ivVip constrainLeadingSpaceToView:_lblUserName predicate:@"8"];
+    
+    [_ivVipLAB alignCenterYWithView:_lblUserName predicate:nil];
+    [_ivVipLAB constrainLeadingSpaceToView:_lblUserName predicate:@"8"];
+    
     
     /////////////////////////////////////////////
     [_line0 alignLeading:@"0" trailing:@"0" toView:_containerView];
@@ -300,6 +312,7 @@
         
         if ([[responseObject objectForKey:@"State"] integerValue] == 0) {
             SharedAppUser = nil;
+            SharedToken = nil;
             [self postNotification:OTS_NOTE_LOGIN_OK];
             [weakSelf.navigationController popViewControllerAnimated:YES];
         } else {

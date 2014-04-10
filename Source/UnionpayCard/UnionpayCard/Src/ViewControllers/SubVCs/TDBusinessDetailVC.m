@@ -17,6 +17,7 @@
     NSMutableArray * imageDataArr;
 }
 @property (nonatomic,strong)IBOutlet  UILabel * numLab1;
+@property (nonatomic,strong)IBOutlet  UILabel * numLab2;
 @property (nonatomic,strong)IBOutlet  UILabel * numLab5;
 @property (nonatomic,strong)IBOutlet  UILabel * labRemainSun;
 @property (nonatomic,strong)IBOutlet  UILabel * labRemainSunText;
@@ -49,7 +50,8 @@
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     _numLab1.text = [NSString stringWithFormat:@"本卡请在<%@>指定地点现场充值。",_strBName];
-    _numLab5.text = [NSString stringWithFormat:@"该预付卡最终解释归<%@>所有。",_strBName];
+    _numLab2.text = [NSString stringWithFormat:@"如在用卡过程中有疑问请与<%@>联系，解决疑问时如出现分歧，可通过本平台进行协商处理。",_strBName];
+    _numLab5.text = [NSString stringWithFormat:@"该预付费卡最终解释权归<%@>所有。",_strBName];
     self.applyBtn.hidden = _isShowApplyBtn;
     _labTitle.text = _strTitle;
     _labDetail.text = _strDetail;

@@ -99,6 +99,7 @@
     _tfUserName.clearButtonMode = UITextFieldViewModeWhileEditing;
     [_loginInputView addSubview:_tfUserName];
 //    _tfUserName.text = @"13100615583";
+    _tfUserName.text = [GGUserDefault myName];
     
     _tfPwd = [UITextField new];
     _tfPwd.placeholder = @"密码";
@@ -107,10 +108,11 @@
     _tfPwd.secureTextEntry = YES;
     [_loginInputView addSubview:_tfPwd];
 //    _tfPwd.text = @"windwhc";
+    _tfPwd.text = [GGUserDefault myPhone];
     
     _btnrememberME = [TDUtil checkBoxWithTitle:@"记住我" target:self action:@selector(rememberMEStatusChanged:)];
     [self.view addSubview:_btnrememberME];
-    _btnrememberME.selected = NO;
+    _btnrememberME.selected = YES;
     [_btnrememberME constrainWidth:@"100"];
 
     
@@ -183,11 +185,12 @@
 }
 
 -(void)loginAction:(id)sender {
-    
-    if (![_tfUserName.text isEqual:@""] && ![_tfPwd.text isEqual:@""]) {
+
+    if (![_tfUserName.text isEqual:@""] && ![_tfPwd.text isEqual:@""] && _btnrememberME.selected) { // 默认不为空 记住
         [GGUserDefault saveMyName:_tfUserName.text];
         [GGUserDefault saveMyPhone:_tfPwd.text];
     }
+    
     __weak TDLoginVC * weakSelf = self;
     MBProgressHUD * HUD = [[MBProgressHUD alloc] initWithView:self.view];
     [self.view addSubview:HUD];
@@ -220,12 +223,12 @@
     _btnrememberME.selected = !rememberME;
     
     if (_btnrememberME.selected) {
-        _tfUserName.text = [GGUserDefault myName];
-        _tfPwd.text = [GGUserDefault myPhone];
+        [GGUserDefault saveMyName:_tfUserName.text];
+        [GGUserDefault saveMyPhone:_tfPwd.text];
     } else
     {
-        _tfUserName.text = @"";
-        _tfPwd.text = @"";
+        [GGUserDefault saveMyName:@""];
+        [GGUserDefault saveMyPhone:@""];
     }
 }
 

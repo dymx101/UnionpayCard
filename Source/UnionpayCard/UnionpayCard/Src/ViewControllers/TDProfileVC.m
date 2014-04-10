@@ -289,13 +289,13 @@
     MBProgressHUD * HUD = [[MBProgressHUD alloc] initWithView:self.view];
     [self.view addSubview:HUD];
     __weak TDProfileVC * weakSelf = self;
-    if (SharedAppUser) {
+    if (SharedToken && SharedAppUser) {
         weakSelf._mUser = SharedAppUser;
         BOOL loginOK = YES;
         _viewLoggedIn.hidden = !loginOK;
          _viewNotLoggedIn.hidden = loginOK;
         _lblUserName.text = [__mUser u_name];
-        _ivVipLAB.text = [NSString stringWithFormat:@"VIP 等级: %d",[[__mUser uvip] intValue]];
+        _ivVipLAB.text = [NSString stringWithFormat:@"vip等级: %d",[[__mUser uvip] intValue]];
         _lblBalance.text = [NSString stringWithFormat:@"积分余额: ￥%0.0f",[__mUser.u_rec_money doubleValue]-[__mUser.u_tran_money doubleValue] > 0 ? [__mUser.u_rec_money doubleValue]-[__mUser.u_tran_money doubleValue] : 0.0];
     } else {
         BOOL loginOK = NO;
@@ -313,8 +313,6 @@
 
 - (void)handleNotification:(NSNotification *)notification
 {
-    if (SharedToken) {
-        [self getProfile:SharedToken];
-    }
+    [self getProfile:SharedToken];
 }
 @end

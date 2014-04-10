@@ -149,7 +149,7 @@
                 {
                     GNWebVC *webvc = [GNWebVC new];
                     webvc.title = @"关于朋派";
-                    webvc.urlStr = @"http://www.nuomi.com/about/eula";
+                    webvc.urlStr = @"http://www.ponpay.com/gypp.php";
                     [self.navigationController pushViewController:webvc animated:YES];
                 }
                     break;

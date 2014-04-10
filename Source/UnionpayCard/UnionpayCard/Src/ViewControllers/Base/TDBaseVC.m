@@ -93,7 +93,7 @@
 }
 
 -(void)installSearchToNavibar {
-//    self.navigationItem.rightBarButtonItem = [self searchButtonItem];
+    self.navigationItem.rightBarButtonItem = [self searchButtonItem];
 }
 
 -(void)installMapAndSearchToNavibar {

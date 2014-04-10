@@ -212,6 +212,7 @@
         _lblBalanceStatus.hidden = NO;
         _btnBalanceNormal.hidden = NO;
         _btnBalanceFrozen.hidden = NO;
+        _pSwitch = 0;
         [self addMoneyRecordAction:nil];
     } else {
         _lblRechargeType.hidden = YES;
@@ -220,6 +221,7 @@
         _lblBalanceStatus.hidden = YES;
         _btnBalanceNormal.hidden = YES;
         _btnBalanceFrozen.hidden = YES;
+        _pSwitch = 1;
         [self useMoneyRecordAction:nil];
     }
 }
@@ -259,7 +261,7 @@
         Consumption * consumption =  self.Consumptions[indexPath.row];
         cell.lblVendorName.text = consumption.b_jname;
         cell.lblCardNumber.text = [NSString stringWithFormat:@"[卡号] %@",consumption.card];
-        cell.lblAmount.text = [NSString stringWithFormat:@"上账金额: ￥%@",consumption.con_amount];
+        cell.lblAmount.text = [NSString stringWithFormat:@"消费金额: ￥%@",consumption.con_amount];
         cell.lblFlowNumber.text =[NSString stringWithFormat:@"消费流水号: %@",consumption.con_nor];
         cell.lblDataNumber.text = [NSString stringWithFormat:@"消费时间: %@",consumption.con_tmd];
     }
@@ -393,6 +395,22 @@
         [_btnBalanceFrozen alignCenterYWithView:_btnBalanceNormal predicate:nil];
         [_btnBalanceFrozen constrainLeadingSpaceToView:_btnBalanceNormal predicate:@"5"];
         [_btnBalanceFrozen constrainWidth:@"100"];
+        
+        if (_pSwitch == 0) {
+            _lblRechargeType.hidden = NO;
+            _btnRechargeByPos.hidden = NO;
+            _btnRechargeOnline.hidden = NO;
+            _lblBalanceStatus.hidden = NO;
+            _btnBalanceNormal.hidden = NO;
+            _btnBalanceFrozen.hidden = NO;
+        } else {
+            _lblRechargeType.hidden = YES;
+            _btnRechargeByPos.hidden = YES;
+            _btnRechargeOnline.hidden = YES;
+            _lblBalanceStatus.hidden = YES;
+            _btnBalanceNormal.hidden = YES;
+            _btnBalanceFrozen.hidden = YES;
+        }
     }
     
     return header;

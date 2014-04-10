@@ -55,12 +55,13 @@
     _btnGetCode = [UIButton new];
     [_btnGetCode setBackgroundImage:[TDImageLibrary sharedInstance].btnBgGreen forState:UIControlStateNormal];
     [_btnGetCode setTitle:@"获取验证码" forState:UIControlStateNormal];
+    _btnGetCode.enabled = NO;
     _btnGetCode.titleLabel.font = [TDFontLibrary sharedInstance].fontTitleBold;
     [_btnGetCode addTarget:self action:@selector(getcodeAction:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:_btnGetCode];
     
     _btnAgree = [TDUtil checkBoxWithTitle:STR_I_AGREE target:self action:@selector(agreeAvtion:)];
-    _btnAgree.selected = YES;
+    _btnAgree.selected = NO;
     [self.view addSubview:_btnAgree];
     
     _btnAgreement = [UIButton new];
@@ -102,7 +103,7 @@
 -(void)seeAgreementAction:(id)sender {
     GNWebVC *webvc = [GNWebVC new];
     webvc.title = @"朋派网用户协议";
-    webvc.urlStr = @"http://www.nuomi.com/about/eula";
+    webvc.urlStr = @"http://www.ponpay.com/xieyi.php";
     [self.navigationController pushViewController:webvc animated:YES];
 }
 

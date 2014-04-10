@@ -63,7 +63,7 @@
 }
 -(void)displayCell:(NSDictionary *)tempDic index:(NSInteger)tag{
     _applyBtn.tag = tag;
-    self.titleLab.text = [tempDic objectForKey:@"b_name"];
+    self.titleLab.text = [tempDic objectForKey:@"b_jname"];
     self.zCountLab.text = [NSString stringWithFormat:@"%@",[tempDic objectForKey:@"cord_num"]];
     CGSize  size = [self.zCountLab.text sizeWithFont:[UIFont systemFontOfSize:11.0]];
     CGRect  labFrame = self.zLab.frame;
