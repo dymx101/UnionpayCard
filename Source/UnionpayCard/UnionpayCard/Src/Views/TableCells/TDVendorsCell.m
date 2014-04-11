@@ -69,7 +69,7 @@
     CGRect  labFrame = self.zLab.frame;
     labFrame.origin.x = size.width + 173.0;
     self.zLab.frame = labFrame;
-    NSString * strDetail = [NSString stringWithFormat:@"发卡总数:%@",[tempDic objectForKey:@"b_recharge"]];
+    NSString * strDetail = [NSString stringWithFormat:@"充值详情:%@",[tempDic objectForKey:@"b_recharge"]];
     NSData  * imgData = [NSData dataWithContentsOfFile:[NSTemporaryDirectory() stringByAppendingPathComponent:[tempDic objectForKey:@"b_img"]]];
     if(imgData){
         self.imgView.image = [UIImage imageWithData:imgData];
