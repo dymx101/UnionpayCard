@@ -122,6 +122,7 @@
     if(SharedToken == nil || [SharedToken isEqualToString:@""]){
         result = NO;
     }
+    NSLog(@"token = %@",SharedToken);
     return result;
 }
 -(void)hideClassifyTable{
@@ -180,23 +181,30 @@
     [httpRequest getDictionaryData:[NSString stringWithFormat:mainUrl,strParam] param:nil requestMethod:@"GET" encodeType:NSUTF8StringEncoding completionBlock:^(id responseObject) {
         if(responseObject){
             NSDictionary  * tempDic = (NSDictionary*)responseObject;
-            businessArr = [tempDic objectForKey:@"showtable"];
-            if(businessArr.count == 0){
+            NSArray  * tempBusinessArr = [tempDic objectForKey:@"showtable"];
+            if(tempBusinessArr == nil){
+                tempBusinessArr = @[];
+            }
+            if(tempBusinessArr.count == 0){
                 if(isSelectedClassisfy){
                     isSelectedClassisfy = NO;
+                    businessArr = tempBusinessArr;
                     [businessTable reloadData];
                 }else{
                     if(isUP){
                         isUP = NO;
                         currPage --;
+                        [self.view makeToast:@"没有更多商户数据"];
                     }else if(isDwon){
                         isDwon = NO;
                         currPage ++;
+                        [self.view makeToast:@"当前已经是第一页"];
                     }
                 }
-                [self.view makeToast:@"已加载完所有商户数据"];
+            }else{
+                businessArr = tempBusinessArr;
+                [businessTable reloadData];
             }
-            [businessTable reloadData];
             
         }else{
             [self.view makeToast:@"获取商户列表数据失败"];
@@ -369,27 +377,30 @@
 }
 - (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate
 {
+    BOOL  isRequest = NO;
     if([scrollView isEqual:businessTable]){
-        if (scrollView.contentOffset.y > 35.0){
+        if (scrollView.contentOffset.y > ((scrollView.contentSize.height - scrollView.frame.size.height+20))){
             currPage ++;
             isUP = YES;
             isDwon = NO;
-            NSDictionary  * strParamDic ;
-            if([self isLogin]){
-                strParamDic = @{@"method":@"ShowBinfor",@"b_type":currType == nil ? @"":[NSString stringWithFormat:@"%@",currType],@"b_stat":@"0",@"frist":(@(currPage)).stringValue,@"pageNum":@"20",@"b_city":_strBC_ID,@"userToken":SharedToken};
-            }else{
-                strParamDic = @{@"method":@"ShowBinfor",@"b_type":currType == nil ? @"":[NSString stringWithFormat:@"%@",currType],@"b_stat":@"0",@"frist":(@(currPage)).stringValue,@"pageNum":@"20",@"b_city":_strBC_ID};
-            }
-            [self requestBusinessData:strParamDic];
+            isRequest = YES;
         }else if(scrollView.contentOffset.y < -35.0){
+            if(currType <= 0){
+                [self.view makeToast:@"当前已经是第一页"];
+                return;
+            }
             currPage --;
             isDwon = YES;
             isUP = NO;
-            NSDictionary  * strParamDic ;
+            isRequest = YES;
+        }
+        if(isRequest){
+            NSMutableDictionary  * strParamDic = [NSMutableDictionary dictionaryWithDictionary:@{@"method":@"ShowBinfor",@"b_stat":@"0",@"frist":(@(currPage)).stringValue,@"pageNum":@"20",@"b_city":_strBC_ID}];
             if([self isLogin]){
-                strParamDic = @{@"method":@"ShowBinfor",@"b_type":currType == nil ? @"":[NSString stringWithFormat:@"%@",currType],@"b_stat":@"0",@"frist":(@(currPage)).stringValue,@"pageNum":@"20",@"b_city":_strBC_ID,@"userToken":SharedToken};
-            }else{
-                strParamDic = @{@"method":@"ShowBinfor",@"b_type":currType == nil ? @"":[NSString stringWithFormat:@"%@",currType],@"b_stat":@"0",@"frist":(@(currPage)).stringValue,@"pageNum":@"20",@"b_city":_strBC_ID};
+                [strParamDic setObject:SharedToken forKey:@"userToken"];
+            }
+            if(currType){
+                [strParamDic setObject:[NSString stringWithFormat:@"%@",currType] forKey:@"b_type"];
             }
             [self requestBusinessData:strParamDic];
         }

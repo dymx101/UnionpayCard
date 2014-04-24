@@ -79,6 +79,6 @@ _alert.transform=CGAffineTransformMakeTranslation(0,80); \
 
 #define SharedToken   ([TDGlobalValue sharedInstance].token)
 #define SharedAppUser ([TDGlobalValue sharedInstance].currentAppUser)
-#define BASEURL       @"http://113.57.133.83/"
+#define BASEURL       @"http://www.ponpay.com/"
 
 //#define FONT_NAME_DUAN_NING_XING    @"DuanNing-XIng"//@"MRocky HKS Bold"//@"FZZongYi-M05S" //
