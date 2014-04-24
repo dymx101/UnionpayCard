@@ -34,7 +34,7 @@ static const CGSize  CSToastShadowOffset        = { 4.0, 4.0 };
 static const BOOL    CSToastDisplayShadow       = YES;
 
 // display duration and position
-static const CGFloat CSToastDefaultDuration     = 1.0;
+static const CGFloat CSToastDefaultDuration     = 0.5;
 static const NSString * CSToastDefaultPosition  = @"bottom";
 
 // image view size
