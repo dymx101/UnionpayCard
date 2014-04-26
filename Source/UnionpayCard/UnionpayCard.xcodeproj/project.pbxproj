@@ -17,7 +17,6 @@
 		4C2985F818F279DA00EF301A /* GGUserDefault.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C2985F718F279DA00EF301A /* GGUserDefault.m */; };
 		4C2DF84318D88E9000ED3109 /* RegistInput.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C2DF84218D88E9000ED3109 /* RegistInput.m */; };
 		4C930F6918E1DCE400838BC3 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 4C930F6718E1DCE400838BC3 /* Default.png */; };
-		4C930F6A18E1DCE400838BC3 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4C930F6818E1DCE400838BC3 /* Default@2x.png */; };
 		4C98AB1B18B7E13C007FAF12 /* TDJsonToDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C98AB1A18B7E13C007FAF12 /* TDJsonToDictionary.m */; };
 		4C98AB2718B9196E007FAF12 /* Btype.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C98AB2618B9196E007FAF12 /* Btype.m */; };
 		4C98ABE918B91E01007FAF12 /* NSArray+safe.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C98AB9F18B91E01007FAF12 /* NSArray+safe.m */; };
@@ -69,6 +68,7 @@
 		4CB12C9018BBCADC00F23A76 /* Utoemil.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CB12C8F18BBCADC00F23A76 /* Utoemil.m */; };
 		4CB12C9318BBCB0F00F23A76 /* Uvip.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CB12C9218BBCB0F00F23A76 /* Uvip.m */; };
 		4CB12C9618BBCB4000F23A76 /* Ynbinfor.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CB12C9518BBCB4000F23A76 /* Ynbinfor.m */; };
+		4CD441AD190BFFEC000BE04A /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4CD441AC190BFFEC000BE04A /* Default-568h@2x.png */; };
 		4CF30A5318D34A5D002F083E /* TDGlobalValue.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CF30A5218D34A5D002F083E /* TDGlobalValue.m */; };
 		55A5FBCBCA064416B4607D7C /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A21F1F75D364083A890944A /* libPods.a */; };
 		EA08019B18D426A100D0E805 /* GNWebVC.m in Sources */ = {isa = PBXBuildFile; fileRef = EA08019A18D426A100D0E805 /* GNWebVC.m */; };
@@ -383,7 +383,6 @@
 		EACC188D18B36F9100DD27B0 /* cell_top_highlighted@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EACC159918B36F8700DD27B0 /* cell_top_highlighted@2x.png */; };
 		EACC188E18B36F9100DD27B0 /* cinema_line.png in Resources */ = {isa = PBXBuildFile; fileRef = EACC159A18B36F8700DD27B0 /* cinema_line.png */; };
 		EACC188F18B36F9100DD27B0 /* cinema_line@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EACC159B18B36F8700DD27B0 /* cinema_line@2x.png */; };
-		EACC189018B36F9100DD27B0 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EACC159C18B36F8700DD27B0 /* Default-568h@2x.png */; };
 		EACC189318B36F9100DD27B0 /* film@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EACC159F18B36F8700DD27B0 /* film@2x.png */; };
 		EACC189418B36F9100DD27B0 /* ic_canchoose.png in Resources */ = {isa = PBXBuildFile; fileRef = EACC15A018B36F8700DD27B0 /* ic_canchoose.png */; };
 		EACC189518B36F9100DD27B0 /* ic_canchoose_large.png in Resources */ = {isa = PBXBuildFile; fileRef = EACC15A118B36F8700DD27B0 /* ic_canchoose_large.png */; };
@@ -930,7 +929,6 @@
 		4C2DF84118D88E9000ED3109 /* RegistInput.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegistInput.h; sourceTree = "<group>"; };
 		4C2DF84218D88E9000ED3109 /* RegistInput.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegistInput.m; sourceTree = "<group>"; };
 		4C930F6718E1DCE400838BC3 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
-		4C930F6818E1DCE400838BC3 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		4C98AB1918B7E13C007FAF12 /* TDJsonToDictionary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TDJsonToDictionary.h; sourceTree = "<group>"; };
 		4C98AB1A18B7E13C007FAF12 /* TDJsonToDictionary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TDJsonToDictionary.m; sourceTree = "<group>"; };
 		4C98AB2518B9196E007FAF12 /* Btype.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Btype.h; sourceTree = "<group>"; };
@@ -1032,6 +1030,7 @@
 		4CB12C9218BBCB0F00F23A76 /* Uvip.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Uvip.m; sourceTree = "<group>"; };
 		4CB12C9418BBCB4000F23A76 /* Ynbinfor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Ynbinfor.h; sourceTree = "<group>"; };
 		4CB12C9518BBCB4000F23A76 /* Ynbinfor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Ynbinfor.m; sourceTree = "<group>"; };
+		4CD441AC190BFFEC000BE04A /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		4CF30A5118D34A5D002F083E /* TDGlobalValue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TDGlobalValue.h; sourceTree = "<group>"; };
 		4CF30A5218D34A5D002F083E /* TDGlobalValue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TDGlobalValue.m; sourceTree = "<group>"; };
 		B3BCF3CCEFF9419390ECB20A /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
@@ -1378,7 +1377,6 @@
 		EACC159918B36F8700DD27B0 /* cell_top_highlighted@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cell_top_highlighted@2x.png"; sourceTree = "<group>"; };
 		EACC159A18B36F8700DD27B0 /* cinema_line.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cinema_line.png; sourceTree = "<group>"; };
 		EACC159B18B36F8700DD27B0 /* cinema_line@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cinema_line@2x.png"; sourceTree = "<group>"; };
-		EACC159C18B36F8700DD27B0 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		EACC159F18B36F8700DD27B0 /* film@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "film@2x.png"; sourceTree = "<group>"; };
 		EACC15A018B36F8700DD27B0 /* ic_canchoose.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_canchoose.png; sourceTree = "<group>"; };
 		EACC15A118B36F8700DD27B0 /* ic_canchoose_large.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_canchoose_large.png; sourceTree = "<group>"; };
@@ -2170,7 +2168,7 @@
 			isa = PBXGroup;
 			children = (
 				4C930F6718E1DCE400838BC3 /* Default.png */,
-				4C930F6818E1DCE400838BC3 /* Default@2x.png */,
+				4CD441AC190BFFEC000BE04A /* Default-568h@2x.png */,
 				EAD2F0B918C816A500FC3805 /* Icon-120.png */,
 				FEAF4BDD18ED9DA700E8C2BA /* apply.png */,
 				EAD2F0A518C815B400FC3805 /* Icon-72.png */,
@@ -2548,7 +2546,6 @@
 				EACC159918B36F8700DD27B0 /* cell_top_highlighted@2x.png */,
 				EACC159A18B36F8700DD27B0 /* cinema_line.png */,
 				EACC159B18B36F8700DD27B0 /* cinema_line@2x.png */,
-				EACC159C18B36F8700DD27B0 /* Default-568h@2x.png */,
 				EACC159F18B36F8700DD27B0 /* film@2x.png */,
 				EACC15A018B36F8700DD27B0 /* ic_canchoose.png */,
 				EACC15A118B36F8700DD27B0 /* ic_canchoose_large.png */,
@@ -3347,7 +3344,6 @@
 				EACC19C918B36F9100DD27B0 /* icon_poorNetwork.png in Resources */,
 				EACC178418B36F9100DD27B0 /* Add_to_Passbook_CN.png in Resources */,
 				EACC17A918B36F9100DD27B0 /* bg_filter_price.png in Resources */,
-				EACC189018B36F9100DD27B0 /* Default-568h@2x.png in Resources */,
 				EACC1A2D18B36F9200DD27B0 /* mapTabLeftButton@2x.png in Resources */,
 				EACC1A5018B36F9200DD27B0 /* share_logo_qzone.png in Resources */,
 				EACC198A18B36F9100DD27B0 /* icon_mine_paid_disabled.png in Resources */,
@@ -3427,7 +3423,6 @@
 				EACC1A4618B36F9200DD27B0 /* reserve_seperator.png in Resources */,
 				EACC1A2318B36F9200DD27B0 /* logo_share_renren@2x.png in Resources */,
 				EACC19DB18B36F9100DD27B0 /* icon_register_boxoff.png in Resources */,
-				4C930F6A18E1DCE400838BC3 /* Default@2x.png in Resources */,
 				EACC1A2B18B36F9200DD27B0 /* mapTabButtonSelected@2x.png in Resources */,
 				EACC179418B36F9100DD27B0 /* bg_deal_buyAction@2x.png in Resources */,
 				EACC192C18B36F9100DD27B0 /* icon_homepage_search@2x.png in Resources */,
@@ -3823,6 +3818,7 @@
 				EACC1A7718B36F9200DD27B0 /* ump_titlebar_bg.png in Resources */,
 				EACC19D618B36F9100DD27B0 /* icon_refresh_header_refreshing.png in Resources */,
 				EACC190F18B36F9100DD27B0 /* icon_feedback_sendFail@2x.png in Resources */,
+				4CD441AD190BFFEC000BE04A /* Default-568h@2x.png in Resources */,
 				EACC1A1B18B36F9200DD27B0 /* line_route_vertical@2x.png in Resources */,
 				EACC1A4E18B36F9200DD27B0 /* share_logo_qq.png in Resources */,
 				EACC188618B36F9100DD27B0 /* cell_single@2x.png in Resources */,
@@ -4236,7 +4232,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				ONLY_ACTIVE_ARCH = YES;
-				PROVISIONING_PROFILE = "BC726CE8-66C7-4CCE-9178-1C4DF995BF76";
+				PROVISIONING_PROFILE = "E511D21D-0F8C-4201-AA50-88530EC772A4";
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -4281,7 +4277,6 @@
 			baseConfigurationReference = B3BCF3CCEFF9419390ECB20A /* Pods.xcconfig */;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD)";
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer: Yiming Dong (Z45HDA65GT)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Yiming Dong (Z45HDA65GT)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -4289,7 +4284,7 @@
 				INFOPLIST_FILE = "UnionpayCard/UnionpayCard-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "BC726CE8-66C7-4CCE-9178-1C4DF995BF76";
+				PROVISIONING_PROFILE = "E511D21D-0F8C-4201-AA50-88530EC772A4";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -4299,7 +4294,6 @@
 			baseConfigurationReference = B3BCF3CCEFF9419390ECB20A /* Pods.xcconfig */;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD)";
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Distribution: YI MING DONG (K2QJU8A9HC)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: YI MING DONG (K2QJU8A9HC)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;

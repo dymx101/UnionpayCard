@@ -23,7 +23,7 @@ typedef enum {
 #define KEY_PLACE_HOLDER    @"KEY_PLACE_HOLDER"
 #define KEY_TEXTFIELD       @"KEY_TEXTFIELD"
 
-@interface TDRegisterStep3VC () <UITableViewDelegate, UITableViewDataSource> {
+@interface TDRegisterStep3VC () <UITableViewDelegate, UITableViewDataSource,UITextFieldDelegate> {
     UIImageView     *_ivProgress;
     UITableView     *_tvForm;
     
@@ -231,12 +231,13 @@ typedef enum {
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     GNTextFieldCell *cell = [tableView dequeueReusableCellWithIdentifier:STR_CELL_ID forIndexPath:indexPath];
     
-    int row = indexPath.row;
+    NSInteger row = indexPath.row;
     NSMutableDictionary *dic = _dataSource[row];
     cell.textField.placeholder = [dic objectForKey:KEY_PLACE_HOLDER];
     cell.textField.secureTextEntry = (row == kTDInputPassword);
     cell.textField.keyboardType = (row == kTDInputEmail ? UIKeyboardTypeEmailAddress : UIKeyboardTypeDefault);
     cell.textField.autocapitalizationType = UITextAutocapitalizationTypeNone;
+    cell.textField.delegate = self;
     
     ETDCellStyle cellStyle = [TDUtil cellStyleWithIndexPath:indexPath tableView:tableView tableViewDataSource:self];
     [cell setStyle:cellStyle];
@@ -246,15 +247,49 @@ typedef enum {
     return cell;
 }
 
--(float)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return 45;
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return 45.f;
 }
 
--(float)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
+-(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
     return 20.f;
 }
 
 -(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
     return [UIView new];
 }
+
+-(void) slideFrame:(BOOL) up
+{
+    int movementDistance = 0;
+    if (self.interfaceOrientation == UIDeviceOrientationPortrait){
+        movementDistance = 60;
+    }else if(self.interfaceOrientation == UIDeviceOrientationPortraitUpsideDown){
+        movementDistance = -60;
+    }else if(self.interfaceOrientation == UIDeviceOrientationLandscapeLeft){
+        movementDistance = -60;
+    }else{
+        movementDistance = 60;
+    }
+    const float movementDuration = 0.3f; // tweak as needed
+    int movement = (up ? -movementDistance : movementDistance);
+    [UIView beginAnimations: @"anim" context: nil];
+    [UIView setAnimationBeginsFromCurrentState: YES];
+    [UIView setAnimationDuration: movementDuration];
+    if (UIDeviceOrientationIsPortrait(self.interfaceOrientation)) {
+        self.view.frame = CGRectOffset(self.view.frame, 0, movement);
+    } else {
+        self.view.frame = CGRectOffset(self.view.frame, movement, 0);
+    }
+    [UIView commitAnimations];
+}
+
+- (void)textFieldDidBeginEditing:(UITextField *)textField{
+    [self slideFrame:YES];
+}
+
+- (void)textFieldDidEndEditing:(UITextField *)textField{
+    [self slideFrame:NO];
+}
+
 @end
