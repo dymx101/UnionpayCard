@@ -17,7 +17,7 @@
     if (self) {
         // Initialization code
         self.imgView = [[UIImageView alloc]initWithFrame:CGRectMake(10.0, 10.0, 106.0, 62.0)];
-        self.imgView.image = [UIImage imageNamed:@"Icon-72"];
+        self.imgView.image = [UIImage imageNamed:@"union_pay"];
         self.imgView.layer.cornerRadius = 5.0;
         [self.contentView addSubview:self.imgView];
         

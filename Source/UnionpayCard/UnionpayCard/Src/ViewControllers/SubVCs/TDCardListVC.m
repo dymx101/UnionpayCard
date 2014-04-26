@@ -18,6 +18,8 @@
 #import "Userinfor.h"
 #import "TDLoginVC.h"
 #import "UtocardInput.h"
+#import "httpRequest.h"
+#import "TDJsonToDictionary.h"
 
 //#warning 重置按钮
 //#warning 下拉刷新
@@ -59,9 +61,12 @@
     UILabel             *_lblActiveCardBalanceTitle;
     UILabel             *_lblActiveCardBalanceValue;
     
-    UtocardVO             *_selectedCard;
+    UtocardVO           *_selectedCard;
     Btype               *_TDCategoryResource;
     UtocardInput        *_utocardinput;
+    
+    NSMutableDictionary *classifyDic;
+    NSArray             *classifyNameArr;
     
 }
 @property (nonatomic, strong)     UITableView         *mainTv;
@@ -92,6 +97,7 @@
     
     [self createViews];
     [self layoutViews];
+//    [self requestClassifyData];
     [self sendRequest];
 }
 
@@ -106,6 +112,27 @@
     self.imageCache = nil;
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
+
+//-(void)requestClassifyData{
+//    NSDictionary  * strParamDic = @{@"method":@"showBtype"};
+//    NSString  * strParam = [NSString stringWithFormat:@"url=%@",[TDJsonToDictionary jsonStringFromDictionary:strParamDic]];
+//    [httpRequest getDictionaryData:[NSString stringWithFormat:mainUrl,strParam] param:nil requestMethod:@"GET" encodeType:NSUTF8StringEncoding completionBlock:^(id responseObject) {
+//        if(responseObject){
+//            NSDictionary  * tempDic = (NSDictionary*)responseObject;
+//            NSArray       * tempArr = [tempDic objectForKey:@"showtable"];
+//            for (NSDictionary  *dic in tempArr) {
+//                [classifyDic setObject:[dic objectForKey:@"b_t_id"] forKey:[dic objectForKey:@"b_type_name"]];
+//            }
+//            classifyNameArr = [classifyDic allKeys];
+//            NSUserDefaults * ud = [NSUserDefaults standardUserDefaults];
+//            [ud setValue:classifyDic forKeyPath:@"One_Classify_Cache"];
+//            [ud synchronize];
+//        }else{
+//            classifyNameArr = [[[NSUserDefaults  standardUserDefaults]objectForKey:@"One_Classify_Cache"] allKeys];
+//            //            [self.view makeToast:@"获取一级分类数据失败"];
+//        }
+//    }];
+//}
 
 - (NSCache *) imageCache {
     if (_imageCache == nil) {

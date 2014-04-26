@@ -94,7 +94,7 @@
     imageSv.showsHorizontalScrollIndicator = NO;
     
     imgView = [[UIImageView alloc]initWithFrame:CGRectMake(0.0, 0.0, KSCREEN_WIDTH, imageSv.frame.size.height)];
-    imgView.image = [UIImage imageNamed:@"icon-120"];
+    imgView.image = [UIImage imageNamed:@"union_pay"];
     [imageSv addSubview:imgView];
     [sv addSubview:imageSv];
     
