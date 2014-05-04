@@ -21,7 +21,7 @@ PODS:
   - FLKAutoLayout (0.1.1)
   - FontAwesome+iOS (0.1.1)
   - MBProgressHUD (0.8)
-  - PPiAwesomeButton (1.2.9):
+  - PPiAwesomeButton (1.4.7):
     - FontAwesome+iOS
   - PPiFlatSegmentedControl (1.3.3):
     - PPiAwesomeButton
@@ -47,10 +47,10 @@ SPEC CHECKSUMS:
   FLKAutoLayout: fc04b932009174d4118ef4bda9dc8fedf1369efc
   FontAwesome+iOS: 243c5309e90d5788909b0f859f75ecff4a20f88f
   MBProgressHUD: 2bbc6f470111daf7f3eaa4eb12b8cbf01c4c0622
-  PPiAwesomeButton: 8d8bc4cf62d8c848e433a1f405e019deee2821dc
+  PPiAwesomeButton: d513a1ad57ace5c52dc27118eec3ca0d499b15aa
   PPiFlatSegmentedControl: 32d42c7f50cd2db1c40ee17a94d78da6f69d9813
   RDVTabBarController: 98bb589109d139821ac08e26ab9215b9057285f6
   SDWebImage: fe7ce01ae4e0a884d168f59c9dd82d35baf8429e
   SVPullToRefresh: 61a0e4bd12bd6f8e3465909810b0fbeb1a28d5f2
 
-COCOAPODS: 0.29.0
+COCOAPODS: 0.32.1

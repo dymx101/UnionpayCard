@@ -75,8 +75,8 @@
 // PPiAwesomeButton
 #define COCOAPODS_POD_AVAILABLE_PPiAwesomeButton
 #define COCOAPODS_VERSION_MAJOR_PPiAwesomeButton 1
-#define COCOAPODS_VERSION_MINOR_PPiAwesomeButton 2
-#define COCOAPODS_VERSION_PATCH_PPiAwesomeButton 9
+#define COCOAPODS_VERSION_MINOR_PPiAwesomeButton 4
+#define COCOAPODS_VERSION_PATCH_PPiAwesomeButton 7
 
 // PPiFlatSegmentedControl
 #define COCOAPODS_POD_AVAILABLE_PPiFlatSegmentedControl
